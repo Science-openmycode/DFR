@@ -1,0 +1,9 @@
+order,contribution,experiment,primary_comparison,primary_metrics,evidence_role
+1,MTR performance,Native M versus MTR public R,same frozen statistical measurement before/after routing,RoadYield;BTF;FamilyCPC,framework causal factor
+2,MTR privacy,DFR formal boundary audit,DP endpoint-family measurements plus public post-processing,epsilon;delta;fixed slots;support closure,formal guarantee
+3,MTR privacy,shared-interface attack evidence,frozen MTR interface versus positive controls,DOMIAS;GDA-MIA;Origin Top1;Route Top1,shared framework stress test
+4,DFR utility,independent five-layer profile,MTR-DFR against Real reference,37 metrics,algorithm profile
+5,DFR utility,strict single-source MxR,joint endpoint-family measurement across eight routers,RoadYield;BTF;FamilyCPC,measurement-router diagnosis
+6,DFR utility,semantic component ablation,endpoint;family measurement;matched router,BTF;EdgeCPC;TurnCPC;FamilyCPC,component attribution
+7,DFR utility,strict TSTR,train-only synthesis on unseen Real-test,NextCell;Destination;RoadContinuation;RouteRetrieval,downstream substitution
+8,DFR utility,trajectory anatomy,real versus released trajectories,backbone;closed structure;repeated edges,construct audit

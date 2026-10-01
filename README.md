@@ -1,0 +1,3 @@
+# 04_dfr_full_baseline_code
+
+English quick start: run `python commands/reproduce.py verify`, then `python commands/reproduce.py all-precomputed`. The complete reproduction guide, including commands to construct a real-road reference when the private Beijing trajectories are available, is [`README_CN.md`](README_CN.md). Exact Beijing numbers cannot be independently regenerated from this public folder without those trajectories. On Windows, create the tested matcher runtime with `conda create --prefix C:\fmm-runtime --override-channels --channel conda-forge --repodata-fn repodata.json libgdal=2.4.4 boost-cpp=1.75.0 --yes`; the Chinese guide gives the required PATH, GDAL_DATA, PROJ_LIB, and `verify-matcher` setup.

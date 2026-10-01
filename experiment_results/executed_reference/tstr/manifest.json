@@ -1,0 +1,12 @@
+{
+  "protocol": "strict_train_only_tstr_executed_v1",
+  "source": "check/dfr_04_tstr_coverage_adjusted_20260926",
+  "baseline_policy": "freshly_generated_train_only_releases",
+  "main_method": "MTR-DFR",
+  "pipelines": ["Real-train", "SPRT", "PrivTrace", "DPTraj-PM", "DPStd", "MTR-DFR"],
+  "normalization": "coverage times conditional quality, divided by Real-train product",
+  "results": "results.csv",
+  "results_sha256": "d8443ac8dfc00ababbb813f7f5e3555be9f71ca53fccfcf1f2b72927abd8c8f6",
+  "raw_generic": "raw_generic/generic_mobility_tasks.json",
+  "raw_road": "raw_road/road_network_mining_tasks.json"
+}

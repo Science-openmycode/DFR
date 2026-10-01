@@ -1,0 +1,414 @@
+{
+  "schema_version": 1,
+  "hash_policy": "text files use LF-normalized bytes; binary files use exact bytes",
+  "datasets": [
+    {
+      "method": "SPRT",
+      "path": "datasets/synthetic/baselines/sprt_native.pkl",
+      "source": "public_release/outputs/synthetic_releases/current_best/sprt_native.pkl",
+      "sha256": "bb95796a5d4340b49912f71c90df18a90dbab665ea976c0a9ba1e21a2900f01b",
+      "size": 3938454,
+      "kind": "synthetic_trajectory_dataset"
+    },
+    {
+      "method": "PrivTrace",
+      "path": "datasets/synthetic/baselines/privtrace_native.pkl",
+      "source": "public_release/outputs/synthetic_releases/current_best/privtrace_native.pkl",
+      "sha256": "76538f38dbd78420ed0594b391f0a26bc0958d905d1bf0d98144873b684d6c73",
+      "size": 1958256,
+      "kind": "synthetic_trajectory_dataset"
+    },
+    {
+      "method": "DPTraj-PM",
+      "path": "datasets/synthetic/baselines/dptrajpm_native.pkl",
+      "source": "public_release/outputs/synthetic_releases/current_best/dptrajpm_native.pkl",
+      "sha256": "3b468623db12ec4f963d1b7774016842d289ee948c3c170d2641144560d863d1",
+      "size": 15634473,
+      "kind": "synthetic_trajectory_dataset"
+    },
+    {
+      "method": "DPStd",
+      "path": "datasets/synthetic/baselines/dpstd_native.pkl",
+      "source": "public_release/outputs/synthetic_releases/current_best/dpstd_native.pkl",
+      "sha256": "4c881f309c0d14ea6b8222c9aaa4793101d77694b81be8159ad7c22d04eab4cd",
+      "size": 76060079,
+      "kind": "synthetic_trajectory_dataset"
+    },
+    {
+      "method": "SPRT",
+      "path": "datasets/synthetic/route_experiments/SPRT/FMM.pkl.gz",
+      "source": "exploration/mtr_router_matrix_20260731/fmm_full_delta1500/matched_paths/SPRT.pkl.gz",
+      "sha256": "d5544d89122ab8cd4d5c0c612b9b68ae3b6f38f1b134a4cdaea41c93e11be35c",
+      "size": 63930,
+      "kind": "synthetic_public_routing_output"
+    },
+    {
+      "method": "SPRT",
+      "path": "datasets/synthetic/route_experiments/SPRT/STMatch.pkl.gz",
+      "source": "check/road_metric_extension_20260726/beijing_common_match_cache_v1/matched_paths/SPRT.pkl.gz",
+      "sha256": "ca60ced0960a2f224aa23a566e325d0a51ed531e001122efc7045bf077713a82",
+      "size": 14879782,
+      "kind": "synthetic_public_routing_output"
+    },
+    {
+      "method": "PrivTrace",
+      "path": "datasets/synthetic/route_experiments/PrivTrace/FMM.pkl.gz",
+      "source": "exploration/mtr_router_matrix_20260731/fmm_full_delta1500/matched_paths/PrivTrace.pkl.gz",
+      "sha256": "b497b49f48231657666f930fac02b8eefb7407c39f0f3a06cea72a1b40f3927b",
+      "size": 85137,
+      "kind": "synthetic_public_routing_output"
+    },
+    {
+      "method": "PrivTrace",
+      "path": "datasets/synthetic/route_experiments/PrivTrace/STMatch.pkl.gz",
+      "source": "check/road_metric_extension_20260726/beijing_common_match_cache_v1/matched_paths/PrivTrace.pkl.gz",
+      "sha256": "dbbbfd55a41694225140dd035b4668451495c28e8f2a2a608df5418c87c6e835",
+      "size": 1868211,
+      "kind": "synthetic_public_routing_output"
+    },
+    {
+      "method": "DPTraj-PM",
+      "path": "datasets/synthetic/route_experiments/DPTraj-PM/FMM.pkl.gz",
+      "source": "exploration/mtr_router_matrix_20260731/fmm_full_delta1500/matched_paths/DPTraj-PM.pkl.gz",
+      "sha256": "4bdb4d26440eb923e897d77b09cdfbb2b8984b9bbd16fafd91fb7b3c926d0b2a",
+      "size": 40356,
+      "kind": "synthetic_public_routing_output"
+    },
+    {
+      "method": "DPTraj-PM",
+      "path": "datasets/synthetic/route_experiments/DPTraj-PM/STMatch.pkl.gz",
+      "source": "check/road_metric_extension_20260726/beijing_common_match_cache_v1/matched_paths/DPTraj-PM.pkl.gz",
+      "sha256": "181294b5719d3c4f55baa35541a746f861a2bacda9d8b4e0112fc238d525da9a",
+      "size": 1648029,
+      "kind": "synthetic_public_routing_output"
+    },
+    {
+      "method": "DPStd",
+      "path": "datasets/synthetic/route_experiments/DPStd/FMM.pkl.gz",
+      "source": "exploration/mtr_router_matrix_20260731/fmm_full_delta1500/matched_paths/DPStd.pkl.gz",
+      "sha256": "85aa6f227200b5ba591b81c8b57ce7589fdd3b7fd21bfd9a9f14d2c5b949054a",
+      "size": 60783,
+      "kind": "synthetic_public_routing_output"
+    },
+    {
+      "method": "DPStd",
+      "path": "datasets/synthetic/route_experiments/DPStd/STMatch.pkl.gz",
+      "source": "check/road_metric_extension_20260726/beijing_common_match_cache_v1/matched_paths/DPStd.pkl.gz",
+      "sha256": "fde11b6ae09f8c603ba227aa1df7b7b9853b4e7b35e0eb4ea9efa173bc7e56b5",
+      "size": 491157,
+      "kind": "synthetic_public_routing_output"
+    },
+    {
+      "method": "SPRT",
+      "path": "datasets/synthetic/train_only_baselines/sprt_train.pkl",
+      "source": "public_release/outputs/kdd_revised/task_releases/sprt_train_release.pkl",
+      "sha256": "ac55dd6d93901e511af70e3f7937d9b7f43afd7aaa9974f7804003c7bc4012c4",
+      "size": 20616528,
+      "kind": "train_only_synthetic_trajectory_dataset"
+    },
+    {
+      "method": "PrivTrace",
+      "path": "datasets/synthetic/train_only_baselines/privtrace_train.pkl",
+      "source": "public_release/outputs/kdd_revised/task_releases/privtrace_train_release.pkl",
+      "sha256": "9abac0aea13667a0b4fa478bae9c276d05133ab5b2708600363386a92d33fef6",
+      "size": 10228292,
+      "kind": "train_only_synthetic_trajectory_dataset"
+    },
+    {
+      "method": "DPTraj-PM",
+      "path": "datasets/synthetic/train_only_baselines/dptrajpm_train.pkl",
+      "source": "public_release/outputs/kdd_revised/task_releases/dptrajpm_train_release.pkl",
+      "sha256": "9dca8a40453270cbf21205589794f21530aaec27e4d8837ca88f3ba1c6035c68",
+      "size": 11872309,
+      "kind": "train_only_synthetic_trajectory_dataset"
+    },
+    {
+      "method": "DPStd",
+      "path": "datasets/synthetic/train_only_baselines/dpstd_train.pkl",
+      "source": "reproducibility_folders/GSRT/datasets/synthetic/train_only_baselines/dpstd_train.pkl",
+      "sha256": "2caf95766cd9be83aec00f57d448002551687aac674f3a2c8f05bdf331fe2441",
+      "size": 60909376,
+      "kind": "train_only_synthetic_trajectory_dataset"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260720/road_routes.pkl.gz",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260720/road_routes.pkl.gz",
+      "sha256": "11fd34e992b19ea55404431414457a04f030854e7dba6db8bc7596c4c712169e",
+      "size": 3626927,
+      "kind": "synthetic_road_route_dataset"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260720/dp_transcript.pkl.gz",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260720/dp_transcript.pkl.gz",
+      "sha256": "19c1f381fd305ef7d618d72dd49ac0d78c81b1fdc82742dce89dc064f9c2c697",
+      "size": 35741,
+      "kind": "release_metadata"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260720/manifest.json",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260720/manifest.json",
+      "sha256": "df4e980332da2405755ec99793d2983378ce3b3ef43605ff711d44b6193eb94d",
+      "size": 8059,
+      "kind": "release_metadata"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260721/road_routes.pkl.gz",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260721/road_routes.pkl.gz",
+      "sha256": "1af21d88183f290f150879a6a4953c46d1dd0554d95582d4a39401378d4a006a",
+      "size": 3577326,
+      "kind": "synthetic_road_route_dataset"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260721/dp_transcript.pkl.gz",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260721/dp_transcript.pkl.gz",
+      "sha256": "fd22251ab0bec7e22ef876b3f34425eaba601de06ace050b21d1bcd068f23a1a",
+      "size": 38820,
+      "kind": "release_metadata"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260721/manifest.json",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260721/manifest.json",
+      "sha256": "7b832c2d5bad3de15ce1e104d8b0dfd439bbb251327f5402ed83cdfd592a83c3",
+      "size": 8284,
+      "kind": "release_metadata"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260722/road_routes.pkl.gz",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260722/road_routes.pkl.gz",
+      "sha256": "3616c9e1a66016c83858af0f5ad50fda0ab64542f444170a8fee1a91123ff60a",
+      "size": 3564110,
+      "kind": "synthetic_road_route_dataset"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260722/dp_transcript.pkl.gz",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260722/dp_transcript.pkl.gz",
+      "sha256": "9f5e119bc62e7a58f57b65f58398af941ad9774d4c146a5c5bf4ddb419ea091b",
+      "size": 41310,
+      "kind": "release_metadata"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260722/manifest.json",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260722/manifest.json",
+      "sha256": "5fe39e3207ff8bac5f70a09ae9eef81eb77752e2c4dc5de7e164c8d250ece541",
+      "size": 8552,
+      "kind": "release_metadata"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260723/road_routes.pkl.gz",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260723/road_routes.pkl.gz",
+      "sha256": "e30d851d76e4ccb50c76759b9b1cce9ed8544fc4b26ceec43ec8139916a89e66",
+      "size": 3701976,
+      "kind": "synthetic_road_route_dataset"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260723/dp_transcript.pkl.gz",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260723/dp_transcript.pkl.gz",
+      "sha256": "0d8bb50832ea3cc6403275ad7b15aaba0def48d336635249447a7c4ebd3a248b",
+      "size": 38997,
+      "kind": "release_metadata"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260723/manifest.json",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260723/manifest.json",
+      "sha256": "e7b113f246caa7c6b0d8e9e87de051475db9007d8b8b6aa9aea7de656911541b",
+      "size": 8238,
+      "kind": "release_metadata"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260719/road_routes.pkl.gz",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260719/road_routes.pkl.gz",
+      "sha256": "56db05d127a2d80292185a3e86d95550c825d5f0640dc25600f0c76f30941fd3",
+      "size": 3710817,
+      "kind": "synthetic_road_route_dataset"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260719/dp_transcript.pkl.gz",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260719/dp_transcript.pkl.gz",
+      "sha256": "9f14b8cc84a700e4b1efc8f188c2e7e018e3aa45a4e01ce192f4cd8d7d8f8190",
+      "size": 38698,
+      "kind": "release_metadata"
+    },
+    {
+      "method": "MTR-DFR",
+      "path": "datasets/synthetic/mtr_dfr/seed_20260719/manifest.json",
+      "source": "algorithm_releases/mtr_dfr_v1_20260914/algorithm/results/runs/seed_20260719/manifest.json",
+      "sha256": "d655d3689e656125fa4da72099eabc493a82af813f70664645a17d45c637c4a7",
+      "size": 7755,
+      "kind": "release_metadata"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260719/endpoint_m_only.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260719/endpoint_m_only.pkl.gz",
+      "sha256": "74a3f0109f99036293ff1da9ea2feed9a927c99958950e5f237a726b76f09a79",
+      "size": 5130522,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260719/family_m_measured_but_unmatched_r.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260719/family_m_measured_but_unmatched_r.pkl.gz",
+      "sha256": "8df402af26a0e418f39817d5402f5dad448df2b46796ba985241846656ad8fea",
+      "size": 5130540,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260719/full_matched_mtr-dfr.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260719/full_matched_mtr-dfr.pkl.gz",
+      "sha256": "dc50ba33e4c932211f4c64060514ea2f8e24003c4538ff86a198741d10052960",
+      "size": 3710826,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260719/no_endpoint_m.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260719/no_endpoint_m.pkl.gz",
+      "sha256": "dbd9e42680d4fdd91932e29a32a1c3fec083cb250a559bee65d730c5bb88408c",
+      "size": 8526674,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260720/endpoint_m_only.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260720/endpoint_m_only.pkl.gz",
+      "sha256": "f18ca32ca6a3ec7efe7ebc0feba5295a13d1217b0923c8140c2fa28d291b79bd",
+      "size": 5207341,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260720/family_m_measured_but_unmatched_r.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260720/family_m_measured_but_unmatched_r.pkl.gz",
+      "sha256": "bdb723fd83528afde0f0d72d3c6d251745896589eddf7f28e5500b0ce70b280e",
+      "size": 5207359,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260720/full_matched_mtr-dfr.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260720/full_matched_mtr-dfr.pkl.gz",
+      "sha256": "bee5331a113f9db242cb66fca4a7df58c30b624736ff8cf63412ab52a39dd5bb",
+      "size": 3626936,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260720/no_endpoint_m.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260720/no_endpoint_m.pkl.gz",
+      "sha256": "b803d0a2594444e5989d5cb027c6ef750f93d29a21038ded80f060d8681935ab",
+      "size": 8135825,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260721/endpoint_m_only.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260721/endpoint_m_only.pkl.gz",
+      "sha256": "8d9590c6b7aab5f75f71a69b4d6d03d8613c73894e4ca229dd79a3a2dd79d9fc",
+      "size": 5138062,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260721/family_m_measured_but_unmatched_r.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260721/family_m_measured_but_unmatched_r.pkl.gz",
+      "sha256": "ce6a40ab70148809b2a7ba27321563d7ba932dd3f8408f0d9f517568cf7a5493",
+      "size": 5138080,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260721/full_matched_mtr-dfr.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260721/full_matched_mtr-dfr.pkl.gz",
+      "sha256": "7fba08e0ea2e00f9143bb7fc0d8c70e25c5ef8d2c7da5d8891361e1a30ed3a25",
+      "size": 3577335,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260721/no_endpoint_m.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260721/no_endpoint_m.pkl.gz",
+      "sha256": "b41c71c6c1b60c9701d21b6e516016c1adfa226b3606f8342b0ad2d8d9552017",
+      "size": 8142772,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260722/endpoint_m_only.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260722/endpoint_m_only.pkl.gz",
+      "sha256": "ac309cd1521a4207d111310ff4e5716d96e85df6c29179a69666a77cfba4cd3c",
+      "size": 5105173,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260722/family_m_measured_but_unmatched_r.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260722/family_m_measured_but_unmatched_r.pkl.gz",
+      "sha256": "557926cc760f47b8f87417126cde94d91e2ee3476e0b3ee3c0a31fc4223f5fc5",
+      "size": 5105191,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260722/full_matched_mtr-dfr.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260722/full_matched_mtr-dfr.pkl.gz",
+      "sha256": "02d72bcb18781f82dc0121fe13fcc9a4de3d17a6c00528a673cb181bdcc9343e",
+      "size": 3564119,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260722/no_endpoint_m.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260722/no_endpoint_m.pkl.gz",
+      "sha256": "07185eefd763af4a7574b711896faf4238baae058e067e3da6bc30b6b8884a0f",
+      "size": 7421091,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260723/endpoint_m_only.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260723/endpoint_m_only.pkl.gz",
+      "sha256": "9a10e71c1e8bce08c8f6382306c8f012623a7eadbe6112062f4d8d3c5c91af05",
+      "size": 5296876,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260723/family_m_measured_but_unmatched_r.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260723/family_m_measured_but_unmatched_r.pkl.gz",
+      "sha256": "98af9e2b45ab480febda7368d39164886abfd891b6e00fba7f8c275b081988d4",
+      "size": 5296894,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260723/full_matched_mtr-dfr.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260723/full_matched_mtr-dfr.pkl.gz",
+      "sha256": "97603e49514d349ad79ac4587abd65a186d47802dcbf6f81016239f91baabeab",
+      "size": 3701985,
+      "kind": "synthetic_ablation_dataset"
+    },
+    {
+      "method": "MTR-DFR ablation",
+      "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260723/no_endpoint_m.pkl.gz",
+      "source": "exploration/current_algorithm_comprehensive_evaluation_20260914/results/matched_core_ablation/seed_20260723/no_endpoint_m.pkl.gz",
+      "sha256": "96be08d0160bec27680e9fc24ced476173480734c75206725ceaa8e7e31495e6",
+      "size": 8248600,
+      "kind": "synthetic_ablation_dataset"
+    }
+  ]
+}

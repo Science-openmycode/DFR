@@ -1,0 +1,35 @@
+{
+  "protocol": "full_corpus_algorithm_ablation_20260926",
+  "algorithm": "dfr",
+  "public_slots": 17123,
+  "rows": 4,
+  "metrics": [
+    "RoadYield",
+    "DemandFid",
+    "BTF",
+    "RC-CPC",
+    "EdgeCPC",
+    "TurnCPC",
+    "FamilyCPC",
+    "EdgeRecall",
+    "EdgePrecision",
+    "EdgeF1",
+    "TurnRecall",
+    "TurnPrecision",
+    "TurnF1",
+    "EdgeIoU",
+    "TurnIoU",
+    "BranchCPC",
+    "ExitAcc",
+    "ODPF96",
+    "ODPF384"
+  ],
+  "results_sha256": "653d5258aa6ab4c62bac1f497cbc58c5dc1b6221bb86f2e167febf15c2966c9f",
+  "generated_arm_sha256": {
+    "no-endpoint-measurement": "5f6adf39c82837c1373ad51b6eae781863716a42ae23a044187c8db8f1756ebd",
+    "endpoint-measurement-only": "34a19586da97a3466498cc497b3bb093a01bd60681e7e431797627e26f7824be",
+    "family-measured-unmatched-router": "3c95de35ad727638a5aba05ac248bca46bc0b9a0b13c11b3a64fbbbe826b5bda",
+    "full": "66cc0e567cb7632626b2b7171e0f9336d8e57504dee5b8f567703974f2435475"
+  },
+  "reuse": "saved generated arms were evaluated without resynthesis"
+}
