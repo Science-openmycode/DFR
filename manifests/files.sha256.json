@@ -9,8 +9,8 @@
     },
     {
       "path": "README.md",
-      "size": 723,
-      "sha256": "c087823b45529abe0e2526715cf1416bc2a4e9a77cd35aed26643622a782371d",
+      "size": 721,
+      "sha256": "282c7206caf37f8770182df88dd0368a301b00a27b5829186cf93b668add4d20",
       "role": "source_or_documentation"
     },
     {
@@ -63,8 +63,8 @@
     },
     {
       "path": "config/package.json",
-      "size": 448,
-      "sha256": "3743f022b0b05532584119ed1630e85b8e895516c72ca52da9f460e9bddea768",
+      "size": 436,
+      "sha256": "8231de19d14deecd5ecaa0ef6ce09ee4a692fd08b417e2ed54834ab7dde3a86e",
       "role": "source_or_documentation"
     },
     {
@@ -219,8 +219,8 @@
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260719/manifest.json",
-      "size": 8147,
-      "sha256": "0e9a77f302e8b5ca9b6c78a85aafef08ab370febacc764314f4dfd39c29d2762",
+      "size": 7755,
+      "sha256": "d655d3689e656125fa4da72099eabc493a82af813f70664645a17d45c637c4a7",
       "role": "synthetic_data"
     },
     {
@@ -237,8 +237,8 @@
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260720/manifest.json",
-      "size": 8467,
-      "sha256": "cec4f1ced5dbefb5bec8b58cbd89421942e6c60789003abf56f98ab662656c31",
+      "size": 8059,
+      "sha256": "df4e980332da2405755ec99793d2983378ce3b3ef43605ff711d44b6193eb94d",
       "role": "synthetic_data"
     },
     {
@@ -255,8 +255,8 @@
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260721/manifest.json",
-      "size": 8705,
-      "sha256": "8049ebe7006d2b89eeac120e853a0a5c2c8fe8e5ce6aa96b900ff453824d4b72",
+      "size": 8284,
+      "sha256": "7b832c2d5bad3de15ce1e104d8b0dfd439bbb251327f5402ed83cdfd592a83c3",
       "role": "synthetic_data"
     },
     {
@@ -273,8 +273,8 @@
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260722/manifest.json",
-      "size": 8989,
-      "sha256": "4bd4fa138787e023c95c8b4c76627729202969ca042d64426d1595093d9cec99",
+      "size": 8552,
+      "sha256": "5fe39e3207ff8bac5f70a09ae9eef81eb77752e2c4dc5de7e164c8d250ece541",
       "role": "synthetic_data"
     },
     {
@@ -291,8 +291,8 @@
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260723/manifest.json",
-      "size": 8659,
-      "sha256": "45eaf02695b8d96a90f62c016b95d6e1c1ab9b98eabe0da81947ae73aa80c129",
+      "size": 8238,
+      "sha256": "e7b113f246caa7c6b0d8e9e87de051475db9007d8b8b6aa9aea7de656911541b",
       "role": "synthetic_data"
     },
     {
@@ -364,8 +364,8 @@
     {
       "path": "datasets/synthetic/train_only_baselines/dpstd_train_protocol.json",
       "role": "source_or_documentation",
-      "size": 1003,
-      "sha256": "04aa342eb4cc8ec096a9527f5b90791cd5eddcfb6d1abef3448c91a53471a623"
+      "size": 970,
+      "sha256": "89209cd1d23db4ff579badc6bc084e3cb8f35be7e83a9130cb79086e1a43bd4e"
     },
     {
       "path": "datasets/synthetic/train_only_baselines/dptrajpm_train.pkl",
@@ -387,8 +387,8 @@
     },
     {
       "path": "docs/COMMAND_PARAMETERS_CN.md",
-      "size": 16685,
-      "sha256": "25147429ae06edc36b1d014501cb5b40b010f10a2bc1d7330cfbd655e2af1293",
+      "size": 16585,
+      "sha256": "14b76bd99d0c9cdaafe8d9bece6b46574d88a0896ab9b2a487061a84253d4eb8",
       "role": "source_or_documentation"
     },
     {
@@ -484,8 +484,8 @@
     {
       "path": "evaluation/data/osm/osm_cache_porto.manifest.json",
       "role": "source_or_documentation",
-      "size": 364,
-      "sha256": "10e0400bea0d617b306eb53ba81976671bd2996d087451280f926e07af0d7ca5"
+      "size": 351,
+      "sha256": "0ca685b6572ca2c033a3de24a9ff211c26e38f660a9290fae112ab53895434dc"
     },
     {
       "path": "evaluation/data/osm/osm_cache_porto.pkl",
@@ -496,8 +496,8 @@
     {
       "path": "evaluation/data/osm/osm_cache_sf_bay.manifest.json",
       "role": "source_or_documentation",
-      "size": 558,
-      "sha256": "9b9f8637ff021cb4cdf7e8442963c412f1da1bf9029ed1e1cc63b11323165ce4"
+      "size": 534,
+      "sha256": "2268c1f1d0d321760457c59898c53231573372c1ff56ec8bea70f4ce627ebaad"
     },
     {
       "path": "evaluation/data/osm/osm_cache_sf_bay.pkl",
@@ -711,8 +711,8 @@
     },
     {
       "path": "evaluation/generation/common/runtime.py",
-      "size": 5245,
-      "sha256": "cb816b410dade575f8ebd09cb172028469e111dd13e806380b952e10c1dc0713",
+      "size": 5090,
+      "sha256": "1f460cdd063269bf192950ec622dd2a6b6c27b0a88497a7b32285ab4cad21023",
       "role": "source_or_documentation"
     },
     {
@@ -759,8 +759,8 @@
     },
     {
       "path": "evaluation/public_utils.py",
-      "size": 15856,
-      "sha256": "59ab671ed7841a7ca1711c9c974cb2457d027c2b19d68d637be3c7860bdd5c00",
+      "size": 15438,
+      "sha256": "c193aa6999546c4fa5e7996b5cd956c881b504c3a68e6dcb6fbd205e64a280d9",
       "role": "source_or_documentation"
     },
     {
@@ -825,14 +825,14 @@
     },
     {
       "path": "evaluation/src/experiments/cross_dataset_ara_mode_benchmark.py",
-      "size": 17613,
-      "sha256": "bacccdb8446d1d05e2c612b279f1c3637e01c056696dc3e1f87faa68f9159b46",
+      "size": 17178,
+      "sha256": "383c890d83c8a04f3976add8ecd9e51939ca75831c13e11b28d87e2922b7813a",
       "role": "source_or_documentation"
     },
     {
       "path": "evaluation/src/mtr/DP_GSRT/final/SOURCE_MANIFEST.json",
-      "size": 6002,
-      "sha256": "072cfb4a5f7192bb4dee8d49700b48958a56d4700d6d9b805f4fec78af71bea5",
+      "size": 5851,
+      "sha256": "0af2917574bda9a96fec38e561661930b9aadb75d58148ca26636faab216caff",
       "role": "source_or_documentation"
     },
     {
@@ -885,8 +885,8 @@
     },
     {
       "path": "evaluation/src/mtr/DP_GSRT/final/cross_dataset_ara_mode_benchmark.py",
-      "size": 17784,
-      "sha256": "759f681fe568d995f0b3e7019996ebbd97d55f0e2142a5dacb978e96f072302e",
+      "size": 17349,
+      "sha256": "399995b9a4d660267b7f400779641d2f559eb73e1aa68a920be373f49577be66",
       "role": "source_or_documentation"
     },
     {
@@ -1029,8 +1029,8 @@
     },
     {
       "path": "evaluation/src/mtr/DP_GSRT/final/reward_candidate_probe.py",
-      "size": 389862,
-      "sha256": "d736047db6b0062f9f8352f234fddfe438304b2fa524d9fa363214088f44513b",
+      "size": 388290,
+      "sha256": "965ea3ae133680bab9cfd0d67aae93d571adbab6362e2c9b754e3adddc74ce02",
       "role": "source_or_documentation"
     },
     {
@@ -1108,73 +1108,73 @@
     {
       "path": "experiment_results/executed_reference/tstr/raw_generic/generic_mobility_tasks.csv",
       "role": "source_or_documentation",
-      "size": 1509,
-      "sha256": "28d1f8f4d7a06ae6244d7b8bf5cd27d35e2a0db557b1fe9357ec26048d7bc4ac"
+      "size": 1502,
+      "sha256": "47144d870182204c225dca560d532e1f08d427f9a7bebd15ea6974d7fb1043d6"
     },
     {
       "path": "experiment_results/executed_reference/tstr/raw_generic/generic_mobility_tasks.json",
       "role": "source_or_documentation",
-      "size": 4005,
-      "sha256": "29ea1d65e0768a461e43b5acd05999e59d76b5c3505fecaa7d817236da7b65d1"
+      "size": 3902,
+      "sha256": "5110b492694c995b5f1506767aab1756947f26cb8ad094c29dd73755f90f6f29"
     },
     {
       "path": "experiment_results/executed_reference/tstr/raw_road/road_network_mining_tasks.csv",
       "role": "source_or_documentation",
-      "size": 1765,
-      "sha256": "cf275521b2bd48d25b864faa7d295d6707f59de630fb4e4787a54559ddc4a5f0"
+      "size": 1758,
+      "sha256": "894180a061c89a24463546edf3f9d69de1dd19f667534befeac9f7c224629b8a"
     },
     {
       "path": "experiment_results/executed_reference/tstr/raw_road/road_network_mining_tasks.json",
       "role": "source_or_documentation",
-      "size": 6296,
-      "sha256": "e7d2fe508d902224690336c5056ae715d8957d65f4fcee6347d43d433ab8c1d1"
+      "size": 6132,
+      "sha256": "d506c003b6052109c9041ec83b9a7708b8540d81370ccd189b023cc732e0b190"
     },
     {
       "path": "experiment_results/executed_reference/tstr/results.csv",
       "role": "source_or_documentation",
-      "size": 735,
-      "sha256": "d8443ac8dfc00ababbb813f7f5e3555be9f71ca53fccfcf1f2b72927abd8c8f6"
+      "size": 728,
+      "sha256": "e3ce9b8545f9c74d11b31c9cabd8d7d29553f07bb4c4c866a47d0b7fb42aa0be"
     },
     {
       "path": "experiment_results/frozen/ablation.csv",
-      "size": 483,
-      "sha256": "e89c6d125b2ed3d75936aee5b7a514e6294f5e86ff890ee10a1f6943ea9009e9",
+      "size": 478,
+      "sha256": "8afa2b7ba6be07ce860df08c330dbd7ea8e547d55b0e63e5dba2b6980f0b305f",
       "role": "source_or_documentation"
     },
     {
       "path": "experiment_results/frozen/metrics.csv",
-      "size": 2683,
-      "sha256": "36172dad1d2a2d139d22ae8bcaed9393a50c9ea0cb0b276809e1993db5bb5e0b",
+      "size": 2645,
+      "sha256": "a415d55120f4a358266aca75ffba21185bc955bc7cb3ee211153a1d37c73386b",
       "role": "source_or_documentation"
     },
     {
       "path": "experiment_results/frozen/mr_matrix.csv",
-      "size": 5893,
-      "sha256": "ce25a629fc380a0fed73d97447e049a42df10b5631aea3a16823a54b0591ad32",
+      "size": 5836,
+      "sha256": "441c00acd4240665ab580805c8dd34d4a2c8c42607ea2129ac6d6de9d9dd0d2f",
       "role": "source_or_documentation"
     },
     {
       "path": "experiment_results/frozen/shared_mtr_framework_lift.csv",
-      "size": 1355,
-      "sha256": "719d06889b7aba98424a8616800f5b35041375a2fc4f1706d325674ad6b4641c",
+      "size": 1346,
+      "sha256": "4b46172eb217d81049eef533c3bf3029757a2235ed46bff47baa65471f04980c",
       "role": "source_or_documentation"
     },
     {
       "path": "experiment_results/frozen/shared_mtr_privacy_attacks.csv",
-      "size": 317,
-      "sha256": "6fac8948ba169a157f5139c44767cde7227e0b4fc5e6858371d4836055660576",
+      "size": 312,
+      "sha256": "49ce325bbdb82d00e928c2ebc0fe2c6435f978759f0ce65ef802aefadecb4ee4",
       "role": "source_or_documentation"
     },
     {
       "path": "experiment_results/frozen/strict_tstr.csv",
-      "size": 570,
-      "sha256": "a4a98d4be8ad5839d6c0b208c4d8472d90e98093d47e98b7ad37fa597afe9153",
+      "size": 564,
+      "sha256": "4199366e56128969cd1f385c91c56edb0955ee33921ecb226ffed139b9768558",
       "role": "source_or_documentation"
     },
     {
       "path": "experiment_results/frozen/structure.csv",
-      "size": 380,
-      "sha256": "83513bdf5c903353d2f5948883729c0f56be9f2080ec70960ccfb4fd7adda0c3",
+      "size": 371,
+      "sha256": "76a2a3adc4a207f98f2da3e171069091c6503e2e1f6f9e2a3361948e5e71469c",
       "role": "source_or_documentation"
     },
     {
@@ -1275,8 +1275,8 @@
     },
     {
       "path": "experiment_results/published_figures/core_semantic_ablation.csv",
-      "size": 483,
-      "sha256": "e89c6d125b2ed3d75936aee5b7a514e6294f5e86ff890ee10a1f6943ea9009e9",
+      "size": 478,
+      "sha256": "8afa2b7ba6be07ce860df08c330dbd7ea8e547d55b0e63e5dba2b6980f0b305f",
       "role": "source_or_documentation"
     },
     {
@@ -1509,8 +1509,8 @@
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/common/eval_layered_framework.py",
-      "size": 22175,
-      "sha256": "90e5a1fceff5f2964d06ea4847669740795edca4681396d43bb0ea45d08a273d",
+      "size": 21665,
+      "sha256": "a20c30e5cb82b52922815def0d6140ecdc14a9e577285449495d685d77a786d9",
       "role": "source_or_documentation"
     },
     {
@@ -1582,8 +1582,8 @@
     {
       "path": "generation/baselines/data/osm/osm_cache_porto.manifest.json",
       "role": "public_osm_asset",
-      "size": 364,
-      "sha256": "10e0400bea0d617b306eb53ba81976671bd2996d087451280f926e07af0d7ca5"
+      "size": 351,
+      "sha256": "0ca685b6572ca2c033a3de24a9ff211c26e38f660a9290fae112ab53895434dc"
     },
     {
       "path": "generation/baselines/data/osm/osm_cache_porto.pkl",
@@ -1594,8 +1594,8 @@
     {
       "path": "generation/baselines/data/osm/osm_cache_sf_bay.manifest.json",
       "role": "public_osm_asset",
-      "size": 558,
-      "sha256": "9b9f8637ff021cb4cdf7e8442963c412f1da1bf9029ed1e1cc63b11323165ce4"
+      "size": 534,
+      "sha256": "2268c1f1d0d321760457c59898c53231573372c1ff56ec8bea70f4ce627ebaad"
     },
     {
       "path": "generation/baselines/data/osm/osm_cache_sf_bay.pkl",
@@ -1611,8 +1611,8 @@
     },
     {
       "path": "generation/baselines/generation/common/runtime.py",
-      "size": 5245,
-      "sha256": "cb816b410dade575f8ebd09cb172028469e111dd13e806380b952e10c1dc0713",
+      "size": 5090,
+      "sha256": "1f460cdd063269bf192950ec622dd2a6b6c27b0a88497a7b32285ab4cad21023",
       "role": "source_or_documentation"
     },
     {
@@ -2031,8 +2031,8 @@
     },
     {
       "path": "generation/baselines/public_utils.py",
-      "size": 15856,
-      "sha256": "59ab671ed7841a7ca1711c9c974cb2457d027c2b19d68d637be3c7860bdd5c00",
+      "size": 15438,
+      "sha256": "c193aa6999546c4fa5e7996b5cd956c881b504c3a68e6dcb6fbd205e64a280d9",
       "role": "source_or_documentation"
     },
     {
@@ -2067,8 +2067,8 @@
     },
     {
       "path": "generation/baselines/src/reproduced_papers/common/eval_layered_framework.py",
-      "size": 22175,
-      "sha256": "90e5a1fceff5f2964d06ea4847669740795edca4681396d43bb0ea45d08a273d",
+      "size": 21665,
+      "sha256": "a20c30e5cb82b52922815def0d6140ecdc14a9e577285449495d685d77a786d9",
       "role": "source_or_documentation"
     },
     {
@@ -2097,8 +2097,8 @@
     },
     {
       "path": "generation/mtr_dfr/algorithm/run_minimal_strong_family.py",
-      "size": 19685,
-      "sha256": "4982af1cd53137420d5c2605257ccba0b742083ad8c70984989bc6c940cbee7f",
+      "size": 19278,
+      "sha256": "f4fa0021dada37dd4f325650720e1905f087c7a8acaec11f903a21bf14bdc0dc",
       "role": "source_or_documentation"
     },
     {
@@ -2109,8 +2109,8 @@
     },
     {
       "path": "manifests/synthetic_data_provenance.json",
-      "size": 20997,
-      "sha256": "240d4f482c8322ab6c6d58b2623216016112c31ce7e026f7edc716453b2e7a8f",
+      "size": 20617,
+      "sha256": "c05d40ef738fcd1f47fb4a991fb7d5aac3500a37da3cf25c09a3e0fbb6a41598",
       "role": "source_or_documentation"
     },
     {
@@ -2121,8 +2121,8 @@
     },
     {
       "path": "public_assets/beijing_network/manifest.json",
-      "size": 1040,
-      "sha256": "bb2adefbdc428015b8fdde11a7e2d29a524f1562aecde2b686a3b6c0097b8864",
+      "size": 1012,
+      "sha256": "0c7d1eae507893f9b9ac2860a11fadb3dc63e811d1e2bdb19ff3e1d37a5902fe",
       "role": "source_or_documentation"
     },
     {
@@ -2193,8 +2193,8 @@
     },
     {
       "path": "requirements.txt",
-      "size": 182,
-      "sha256": "ce704f4d3aeca8a2541917e89a7d8a3cf995966576c5380b939b938018265cae",
+      "size": 174,
+      "sha256": "824a4cedfc9cc68a8a7936528b3650a2cd788dc5d3618e626e6f5d1fbb1fecb0",
       "role": "source_or_documentation"
     },
     {
