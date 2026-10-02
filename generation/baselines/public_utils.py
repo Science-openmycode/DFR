@@ -212,14 +212,11 @@ def load_trajectories(spec: str, limit: int | None = None) -> list[np.ndarray]:
     if key == "oldenburg":
         if (PUBLIC_TRAJ / "oldenburg.dat").exists():
             return _load_public_oldenburg(limit=limit)
-        from visualize_city_independent_osm_synthesis import load_oldenburg
-        trajs = load_oldenburg()
-        return trajs[:limit] if limit else trajs
+        raise FileNotFoundError("Oldenburg input is not bundled; provide an explicit serialized trajectory file")
     if key == "porto":
         if (PUBLIC_TRAJ / "porto" / "train.csv").exists():
             return _load_public_porto(limit=limit)
-        from visualize_city_independent_osm_synthesis import load_porto
-        return load_porto(limit=limit if limit is not None else 999999)
+        raise FileNotFoundError("Porto input is not bundled; provide an explicit serialized trajectory file")
     if key in {"sf", "sf_bay", "cabspotting", "san_francisco"}:
         return _load_sf_cabspotting(limit=limit)
 

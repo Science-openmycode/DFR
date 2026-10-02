@@ -12,12 +12,13 @@ import numpy as np
 
 if __package__ in {None, ""}:
     for _candidate in (Path(__file__).resolve().parent, *Path(__file__).resolve().parents):
-        if ((_candidate / "configs" / "datasets.json").is_file()
-                and (_candidate / "generation" / "common" / "runtime.py").is_file()):
+        if ((_candidate / "config" / "package.json").is_file()
+                and (_candidate / "evaluation" / "configs" / "datasets.json").is_file()):
+            sys.path.insert(0, str(_candidate / "evaluation"))
             sys.path.insert(0, str(_candidate))
             break
     else:
-        raise RuntimeError("cannot locate public_release root")
+        raise RuntimeError("cannot locate DFR package root")
 
 from generation.common.runtime import (  # noqa: E402
     PUBLIC_RELEASE,
@@ -96,12 +97,11 @@ def _resolve_config(args: argparse.Namespace) -> dict:
 
 
 def _witness_edges(osm, bbox) -> set[tuple[int, int]]:
-    import graph_voronoi_doptimal_support_probe as support
-    import route_structure_potential_experiment as route
-
-    support.BBOX = bbox
-    _, graph = route.prepare_graph([], bbox=bbox, osm_ways=osm, raw_graph=False)
-    return {(int(u), int(v)) for u, adjacency in graph.items() for v, _ in adjacency}
+    # DFR evaluates against the public directed graph reconstructed from OSM;
+    # The evaluator uses only the public directed graph.
+    from evaluate_kdd_revised_statistics import graph_context
+    _, edges, _, _ = graph_context(osm, bbox)
+    return edges
 
 
 def _generator_protocol(synthetic: Path) -> dict:
@@ -315,8 +315,8 @@ def main() -> None:
         "evaluator": {
             "entrypoint": str(Path(__file__).resolve()),
             "entrypoint_sha256": sha256_file(Path(__file__).resolve()),
-            "statistics_sha256": sha256_file(PUBLIC_RELEASE / "pipeline" / "evaluate_kdd_revised_statistics.py"),
-            "tasks_sha256": sha256_file(PUBLIC_RELEASE / "analysis_scripts" / "downstream_full_protocol.py"),
+            "statistics_sha256": sha256_file(PUBLIC_RELEASE / "evaluation" / "pipeline" / "evaluate_kdd_revised_statistics.py"),
+            "tasks_sha256": sha256_file(PUBLIC_RELEASE / "evaluation" / "analysis_scripts" / "downstream_full_protocol.py"),
         },
     }
     payload = {"protocol": protocol, "metrics": jsonable(metrics)}

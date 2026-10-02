@@ -96,12 +96,9 @@ def _resolve_config(args: argparse.Namespace) -> dict:
 
 
 def _witness_edges(osm, bbox) -> set[tuple[int, int]]:
-    import graph_voronoi_doptimal_support_probe as support
-    import route_structure_potential_experiment as route
-
-    support.BBOX = bbox
-    _, graph = route.prepare_graph([], bbox=bbox, osm_ways=osm, raw_graph=False)
-    return {(int(u), int(v)) for u, adjacency in graph.items() for v, _ in adjacency}
+    from evaluate_kdd_revised_statistics import graph_context
+    _, edges, _, _ = graph_context(osm, bbox)
+    return edges
 
 
 def _generator_protocol(synthetic: Path) -> dict:
