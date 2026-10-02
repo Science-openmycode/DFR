@@ -15,8 +15,8 @@
     },
     {
       "path": "README_CN.md",
-      "size": 30059,
-      "sha256": "cf98ee802d93dd65865b84fe94657f6cd1d98f089f14e47dc816d93a92ff1349",
+      "size": 33936,
+      "sha256": "1b47f00e9bbea173f967e553ddcf58a2ee7b56ce2f710fe6d7cf42c27eb296b6",
       "role": "source_or_documentation"
     },
     {
@@ -389,6 +389,12 @@
       "path": "docs/COMMAND_PARAMETERS_CN.md",
       "size": 16585,
       "sha256": "14b76bd99d0c9cdaafe8d9bece6b46574d88a0896ab9b2a487061a84253d4eb8",
+      "role": "source_or_documentation"
+    },
+    {
+      "path": "docs/DFR_FACT_TABLE_CN.md",
+      "size": 2845,
+      "sha256": "596290fa82e4dbaef12eeba68743288c279a65aaae2463e212b77f825ea8096c",
       "role": "source_or_documentation"
     },
     {

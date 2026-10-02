@@ -1,5 +1,70 @@
 # MTR-DFR：按论文顺序复现实验
 
+> 本 README 说明两种可复现路径：
+> 1. **预计算结果复现**：不需要北京原始轨迹或 FMM/STMatch，直接重画论文结果并检查随包数据；
+> 2. **从原始数据重跑**：需要下载 GeoLife 原始轨迹、准备公共道路图，并安装道路匹配器运行库。所有外部材料、版本和路径都在本文明确列出。
+
+## 复现边界与外部材料
+
+本仓库不重新分发 GeoLife 原始 GPS 轨迹，也不重新分发第三方 FMM/STMatch 可执行文件。原因是原始数据和匹配器分别受其公开数据许可和第三方软件许可约束。没有这些外部材料时，仍可完整复现随包保存的合成发布、指标 CSV、攻击结果、TSTR 结果和论文图片；有这些材料时，可以从真实轨迹重新生成道路参考并重新运行生成、评估和作图流程。
+
+| 外部材料 | 用途 | 获取/准备方式 | README 中的路径参数 |
+|---|---|---|---|
+| Microsoft GeoLife GPS Trajectories 1.3 `.plt` 文件 | 北京真实轨迹输入 | 从 [Microsoft 官方下载页](https://www.microsoft.com/en-us/download/details.aspx?id=52367) 下载并解压 `Data` 目录 | `--source-dir` |
+| 北京公共道路图（Shapefile） | FMM/STMatch 和路线参考 | 使用与论文相同的公开道路图，放置 `.shp/.dbf/.shx/.prj` 四个同名文件 | `--network` |
+| FMM/UBODT | 公共道路匹配和 FMM M×R 路由 | 使用随项目记录的 FMM 版本，或从其官方发布获取 Windows 二进制 | `--fmm`、`--ubodt-bin` |
+| STMatch | 公共道路匹配 | 使用随项目记录的 STMatch Windows 二进制 | `--stmatch-bin` |
+| GDAL 2.4.4、Boost.Serialization 1.75.0 | Windows 匹配器 DLL | 通过 conda-forge 安装，见“道路匹配运行时” | `--runtime-dir`、`--fmm-runtime-dir` |
+
+外部材料只作为输入或公共资源使用，不参与私有测量。下载后应分别计算 SHA-256，并把路径写入本轮运行的 `manifest.json`；命令不会从当前工作目录猜测道路图。
+
+## 两种完整复现模式
+
+### A. 不下载原始数据：复现随包结果和全部论文图
+
+适用于审阅者、只需要检查代码和图表的人。先在仓库根目录执行：
+
+```powershell
+python commands/reproduce.py verify
+python commands/reproduce.py smoke
+python commands/reproduce.py all-precomputed
+```
+
+预期结果：
+
+```text
+VERIFY OK: 04_dfr_full_baseline_code (386 files)
+smoke: OK
+```
+
+随后重新绘制论文图片：
+
+```powershell
+python commands/reproduce.py plot -- --figure framework --data-root experiment_results/frozen
+python commands/reproduce.py plot -- --figure privacy --data-root experiment_results/frozen
+python commands/reproduce.py plot -- --figure profile --data-root experiment_results/frozen
+python commands/reproduce.py plot -- --figure mr --data-root experiment_results/frozen
+python commands/reproduce.py plot -- --figure ablation --data-root experiment_results/frozen
+python commands/reproduce.py plot -- --figure tstr --data-root experiment_results/frozen
+python commands/reproduce.py plot -- --figure structure --data-root experiment_results/frozen
+```
+
+预期输出位于 `experiment_results/regenerated_figures/`，包括对应的 `.png` 和 `.pdf`。这一模式读取仓库中已保存的合成发布和结果表，不声称重新访问了 GeoLife 原始数据。
+
+### B. 从原始数据重跑：重新生成论文实验
+
+这一模式需要完成以下顺序，不能跳过数据准备和道路参考：
+
+1. 安装 Python 依赖；
+2. 安装道路匹配运行时；
+3. 准备 GeoLife 输入并核对哈希；
+4. 准备真实道路参考；
+5. 生成 DFR 和四个统计 baseline；
+6. 依次运行框架、完整画像、M×R、消融、隐私、TSTR 和结构实验；
+7. 使用本轮结果目录作图。
+
+每一步都使用显式输入和输出路径。命令不会覆盖 `experiment_results/frozen/`。
+
 本目录包含 MTR-DFR、四种统计式 DP baseline 的合成数据、统一指标结果和论文图片。下面按照实验章节的叙述顺序执行合成、道路重建、指标与任务评估，最后调用对应作图命令，在 `experiment_results/regenerated_figures/` 产生 PNG 和 PDF。
 
 目录内容和每项实验的已保存事实见 [`docs/REPRODUCTION_FACTS_CN.md`](docs/REPRODUCTION_FACTS_CN.md)；该 DFR 目录只用于私有仓库，不与公开的 MTR-GSRT 仓库合并。
