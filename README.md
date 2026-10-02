@@ -1,3 +1,34 @@
-# 04_dfr_full_baseline_code
+# DFR: reproducible MTR-DFR experiments
 
-English quick start: run `python commands/reproduce.py verify`, then `python commands/reproduce.py all-precomputed`. The complete reproduction guide, including commands to construct a real-road reference when the private Beijing trajectories are available, is [`README_CN.md`](README_CN.md). Exact Beijing numbers cannot be independently regenerated from this public folder without those trajectories. On Windows, create the tested matcher runtime with `conda create --prefix C:\fmm-runtime --override-channels --channel conda-forge --repodata-fn repodata.json libgdal=2.4.4 boost-cpp=1.75.0 --yes`; the Chinese guide gives the required PATH, GDAL_DATA, PROJ_LIB, and `verify-matcher` setup.
+This repository contains the MTR-DFR implementation, four statistical DP baselines, frozen synthetic releases, evaluation scripts, and figure regeneration code.
+
+## Quick start without private/raw data
+
+The repository includes the synthetic releases and result tables needed to reproduce the packaged experiments and figures:
+
+```powershell
+python commands/reproduce.py verify
+python commands/reproduce.py smoke
+python commands/reproduce.py all-precomputed
+```
+
+Expected output includes `VERIFY OK`, `smoke: OK`, and PNG/PDF files under `experiment_results/regenerated_figures/`.
+
+## From-scratch reproduction
+
+The exact Beijing release requires external materials that cannot be redistributed here:
+
+- Microsoft GeoLife GPS Trajectories 1.3 `.plt` files;
+- the public Beijing road Shapefile (`.shp`, `.dbf`, `.shx`, `.prj`);
+- the FMM/UBODT and STMatch binaries;
+- Windows GDAL 2.4.4 and Boost.Serialization 1.75.0 runtime DLLs.
+
+The Chinese guide [`README_CN.md`](README_CN.md) gives the official download links, every preparation command, all required parameters, expected output paths, and the complete order for framework, privacy, profile, M×R, ablation, strict TSTR, and physical-structure experiments. `docs/COMMAND_PARAMETERS_CN.md` documents the meaning of every command-line parameter. Without the external GeoLife files, the packaged releases and all packaged figures remain reproducible, but new Beijing synthetic releases cannot be regenerated from raw data.
+
+On Windows, the tested matcher runtime is created with:
+
+```powershell
+conda create --prefix "C:\fmm-runtime" --override-channels --channel conda-forge --repodata-fn repodata.json libgdal=2.4.4 boost-cpp=1.75.0 --yes
+```
+
+Then follow the `PATH`, `GDAL_DATA`, `PROJ_LIB`, `verify-matcher`, and `prepare-road-reference` commands in `README_CN.md`. Do not substitute a different road graph for the frozen Beijing results without recording its SHA-256 in the run manifest.
