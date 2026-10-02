@@ -9,14 +9,14 @@
     },
     {
       "path": "README.md",
-      "size": 3336,
-      "sha256": "e43916b4248601dd1611ce8b47a8df8cb51cfe55ecbd2f05c2639ead28834cce",
+      "size": 1985,
+      "sha256": "e6d3574cc24698a9cef7dd0d24a97c44d2a3068971babf0b7a3e0d4da4f3ed04",
       "role": "source_or_documentation"
     },
     {
       "path": "README_CN.md",
-      "size": 36041,
-      "sha256": "3f6da0d516954254c025133527934bf6f130023c2ba4758aee1fb93f8ef602b0",
+      "size": 33936,
+      "sha256": "1b47f00e9bbea173f967e553ddcf58a2ee7b56ce2f710fe6d7cf42c27eb296b6",
       "role": "source_or_documentation"
     },
     {
@@ -392,16 +392,16 @@
       "role": "source_or_documentation"
     },
     {
+      "path": "docs/DFR_FACT_TABLE_CN.md",
+      "size": 2845,
+      "sha256": "596290fa82e4dbaef12eeba68743288c279a65aaae2463e212b77f825ea8096c",
+      "role": "source_or_documentation"
+    },
+    {
       "path": "docs/CROSS_CITY_COMMANDS_CN.md",
       "role": "source_or_documentation",
       "size": 6807,
       "sha256": "7bed2ea296cb6e95c1de61a11e86abfe26a75c461ec17e99896e69a025ea0b03"
-    },
-    {
-      "path": "docs/DFR_FACT_TABLE_CN.md",
-      "size": 3784,
-      "sha256": "49c9ed2d51da3dd6a3351e0b742aa986f49dbd18d9fbb986f91d19e385b163d2",
-      "role": "source_or_documentation"
     },
     {
       "path": "docs/FROZEN_EXPERIMENT_REPORT_CN.md",
@@ -1292,222 +1292,6 @@
       "role": "source_or_documentation"
     },
     {
-      "path": "experiment_results/rebuttal_supplement/README_CN.md",
-      "role": "supplemental_experiment_artifact",
-      "size": 4624,
-      "sha256": "14f112fae9f9c34939a98bb06cd00a9eb707eeef95121eb3b9ba92872d1d74ba"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/figures/portal_fiber_ablation.pdf",
-      "role": "supplemental_experiment_artifact",
-      "size": 12513,
-      "sha256": "7d75a8fea27e3b0067741cddebf73e1c7d33fcc1eaa812a5079af1d65d3e0d83"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/figures/portal_fiber_ablation.png",
-      "role": "supplemental_experiment_artifact",
-      "size": 30300,
-      "sha256": "9b8c801bc71344f81d671cfd44117b6e739087c889dc46bb7a22a78925a20aee"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/figures/q5_partition_granularity_sensitivity.pdf",
-      "role": "supplemental_experiment_artifact",
-      "size": 16371,
-      "sha256": "6849407f4be7ed4c689eb176c9425d8c9b1a7c0a9adb91cb0453411b1e7292ed"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/figures/q5_partition_granularity_sensitivity.png",
-      "role": "supplemental_experiment_artifact",
-      "size": 101954,
-      "sha256": "6ea8a135f680990aa28e5f2f04edd38636961a80202ba1a385341722132dd11d"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/figures/q6_low_epsilon.pdf",
-      "role": "supplemental_experiment_artifact",
-      "size": 13262,
-      "sha256": "eb4cafa8abd8fd03c45e42b1a3a522f6ea1735a184d52dc7e30c97c51d7a337c"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/figures/q6_low_epsilon.png",
-      "role": "supplemental_experiment_artifact",
-      "size": 46764,
-      "sha256": "525c0d87ec42889fa1adf14570fec1533518a045e3660b0181040486e7155bcd"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/figures/q6_multicity_five_seed.pdf",
-      "role": "supplemental_experiment_artifact",
-      "size": 11734,
-      "sha256": "bf2f6a38f29caeb92fde917458433e1bbcd0937a8a9985deabac2b00222f0cdc"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/figures/q6_multicity_five_seed.png",
-      "role": "supplemental_experiment_artifact",
-      "size": 51089,
-      "sha256": "157628b7808502aa1a89e7cb5e0b4abea2238e98d09d057b2b1b839dbafdd58a"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/oldenburg_full_scale/README_full_source.md",
-      "role": "supplemental_experiment_artifact",
-      "size": 1651,
-      "sha256": "7533fe3998295e081245f346efe184c2bc7ae8f8cf84893f9a64efc5e11fae7f"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/oldenburg_full_scale/metrics_full.csv",
-      "role": "supplemental_experiment_artifact",
-      "size": 636,
-      "sha256": "034d93851d1d14d8378b66b0c5d2ec0dec50df8d45e1bb757704690d8234d3f8"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/oldenburg_full_scale/metrics_full.json",
-      "role": "supplemental_experiment_artifact",
-      "size": 1167,
-      "sha256": "f87a173195659f9bdd0d9822f7a3f2c1688527f8f363e0b4fdb661bfdbff7daa"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/oldenburg_full_scale/oldenburg_full_scale_manifest.json",
-      "role": "supplemental_experiment_artifact",
-      "size": 2800,
-      "sha256": "a3dfbadc9667c653380cd8c0ae50644551a8f3fc2ed5977f765fdb13989fc485"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/oldenburg_full_scale/route_metrics_same_beijing.json",
-      "role": "supplemental_experiment_artifact",
-      "size": 2061,
-      "sha256": "b95e8b961a93d60a8dc7fafdbda2e5bad4cf7deddd0a2a5db10c2a85678d59c0"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/oldenburg_full_scale/same_beijing_metrics.csv",
-      "role": "supplemental_experiment_artifact",
-      "size": 1116,
-      "sha256": "60652eb88bc2223cc2bd183f13804718fb8a77f31381e7be68aeed067b880eb0"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/oldenburg_full_scale/same_beijing_metrics.json",
-      "role": "supplemental_experiment_artifact",
-      "size": 2972,
-      "sha256": "427fd4c8701da4899f8762b5c7eb4ac1f389b51f7c7a937cd6128cd190d95944"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/portal_fiber_ablation/ablation.csv",
-      "role": "supplemental_experiment_artifact",
-      "size": 188,
-      "sha256": "6de4dc820eae52117c26ef09f0bbe56ff001a908ffbbfbe2a2a89f55a6f598f9"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/portal_fiber_ablation/portal_fiber_ablation.csv",
-      "role": "supplemental_experiment_artifact",
-      "size": 188,
-      "sha256": "6de4dc820eae52117c26ef09f0bbe56ff001a908ffbbfbe2a2a89f55a6f598f9"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/portal_fiber_ablation/q5_portal_component_ablation.pdf",
-      "role": "supplemental_experiment_artifact",
-      "size": 25326,
-      "sha256": "bf54e210024a50093a513027a29d71edbecf7cb429bc0d91fc327f0f5e83224f"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/portal_fiber_ablation/q5_portal_component_ablation.png",
-      "role": "supplemental_experiment_artifact",
-      "size": 156716,
-      "sha256": "ee133de8b0b15f099e7d9cdbeaf612b9259568b0636b9d522bfbfac37674e286"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q5_partition_sensitivity/q5_partition_granularity_sensitivity.pdf",
-      "role": "supplemental_experiment_artifact",
-      "size": 48157,
-      "sha256": "1cb400cb924823c83176cccfc5f0a0d1b64b091996bf3864a49c2f877194d296"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q5_partition_sensitivity/q5_partition_granularity_sensitivity.png",
-      "role": "supplemental_experiment_artifact",
-      "size": 742800,
-      "sha256": "432e89a73fed170df5bf94e966766ee4c26fb56bfa3957fda15f653226edeec1"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q5_partition_sensitivity/q5_partition_sensitivity_detailed.csv",
-      "role": "supplemental_experiment_artifact",
-      "size": 27508,
-      "sha256": "f4575291963304b43c6f18e9fedc8ebb091672c8578519c638525279c1972f01"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q5_partition_sensitivity/q5_partition_sensitivity_manifest.json",
-      "role": "supplemental_experiment_artifact",
-      "size": 2697,
-      "sha256": "33cb3c27405ccb325dbdba97b998dda6b2c3fdbdd0dd7ac8cb15d3352e2fd077"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q5_partition_sensitivity/q5_partition_sensitivity_summary.csv",
-      "role": "supplemental_experiment_artifact",
-      "size": 16482,
-      "sha256": "3c4e5f5a0047270f2186cf2a2319d3792d66078af4a6b3c740e426a293fd3c53"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q6_low_epsilon/figure_manifest.json",
-      "role": "supplemental_experiment_artifact",
-      "size": 571,
-      "sha256": "daa1f7d4f91c21e03c031ffaa1d1a74252290e9e512473802461605cc684c83f"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q6_low_epsilon/q6_all_query_blocks_detailed.csv",
-      "role": "supplemental_experiment_artifact",
-      "size": 50018,
-      "sha256": "ff77afc6b49cff0b916f4259e9bdb35a251e38ef6885b1dfa4683faa4556cea7"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q6_low_epsilon/q6_complete_low_epsilon_audit.pdf",
-      "role": "supplemental_experiment_artifact",
-      "size": 38592,
-      "sha256": "536da5b777a8dc69c24303dfe03d241a54a742c20b96c3c78632203acfe88c78"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q6_low_epsilon/q6_complete_low_epsilon_audit.png",
-      "role": "supplemental_experiment_artifact",
-      "size": 405987,
-      "sha256": "95c75addedf0759c78eac2534e9210f044b69f6a132f60bc5b6e11714a1bb797"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q6_low_epsilon/q6_complete_low_epsilon_manifest.json",
-      "role": "supplemental_experiment_artifact",
-      "size": 12641,
-      "sha256": "676cf0a988551f1ae3f2450c216ca947e95d6b6c26399c4b37f2f56dfb74fd24"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q6_low_epsilon/q6_full_release_utility_detailed.csv",
-      "role": "supplemental_experiment_artifact",
-      "size": 9637,
-      "sha256": "b0b360bb3ca3c886d3a0e13c2d7e28aecde6c1febac9a8d5e525019e3fbe71f7"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q6_low_epsilon/q6_full_release_utility_summary.csv",
-      "role": "supplemental_experiment_artifact",
-      "size": 6399,
-      "sha256": "6a12d0e222c6f863f1c2d90f6bd3685aad504748ffcdb9662d03b5cc8d839665"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q6_low_epsilon/q6_query_family_summary.csv",
-      "role": "supplemental_experiment_artifact",
-      "size": 3285,
-      "sha256": "fdf1bf738573489ed5d92482fac6c6a1c49fab855553dec2cd4b4d3312bc09d9"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q6_multicity_five_seed/manifest.json",
-      "role": "supplemental_experiment_artifact",
-      "size": 2660,
-      "sha256": "77f7be1202670e86498bb742b17806b7eb27011ca3867dbe73332b6c0100574a"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q6_multicity_five_seed/q6_multicity_five_seed_detailed.csv",
-      "role": "supplemental_experiment_artifact",
-      "size": 2130,
-      "sha256": "e1ae67c3121b3afa138a3032174ce334282da542ef1ec21d8a299a20a53a701e"
-    },
-    {
-      "path": "experiment_results/rebuttal_supplement/q6_multicity_five_seed/q6_multicity_five_seed_summary.csv",
-      "role": "supplemental_experiment_artifact",
-      "size": 1719,
-      "sha256": "9d0851b11893de8bf350c1225b7df17664cf427416fd80647f6878ed6170a9dd"
-    },
-    {
       "path": "generation/baselines/algorithms/literature_baselines/README.md",
       "size": 1099,
       "sha256": "47e8b018c2069dd39d3a3524fe12ef0a434bbf8d243d83ddf3c8e524009f22be",
@@ -2334,12 +2118,6 @@
       "size": 20617,
       "sha256": "c05d40ef738fcd1f47fb4a991fb7d5aac3500a37da3cf25c09a3e0fbb6a41598",
       "role": "source_or_documentation"
-    },
-    {
-      "path": "plotting/plot_rebuttal_supplement.py",
-      "role": "source_or_documentation",
-      "size": 3701,
-      "sha256": "b0d0a8a735ae32a7253a991bd3334a5b093b6b14f9414c034ac59f05fe59004d"
     },
     {
       "path": "plotting/regenerate_figures.py",
