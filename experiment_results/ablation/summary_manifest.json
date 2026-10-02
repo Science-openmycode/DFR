@@ -1,0 +1,28 @@
+{
+  "protocol": "generated_mtr_dfr_algorithm_ablation_v2",
+  "variants": [
+    "no-endpoint-measurement",
+    "endpoint-measurement-only",
+    "family-measured-unmatched-router",
+    "full"
+  ],
+  "generation": "all selected arms were synthesized from the supplied matched dataset",
+  "endpoint_tail_states": {
+    "public_shortest": 16941,
+    "single_edge_fallback": 182
+  },
+  "public_tail_states": {
+    "public_shortest": 16685,
+    "single_edge_fallback": 438
+  },
+  "arm_sha256": {
+    "no-endpoint-measurement": "7A5226EB0B3C3C5F7630AF9066E22161F63578F3B7572D844C586A4ADC5E6D0B",
+    "endpoint-measurement-only": "DECA3FE27FB3869E626B4E786CBC2D9ED584B618858C8B446C4653FAD2C3F592",
+    "family-measured-unmatched-router": "70C6B1F2CF0D81763BC3D0DAD4DA01138704951A4B5F3AC2CEFE36ACA15DD0FF",
+    "full": "8582D321A7DBE534602F904B021D59CC3868600801FD5B51D77984B962A42714"
+  },
+  "results_sha256": "9DF34F687B7FC7CD7454D7708E8329AF3B2DB678321506005F05C160B883D323",
+  "seed": 20260723,
+  "epsilon_total": "1.15",
+  "slots": 17123
+}
