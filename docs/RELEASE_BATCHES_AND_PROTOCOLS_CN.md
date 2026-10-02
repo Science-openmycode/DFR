@@ -28,7 +28,7 @@ experiment_results/release_inventory/
 
 严格 TSTR 先用训练划分生成合成数据，再用合成数据训练预测器。新 `generate-train-only` 命令实际执行生成并保存独立的本地来源记录，`audit_tstr_split.py` 逐记录核验源数据划分。评分时提供 `--synthesis-lineage 方法=记录.json --split-audit 划分记录.json --require-synthesis-lineage`，核验全部方法的训练输入、实际生成输出和不重叠划分。通过后 manifest 的 `synthesis_lineage_verified` 和 `disjoint_split_verified` 均为 true；没有这些证据的历史评分仍保持 false，不从文件名推断生成来源。
 
-GSRT 的三种路由表使用以下命令合并（DFR 也提供相同独立脚本）：
+DFR 的三种路由表使用以下命令合并：
 
 ```powershell
 python evaluation/combine_tstr_mr.py --native experiment_results/recomputed/tstr_native/results.csv --fmm experiment_results/recomputed/tstr_fmm/results.csv --stmatch experiment_results/recomputed/tstr_stmatch/results.csv --out-dir experiment_results/recomputed/tstr_mr
@@ -38,7 +38,7 @@ python evaluation/combine_tstr_mr.py --native experiment_results/recomputed/tstr
 
 同一方法的 Native、FMM、STMatch 还必须来自同一个路由前合成发布。入口从坐标视图 sidecar 读取源发布哈希，聚合器比较 `base_releases`；不同批次即使方法名相同也不能拼成矩阵。坐标视图与道路视图必须对应同一份源发布。
 
-新 FMM 缓存会保存逐方法的输入、网络、输出哈希和匹配参数。GSRT 的路线转换命令核验这三个哈希，并要求缓存条数与源数据条数相等，不再默默截短输入。历史无来源缓存只能通过显式 `--allow-unbound-cache` 用于诊断，其未绑定状态写入 manifest；正式重跑使用新缓存。
+新 FMM 缓存会保存逐方法的输入、网络、输出哈希和匹配参数。DFR 的路线转换命令核验这三个哈希，并要求缓存条数与源数据条数相等，不再默默截短输入。历史无来源缓存只能通过显式 `--allow-unbound-cache` 用于诊断，其未绑定状态写入 manifest；正式重跑使用新缓存。
 
 输出 `results.csv`（六面板）、`results_all.csv`（七指标）和绑定三份输入表哈希的 `manifest.json`。这些命令的相对路径以独立目录为根，不依赖当前工作目录。
 

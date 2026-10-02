@@ -164,7 +164,6 @@ def _load_sf_cabspotting(limit: int | None = None) -> list[np.ndarray]:
     candidates = [
         PUBLIC_TRAJ / "cabspottingdata" / "cabspottingdata",
         REPO_ROOT / "data" / "cabspottingdata" / "cabspottingdata",
-        REPO_ROOT.parent / "LDPTrace-main" / "LDPTrace-main" / "data" / "san_francisco" / "extracted" / "CabSpotting-master" / "CabSpotting-master",
     ]
     data_dir = next((p for p in candidates if p.exists()), None)
     if data_dir is None:

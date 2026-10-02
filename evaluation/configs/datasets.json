@@ -8,7 +8,7 @@
       "bbox": [39.75, 40.15, 116.10, 116.65],
       "osm_cache": "evaluation/data/osm/osm_cache_beijing.pkl",
       "public_slot_count": 17123,
-      "mtr_status": "frozen_beijing_default",
+      "status": "frozen_beijing_default",
       "osm_max_ways": 0
     },
     "porto": {
@@ -16,7 +16,7 @@
       "bbox": [41.10, 41.20, -8.70, -8.55],
       "osm_cache": "evaluation/data/osm/osm_cache_porto.pkl",
       "public_slot_count": 20000,
-      "mtr_status": "research_recommended",
+      "status": "research_recommended",
       "osm_max_ways": 0
     },
     "sf": {
@@ -26,7 +26,7 @@
       "bbox": [37.60, 37.85, -122.55, -122.30],
       "osm_cache": "evaluation/data/osm/osm_cache_sf_bay.pkl",
       "public_slot_count": 20000,
-      "mtr_status": "frozen_trip_level_research_recommended",
+      "status": "frozen_trip_level_research_recommended",
       "privacy_unit": "one preprocessed occupied taxi trip; not one taxi/user",
       "preprocessing_manifest": "data/trajectories/frozen/sf_cabspotting_trips_20k.manifest.json",
       "osm_max_ways": 0,
@@ -42,7 +42,7 @@
       "bbox": [37.60, 37.85, -122.55, -122.30],
       "osm_cache": "evaluation/data/osm/osm_cache_sf_bay.pkl",
       "public_slot_count": 536,
-      "mtr_status": "invalid_object_semantics_do_not_use_for_trip_synthesis",
+      "status": "invalid_object_semantics_do_not_use_for_trip_synthesis",
       "note": "Historical compatibility only: each record is a multi-day taxi history, not one trip.",
       "osm_max_ways": 20000
     },
@@ -51,7 +51,7 @@
       "bbox": null,
       "osm_cache": null,
       "public_slot_count": null,
-      "mtr_status": "unsupported_missing_portal_fiber_public_graph",
+      "status": "unsupported_missing_public_road_graph",
       "note": "Available to baseline/simulation loaders only until an explicit public road graph and coordinate contract are supplied."
     }
   }

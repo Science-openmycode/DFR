@@ -25,7 +25,7 @@ def run(command: list[str]) -> None:
     subprocess.run(command, cwd=ROOT, check=True)
 
 
-def verify_saved_gsrt_arm(arm: Path, evaluated: Path, mode: str, args: argparse.Namespace) -> None:
+def verify_saved_dfr_arm(arm: Path, evaluated: Path, mode: str, args: argparse.Namespace) -> None:
     protocol = json.loads((arm / "protocol.json").read_text(encoding="utf-8"))
     expected = (
         (protocol["postprocessing"], "component_mode", mode),
@@ -64,83 +64,6 @@ def write(rows: list[dict], output: Path, protocol: str, extra: dict | None = No
     payload.update(extra or {})
     (output / "manifest.json").write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-
-
-def gsrt(args: argparse.Namespace, output: Path) -> None:
-    modes = args.component_modes or ["full", "no-portal-fiber", "no-graph-flow", "demand-only"]
-    labels = {
-        "full": "MTR-GSRT",
-        "no-portal-fiber": "No Portal-Fiber measurement",
-        "no-graph-flow": "No compact graph-flow measurement",
-        "demand-only": "Demand measurements only",
-    }
-    rows = []
-    keys = {
-        "Grid": "grid_density_jsd", "Trip": "trip_error", "Len": "path_length_jsd",
-        "WitnessValid": "witness_valid", "NextRoadAcc": "B2_next_region_accuracy",
-        "NextRoadNLL": "B2_next_region_nll",
-    }
-    cache = load_pickle(Path(args.edge_cache).resolve()) if args.real_routes else None
-    real = (valid_routes(normalize_routes(load_pickle(Path(args.real_routes).resolve()), cache))
-            if args.real_routes else None)
-    reference = route_counters(real, cache) if real is not None else None
-    for mode in modes:
-        arm = output / "arms" / mode
-        evaluated = output / "raw" / mode
-        generation = [
-            sys.executable, str(ROOT / CONFIG["main_generation_entry"]),
-            "--data", str(Path(args.data).resolve()),
-            "--epsilon-total", args.epsilon_total,
-            "--noise-seed", str(args.noise_seed),
-            "--decoder-seed", str(args.decoder_seed),
-            "--public-slot-count", str(args.public_slot_count),
-            "--osm-cache", str(Path(args.osm_cache).resolve()),
-            "--component-mode", mode,
-            "--out-dir", str(arm),
-        ]
-        if args.dataset_config:
-            generation += ["--dataset-config", args.dataset_config]
-        if args.bbox:
-            generation += ["--bbox", *(str(value) for value in args.bbox)]
-        if args.request_seed is not None:
-            generation += ["--request-seed", str(args.request_seed)]
-        if args.limit is not None:
-            generation += ["--limit", str(args.limit)]
-        if not args.reuse_generated:
-            run(generation)
-        evaluation = [
-            sys.executable, str(ROOT / "evaluation" / "evaluation" / "evaluate_all.py"),
-            "--real", str(Path(args.data).resolve()),
-            "--synthetic", str(arm / "trajectories.pkl"),
-            "--witness", str(arm / "road_witnesses.pkl"),
-            "--osm-cache", str(Path(args.osm_cache).resolve()),
-            "--public-slot-count", str(args.public_slot_count),
-            "--out-dir", str(evaluated),
-        ]
-        if args.dataset_config:
-            evaluation += ["--dataset-config", args.dataset_config]
-        if args.bbox:
-            evaluation += ["--bbox", *(str(value) for value in args.bbox)]
-        if args.reuse_generated:
-            verify_saved_gsrt_arm(arm, evaluated, mode, args)
-        else:
-            run(evaluation)
-        metrics = json.loads((evaluated / "metrics.json").read_text(encoding="utf-8"))["metrics"]
-        row = {"Ablation arm": labels[mode], **{label: metrics[key] for label, key in keys.items()}}
-        if real is not None:
-            routes = normalize_routes(load_pickle(arm / "road_witnesses.pkl"), cache)
-            scored = evaluate_routes(routes, real, cache, reference)
-            row.update({key: scored[key] for key in (
-                "RoadYield", "DemandFid", "BTF", "RC-CPC",
-                "EdgeCPC", "TurnCPC", "FamilyCPC", "BranchCPC", "ExitAcc",
-                "ODPF96", "ODPF384")})
-        rows.append(row)
-    write(rows, output, "generated_mtr_gsrt_algorithm_ablation_v2", {
-        "component_modes": modes,
-        "generation": "each arm was synthesized from the supplied dataset",
-        "reuse_generated": bool(args.reuse_generated),
-        "real_routes": str(Path(args.real_routes).resolve()) if args.real_routes else None,
-    })
 
 
 def save_routes(path: Path, routes) -> None:
@@ -236,7 +159,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Generate and evaluate algorithm-level ablation releases from an explicit dataset.")
     parser.add_argument("--out-dir", type=Path, required=True)
-    parser.add_argument("--data", help="Real coordinate trajectories for MTR-GSRT.")
+    parser.add_argument("--data", help="Real coordinate trajectories used by the DFR generator.")
     parser.add_argument("--dataset-config")
     parser.add_argument("--bbox", nargs=4, type=float)
     parser.add_argument("--osm-cache")
@@ -247,11 +170,9 @@ def main() -> None:
     parser.add_argument("--public-slot-count", type=int, default=17123)
     parser.add_argument("--limit", type=int,
                         help="Smoke-test only; must equal --public-slot-count.")
-    parser.add_argument("--component-modes", nargs="+", choices=(
-        "full", "no-portal-fiber", "no-graph-flow", "demand-only"))
     parser.add_argument("--reuse-generated", action="store_true",
                         help="re-evaluate existing saved arms without synthesizing them again")
-    parser.add_argument("--real-routes", help="Real matched road routes for MTR-DFR or optional GSRT road-choice ablation.")
+    parser.add_argument("--real-routes", help="Real matched road routes for MTR-DFR.")
     parser.add_argument("--edge-cache", default=str(
         ROOT / "public_assets" / "ordered_portal_route_cache.pkl.gz"))
     parser.add_argument("--network", default=str(
@@ -265,14 +186,9 @@ def main() -> None:
     output = args.out_dir if args.out_dir.is_absolute() else ROOT / args.out_dir
     if args.public_slot_count <= 0:
         parser.error("--public-slot-count must be positive")
-    if CONFIG["concrete_algorithm"] == "mtr_gsrt":
-        if not args.data or not args.osm_cache:
-            parser.error("MTR-GSRT requires --data and --osm-cache")
-        gsrt(args, output)
-    else:
-        if not args.real_routes:
-            parser.error("MTR-DFR requires --real-routes")
-        dfr(args, output)
+    if not args.real_routes:
+        parser.error("MTR-DFR requires --real-routes")
+    dfr(args, output)
 
 
 if __name__ == "__main__":

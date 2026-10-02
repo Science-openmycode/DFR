@@ -53,7 +53,7 @@ Use `check/baseline_reproduction_registry.json` and
 which reproductions are certified against original-paper metrics.
 
 Excluded diagnostic files such as SPRT trajectory templates, DPStd trajectory
-pools, PRA adapters, and MTR/DP-GSRT comparisons have been moved out of the
+pools and PRA adapters have been moved out of the
 main `check/` layer into:
 
 ```text

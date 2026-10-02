@@ -47,11 +47,7 @@ BASELINE_METHODS = {
 
 OFFICIAL_BASELINE_METHODS = {"dptrajpm-official", "privtrace-official", "sprt-paper-structured"}
 
-METHOD_CHOICES = sorted([*BASELINE_METHODS.keys(), *OFFICIAL_BASELINE_METHODS, "dp-gsrt", "mtr-public-only"])
-DP_GSRT_PROTOCOL = PUBLIC_ROOT / "src" / "mtr" / "DP_GSRT" / "final_protocol.json"
-DP_GSRT_METHOD_STATUS = PUBLIC_ROOT / "src" / "mtr" / "DP_GSRT" / "CURRENT_METHOD_STATUS.json"
-ARA_ROOT = PUBLIC_ROOT.parent
-DP_GSRT_SOURCE_FILES: tuple[Path, ...] = ()
+METHOD_CHOICES = sorted([*BASELINE_METHODS.keys(), *OFFICIAL_BASELINE_METHODS])
 
 
 def sha256_file(path: str | Path) -> str:
@@ -79,60 +75,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--osm-cache", default="data/osm/osm_cache_beijing.pkl")
     p.add_argument("--bbox", nargs=4, type=float, metavar=("LAT_MIN", "LAT_MAX", "LON_MIN", "LON_MAX"))
     p.add_argument("--epsilon", type=float, default=1.0, help="baseline privacy budget")
-    p.add_argument("--epsilon-base", type=float, default=1.0, help="DP Graph-Sketch Route Tilt base-measurement budget")
-    p.add_argument("--epsilon-route", type=float, default=0.2, help="DP Graph-Sketch Route Tilt route-choice moment budget")
     p.add_argument("--n-train", type=int, default=None, help="input trajectories used for fitting; default is full loaded corpus")
     p.add_argument("--n-gen", type=int, default=None, help="synthetic trajectories to generate; default is full loaded corpus size")
-    p.add_argument(
-        "--public-slot-count",
-        type=int,
-        default=None,
-        help=(
-            "DP-GSRT fixed public release size. For proof-aligned runs, set this "
-            "explicitly before reading private data."
-        ),
-    )
-    p.add_argument(
-        "--strict-fixed-slots",
-        action="store_true",
-        help="require an explicit --public-slot-count for DP-GSRT proof-aligned releases",
-    )
-    p.add_argument("--max-attempts-per-slot", type=int, default=40)
-    p.add_argument("--max-candidates", type=int, default=32)
-    p.add_argument(
-        "--candidate-search-max-visits",
-        type=int,
-        default=25_000,
-        help=(
-            "fixed public OSM graph-search expansion cap per shortest-path call; "
-            "use the same predeclared value for all comparable releases"
-        ),
-    )
-    p.add_argument(
-        "--candidate-mode",
-        choices=["reroute", "via", "hybrid", "sidetrack", "hybrid_sidetrack", "bridge", "hybrid_bridge", "replacement", "hybrid_replacement", "anchor_via", "hybrid_anchor"],
-        default="hybrid_anchor",
-        help="public DP-GSRT candidate-family construction rule",
-    )
-    p.add_argument("--keep-all-public-components", action="store_true",
-                   help="do not discard public road-graph components (needed for externally supplied fragmented graphs)")
-    p.add_argument(
-        "--anchor-count",
-        type=int,
-        default=40,
-        help="number of DP spatial anchors retained from the noisy histogram",
-    )
     p.add_argument("--seed", type=int, default=42)
-    p.add_argument(
-        "--reproducible-dp-noise",
-        action="store_true",
-        help="research-only: use --seed for DP-GSRT noise; output is not a certifiable production release",
-    )
-    p.add_argument(
-        "--allow-uncommitted-dp-config",
-        action="store_true",
-        help="research-only: allow DP-GSRT parameters outside the frozen final protocol",
-    )
     p.add_argument("--out-dir", default=str(PUBLIC_ROOT / "outputs" / "synthetic_releases"))
     p.add_argument("--tag", default=None, help="optional output filename tag")
     p.add_argument("--format", choices=["npz", "pkl", "both"], default="both")
@@ -589,107 +534,8 @@ def synthesize_baseline(args: argparse.Namespace, real: list[np.ndarray], osm_wa
     return syn, diag
 
 
-def synthesize_dp_gsrt(args: argparse.Namespace, real: list[np.ndarray], osm_ways: list[dict], *, public_only: bool = False) -> tuple[list[np.ndarray], dict]:
-    raise RuntimeError(
-        "The final Portal-Fiber DP-GSRT is a sealed multi-stage mechanism, not "
-        "the retired in-process synthesizer. Run src/mtr/DP_GSRT/final via "
-        "src/mtr/DP_GSRT/RUN_FINAL.md."
-    )
-
-
 def main() -> None:
     args = build_parser().parse_args()
-    is_mtr = args.method in {"dp-gsrt", "mtr-public-only"}
-    if is_mtr:
-        status = json.loads(DP_GSRT_METHOD_STATUS.read_text(encoding="utf-8"))
-        if not (
-            status.get("promotion_status") == "APPROVED_ACTIVE_FINAL"
-            and status.get("production_status") == "COMMITTED_AND_ARTIFACT_SEALED"
-            and status.get("active_algorithm_id")
-            and status.get("active_proof_id")
-            and status.get("active_privacy_event_ids", {}).get("base")
-            and status.get("active_privacy_event_ids", {}).get("portal_fiber_q5")
-        ):
-            raise RuntimeError(
-                "DP-GSRT is quarantined before private-data access: no user-approved, "
-                "production-committed algorithm/proof/event tuple is active. "
-                "The rejected self-distilled branch was archived. See "
-                "src/mtr/DP_GSRT/CURRENT_METHOD_STATUS.json and README.md."
-            )
-        raise RuntimeError(
-            "The final DP-GSRT uses two separately committed DP events followed "
-            "by authenticated QRSP post-processing. The legacy single-process "
-            "--method dp-gsrt adapter is intentionally disabled before private "
-            "data access. Follow src/mtr/DP_GSRT/RUN_FINAL.md."
-        )
-        committed = json.loads(DP_GSRT_PROTOCOL.read_text(encoding="utf-8"))
-        benchmark_capacity = committed["public_benchmark_capacities"].get(args.data.lower())
-        if args.public_slot_count is None and benchmark_capacity is not None:
-            args.public_slot_count = int(benchmark_capacity)
-        if args.public_slot_count is None:
-            raise RuntimeError(
-                "DP-GSRT requires a public fixed --public-slot-count before private data is read."
-            )
-        if benchmark_capacity is None and not args.allow_uncommitted_dp_config:
-            raise RuntimeError(
-                "A custom DP-GSRT dataset requires --allow-uncommitted-dp-config until its public capacity is added to final_protocol.json."
-            )
-        if (
-            benchmark_capacity is not None
-            and int(args.public_slot_count) != int(benchmark_capacity)
-            and not args.allow_uncommitted_dp_config
-        ):
-            raise RuntimeError("public slot count disagrees with the committed benchmark capacity")
-        if args.n_train is not None and not args.allow_uncommitted_dp_config:
-            raise RuntimeError("--n-train is outside the committed full-benchmark protocol")
-        if args.keep_all_public_components and not args.allow_uncommitted_dp_config:
-            raise RuntimeError("--keep-all-public-components is outside the committed final protocol")
-        frozen = {
-            "epsilon_base": float(args.epsilon_base),
-            "epsilon_route": float(args.epsilon_route),
-            "anchor_count": int(args.anchor_count),
-            "max_candidates": int(args.max_candidates),
-            "candidate_mode": str(args.candidate_mode),
-            "candidate_search_max_visits": int(args.candidate_search_max_visits),
-            "max_attempts_per_slot": int(args.max_attempts_per_slot),
-        }
-        mismatch = {
-            name: (value, committed[name])
-            for name, value in frozen.items()
-            if value != committed[name]
-        }
-        if mismatch and not args.allow_uncommitted_dp_config:
-            raise RuntimeError(f"DP-GSRT parameters disagree with final_protocol.json: {mismatch}")
-        if args.reproducible_dp_noise and not args.allow_uncommitted_dp_config:
-            raise RuntimeError(
-                "--reproducible-dp-noise is research-only and requires --allow-uncommitted-dp-config"
-            )
-        protocol_bytes = DP_GSRT_PROTOCOL.read_bytes()
-        args.dp_gsrt_protocol_sha256 = hashlib.sha256(protocol_bytes).hexdigest()
-        args.dp_gsrt_implementation_sha256 = {
-            os.path.relpath(path, PUBLIC_ROOT).replace("\\", "/"): sha256_file(path)
-            for path in DP_GSRT_SOURCE_FILES
-        }
-        expected_implementation = dict(committed.get("implementation_sha256", {}))
-        if (
-            args.dp_gsrt_implementation_sha256 != expected_implementation
-            and not args.allow_uncommitted_dp_config
-        ):
-            raise RuntimeError(
-                "active DP-GSRT source bytes disagree with the committed final protocol"
-            )
-        args.dp_gsrt_public_osm_sha256 = sha256_file(args.osm_cache)
-        if (
-            list(parse_bbox(args.bbox)) != [float(value) for value in committed["public_bbox"]]
-            and not args.allow_uncommitted_dp_config
-        ):
-            raise RuntimeError("bbox disagrees with the committed final protocol")
-        if (
-            args.dp_gsrt_public_osm_sha256.lower()
-            != str(committed["public_osm_sha256"]).lower()
-            and not args.allow_uncommitted_dp_config
-        ):
-            raise RuntimeError("public OSM bytes disagree with the committed final protocol")
     t0 = time.time()
     if args.method == "dptrajpm-official" and args.data.lower() in {
         "dptrajpm-official",
@@ -729,12 +575,7 @@ def main() -> None:
     real = load_trajectories(args.data, limit=public_load_limit)
     if not real:
         raise RuntimeError("no trajectories loaded")
-    if is_mtr:
-        if len(real) > int(args.public_slot_count):
-            raise RuntimeError("private input exceeds the precommitted public slot capacity")
-        log("loaded private trajectories without releasing the occupied-slot count")
-    else:
-        log(f"loaded {len(real):,} real trajectories")
+    log(f"loaded {len(real):,} real trajectories")
     bbox = parse_bbox(args.bbox)
     if args.method == "privtrace-official":
         syn, diag = synthesize_privtrace_official(args, real)
@@ -752,38 +593,27 @@ def main() -> None:
         pass
     elif args.method == "sprt-paper-structured":
         syn, diag = synthesize_sprt_paper_structured(args, real, osm_ways)
-    elif args.method in {"dp-gsrt", "mtr-public-only"}:
-        syn, diag = synthesize_dp_gsrt(args, real, osm_ways, public_only=args.method == "mtr-public-only")
     else:
         syn, diag = synthesize_baseline(args, real, osm_ways)
     log(f"generated {len(syn):,} trajectories; writing outputs")
 
     paths = _output_paths(args.out_dir, args.method, args.tag, args.format)
     written = _save_outputs(paths, syn)
-    research_mtr = is_mtr and (args.reproducible_dp_noise or args.allow_uncommitted_dp_config)
     protocol = {
         "command_role": "synthesize_dataset",
         "method": args.method,
         "data": args.data,
-        "loaded_real_trajectories": None if is_mtr else len(real),
-        "private_input_occupancy_released": False if is_mtr else True,
-        "public_input_capacity": int(args.public_slot_count) if is_mtr else None,
+        "loaded_real_trajectories": len(real),
+        "private_input_occupancy_released": True,
+        "public_input_capacity": None,
         "generated_trajectories": len(syn),
         "default_policy": "full-data generation unless n-train or n-gen is explicitly set",
         "bbox": parse_bbox(args.bbox),
         "osm_cache": args.osm_cache,
-        "seed": None if is_mtr else int(args.seed),
-        "dp_randomness": (
-            "fixed_seed_research_only"
-            if is_mtr and args.reproducible_dp_noise
-            else "unreleased_os_system_random" if is_mtr else None
-        ),
-        "committed_protocol": str(DP_GSRT_PROTOCOL.resolve()) if is_mtr else None,
-        "committed_protocol_sha256": str(args.dp_gsrt_protocol_sha256) if is_mtr else None,
-        "implementation_sha256": dict(args.dp_gsrt_implementation_sha256) if is_mtr else None,
-        "public_osm_sha256": str(args.dp_gsrt_public_osm_sha256) if is_mtr else None,
-        "runtime_sec": float(time.time() - t0) if not is_mtr or research_mtr else None,
-        "runtime_released": bool(not is_mtr or research_mtr),
+        "seed": int(args.seed),
+        "dp_randomness": None,
+        "runtime_sec": float(time.time() - t0),
+        "runtime_released": True,
         "outputs": written,
         "diagnostics": diag,
     }
@@ -791,10 +621,7 @@ def main() -> None:
     if not protocol_path.is_absolute():
         protocol_path = Path.cwd() / protocol_path
     protocol_written = write_json(protocol_path, protocol)
-    if not is_mtr or research_mtr:
-        log(f"completed in {time.time() - t0:.1f}s")
-    else:
-        log("completed production release; runtime retained by the trusted operator")
+    log(f"completed in {time.time() - t0:.1f}s")
     print(f"wrote protocol {protocol_written}")
     for kind, path in written.items():
         print(f"wrote {kind} {path}")

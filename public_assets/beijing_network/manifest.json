@@ -10,7 +10,7 @@
   "directed_segment_edges": 190908,
   "elapsed_sec": 6.670072793960571,
   "osm": {
-    "path": "generation/mtr_gsrt/data/osm/osm_cache_beijing.pkl",
+    "path": "generation/baselines/data/osm/osm_cache_beijing.pkl",
     "sha256": "7159e12ab8712338b4ff5a2859c68b158e1374504f999dc44080c2fe2d53a5c5"
   },
   "outputs": {

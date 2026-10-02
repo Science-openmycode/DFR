@@ -71,10 +71,6 @@ def stage_verify() -> int:
     baseline_source = ROOT / "generation" / "baselines"
     if CONFIG["includes_baseline_code"] != baseline_source.is_dir():
         failures.append("baseline-code inclusion does not match package contract")
-    forbidden_algorithm = CONFIG["forbidden_algorithm_token"].lower()
-    for path in ROOT.rglob("*"):
-        if forbidden_algorithm in path.name.lower():
-            failures.append(f"cross-algorithm contamination: {path.relative_to(ROOT)}")
     if failures:
         print("VERIFY FAILED")
         for failure in failures:

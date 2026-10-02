@@ -53,8 +53,6 @@ def raw_directory() -> Path:
     candidates = (
         PUBLIC_TRAJ / "cabspottingdata" / "cabspottingdata",
         REPO_ROOT / "data" / "cabspottingdata" / "cabspottingdata",
-        REPO_ROOT.parent / "LDPTrace-main" / "LDPTrace-main" / "data"
-        / "san_francisco" / "extracted" / "CabSpotting-master" / "CabSpotting-master",
     )
     source = next((path for path in candidates if path.is_dir()), None)
     if source is None:

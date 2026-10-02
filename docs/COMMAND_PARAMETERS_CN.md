@@ -110,13 +110,13 @@
 `RC-CPC` 与 BTF 对同一条轨迹的路口选择赋单位总质量；长轨迹不会因路口较多而在条件分布比较中被额外加权。
 `run-mr` 还从同一批路线与 `--network` 重算总长度、消环后骨干长度、闭合段长度、闭合段数量和重复道路边出现次数的真实/合成均值比。
 
-`run-physical` 从显式路线对象计算完整公共 OD 分层的有序道路公里数、路口转向及消环骨干的恢复率与支持率。必填 `--real-routes`、`--synthetic-routes`、`--method`、`--out-dir`；`--edge-cache` 与 `--network` 指向同城公共图，默认北京资产；`--cap-per-stratum` 默认为每侧 20 条、至少为 2；`--sampling-label` 默认等于 `--method`，需要逐位复算归档旧 GSRT 抽样时设为 `Old MTR-GSRT`。该标签仅决定同一 OD 层内的 SHA-256 定额样本，不改变被评价的轨迹。
-| `run-ablation --data/--dataset-config/--bbox/--osm-cache` | GSRT 消融的显式真实坐标数据和同城公共配置。 |
-| `run-ablation --epsilon-total/--noise-seed/--decoder-seed/--request-seed/--public-slot-count` | GSRT 各臂共用的隐私预算、随机种子和固定输出规模。 |
+`run-physical` 从显式路线对象计算完整公共 OD 分层的有序道路公里数、路口转向及消环骨干的恢复率与支持率。必填 `--real-routes`、`--synthetic-routes`、`--method`、`--out-dir`；`--edge-cache` 与 `--network` 指向同城公共图，默认北京资产；`--cap-per-stratum` 默认为每侧 20 条、至少为 2；`--sampling-label` 默认等于 `--method`，用于固定同一 OD 层内的定额样本。
+| `run-ablation --data/--dataset-config/--bbox/--osm-cache` | DFR 消融的显式真实坐标数据和同城公共配置。 |
+| `run-ablation --epsilon-total/--noise-seed/--decoder-seed/--request-seed/--public-slot-count` | DFR 各臂共用的隐私预算、随机种子和固定输出规模。 |
 | `run-ablation --limit` | 仅用于小规模功能检查，且必须等于 `--public-slot-count`；正式实验不使用。 |
-| `run-ablation --component-modes` | GSRT 实际重新合成的算法臂，可选 `full no-portal-fiber no-graph-flow demand-only`。 |
-| `run-ablation --reuse-generated` | 在同一 `--out-dir` 复用已生成的算法臂，不重新合成。GSRT 校验协议参数及输入/输出 SHA-256 后重算路线指标；DFR 校验路线槽位数，记录各臂和真实参考的 SHA-256 后重算指标。 |
-| `run-ablation --real-routes/--edge-cache/--network` | DFR 消融需要真实匹配路线、公共缓存和同一有向道路图；GSRT 指定 `--real-routes` 后，四个重新生成的算法臂还会逐一计算道路选择指标。 |
+| `run-ablation --variants` | DFR 算法级消融臂，可选 `no-endpoint-measurement endpoint-measurement-only family-measured-unmatched-router full`。 |
+| `run-ablation --reuse-generated` | 在同一 `--out-dir` 复用已生成的 DFR 算法臂，不重新合成；程序校验路线槽位数，记录各臂和真实参考的 SHA-256 后重算指标。 |
+| `run-ablation --real-routes/--edge-cache/--network` | DFR 消融需要真实匹配路线、公共缓存和同一有向道路图。 |
 | `run-ablation --seed/--length-aware/--public-slot-count` | DFR 各臂共用的噪声种子、长度组件开关和固定输出规模。 |
 | `run-ablation --variants` | DFR 实际重新合成的算法臂，可选 `no-endpoint-measurement endpoint-measurement-only family-measured-unmatched-router full`。 |
 | `run-ablation --out-dir` | 各臂新合成数据、逐臂指标、聚合 CSV 和 manifest 的目录。 |

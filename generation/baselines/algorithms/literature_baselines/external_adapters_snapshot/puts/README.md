@@ -21,7 +21,6 @@ the declared central-Beijing bbox `[39.96, 40.03] x [116.28, 116.38]`:
 - `parent_beijing_central_3000_source_indices.json`: its deterministic source map;
 - `puts_fmm_eligible86/prepare_manifest.json`: FMM-valid count before capping
   and the deterministic 86-record PUTS branch;
-- an MTR/DP-GSRT release with 3,000 fixed public slots;
 - an official DPMM release on the 3,000-record parent, retaining its actual
   successful-output count;
 - an unmodified upstream PUTS release on its FMM-eligible branch;
@@ -33,7 +32,7 @@ comparison.
 
 ## Legacy files
 
-`run_puts_same_train_subset.py`, `run_mtr_dp_gsrt_on_puts_native_graph.py`,
+`run_puts_same_train_subset.py`,
 and the `*_native_graph_*` utilities are retained as historical adapter
 diagnostics. They constrain MTR to a PUTS-derived road graph or use an
 implementation-specific selected support, so they are not valid sources for

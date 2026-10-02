@@ -8,13 +8,13 @@
 | MTR 框架提升 | 四个统计基线，Native 与公共道路路由配对 | RoadYield、BTF、FamilyCPC、ODPF96/384 | 已完成 |
 | M×R 矩阵 | 多种测量与 Native/FMM/STMatch/Family 路由组合 | BTF、FamilyCPC、ODPF96/384、RoadYield | 已完成 |
 | 算法级消融 | endpoint、route-family、matched-router 组合 | BTF、RC-CPC、EdgeCPC、TurnCPC、FamilyCPC | 已完成 |
-| 隐私攻击 | MTR-GSRT、DPMM、PUTS、MTNet | DOMIAS、GDA-MIA、Origin、Route | 已完成 |
+| 隐私攻击 | MTR-DFR、DPMM、PUTS、MTNet | DOMIAS、GDA-MIA、Origin、Route | MTR-DFR 当前批次尚未保存完整攻击结果 |
 | 严格 train-only TSTR | 13,698 训练，3,425 未见测试 | Next-cell、Destination、RoadContinuation、Route retrieval | 已完成 |
 | 逐轨迹结构 | 真实与 DFR 逐条比较 | Backbone、Turn、Closed、RepeatedEdge、Length retention | 已完成 |
 | Porto/SF | 跨城市配置和命令 | 生成、评估、作图 | 入口存在，完整结果未冻结 |
 | epsilon 曲线 | 北京多预算配置 | 预算—指标曲线 | 配置存在，完整批次未冻结 |
 | WitnessValid | DFR 隔离产物 | 消费者可见 witness | 未完成，当前记录为 NOT_SERIALIZED |
-| Oldenburg | 独立 Brinkhoff 公共图 | 统计、道路、路线、TSTR、消融、攻击 | 尚未形成与北京完全同口径批次 |
+| Oldenburg | 独立 Brinkhoff 公共图 | 统计、道路、路线、TSTR、消融、攻击 | 未完成；本 DFR 仓库没有同口径结果 |
 
 ## DFR 冻结代表值
 

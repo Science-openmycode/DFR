@@ -104,7 +104,6 @@ def add_runtime_paths() -> None:
         PUBLIC_RELEASE,
         PUBLIC_RELEASE / "pipeline",
         PUBLIC_RELEASE / "analysis_scripts",
-        PUBLIC_RELEASE / "src" / "mtr" / "DP_GSRT" / "final",
         PUBLIC_RELEASE / "src" / "reproduced_papers" / "common",
         PUBLIC_RELEASE / "src" / "reproduced_papers" / "SPRT",
         PUBLIC_RELEASE / "src" / "reproduced_papers" / "PrivTrace",

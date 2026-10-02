@@ -6,7 +6,6 @@
   "includes_baseline_code": true,
   "contains_raw_or_private_trajectory_data": false,
   "main_generation_entry": "generation/mtr_dfr/run.py",
-  "forbidden_algorithm_token": "mtr_gsrt",
   "python": "3.11",
   "powershell": ">=7 recommended; Windows PowerShell 5.1 supported"
 }

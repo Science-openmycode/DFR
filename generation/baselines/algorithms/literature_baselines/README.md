@@ -1,6 +1,6 @@
 # Literature algorithms
 
-The reproduced literature baselines are kept separate from MTR-GSRT.
+The reproduced literature baselines are kept separate from MTR-DFR.
 
 | Method | Authoritative source |
 |---|---|

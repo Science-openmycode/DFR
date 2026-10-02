@@ -33,13 +33,7 @@ python evaluation/evaluation/prepare_road_evaluation_network.py --dataset-config
 
 输出 network.shp、dbf、shx、prj 和 manifest.json。STMatch 使用此图无需 UBODT。FMM 需要把 --skip-ubodt 替换为 --ubodt-format csv --ubodt-delta-m 1000 --ubodt-bin public_assets/matcher/ubodt_gen.exe --fmm-runtime-dir $runtime，输出另含 ubodt.txt。相对二进制参数建议使用绝对路径；$runtime 取 README 的兼容依赖目录。
 
-公共路线评估支撑也可独立构建：
-
-```powershell
-python commands/prepare_public_route_support.py --dataset-config porto --network "C:\runs\porto\network\network.shp" --out "C:\runs\porto\route_support.pkl.gz"
-```
-
-输出只有公共图字段，没有真实路线 rows：edge_nodes、outdegree、labels24、labels96、labels384。--dataset-config 选择 bbox 和道路类别；--osm-cache 可覆盖同格式公共 OSM；--network 必须是刚构建的同城图；--out 输出 gzip pickle，旁边 manifest 绑定图和输出哈希。SF 将 porto 换为 sf。北京已有冻结支撑用于已有结果复现，不需要重建。
+公共路线支撑需要使用随目录提供的同城公共缓存。北京已有冻结支撑用于已有结果复现；Porto 和 SF 的完整 DFR 批次目前尚未冻结。
 
 ## 3. 生成 MTR-DFR 数据
 
@@ -57,7 +51,7 @@ python commands/reproduce.py generate-main -- --real-matched "C:\runs\porto\real
 python commands/reproduce.py evaluate -- --real "C:\runs\porto\real.pkl" --synthetic "C:\runs\porto\synthetic\trajectories.pkl" --dataset-config porto --public-slot-count 20000 --out-dir "C:\runs\porto\metrics"
 ```
 
-输出 metrics.json、metrics.csv、manifest.json。GSRT 可加 --witness C:\runs\porto\synthetic\road_witnesses.pkl；DFR 坐标文件取上一步的转换输出，并按 README 传 --road-routes、--edge-cache。道路选择指标另外由 run-mr 对同城路线对象评分，--real-routes 指定真实匹配结果，--route 方法::路由=路径 指定每份合成路线，--network 和 --edge-cache 指定同城公共图与支撑。输出 results.csv 和输入绑定 manifest。作图时使用 README 的 plot --data-root 指向这次的完整实验结果目录，--out-dir 指定新图片目录；不是把单份 metrics.csv 自动当成所有论文图的输入。
+输出 metrics.json、metrics.csv、manifest.json。DFR 坐标文件取上一步的转换输出，并按 README 传 --road-routes、--edge-cache。道路选择指标另外由 run-mr 对同城路线对象评分，--real-routes 指定真实匹配结果，--route 方法::路由=路径 指定每份合成路线，--network 和 --edge-cache 指定同城公共图与支撑。输出 results.csv 和输入绑定 manifest。作图时使用 README 的 plot --data-root 指向这次的完整实验结果目录，--out-dir 指定新图片目录；不是把单份 metrics.csv 自动当成所有论文图的输入。
 
 ## 5. 重跑统计基线
 

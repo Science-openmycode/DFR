@@ -25,7 +25,7 @@ def load(path: Path) -> list[np.ndarray]:
     with path.open("rb") as handle:
         value = pickle.load(handle)
     if isinstance(value, dict):
-        for key in ("trajectories", "synthetic", "routes", "data", "dp_gsrt_portal_qrsp"):
+        for key in ("trajectories", "synthetic", "routes", "data"):
             if key in value:
                 value = value[key]
                 break

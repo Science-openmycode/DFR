@@ -8,16 +8,10 @@
       "sha256": "6a53e7287a4a9ecef5e58a8991819887768f190be95ff2cbbad029f0cc4f511b"
     },
     {
-      "path": "README.md",
-      "size": 1985,
-      "sha256": "e6d3574cc24698a9cef7dd0d24a97c44d2a3068971babf0b7a3e0d4da4f3ed04",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "README_CN.md",
-      "size": 33936,
-      "sha256": "1b47f00e9bbea173f967e553ddcf58a2ee7b56ce2f710fe6d7cf42c27eb296b6",
-      "role": "source_or_documentation"
+      "path": ".gitignore",
+      "role": "source_or_documentation",
+      "size": 90,
+      "sha256": "c8f5e434f2c09964602c69a3dcbafc54917e85b78e6ce57b1234b944e3500869"
     },
     {
       "path": "commands/audit_release_batches.py",
@@ -44,12 +38,6 @@
       "sha256": "8c9e7f699cce5125597954bd4e1e2120d25484986e1baf34a849182b78475ae0"
     },
     {
-      "path": "commands/prepare_public_route_support.py",
-      "role": "source_or_documentation",
-      "size": 2846,
-      "sha256": "c8100f122ea59111962f9ffc932b4d761e223540ecc875578c661d872a917071"
-    },
-    {
       "path": "commands/prepare_sf_trips.py",
       "role": "source_or_documentation",
       "size": 8357,
@@ -57,375 +45,381 @@
     },
     {
       "path": "commands/reproduce.py",
-      "size": 11680,
-      "sha256": "5c8e248ac287dd60aad693014063197259e9a347dc87d5efda57c52c0a8ecebd",
-      "role": "source_or_documentation"
+      "role": "source_or_documentation",
+      "size": 11436,
+      "sha256": "55999e94f4ad96d12d259f80c6e6106692e3ea08fbd9dbf1a192323477e35a5d"
     },
     {
       "path": "config/package.json",
-      "size": 436,
-      "sha256": "8231de19d14deecd5ecaa0ef6ce09ee4a692fd08b417e2ed54834ab7dde3a86e",
-      "role": "source_or_documentation"
+      "role": "source_or_documentation",
+      "size": 393,
+      "sha256": "53a0100476894a8a5e271c11e87c80696ee5a67e56af6aea0f5eb336152999c4"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260719/endpoint_m_only.pkl.gz",
+      "role": "synthetic_data",
       "size": 5130522,
-      "sha256": "74a3f0109f99036293ff1da9ea2feed9a927c99958950e5f237a726b76f09a79",
-      "role": "synthetic_data"
+      "sha256": "74a3f0109f99036293ff1da9ea2feed9a927c99958950e5f237a726b76f09a79"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260719/family_m_measured_but_unmatched_r.pkl.gz",
+      "role": "synthetic_data",
       "size": 5130540,
-      "sha256": "8df402af26a0e418f39817d5402f5dad448df2b46796ba985241846656ad8fea",
-      "role": "synthetic_data"
+      "sha256": "8df402af26a0e418f39817d5402f5dad448df2b46796ba985241846656ad8fea"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260719/full_matched_mtr-dfr.pkl.gz",
+      "role": "synthetic_data",
       "size": 3710826,
-      "sha256": "dc50ba33e4c932211f4c64060514ea2f8e24003c4538ff86a198741d10052960",
-      "role": "synthetic_data"
+      "sha256": "dc50ba33e4c932211f4c64060514ea2f8e24003c4538ff86a198741d10052960"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260719/no_endpoint_m.pkl.gz",
+      "role": "synthetic_data",
       "size": 8526674,
-      "sha256": "dbd9e42680d4fdd91932e29a32a1c3fec083cb250a559bee65d730c5bb88408c",
-      "role": "synthetic_data"
+      "sha256": "dbd9e42680d4fdd91932e29a32a1c3fec083cb250a559bee65d730c5bb88408c"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260720/endpoint_m_only.pkl.gz",
+      "role": "synthetic_data",
       "size": 5207341,
-      "sha256": "f18ca32ca6a3ec7efe7ebc0feba5295a13d1217b0923c8140c2fa28d291b79bd",
-      "role": "synthetic_data"
+      "sha256": "f18ca32ca6a3ec7efe7ebc0feba5295a13d1217b0923c8140c2fa28d291b79bd"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260720/family_m_measured_but_unmatched_r.pkl.gz",
+      "role": "synthetic_data",
       "size": 5207359,
-      "sha256": "bdb723fd83528afde0f0d72d3c6d251745896589eddf7f28e5500b0ce70b280e",
-      "role": "synthetic_data"
+      "sha256": "bdb723fd83528afde0f0d72d3c6d251745896589eddf7f28e5500b0ce70b280e"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260720/full_matched_mtr-dfr.pkl.gz",
+      "role": "synthetic_data",
       "size": 3626936,
-      "sha256": "bee5331a113f9db242cb66fca4a7df58c30b624736ff8cf63412ab52a39dd5bb",
-      "role": "synthetic_data"
+      "sha256": "bee5331a113f9db242cb66fca4a7df58c30b624736ff8cf63412ab52a39dd5bb"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260720/no_endpoint_m.pkl.gz",
+      "role": "synthetic_data",
       "size": 8135825,
-      "sha256": "b803d0a2594444e5989d5cb027c6ef750f93d29a21038ded80f060d8681935ab",
-      "role": "synthetic_data"
+      "sha256": "b803d0a2594444e5989d5cb027c6ef750f93d29a21038ded80f060d8681935ab"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260721/endpoint_m_only.pkl.gz",
+      "role": "synthetic_data",
       "size": 5138062,
-      "sha256": "8d9590c6b7aab5f75f71a69b4d6d03d8613c73894e4ca229dd79a3a2dd79d9fc",
-      "role": "synthetic_data"
+      "sha256": "8d9590c6b7aab5f75f71a69b4d6d03d8613c73894e4ca229dd79a3a2dd79d9fc"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260721/family_m_measured_but_unmatched_r.pkl.gz",
+      "role": "synthetic_data",
       "size": 5138080,
-      "sha256": "ce6a40ab70148809b2a7ba27321563d7ba932dd3f8408f0d9f517568cf7a5493",
-      "role": "synthetic_data"
+      "sha256": "ce6a40ab70148809b2a7ba27321563d7ba932dd3f8408f0d9f517568cf7a5493"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260721/full_matched_mtr-dfr.pkl.gz",
+      "role": "synthetic_data",
       "size": 3577335,
-      "sha256": "7fba08e0ea2e00f9143bb7fc0d8c70e25c5ef8d2c7da5d8891361e1a30ed3a25",
-      "role": "synthetic_data"
+      "sha256": "7fba08e0ea2e00f9143bb7fc0d8c70e25c5ef8d2c7da5d8891361e1a30ed3a25"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260721/no_endpoint_m.pkl.gz",
+      "role": "synthetic_data",
       "size": 8142772,
-      "sha256": "b41c71c6c1b60c9701d21b6e516016c1adfa226b3606f8342b0ad2d8d9552017",
-      "role": "synthetic_data"
+      "sha256": "b41c71c6c1b60c9701d21b6e516016c1adfa226b3606f8342b0ad2d8d9552017"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260722/endpoint_m_only.pkl.gz",
+      "role": "synthetic_data",
       "size": 5105173,
-      "sha256": "ac309cd1521a4207d111310ff4e5716d96e85df6c29179a69666a77cfba4cd3c",
-      "role": "synthetic_data"
+      "sha256": "ac309cd1521a4207d111310ff4e5716d96e85df6c29179a69666a77cfba4cd3c"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260722/family_m_measured_but_unmatched_r.pkl.gz",
+      "role": "synthetic_data",
       "size": 5105191,
-      "sha256": "557926cc760f47b8f87417126cde94d91e2ee3476e0b3ee3c0a31fc4223f5fc5",
-      "role": "synthetic_data"
+      "sha256": "557926cc760f47b8f87417126cde94d91e2ee3476e0b3ee3c0a31fc4223f5fc5"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260722/full_matched_mtr-dfr.pkl.gz",
+      "role": "synthetic_data",
       "size": 3564119,
-      "sha256": "02d72bcb18781f82dc0121fe13fcc9a4de3d17a6c00528a673cb181bdcc9343e",
-      "role": "synthetic_data"
+      "sha256": "02d72bcb18781f82dc0121fe13fcc9a4de3d17a6c00528a673cb181bdcc9343e"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260722/no_endpoint_m.pkl.gz",
+      "role": "synthetic_data",
       "size": 7421091,
-      "sha256": "07185eefd763af4a7574b711896faf4238baae058e067e3da6bc30b6b8884a0f",
-      "role": "synthetic_data"
+      "sha256": "07185eefd763af4a7574b711896faf4238baae058e067e3da6bc30b6b8884a0f"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260723/endpoint_m_only.pkl.gz",
+      "role": "synthetic_data",
       "size": 5296876,
-      "sha256": "9a10e71c1e8bce08c8f6382306c8f012623a7eadbe6112062f4d8d3c5c91af05",
-      "role": "synthetic_data"
+      "sha256": "9a10e71c1e8bce08c8f6382306c8f012623a7eadbe6112062f4d8d3c5c91af05"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260723/family_m_measured_but_unmatched_r.pkl.gz",
+      "role": "synthetic_data",
       "size": 5296894,
-      "sha256": "98af9e2b45ab480febda7368d39164886abfd891b6e00fba7f8c275b081988d4",
-      "role": "synthetic_data"
+      "sha256": "98af9e2b45ab480febda7368d39164886abfd891b6e00fba7f8c275b081988d4"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260723/full_matched_mtr-dfr.pkl.gz",
+      "role": "synthetic_data",
       "size": 3701985,
-      "sha256": "97603e49514d349ad79ac4587abd65a186d47802dcbf6f81016239f91baabeab",
-      "role": "synthetic_data"
+      "sha256": "97603e49514d349ad79ac4587abd65a186d47802dcbf6f81016239f91baabeab"
     },
     {
       "path": "datasets/synthetic/ablation/mtr_dfr/seed_20260723/no_endpoint_m.pkl.gz",
+      "role": "synthetic_data",
       "size": 8248600,
-      "sha256": "96be08d0160bec27680e9fc24ced476173480734c75206725ceaa8e7e31495e6",
-      "role": "synthetic_data"
+      "sha256": "96be08d0160bec27680e9fc24ced476173480734c75206725ceaa8e7e31495e6"
     },
     {
       "path": "datasets/synthetic/baselines/dpstd_native.pkl",
+      "role": "synthetic_data",
       "size": 76060079,
-      "sha256": "4c881f309c0d14ea6b8222c9aaa4793101d77694b81be8159ad7c22d04eab4cd",
-      "role": "synthetic_data"
+      "sha256": "4c881f309c0d14ea6b8222c9aaa4793101d77694b81be8159ad7c22d04eab4cd"
     },
     {
       "path": "datasets/synthetic/baselines/dptrajpm_native.pkl",
+      "role": "synthetic_data",
       "size": 15634473,
-      "sha256": "3b468623db12ec4f963d1b7774016842d289ee948c3c170d2641144560d863d1",
-      "role": "synthetic_data"
+      "sha256": "3b468623db12ec4f963d1b7774016842d289ee948c3c170d2641144560d863d1"
     },
     {
       "path": "datasets/synthetic/baselines/privtrace_native.pkl",
+      "role": "synthetic_data",
       "size": 1958256,
-      "sha256": "76538f38dbd78420ed0594b391f0a26bc0958d905d1bf0d98144873b684d6c73",
-      "role": "synthetic_data"
+      "sha256": "76538f38dbd78420ed0594b391f0a26bc0958d905d1bf0d98144873b684d6c73"
     },
     {
       "path": "datasets/synthetic/baselines/sprt_native.pkl",
+      "role": "synthetic_data",
       "size": 3938454,
-      "sha256": "bb95796a5d4340b49912f71c90df18a90dbab665ea976c0a9ba1e21a2900f01b",
-      "role": "synthetic_data"
+      "sha256": "bb95796a5d4340b49912f71c90df18a90dbab665ea976c0a9ba1e21a2900f01b"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260719/dp_transcript.pkl.gz",
+      "role": "synthetic_data",
       "size": 38698,
-      "sha256": "9f14b8cc84a700e4b1efc8f188c2e7e018e3aa45a4e01ce192f4cd8d7d8f8190",
-      "role": "synthetic_data"
+      "sha256": "9f14b8cc84a700e4b1efc8f188c2e7e018e3aa45a4e01ce192f4cd8d7d8f8190"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260719/manifest.json",
+      "role": "synthetic_data",
       "size": 7755,
-      "sha256": "d655d3689e656125fa4da72099eabc493a82af813f70664645a17d45c637c4a7",
-      "role": "synthetic_data"
+      "sha256": "d655d3689e656125fa4da72099eabc493a82af813f70664645a17d45c637c4a7"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260719/road_routes.pkl.gz",
+      "role": "synthetic_data",
       "size": 3710817,
-      "sha256": "56db05d127a2d80292185a3e86d95550c825d5f0640dc25600f0c76f30941fd3",
-      "role": "synthetic_data"
+      "sha256": "56db05d127a2d80292185a3e86d95550c825d5f0640dc25600f0c76f30941fd3"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260720/dp_transcript.pkl.gz",
+      "role": "synthetic_data",
       "size": 35741,
-      "sha256": "19c1f381fd305ef7d618d72dd49ac0d78c81b1fdc82742dce89dc064f9c2c697",
-      "role": "synthetic_data"
+      "sha256": "19c1f381fd305ef7d618d72dd49ac0d78c81b1fdc82742dce89dc064f9c2c697"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260720/manifest.json",
+      "role": "synthetic_data",
       "size": 8059,
-      "sha256": "df4e980332da2405755ec99793d2983378ce3b3ef43605ff711d44b6193eb94d",
-      "role": "synthetic_data"
+      "sha256": "df4e980332da2405755ec99793d2983378ce3b3ef43605ff711d44b6193eb94d"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260720/road_routes.pkl.gz",
+      "role": "synthetic_data",
       "size": 3626927,
-      "sha256": "11fd34e992b19ea55404431414457a04f030854e7dba6db8bc7596c4c712169e",
-      "role": "synthetic_data"
+      "sha256": "11fd34e992b19ea55404431414457a04f030854e7dba6db8bc7596c4c712169e"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260721/dp_transcript.pkl.gz",
+      "role": "synthetic_data",
       "size": 38820,
-      "sha256": "fd22251ab0bec7e22ef876b3f34425eaba601de06ace050b21d1bcd068f23a1a",
-      "role": "synthetic_data"
+      "sha256": "fd22251ab0bec7e22ef876b3f34425eaba601de06ace050b21d1bcd068f23a1a"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260721/manifest.json",
+      "role": "synthetic_data",
       "size": 8284,
-      "sha256": "7b832c2d5bad3de15ce1e104d8b0dfd439bbb251327f5402ed83cdfd592a83c3",
-      "role": "synthetic_data"
+      "sha256": "7b832c2d5bad3de15ce1e104d8b0dfd439bbb251327f5402ed83cdfd592a83c3"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260721/road_routes.pkl.gz",
+      "role": "synthetic_data",
       "size": 3577326,
-      "sha256": "1af21d88183f290f150879a6a4953c46d1dd0554d95582d4a39401378d4a006a",
-      "role": "synthetic_data"
+      "sha256": "1af21d88183f290f150879a6a4953c46d1dd0554d95582d4a39401378d4a006a"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260722/dp_transcript.pkl.gz",
+      "role": "synthetic_data",
       "size": 41310,
-      "sha256": "9f5e119bc62e7a58f57b65f58398af941ad9774d4c146a5c5bf4ddb419ea091b",
-      "role": "synthetic_data"
+      "sha256": "9f5e119bc62e7a58f57b65f58398af941ad9774d4c146a5c5bf4ddb419ea091b"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260722/manifest.json",
+      "role": "synthetic_data",
       "size": 8552,
-      "sha256": "5fe39e3207ff8bac5f70a09ae9eef81eb77752e2c4dc5de7e164c8d250ece541",
-      "role": "synthetic_data"
+      "sha256": "5fe39e3207ff8bac5f70a09ae9eef81eb77752e2c4dc5de7e164c8d250ece541"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260722/road_routes.pkl.gz",
+      "role": "synthetic_data",
       "size": 3564110,
-      "sha256": "3616c9e1a66016c83858af0f5ad50fda0ab64542f444170a8fee1a91123ff60a",
-      "role": "synthetic_data"
+      "sha256": "3616c9e1a66016c83858af0f5ad50fda0ab64542f444170a8fee1a91123ff60a"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260723/dp_transcript.pkl.gz",
+      "role": "synthetic_data",
       "size": 38997,
-      "sha256": "0d8bb50832ea3cc6403275ad7b15aaba0def48d336635249447a7c4ebd3a248b",
-      "role": "synthetic_data"
+      "sha256": "0d8bb50832ea3cc6403275ad7b15aaba0def48d336635249447a7c4ebd3a248b"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260723/manifest.json",
+      "role": "synthetic_data",
       "size": 8238,
-      "sha256": "e7b113f246caa7c6b0d8e9e87de051475db9007d8b8b6aa9aea7de656911541b",
-      "role": "synthetic_data"
+      "sha256": "e7b113f246caa7c6b0d8e9e87de051475db9007d8b8b6aa9aea7de656911541b"
     },
     {
       "path": "datasets/synthetic/mtr_dfr/seed_20260723/road_routes.pkl.gz",
+      "role": "synthetic_data",
       "size": 3701976,
-      "sha256": "e30d851d76e4ccb50c76759b9b1cce9ed8544fc4b26ceec43ec8139916a89e66",
-      "role": "synthetic_data"
+      "sha256": "e30d851d76e4ccb50c76759b9b1cce9ed8544fc4b26ceec43ec8139916a89e66"
     },
     {
       "path": "datasets/synthetic/route_experiments/DPStd/FMM.pkl.gz",
+      "role": "synthetic_data",
       "size": 60783,
-      "sha256": "85aa6f227200b5ba591b81c8b57ce7589fdd3b7fd21bfd9a9f14d2c5b949054a",
-      "role": "synthetic_data"
+      "sha256": "85aa6f227200b5ba591b81c8b57ce7589fdd3b7fd21bfd9a9f14d2c5b949054a"
     },
     {
       "path": "datasets/synthetic/route_experiments/DPStd/STMatch.pkl.gz",
+      "role": "synthetic_data",
       "size": 491157,
-      "sha256": "fde11b6ae09f8c603ba227aa1df7b7b9853b4e7b35e0eb4ea9efa173bc7e56b5",
-      "role": "synthetic_data"
+      "sha256": "fde11b6ae09f8c603ba227aa1df7b7b9853b4e7b35e0eb4ea9efa173bc7e56b5"
     },
     {
       "path": "datasets/synthetic/route_experiments/DPTraj-PM/FMM.pkl.gz",
+      "role": "synthetic_data",
       "size": 40356,
-      "sha256": "4bdb4d26440eb923e897d77b09cdfbb2b8984b9bbd16fafd91fb7b3c926d0b2a",
-      "role": "synthetic_data"
+      "sha256": "4bdb4d26440eb923e897d77b09cdfbb2b8984b9bbd16fafd91fb7b3c926d0b2a"
     },
     {
       "path": "datasets/synthetic/route_experiments/DPTraj-PM/STMatch.pkl.gz",
+      "role": "synthetic_data",
       "size": 1648029,
-      "sha256": "181294b5719d3c4f55baa35541a746f861a2bacda9d8b4e0112fc238d525da9a",
-      "role": "synthetic_data"
+      "sha256": "181294b5719d3c4f55baa35541a746f861a2bacda9d8b4e0112fc238d525da9a"
     },
     {
       "path": "datasets/synthetic/route_experiments/MTR-DFR/Original.pkl.gz",
+      "role": "synthetic_data",
       "size": 3710817,
-      "sha256": "56db05d127a2d80292185a3e86d95550c825d5f0640dc25600f0c76f30941fd3",
-      "role": "synthetic_data"
+      "sha256": "56db05d127a2d80292185a3e86d95550c825d5f0640dc25600f0c76f30941fd3"
     },
     {
       "path": "datasets/synthetic/route_experiments/PrivTrace/FMM.pkl.gz",
+      "role": "synthetic_data",
       "size": 85137,
-      "sha256": "b497b49f48231657666f930fac02b8eefb7407c39f0f3a06cea72a1b40f3927b",
-      "role": "synthetic_data"
+      "sha256": "b497b49f48231657666f930fac02b8eefb7407c39f0f3a06cea72a1b40f3927b"
     },
     {
       "path": "datasets/synthetic/route_experiments/PrivTrace/STMatch.pkl.gz",
+      "role": "synthetic_data",
       "size": 1868211,
-      "sha256": "dbbbfd55a41694225140dd035b4668451495c28e8f2a2a608df5418c87c6e835",
-      "role": "synthetic_data"
+      "sha256": "dbbbfd55a41694225140dd035b4668451495c28e8f2a2a608df5418c87c6e835"
     },
     {
       "path": "datasets/synthetic/route_experiments/SPRT/FMM.pkl.gz",
+      "role": "synthetic_data",
       "size": 63930,
-      "sha256": "d5544d89122ab8cd4d5c0c612b9b68ae3b6f38f1b134a4cdaea41c93e11be35c",
-      "role": "synthetic_data"
+      "sha256": "d5544d89122ab8cd4d5c0c612b9b68ae3b6f38f1b134a4cdaea41c93e11be35c"
     },
     {
       "path": "datasets/synthetic/route_experiments/SPRT/STMatch.pkl.gz",
+      "role": "synthetic_data",
       "size": 14879782,
-      "sha256": "ca60ced0960a2f224aa23a566e325d0a51ed531e001122efc7045bf077713a82",
-      "role": "synthetic_data"
+      "sha256": "ca60ced0960a2f224aa23a566e325d0a51ed531e001122efc7045bf077713a82"
     },
     {
       "path": "datasets/synthetic/train_only_baselines/dpstd_train.pkl",
-      "role": "source_or_documentation",
+      "role": "synthetic_data",
       "size": 60909376,
       "sha256": "2caf95766cd9be83aec00f57d448002551687aac674f3a2c8f05bdf331fe2441"
     },
     {
       "path": "datasets/synthetic/train_only_baselines/dpstd_train_protocol.json",
-      "role": "source_or_documentation",
+      "role": "synthetic_data",
       "size": 970,
       "sha256": "89209cd1d23db4ff579badc6bc084e3cb8f35be7e83a9130cb79086e1a43bd4e"
     },
     {
       "path": "datasets/synthetic/train_only_baselines/dptrajpm_train.pkl",
+      "role": "synthetic_data",
       "size": 11872309,
-      "sha256": "9dca8a40453270cbf21205589794f21530aaec27e4d8837ca88f3ba1c6035c68",
-      "role": "synthetic_data"
+      "sha256": "9dca8a40453270cbf21205589794f21530aaec27e4d8837ca88f3ba1c6035c68"
     },
     {
       "path": "datasets/synthetic/train_only_baselines/privtrace_train.pkl",
+      "role": "synthetic_data",
       "size": 10228292,
-      "sha256": "9abac0aea13667a0b4fa478bae9c276d05133ab5b2708600363386a92d33fef6",
-      "role": "synthetic_data"
+      "sha256": "9abac0aea13667a0b4fa478bae9c276d05133ab5b2708600363386a92d33fef6"
     },
     {
       "path": "datasets/synthetic/train_only_baselines/sprt_train.pkl",
+      "role": "synthetic_data",
       "size": 20616528,
-      "sha256": "ac55dd6d93901e511af70e3f7937d9b7f43afd7aaa9974f7804003c7bc4012c4",
-      "role": "synthetic_data"
+      "sha256": "ac55dd6d93901e511af70e3f7937d9b7f43afd7aaa9974f7804003c7bc4012c4"
     },
     {
       "path": "docs/COMMAND_PARAMETERS_CN.md",
-      "size": 16585,
-      "sha256": "14b76bd99d0c9cdaafe8d9bece6b46574d88a0896ab9b2a487061a84253d4eb8",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "docs/DFR_FACT_TABLE_CN.md",
-      "size": 2845,
-      "sha256": "596290fa82e4dbaef12eeba68743288c279a65aaae2463e212b77f825ea8096c",
-      "role": "source_or_documentation"
+      "role": "source_or_documentation",
+      "size": 16325,
+      "sha256": "fa80688ba132db9d58087f07c0cf0a395fd3141ce427098b6f29d00a40f38613"
     },
     {
       "path": "docs/CROSS_CITY_COMMANDS_CN.md",
       "role": "source_or_documentation",
-      "size": 6807,
-      "sha256": "7bed2ea296cb6e95c1de61a11e86abfe26a75c461ec17e99896e69a025ea0b03"
+      "size": 6276,
+      "sha256": "a25f03af876b2f0e46df03119051f642c3be167e879865bea87cb3962ce517b3"
+    },
+    {
+      "path": "docs/DFR_FACT_TABLE_CN.md",
+      "role": "source_or_documentation",
+      "size": 2890,
+      "sha256": "a324cdcdff745717a7ce43f9b347d75f79fa00c5c88114483177bf2708c40494"
     },
     {
       "path": "docs/FROZEN_EXPERIMENT_REPORT_CN.md",
+      "role": "source_or_documentation",
       "size": 7768,
-      "sha256": "933cb07ddb73060161ed457cd932409c0f4653b14ef88b70660c766065697956",
-      "role": "source_or_documentation"
+      "sha256": "933cb07ddb73060161ed457cd932409c0f4653b14ef88b70660c766065697956"
     },
     {
       "path": "docs/RELEASE_BATCHES_AND_PROTOCOLS_CN.md",
       "role": "source_or_documentation",
-      "size": 5360,
-      "sha256": "a57071ac8b3adc72cfd1edadc5bf81d6f4fa4023e269c46b5bb43407d21b514f"
+      "size": 5321,
+      "sha256": "6e54bc19ef90f638ca6281aae5153ddfa8ee5b0db8cc9332d5fc514f7ec41cb6"
+    },
+    {
+      "path": "docs/REPRODUCTION_FACTS_CN.md",
+      "role": "source_or_documentation",
+      "size": 2807,
+      "sha256": "3ccbd0f3dc92209d4dd7d3b831c7cda05bb29ef90a35cb1b65d2dd6ee2f667d5"
     },
     {
       "path": "docs/TRAIN_ONLY_GENERATION_CN.md",
       "role": "source_or_documentation",
-      "size": 6693,
-      "sha256": "c06ad9b9656e793ab80689a9ebb49aca7c25602e0e26fa1b99d1295c6bc1c916"
+      "size": 2127,
+      "sha256": "4f560dd7ff61eba4e74c78a6511676238757ca95bd912dc3b4143439e9514b89"
     },
     {
-      "path": "evaluation/analysis_scripts/downstream_full_protocol.py",
-      "size": 21597,
-      "sha256": "95fa5b37634946e47311453f64fb3d1ab3c62953f94e7b144741120fd7c661a9",
-      "role": "source_or_documentation"
+      "path": "docs/UNCOMPLETED_EXPERIMENTS_CN.md",
+      "role": "source_or_documentation",
+      "size": 1733,
+      "sha256": "931169995a96ef9e3b88ed7cad4ec037decdfc2b516ba8fd62fcfba4e66a72da"
     },
     {
       "path": "evaluation/audit_tstr_split.py",
@@ -441,51 +435,21 @@
     },
     {
       "path": "evaluation/configs/datasets.json",
-      "size": 2490,
-      "sha256": "761583dc6a2317ddc63194911ab5339fff57141c5152994d7733829daee6d77c",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/configs/mtr_epsilon_sweep_beijing.json",
-      "size": 691,
-      "sha256": "8261f8b48b7dde8a79a37bb9a6c148661884697d3e4a8bc418bb7fdd2cbcb10f",
-      "role": "source_or_documentation"
+      "role": "source_or_documentation",
+      "size": 2462,
+      "sha256": "ce9c5adba19706089ddc8216529dfce224ad894e4153da3c8ea25ac1490bc342"
     },
     {
       "path": "evaluation/configs/mtr_sf_trip20k_postprocess_tuning.json",
+      "role": "source_or_documentation",
       "size": 1315,
-      "sha256": "d658c1d308befa29d10d39c97ce1d8d0aa10b0b4221100284c25cc4fac52e96a",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/configs/ordered_interface_attack_active_hierarchy.json",
-      "size": 446,
-      "sha256": "da1f82944b834257abe38e44d4f86d1a79ca1e06646297240428577edca8f596",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/configs/ordered_interface_attack_beijing.json",
-      "size": 1507,
-      "sha256": "fa23fe0da6960fba8e71c49be273073bf317d2fb38672b85e7da1e4d1cd216f2",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/configs/ordered_interface_attack_beijing_puts.json",
-      "size": 1894,
-      "sha256": "689b02a495197f78e2e3a208eddc044e9c1ef8ff5481e443de7aebe606285497",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/configs/road_route_inputs.json",
-      "size": 2889,
-      "sha256": "1a059d276372667da005df763c37a90281e22a05a69c8b54c0060f919a165cc8",
-      "role": "source_or_documentation"
+      "sha256": "d658c1d308befa29d10d39c97ce1d8d0aa10b0b4221100284c25cc4fac52e96a"
     },
     {
       "path": "evaluation/data/osm/osm_cache_beijing.pkl",
+      "role": "source_or_documentation",
       "size": 10401969,
-      "sha256": "7159e12ab8712338b4ff5a2859c68b158e1374504f999dc44080c2fe2d53a5c5",
-      "role": "source_or_documentation"
+      "sha256": "7159e12ab8712338b4ff5a2859c68b158e1374504f999dc44080c2fe2d53a5c5"
     },
     {
       "path": "evaluation/data/osm/osm_cache_porto.manifest.json",
@@ -513,291 +477,195 @@
     },
     {
       "path": "evaluation/evaluation/__init__.py",
+      "role": "source_or_documentation",
       "size": 39,
-      "sha256": "206c5570d341f28901fe091ca2686f0e6652b2c7cba60d07a3d05aa80c73e891",
-      "role": "source_or_documentation"
+      "sha256": "206c5570d341f28901fe091ca2686f0e6652b2c7cba60d07a3d05aa80c73e891"
     },
     {
       "path": "evaluation/evaluation/aggregate_privacy_budget_road_choice.py",
+      "role": "source_or_documentation",
       "size": 6070,
-      "sha256": "accc8006d68e8817bbfe31023581167d86b659e5d651fd8d8170857641930682",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/aggregate_road_route_chunks.py",
-      "size": 10993,
-      "sha256": "45e66f6d1b9fe25dc6ef32d8b84a0b820f9c4b784c6448b4b1b492df1f0d5746",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/assemble_portal_unit_ablation.py",
-      "size": 3773,
-      "sha256": "811204a91b2abac3958f6557d61259ea610344ac49bcfdb362a35a9c2a18426b",
-      "role": "source_or_documentation"
+      "sha256": "accc8006d68e8817bbfe31023581167d86b659e5d651fd8d8170857641930682"
     },
     {
       "path": "evaluation/evaluation/cache_common_road_matches.py",
+      "role": "source_or_documentation",
       "size": 12277,
-      "sha256": "0ebd4179bafd683a7d2c89c6d67d624047e86be1b81dd05c189d5a5d94a4f38d",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/compose_adapter_provenance_penalty.py",
-      "size": 3001,
-      "sha256": "b1a3b6f919bd54088e3327d13c10a1658ccfc95510c149e38286cdbd17f72e17",
-      "role": "source_or_documentation"
+      "sha256": "0ebd4179bafd683a7d2c89c6d67d624047e86be1b81dd05c189d5a5d94a4f38d"
     },
     {
       "path": "evaluation/evaluation/conditional_completion.py",
+      "role": "source_or_documentation",
       "size": 13787,
-      "sha256": "793bbf1c077f4b520c79b46379d03a3a055819d28d98573e166bb9f2bc396126",
-      "role": "source_or_documentation"
+      "sha256": "793bbf1c077f4b520c79b46379d03a3a055819d28d98573e166bb9f2bc396126"
     },
     {
       "path": "evaluation/evaluation/evaluate_all.py",
+      "role": "source_or_documentation",
       "size": 17502,
-      "sha256": "eefc6f6be0430713e64522447324280698b80db1ffd6eec9b5e694afe6753b71",
-      "role": "source_or_documentation"
+      "sha256": "eefc6f6be0430713e64522447324280698b80db1ffd6eec9b5e694afe6753b71"
     },
     {
       "path": "evaluation/evaluation/evaluate_external_route_decision.py",
+      "role": "source_or_documentation",
       "size": 3013,
-      "sha256": "22139e031187101d64ddeb83c4ff50ea4f11ede6c33c99c18134e7818763b57d",
-      "role": "source_or_documentation"
+      "sha256": "22139e031187101d64ddeb83c4ff50ea4f11ede6c33c99c18134e7818763b57d"
     },
     {
       "path": "evaluation/evaluation/evaluate_interface_diagnostic.py",
+      "role": "source_or_documentation",
       "size": 11702,
-      "sha256": "de7be284e5fd3d3fe4f3770dcdda42f677fbb7fc38056c52bb2aee53748704d3",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/evaluate_native_road_choice.py",
-      "size": 9489,
-      "sha256": "b463bcbba6b448c420947dd900dd0eb03a87b271374a3706a2c3076c1358003d",
-      "role": "source_or_documentation"
+      "sha256": "de7be284e5fd3d3fe4f3770dcdda42f677fbb7fc38056c52bb2aee53748704d3"
     },
     {
       "path": "evaluation/evaluation/evaluate_privacy_budget_route_decision.py",
+      "role": "source_or_documentation",
       "size": 3639,
-      "sha256": "9a879622d302f04e9c65d950d7488d0ff5344c7e641c9c9b3e29f852c1c8b450",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/evaluate_road_choice.py",
-      "size": 18210,
-      "sha256": "87c012295058df0dbf8c5abe0b492b8062de51a2a8f0ba9c2562fc8b47c33d0d",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/evaluate_road_metric_extension.py",
-      "size": 19237,
-      "sha256": "0d3567a5fa9b7b5ec9f5a15525f86d48eec7edf7d833a029a0acb2b2f31f0efa",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/evaluate_road_route.py",
-      "size": 17466,
-      "sha256": "93dd5ec7b3c841f7c8677ebce1e3248a464d4008c1595922a9de5fde788cc3e9",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/evaluate_route_decision.py",
-      "size": 1402,
-      "sha256": "3963457127e5ff70afc432d95c827f52397b0f59fd66dbab0d1c103c329c2fb6",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/evaluate_witness_coordinates.py",
-      "size": 3543,
-      "sha256": "c5d4b1a6fd96e90f39256fde4f49c49833b4ec297d356ced23cd400ab21e2a31",
-      "role": "source_or_documentation"
+      "sha256": "9a879622d302f04e9c65d950d7488d0ff5344c7e641c9c9b3e29f852c1c8b450"
     },
     {
       "path": "evaluation/evaluation/explore_fmm_road_alignment.py",
+      "role": "source_or_documentation",
       "size": 10872,
-      "sha256": "8d5001e99fbccf889443db72932e8a536ccb7b85a1489c30c505eac4437ed890",
-      "role": "source_or_documentation"
+      "sha256": "8d5001e99fbccf889443db72932e8a536ccb7b85a1489c30c505eac4437ed890"
     },
     {
       "path": "evaluation/evaluation/explore_native_road_evidence.py",
+      "role": "source_or_documentation",
       "size": 6561,
-      "sha256": "6552dcd9d944821e468ef88dba0dca1d6796dc13c0197b422748daea89ecfee1",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/explore_snap_connect_adapter.py",
-      "size": 13992,
-      "sha256": "db61e492ab3db09bba3dbc16275494a5c3ecfb8ea1d27ec816dd07aeeb7857dc",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/explore_witness_alignment.py",
-      "size": 8416,
-      "sha256": "571feed65d173fd6bcf65ec0741c54c8f6f1b7fe95b8c9a09729650a2df981b5",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/metric_suites/README.md",
-      "size": 1515,
-      "sha256": "6449a7e9125d1f571a831f29ac7f381b93785e9152e705a9334f3ef5b1b21f53",
-      "role": "source_or_documentation"
+      "sha256": "6552dcd9d944821e468ef88dba0dca1d6796dc13c0197b422748daea89ecfee1"
     },
     {
       "path": "evaluation/evaluation/metric_suites/__init__.py",
+      "role": "source_or_documentation",
       "size": 83,
-      "sha256": "a67aa945b80c699374fa6e9b894e5738041cc0686b95e648b473a4d660700e24",
-      "role": "source_or_documentation"
+      "sha256": "a67aa945b80c699374fa6e9b894e5738041cc0686b95e648b473a4d660700e24"
+    },
+    {
+      "path": "evaluation/evaluation/metric_suites/README.md",
+      "role": "source_or_documentation",
+      "size": 1515,
+      "sha256": "6449a7e9125d1f571a831f29ac7f381b93785e9152e705a9334f3ef5b1b21f53"
     },
     {
       "path": "evaluation/evaluation/metric_suites/road_choice.py",
+      "role": "source_or_documentation",
       "size": 12781,
-      "sha256": "1f06e72ea1671d17e2bf9eef4caf5c2ba18967f532cff84767b376b8ff094d9e",
-      "role": "source_or_documentation"
+      "sha256": "1f06e72ea1671d17e2bf9eef4caf5c2ba18967f532cff84767b376b8ff094d9e"
     },
     {
       "path": "evaluation/evaluation/metric_suites/road_population.py",
+      "role": "source_or_documentation",
       "size": 9044,
-      "sha256": "5db76ac184c1ce26851f8072809043c3732a5c28b831f8c759ef9e1afb7036ae",
-      "role": "source_or_documentation"
+      "sha256": "5db76ac184c1ce26851f8072809043c3732a5c28b831f8c759ef9e1afb7036ae"
     },
     {
       "path": "evaluation/evaluation/metric_suites/road_route.py",
+      "role": "source_or_documentation",
       "size": 23471,
-      "sha256": "93908a6ccd03dfc67281aea4c21d11e8417a233a8bc627f1aef0c79264be7c8c",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/plot_native_road_choice_multicity.py",
-      "size": 4436,
-      "sha256": "dd9fc41a1ef7154a167eecca65d31a587c4355e1df866bbccfecc9e28a2432cc",
-      "role": "source_or_documentation"
+      "sha256": "93908a6ccd03dfc67281aea4c21d11e8417a233a8bc627f1aef0c79264be7c8c"
     },
     {
       "path": "evaluation/evaluation/prepare_road_evaluation_network.py",
+      "role": "source_or_documentation",
       "size": 9742,
-      "sha256": "aab4122c58b904f5febfbb978077272fd14fabe79ca35aa637c9481d176a72fa",
-      "role": "source_or_documentation"
+      "sha256": "aab4122c58b904f5febfbb978077272fd14fabe79ca35aa637c9481d176a72fa"
     },
     {
       "path": "evaluation/evaluation/report_real_mmsr.py",
+      "role": "source_or_documentation",
       "size": 1526,
-      "sha256": "34fe169a2084c03d95f73938bb6550cb10909572d748ecd8e7f291ebd74ff6ff",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/rerun_native_multicity_navigation.py",
-      "size": 6218,
-      "sha256": "5ca06342b7102c3336df94a53744a14cc23a4e439473359bab39a3ecd7d76625",
-      "role": "source_or_documentation"
+      "sha256": "34fe169a2084c03d95f73938bb6550cb10909572d748ecd8e7f291ebd74ff6ff"
     },
     {
       "path": "evaluation/evaluation/summarize_native_road_choice.py",
+      "role": "source_or_documentation",
       "size": 2034,
-      "sha256": "6001b3f7f90acec9edc6997d094e47d09aa5fc4098af6df50f2d1db6361e0213",
-      "role": "source_or_documentation"
+      "sha256": "6001b3f7f90acec9edc6997d094e47d09aa5fc4098af6df50f2d1db6361e0213"
     },
     {
       "path": "evaluation/evaluation/verify_road_route_chunk.py",
+      "role": "source_or_documentation",
       "size": 704,
-      "sha256": "81cd9ddee2e76277266975ede3f01a31ee886051a0ac724086656cd2d7a9cdd1",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/evaluation/witnesses_to_node_trajectories.py",
-      "size": 4359,
-      "sha256": "1830d4b485d4ee5b849e0ba74e2776d7fd73521fef73c55f99cc1ad85c5e087e",
-      "role": "source_or_documentation"
+      "sha256": "81cd9ddee2e76277266975ede3f01a31ee886051a0ac724086656cd2d7a9cdd1"
     },
     {
       "path": "evaluation/generation/common/__init__.py",
+      "role": "source_or_documentation",
       "size": 68,
-      "sha256": "389cf50ced9051ab941c1a780350b3bc3d85f0121212e6e1235e80873c4ca835",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/generation/common/runtime.py",
-      "size": 5090,
-      "sha256": "1f460cdd063269bf192950ec622dd2a6b6c27b0a88497a7b32285ab4cad21023",
-      "role": "source_or_documentation"
+      "sha256": "389cf50ced9051ab941c1a780350b3bc3d85f0121212e6e1235e80873c4ca835"
     },
     {
       "path": "evaluation/pipeline/evaluate_gda_mia.py",
-      "size": 7523,
-      "sha256": "d13bf3d2ee7c24a86e7fecd19bcc87931a2fed3e3f939c4419b51d7cac5dbb9f",
-      "role": "source_or_documentation"
+      "role": "source_or_documentation",
+      "size": 7500,
+      "sha256": "87675c0ff10a90a9ca973ac4621a095574aec748fdf7e817c74b0e5b75251ef9"
     },
     {
       "path": "evaluation/pipeline/evaluate_generic_mobility_tasks.py",
+      "role": "source_or_documentation",
       "size": 7084,
-      "sha256": "894db20e0a26e0caa69b92692ce6279f97d526af75ea1831201319644077da18",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/pipeline/evaluate_kdd_revised_statistics.py",
-      "size": 19810,
-      "sha256": "b9e10cd29e6d84da37c575cd87ff746209744d41d7e90cac2583a946a1d19df6",
-      "role": "source_or_documentation"
+      "sha256": "894db20e0a26e0caa69b92692ce6279f97d526af75ea1831201319644077da18"
     },
     {
       "path": "evaluation/pipeline/evaluate_population_linkage.py",
-      "size": 4726,
-      "sha256": "e75fee4ea52be3acf61615bb305d371ae851606d68e0f1d86c4e67a02ae1ff1f",
-      "role": "source_or_documentation"
+      "role": "source_or_documentation",
+      "size": 4703,
+      "sha256": "b7ea7be6ee5916087c3dd8cbb459167d4edfa9507f5fa11ead3c265039e71224"
     },
     {
       "path": "evaluation/pipeline/evaluate_road_mining_tasks.py",
+      "role": "source_or_documentation",
       "size": 10671,
-      "sha256": "ab941a9a429a873d761f3235697ac97d7389f0df4161d21c4e4c7ac5e13ac483",
-      "role": "source_or_documentation"
+      "sha256": "ab941a9a429a873d761f3235697ac97d7389f0df4161d21c4e4c7ac5e13ac483"
     },
     {
       "path": "evaluation/pipeline/prepare_kdd_revised_split.py",
+      "role": "source_or_documentation",
       "size": 3040,
-      "sha256": "b6eb5f1de1a85b37c0ca003e7a1cca6eec80e5248d7abb16c9feddbe4f04d60a",
-      "role": "source_or_documentation"
+      "sha256": "b6eb5f1de1a85b37c0ca003e7a1cca6eec80e5248d7abb16c9feddbe4f04d60a"
     },
     {
       "path": "evaluation/pipeline/prepare_privacy_attack_splits.py",
+      "role": "source_or_documentation",
       "size": 4463,
-      "sha256": "b1e1a840329e7dc641c3a82cc307a56f2bf172f7c5fb2cb794ea2d530f72235b",
-      "role": "source_or_documentation"
+      "sha256": "b1e1a840329e7dc641c3a82cc307a56f2bf172f7c5fb2cb794ea2d530f72235b"
     },
     {
       "path": "evaluation/public_utils.py",
-      "size": 15438,
-      "sha256": "c193aa6999546c4fa5e7996b5cd956c881b504c3a68e6dcb6fbd205e64a280d9",
-      "role": "source_or_documentation"
+      "role": "source_or_documentation",
+      "size": 15289,
+      "sha256": "4fe85b7635425e800193d51e2541aa9d3d5f4429872cdf0dcd84fc9d7ae85ade"
     },
     {
       "path": "evaluation/road_routes_to_coordinates.py",
+      "role": "source_or_documentation",
       "size": 3752,
-      "sha256": "6ea846859a88dcddae5d4653d021222a5eda4ea325e41a10678474aec3875ceb",
-      "role": "source_or_documentation"
+      "sha256": "6ea846859a88dcddae5d4653d021222a5eda4ea325e41a10678474aec3875ceb"
     },
     {
       "path": "evaluation/route_metric_core.py",
+      "role": "source_or_documentation",
       "size": 12077,
-      "sha256": "36dfbbfbc9b1c235c95756c6b851dd0779e79e17b8f309cf428ac575867a02d1",
-      "role": "source_or_documentation"
+      "sha256": "36dfbbfbc9b1c235c95756c6b851dd0779e79e17b8f309cf428ac575867a02d1"
     },
     {
       "path": "evaluation/run_ablation_experiment.py",
-      "size": 13380,
-      "sha256": "16e09a39000fdcdecb2e52fd8df8c053a9441c2b50b52641cfb4d73f72f68ae1",
-      "role": "source_or_documentation"
+      "role": "source_or_documentation",
+      "size": 9236,
+      "sha256": "289e4750eb52b3e8edc7abe044cc2f04860255d44b84cd8eb410349825f30279"
     },
     {
       "path": "evaluation/run_framework_experiment.py",
+      "role": "source_or_documentation",
       "size": 2545,
-      "sha256": "4181ae4e5e81f57d1dfdf4d6f275f5f256118bc0c6619b9fe393581f17b2c7ef",
-      "role": "source_or_documentation"
+      "sha256": "4181ae4e5e81f57d1dfdf4d6f275f5f256118bc0c6619b9fe393581f17b2c7ef"
     },
     {
       "path": "evaluation/run_mr_experiment.py",
+      "role": "source_or_documentation",
       "size": 5377,
-      "sha256": "111f6c45bec8d133ff03637ad681be30d8df024eb42e8394cc668e13c0dcb9c9",
-      "role": "source_or_documentation"
+      "sha256": "111f6c45bec8d133ff03637ad681be30d8df024eb42e8394cc668e13c0dcb9c9"
     },
     {
       "path": "evaluation/run_physical_experiment.py",
@@ -807,297 +675,39 @@
     },
     {
       "path": "evaluation/run_privacy_experiment.py",
+      "role": "source_or_documentation",
       "size": 3918,
-      "sha256": "0f0869b4d6a833281fc5af67ce5c4596b3e819dfd87732bff4e7be6d510760f1",
-      "role": "source_or_documentation"
+      "sha256": "0f0869b4d6a833281fc5af67ce5c4596b3e819dfd87732bff4e7be6d510760f1"
     },
     {
       "path": "evaluation/run_profile_experiment.py",
+      "role": "source_or_documentation",
       "size": 9607,
-      "sha256": "0a08361fe3a6e35403270d4789e01a4f5857bc4d66bd7a3335eb8e6a94a18fc6",
-      "role": "source_or_documentation"
+      "sha256": "0a08361fe3a6e35403270d4789e01a4f5857bc4d66bd7a3335eb8e6a94a18fc6"
     },
     {
       "path": "evaluation/run_structure_experiment.py",
+      "role": "source_or_documentation",
       "size": 3122,
-      "sha256": "26f3a3745bb38656d875a3a0db2e5d94591e3e7af0037dfe95b1e30990d5babd",
-      "role": "source_or_documentation"
+      "sha256": "26f3a3745bb38656d875a3a0db2e5d94591e3e7af0037dfe95b1e30990d5babd"
     },
     {
       "path": "evaluation/run_tstr_experiment.py",
+      "role": "source_or_documentation",
       "size": 12493,
-      "sha256": "7ca0806a94ba341f8343488facc26e900905e3812b15bf0b6e796f20744f1aad",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/experiments/cross_dataset_ara_mode_benchmark.py",
-      "size": 17178,
-      "sha256": "383c890d83c8a04f3976add8ecd9e51939ca75831c13e11b28d87e2922b7813a",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/SOURCE_MANIFEST.json",
-      "size": 5851,
-      "sha256": "0af2917574bda9a96fec38e561661930b9aadb75d58148ca26636faab216caff",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/assemble_graph_cycle_production_release.py",
-      "size": 11610,
-      "sha256": "9ad42f1fc73c5ab71ce5f63f57a2d92d63a0895012f50159cd3170792520cbbf",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/audit_two_level_semimarkov_dp.py",
-      "size": 9631,
-      "sha256": "86d10e0e36c34e7cf2e0a5016ac4b2ee6bf41cc181f688c8ea76ec4a5bae3f59",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/block_shrinkage_residual_projection.py",
-      "size": 8448,
-      "sha256": "d662d991299267d3a02d52bfddf33f6c885223377f1e9271fb0ee54c6fdb8aed",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/candidate_adaptive_maxent_experiment.py",
-      "size": 14831,
-      "sha256": "0be3ed70c8f24dd0b87d93556f3adf6a4892443b9b69f1bbf2464d30f3c18c32",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/certified_discrete_dp.py",
-      "size": 4097,
-      "sha256": "2fd4583e0e6353ca038ff3b482043a7bbd14302e192960efe5b76bf4e71dd33d",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/coarsefine_full_oracle_ceiling.py",
-      "size": 7858,
-      "sha256": "1aa652f61e75845f403585ec51544a1eae14b5bf66ba2989c74f0809ec4b86fb",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/compact_graph_flow_experiment.py",
-      "size": 8781,
-      "sha256": "ebcfe522c430366424b920114b160270da753de8fba227ec133423abd50b0346",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/compare_joint_vs_pgm_city_osm.py",
-      "size": 14009,
-      "sha256": "c137ab6ca3fc2f92f9c4b1ae689d4e741f877d0be19c2d77feb98fb57197f3e1",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/cross_dataset_ara_mode_benchmark.py",
-      "size": 17349,
-      "sha256": "399995b9a4d660267b7f400779641d2f559eb73e1aa68a920be373f49577be66",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/distance_coarse_route_release_development.py",
-      "size": 7709,
-      "sha256": "9b068d3075df2e1c194744bf77c929fb844521a2a3e693ad076aaf38942cfbe1",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/dp_fc_grc_experiment.py",
-      "size": 27435,
-      "sha256": "aa36ce7aebbab4b83debb8b1273f554a4b3f305401cdc2cef36bc53641a1d86e",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/dp_graph_flow_routing_probe.py",
-      "size": 21045,
-      "sha256": "4c4cb0c1619ef1a7a6828c0f1ad94887beec7a6acb73abaa6fb38a57f345647a",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/dp_graph_voronoi_release.py",
-      "size": 27204,
-      "sha256": "9e86dcbe6b9a2380dd0070342e880f82c98240b97180b65919f6ab35d7bec3a8",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/dp_two_level_semimarkov_release.py",
-      "size": 44964,
-      "sha256": "cf36ff88a67f40474bf1533ddf4b8f9e51974a7093a44d57c3ddd5466c9efa35",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/endpoint_coarse_route_release_development.py",
-      "size": 9331,
-      "sha256": "aae49ea2a8c3b52447e40c71fbbf1e6be689aa754bb8c041df3981dec9161823",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/fixed_slot_domain.py",
-      "size": 1183,
-      "sha256": "9debeabe1c00fe738c07e7d67125e62578c0b202ee1982fd49c96bd532afa219",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/geometric_base_requests.py",
-      "size": 12444,
-      "sha256": "81ebdf9ba549923751c47890f800b93f1a170baeb53f1ba73003c392ac17c80a",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/graph_cycle_dp_production_sanitizer.py",
-      "size": 21495,
-      "sha256": "611be545b9cffe0369a9aae79dcd396b43bb2c5c24bb8020a9a6f836707f7a77",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/graph_voronoi_doptimal_support_probe.py",
-      "size": 25617,
-      "sha256": "fa9a9fa7d6296b2f97177c7cb08411935b485e4d390b96acaf5eef1c67bc2a41",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/mass_calibrated_full_development.py",
-      "size": 15179,
-      "sha256": "0e2424e857ad193551932f43394b4a3a5e2f0c96a5c91c143be48e5ee314d1c8",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/mass_calibrated_graph_flow.py",
-      "size": 10084,
-      "sha256": "6857e0f5ef85c8d09a6424b82884c3d0610575f676455e7b56edb381f3eddbe6",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/multires_graph_flow_experiment.py",
-      "size": 12193,
-      "sha256": "7e8af5a0112b8a270d456c6f243f7f5a9b562100c6f26244132ec9395dab9f71",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/nested_quotient_graph.py",
-      "size": 6379,
-      "sha256": "f718121e703378cfafa33ae97f8395677d6905d28226864595d2d4bf8bd4ddf5",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/portal_fiber_qrsp_production.py",
-      "size": 540,
-      "sha256": "7c4ccc100e57f5b6d412da17930a05a5fd32bfbbf2f047d575234c399cfea2ca",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/portal_fiber_qrsp_production_gate.py",
-      "size": 11628,
-      "sha256": "c5aae8059e5fd5f4a87bcb78842b92b3496a7136a1fc9835aee63df101c96bb8",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/portal_fiber_route_production_sanitizer.py",
-      "size": 20086,
-      "sha256": "85791a5b1615808fb8eb636b9057153a62a46e8004d9bf8ff6ccf2911dcf1184",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/portal_fiber_route_release_development.py",
-      "size": 10370,
-      "sha256": "12ea2756bfc0b6a4cbf484e4f05fbb42dd6eb74185ec6c836ae21ab1d13c6ecd",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/prepare_graph_cycle_production_requests.py",
-      "size": 4961,
-      "sha256": "494928a4b4b5161820b47251a8866903a07ff762839aff84b9aa9853fb5e6e6e",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/quotient_rsp_bridge_development.py",
-      "size": 107019,
-      "sha256": "e51746a8557794efbce7e3e10016fe40ae17f2c42791ce49c726fc1f3a973289",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/quotient_rsp_bridge_matched.py",
-      "size": 108913,
-      "sha256": "5d96d3f4a2c9b9c6a0ade4b0c5fa1163bd16e290affabe7aeabbb6f831d0f21d",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/relative_direction_route_release_development.py",
-      "size": 9115,
-      "sha256": "2f448d2c171dbfc183322e66004c50e5bd822dc1e4c5e17867a10d10189afca3",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/resample_production_trust_sweep.py",
-      "size": 7661,
-      "sha256": "1b39b654d05bff30f466c5118b207fac764b9d989405ee859fd391466a1fedfe",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/reward_candidate_probe.py",
-      "size": 388290,
-      "sha256": "965ea3ae133680bab9cfd0d67aae93d571adbab6362e2c9b754e3adddc74ce02",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/route_choice_metric_probe.py",
-      "size": 42621,
-      "sha256": "09095f89e1fad5a2ace072354b9dca49b135dce14d70af807dc97b99012dc8b3",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/route_structure_potential_experiment.py",
-      "size": 27276,
-      "sha256": "64b4dbba7dcf27d5c0d02a2c0190850afe626f8765bc03d81f37f25ea6913393",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/transition_bridge_experiment.py",
-      "size": 9866,
-      "sha256": "1385728f3a9ca1146e5cd69a7b374d5c75e7fd8d584376f0eb0df1e57ec0e08a",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/two_level_maxent_projection.py",
-      "size": 17094,
-      "sha256": "5735226044badd793cc724cf3241fef15e0ec13931998faa9ade7a0ddb34cdc1",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/two_level_semimarkov_query.py",
-      "size": 10745,
-      "sha256": "312657705cb646b3e00a73e45afb6934a423e1d34af1f163036ee1b492058b87",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/DP_GSRT/final/visualize_city_independent_osm_synthesis.py",
-      "size": 13178,
-      "sha256": "80b1c6681cde12c045b0845951367c7cbf5167f45e536ad0cf778b78d9a5dc4c",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/mtr/shared_graph/route_structure_potential_experiment.py",
-      "size": 27029,
-      "sha256": "1d7776941319e4865d928ce51a7d5f2d0aa6c192637d49b3407c7ebff600d6b0",
-      "role": "source_or_documentation"
+      "sha256": "7ca0806a94ba341f8343488facc26e900905e3812b15bf0b6e796f20744f1aad"
     },
     {
       "path": "evaluation/src/plotting/plot_paper_summary_figures.py",
+      "role": "source_or_documentation",
       "size": 5208,
-      "sha256": "cc32e8911bb802ee0701ac5619b5d7af83b5b29958ad2ca5bc6d09ad4eb7c47e",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "evaluation/src/plotting/visualize_city_independent_osm_synthesis.py",
-      "size": 13178,
-      "sha256": "80b1c6681cde12c045b0845951367c7cbf5167f45e536ad0cf778b78d9a5dc4c",
-      "role": "source_or_documentation"
+      "sha256": "cc32e8911bb802ee0701ac5619b5d7af83b5b29958ad2ca5bc6d09ad4eb7c47e"
     },
     {
       "path": "evaluation/subset_matched_routes.py",
+      "role": "source_or_documentation",
       "size": 2857,
-      "sha256": "9f03c38fc7439d53ee7b4f7f9285cc345b529c678bdaf717df37152df58172d4",
-      "role": "source_or_documentation"
+      "sha256": "9f03c38fc7439d53ee7b4f7f9285cc345b529c678bdaf717df37152df58172d4"
     },
     {
       "path": "evaluation/synthesis_lineage.py",
@@ -1106,1090 +716,910 @@
       "sha256": "c7c2daf90cc7fe8d5d14d83b8e69405d03983eefbb46a4891a8412cffafe0e50"
     },
     {
+      "path": "experiment_results/executed_reference/ablation/manifest.json",
+      "role": "synthetic_data",
+      "size": 1020,
+      "sha256": "795c665535090ff98511d1677b551682b85e58def8221d0318c4d13b8de52708"
+    },
+    {
+      "path": "experiment_results/executed_reference/ablation/results.csv",
+      "role": "synthetic_data",
+      "size": 1662,
+      "sha256": "5952f3d99235e25ebc9203bcc1df7267d6f531bae7ce59f310e40a4ee6c9d83e"
+    },
+    {
+      "path": "experiment_results/executed_reference/framework/results.csv",
+      "role": "synthetic_data",
+      "size": 632,
+      "sha256": "686da9c1696b411b0c071631f498b6222b8a2e8cbf78a3ee259e73c56bbd8f4e"
+    },
+    {
+      "path": "experiment_results/executed_reference/mr/results.csv",
+      "role": "synthetic_data",
+      "size": 1245,
+      "sha256": "b9b3d04aabc89e7049a4a9f6bd0db5c466cccbb37618afe01c6142a6d7d1abd4"
+    },
+    {
+      "path": "experiment_results/executed_reference/train_road_routes.pkl.gz",
+      "role": "synthetic_data",
+      "size": 3421580,
+      "sha256": "b2de33baf8d846484d4750b52d1d6183b6f70426c2d686750e79b5c5b776dabf"
+    },
+    {
       "path": "experiment_results/executed_reference/tstr/manifest.json",
-      "role": "source_or_documentation",
+      "role": "synthetic_data",
       "size": 611,
       "sha256": "721478a0d42367e459de48d33941a1138425a572fe6c2fea19f1ca69e8385195"
     },
     {
       "path": "experiment_results/executed_reference/tstr/raw_generic/generic_mobility_tasks.csv",
-      "role": "source_or_documentation",
+      "role": "synthetic_data",
       "size": 1502,
       "sha256": "47144d870182204c225dca560d532e1f08d427f9a7bebd15ea6974d7fb1043d6"
     },
     {
       "path": "experiment_results/executed_reference/tstr/raw_generic/generic_mobility_tasks.json",
-      "role": "source_or_documentation",
+      "role": "synthetic_data",
       "size": 3902,
       "sha256": "5110b492694c995b5f1506767aab1756947f26cb8ad094c29dd73755f90f6f29"
     },
     {
       "path": "experiment_results/executed_reference/tstr/raw_road/road_network_mining_tasks.csv",
-      "role": "source_or_documentation",
+      "role": "synthetic_data",
       "size": 1758,
       "sha256": "894180a061c89a24463546edf3f9d69de1dd19f667534befeac9f7c224629b8a"
     },
     {
       "path": "experiment_results/executed_reference/tstr/raw_road/road_network_mining_tasks.json",
-      "role": "source_or_documentation",
+      "role": "synthetic_data",
       "size": 6132,
       "sha256": "d506c003b6052109c9041ec83b9a7708b8540d81370ccd189b023cc732e0b190"
     },
     {
       "path": "experiment_results/executed_reference/tstr/results.csv",
-      "role": "source_or_documentation",
+      "role": "synthetic_data",
       "size": 728,
       "sha256": "e3ce9b8545f9c74d11b31c9cabd8d7d29553f07bb4c4c866a47d0b7fb42aa0be"
     },
     {
       "path": "experiment_results/frozen/ablation.csv",
+      "role": "synthetic_data",
       "size": 478,
-      "sha256": "8afa2b7ba6be07ce860df08c330dbd7ea8e547d55b0e63e5dba2b6980f0b305f",
-      "role": "source_or_documentation"
+      "sha256": "8afa2b7ba6be07ce860df08c330dbd7ea8e547d55b0e63e5dba2b6980f0b305f"
     },
     {
       "path": "experiment_results/frozen/metrics.csv",
+      "role": "synthetic_data",
       "size": 2645,
-      "sha256": "a415d55120f4a358266aca75ffba21185bc955bc7cb3ee211153a1d37c73386b",
-      "role": "source_or_documentation"
+      "sha256": "a415d55120f4a358266aca75ffba21185bc955bc7cb3ee211153a1d37c73386b"
     },
     {
       "path": "experiment_results/frozen/mr_matrix.csv",
-      "size": 5836,
-      "sha256": "441c00acd4240665ab580805c8dd34d4a2c8c42607ea2129ac6d6de9d9dd0d2f",
-      "role": "source_or_documentation"
+      "role": "synthetic_data",
+      "size": 4978,
+      "sha256": "e6d970f70e4b7f621987e82ada2aeb51e57283806fa041de7a1e5a9b486b5648"
     },
     {
       "path": "experiment_results/frozen/shared_mtr_framework_lift.csv",
+      "role": "synthetic_data",
       "size": 1346,
-      "sha256": "4b46172eb217d81049eef533c3bf3029757a2235ed46bff47baa65471f04980c",
-      "role": "source_or_documentation"
+      "sha256": "4b46172eb217d81049eef533c3bf3029757a2235ed46bff47baa65471f04980c"
     },
     {
       "path": "experiment_results/frozen/shared_mtr_privacy_attacks.csv",
-      "size": 312,
-      "sha256": "49ce325bbdb82d00e928c2ebc0fe2c6435f978759f0ce65ef802aefadecb4ee4",
-      "role": "source_or_documentation"
+      "role": "synthetic_data",
+      "size": 249,
+      "sha256": "7f6bb5af4541d0cbb05a128d369298c147feec278b22bb085c8ddaa8f8866c49"
     },
     {
       "path": "experiment_results/frozen/strict_tstr.csv",
+      "role": "synthetic_data",
       "size": 564,
-      "sha256": "4199366e56128969cd1f385c91c56edb0955ee33921ecb226ffed139b9768558",
-      "role": "source_or_documentation"
+      "sha256": "4199366e56128969cd1f385c91c56edb0955ee33921ecb226ffed139b9768558"
     },
     {
       "path": "experiment_results/frozen/structure.csv",
+      "role": "synthetic_data",
       "size": 371,
-      "sha256": "76a2a3adc4a207f98f2da3e171069091c6503e2e1f6f9e2a3361948e5e71469c",
-      "role": "source_or_documentation"
+      "sha256": "76a2a3adc4a207f98f2da3e171069091c6503e2e1f6f9e2a3361948e5e71469c"
     },
     {
       "path": "experiment_results/published_figures/00_ordered_evidence_chain.pdf",
+      "role": "synthetic_data",
       "size": 29876,
-      "sha256": "d82b6ddecdb21dc6d68392b37159b271d1d41fe0c55ec6efa1a52cea62e04326",
-      "role": "source_or_documentation"
+      "sha256": "d82b6ddecdb21dc6d68392b37159b271d1d41fe0c55ec6efa1a52cea62e04326"
     },
     {
       "path": "experiment_results/published_figures/00_ordered_evidence_chain.png",
+      "role": "synthetic_data",
       "size": 200966,
-      "sha256": "e790bf7c4f809fd9f65657da6cd59373708a445864d8feeaeaa12c6dd9908eb4",
-      "role": "source_or_documentation"
+      "sha256": "e790bf7c4f809fd9f65657da6cd59373708a445864d8feeaeaa12c6dd9908eb4"
     },
     {
       "path": "experiment_results/published_figures/01_overall_profile.pdf",
+      "role": "synthetic_data",
       "size": 37391,
-      "sha256": "054b5dd8965d962d1f08774480491a8666f2d03725a7f9634a1f5ea52de4722f",
-      "role": "source_or_documentation"
+      "sha256": "054b5dd8965d962d1f08774480491a8666f2d03725a7f9634a1f5ea52de4722f"
     },
     {
       "path": "experiment_results/published_figures/01_overall_profile.png",
+      "role": "synthetic_data",
       "size": 1156969,
-      "sha256": "26225c410c9dd46c0c86752919c6d05b289f196644f01567c60163a51448c30e",
-      "role": "source_or_documentation"
+      "sha256": "26225c410c9dd46c0c86752919c6d05b289f196644f01567c60163a51448c30e"
     },
     {
       "path": "experiment_results/published_figures/02_mtr_framework_lift.pdf",
+      "role": "synthetic_data",
       "size": 26953,
-      "sha256": "a27cc9ecc6b8111ebce6b7a7b1e8de86b42a13ee2cb5368de261fcf3a8bb8363",
-      "role": "source_or_documentation"
+      "sha256": "a27cc9ecc6b8111ebce6b7a7b1e8de86b42a13ee2cb5368de261fcf3a8bb8363"
     },
     {
       "path": "experiment_results/published_figures/02_mtr_framework_lift.png",
+      "role": "synthetic_data",
       "size": 119142,
-      "sha256": "a6db4901d2811fcf9347d95684f430f24f0f36da1bbffa6cbc793027921eeaea",
-      "role": "source_or_documentation"
+      "sha256": "a6db4901d2811fcf9347d95684f430f24f0f36da1bbffa6cbc793027921eeaea"
     },
     {
       "path": "experiment_results/published_figures/03_mtr_privacy_attacks.pdf",
+      "role": "synthetic_data",
       "size": 28871,
-      "sha256": "df1e53db6a6020c7066e94c32559a2cbfe6873632fd71a91398d2914a00cf088",
-      "role": "source_or_documentation"
+      "sha256": "df1e53db6a6020c7066e94c32559a2cbfe6873632fd71a91398d2914a00cf088"
     },
     {
       "path": "experiment_results/published_figures/03_mtr_privacy_attacks.png",
+      "role": "synthetic_data",
       "size": 142801,
-      "sha256": "5a957a3af167803ef0bc7e9b4bd3abe8be3041b106f762387bd298a6c382f535",
-      "role": "source_or_documentation"
+      "sha256": "5a957a3af167803ef0bc7e9b4bd3abe8be3041b106f762387bd298a6c382f535"
     },
     {
       "path": "experiment_results/published_figures/04_mr_matrix_mtr_dfr.pdf",
+      "role": "synthetic_data",
       "size": 36226,
-      "sha256": "a5a6a86812620ae70272fbea8922074084fb94ba03dd110c09cec581d4dccf20",
-      "role": "source_or_documentation"
+      "sha256": "a5a6a86812620ae70272fbea8922074084fb94ba03dd110c09cec581d4dccf20"
     },
     {
       "path": "experiment_results/published_figures/04_mr_matrix_mtr_dfr.png",
+      "role": "synthetic_data",
       "size": 203738,
-      "sha256": "1ce1506bd3e750798c7588ddb1eacf154760464d7d74b0becbabe7192fade4ce",
-      "role": "source_or_documentation"
+      "sha256": "1ce1506bd3e750798c7588ddb1eacf154760464d7d74b0becbabe7192fade4ce"
     },
     {
       "path": "experiment_results/published_figures/05_core_semantic_ablation.pdf",
+      "role": "synthetic_data",
       "size": 19755,
-      "sha256": "0bf793e72ac178c8fbf5ffe81fb63dad08bf1d43ff97e0c419483c967058e4a7",
-      "role": "source_or_documentation"
+      "sha256": "0bf793e72ac178c8fbf5ffe81fb63dad08bf1d43ff97e0c419483c967058e4a7"
     },
     {
       "path": "experiment_results/published_figures/05_core_semantic_ablation.png",
+      "role": "synthetic_data",
       "size": 66779,
-      "sha256": "688ae0e91b2550da1146992b58421e0aa99b0ce6b2d7c2971f828166d05b4e54",
-      "role": "source_or_documentation"
+      "sha256": "688ae0e91b2550da1146992b58421e0aa99b0ce6b2d7c2971f828166d05b4e54"
     },
     {
       "path": "experiment_results/published_figures/06_strict_tstr.pdf",
+      "role": "synthetic_data",
       "size": 24216,
-      "sha256": "256aa51fdb5b1f379e6895ee1467356828a958cc6813580dd173c3b14a497940",
-      "role": "source_or_documentation"
+      "sha256": "256aa51fdb5b1f379e6895ee1467356828a958cc6813580dd173c3b14a497940"
     },
     {
       "path": "experiment_results/published_figures/06_strict_tstr.png",
+      "role": "synthetic_data",
       "size": 476145,
-      "sha256": "57fe508c9db48623634c4e58c4528e48b31c390114421577aa4e2fb514d7e923",
-      "role": "source_or_documentation"
+      "sha256": "57fe508c9db48623634c4e58c4528e48b31c390114421577aa4e2fb514d7e923"
     },
     {
       "path": "experiment_results/published_figures/07_trajectory_structure_diagnostics.pdf",
+      "role": "synthetic_data",
       "size": 21967,
-      "sha256": "afee0e102166c809cf2feeafe97b47861ce3a7ef4fe7ec88f7dc201e7336e6e1",
-      "role": "source_or_documentation"
+      "sha256": "afee0e102166c809cf2feeafe97b47861ce3a7ef4fe7ec88f7dc201e7336e6e1"
     },
     {
       "path": "experiment_results/published_figures/07_trajectory_structure_diagnostics.png",
+      "role": "synthetic_data",
       "size": 290897,
-      "sha256": "aab1dbc7e5eebff55141d3c256787aafeff0ff240f6ebcad2968b6abd67b8d98",
-      "role": "source_or_documentation"
+      "sha256": "aab1dbc7e5eebff55141d3c256787aafeff0ff240f6ebcad2968b6abd67b8d98"
     },
     {
       "path": "experiment_results/published_figures/core_semantic_ablation.csv",
+      "role": "synthetic_data",
       "size": 478,
-      "sha256": "8afa2b7ba6be07ce860df08c330dbd7ea8e547d55b0e63e5dba2b6980f0b305f",
-      "role": "source_or_documentation"
+      "sha256": "8afa2b7ba6be07ce860df08c330dbd7ea8e547d55b0e63e5dba2b6980f0b305f"
     },
     {
       "path": "experiment_results/published_figures/experiment_sequence.csv",
+      "role": "synthetic_data",
       "size": 1207,
-      "sha256": "82dd0c4f293dc961976aa21c268e7899ec95dd92a371abf219f05ca844426a05",
-      "role": "source_or_documentation"
+      "sha256": "82dd0c4f293dc961976aa21c268e7899ec95dd92a371abf219f05ca844426a05"
     },
     {
-      "path": "generation/baselines/algorithms/literature_baselines/README.md",
-      "size": 1099,
-      "sha256": "47e8b018c2069dd39d3a3524fe12ef0a434bbf8d243d83ddf3c8e524009f22be",
-      "role": "source_or_documentation"
+      "path": "experiment_results/regenerated_figures/00_ordered_evidence_chain.pdf",
+      "role": "synthetic_data",
+      "size": 29876,
+      "sha256": "d82b6ddecdb21dc6d68392b37159b271d1d41fe0c55ec6efa1a52cea62e04326"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/00_ordered_evidence_chain.png",
+      "role": "synthetic_data",
+      "size": 200966,
+      "sha256": "e790bf7c4f809fd9f65657da6cd59373708a445864d8feeaeaa12c6dd9908eb4"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/01_overall_profile.pdf",
+      "role": "synthetic_data",
+      "size": 25894,
+      "sha256": "213044607361f3ebd33ac6802fbbfd5cd214c405bc918fb78d58b32b99b408df"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/01_overall_profile.png",
+      "role": "synthetic_data",
+      "size": 92462,
+      "sha256": "c89671bbea8150e800e070b1674963fbf3e98c9411fb3d3949285fa9dc9c02c1"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/02_mtr_framework_lift.pdf",
+      "role": "synthetic_data",
+      "size": 21945,
+      "sha256": "2bae33523b7308fb869259a91ad7971b07d36131a6d94ed74dcb1dead614a549"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/02_mtr_framework_lift.png",
+      "role": "synthetic_data",
+      "size": 103770,
+      "sha256": "40e2c9c85d9d4c95561d7d9525e67c42d24a09b3a15f8923f4f61dbe7223219c"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/03_privacy_attacks.pdf",
+      "role": "synthetic_data",
+      "size": 22607,
+      "sha256": "74121e1c0da5997b9430f3468739e026a3bbd68cb151946c90e0925ec6ad62a7"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/03_privacy_attacks.png",
+      "role": "synthetic_data",
+      "size": 53533,
+      "sha256": "efcc9635cf62890595022859da18fa82cc70585c7300e383ecd0f5478e3853ac"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/04_mr_matrix.pdf",
+      "role": "synthetic_data",
+      "size": 29750,
+      "sha256": "ad7b009f83edbd12cf210b07412ebcd4011ce88d9cea6748af17394257a82e55"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/04_mr_matrix.png",
+      "role": "synthetic_data",
+      "size": 173907,
+      "sha256": "d2d99fe6fc8fd268a6fb6c1623b2d25a12c0a5625d0ca5c030e52ebbbe4f5795"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/05_ablation.pdf",
+      "role": "synthetic_data",
+      "size": 26026,
+      "sha256": "9aff5fc0863ecb65152903d92cdcb57a8b0be287c52025e2b92e3c3f8b75e6c1"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/05_ablation.png",
+      "role": "synthetic_data",
+      "size": 122921,
+      "sha256": "7d22827c163e03e84aa4e6147a01404688aaa2abc938b8077d33d40046a1f6c0"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/06_strict_tstr.pdf",
+      "role": "synthetic_data",
+      "size": 26719,
+      "sha256": "408879ca52c62538847ec0183ac3709333d3c8e4e4d8cb957ac792046008d12f"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/06_strict_tstr.png",
+      "role": "synthetic_data",
+      "size": 153957,
+      "sha256": "31a6b89a53fb390b056247ff0db9e1efd9ea7374846ccb216fd4bb133f9c3014"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/07_trajectory_structure_diagnostics.pdf",
+      "role": "synthetic_data",
+      "size": 20109,
+      "sha256": "ac51f740dc9c31095d7aae26de199f127492b30a98ea665506531dcb1a5b06cb"
+    },
+    {
+      "path": "experiment_results/regenerated_figures/07_trajectory_structure_diagnostics.png",
+      "role": "synthetic_data",
+      "size": 138742,
+      "sha256": "fa6db695504773406f129a3307b34100600b68ea74815fa16f1ed2df906eae33"
+    },
+    {
+      "path": "experiment_results/release_inventory/releases.json",
+      "role": "synthetic_data",
+      "size": 40233,
+      "sha256": "7b51dbb93092bf3767d97f9da07e0fd5bab6f45d2f21eda5a30c70d2813c03f9"
+    },
+    {
+      "path": "experiment_results/release_inventory/RELEASES_CN.md",
+      "role": "synthetic_data",
+      "size": 6668,
+      "sha256": "f03b76b99c45505a1c33cbd4186a9f97c61cc05ad802348d754e19e8b05eb550"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/entrypoints/__init__.py",
+      "role": "source_or_documentation",
       "size": 60,
-      "sha256": "d2d12f25e8d2e44638fe578a8e3b040d1697a0b61f10254f1e81a7268c875aee",
-      "role": "source_or_documentation"
+      "sha256": "d2d12f25e8d2e44638fe578a8e3b040d1697a0b61f10254f1e81a7268c875aee"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/entrypoints/generate.py",
+      "role": "source_or_documentation",
       "size": 7694,
-      "sha256": "feb900c0717704cc461b4d2cfed89f91a7e3fc818dea86b20fb9b848dd4a9414",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/MTNET_PUTS_APPENDIX_PROTOCOL_CN.md",
-      "size": 3053,
-      "sha256": "894cdee216c722f272da067bf31e500b937aa8fcdcf58c9b235040932fb7523f",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/README.md",
-      "size": 1164,
-      "sha256": "af41caeb984446cd5cd2f4f25a28a4ca74d16a897a10e42daf1bbb224423fa39",
-      "role": "source_or_documentation"
+      "sha256": "feb900c0717704cc461b4d2cfed89f91a7e3fc818dea86b20fb9b848dd4a9414"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/mtnet/DP_VISUAL_RELEASE_AUDIT.md",
+      "role": "source_or_documentation",
       "size": 1945,
-      "sha256": "ac2fc242a4739a155c6907e1079fccd41709ac38aa12db4f27745b3668cf21b1",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/mtnet/OFFICIAL_SOURCE_AUDIT.md",
-      "size": 1027,
-      "sha256": "1aef65f86f1cf96b9eab17bf2a3b027dde70550cc012914b2a6b5ae708c03e70",
-      "role": "source_or_documentation"
+      "sha256": "ac2fc242a4739a155c6907e1079fccd41709ac38aa12db4f27745b3668cf21b1"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/mtnet/generate_plot_paper_dpsgd_transfer.py",
+      "role": "source_or_documentation",
       "size": 6499,
-      "sha256": "91278553e39cda32f0642ffd6d9231b83085c3e523090b2530ef4c08c24cd765",
-      "role": "source_or_documentation"
+      "sha256": "91278553e39cda32f0642ffd6d9231b83085c3e523090b2530ef4c08c24cd765"
+    },
+    {
+      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/mtnet/OFFICIAL_SOURCE_AUDIT.md",
+      "role": "source_or_documentation",
+      "size": 1027,
+      "sha256": "1aef65f86f1cf96b9eab17bf2a3b027dde70550cc012914b2a6b5ae708c03e70"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/mtnet/train_native_mtnet_dpsgd_paper.py",
+      "role": "source_or_documentation",
       "size": 16986,
-      "sha256": "25414d510d37190cccfdcf2d7d1cb61727935d8546fb36f095ead4d6f9e513f2",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/DPMM_PUTS_MTR_APPENDIX_PROTOCOL.md",
-      "size": 3019,
-      "sha256": "bf4e40fe527df4b1a59e7b088fb75da818d19f48d9979f6841c18802228e67cc",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/PUTS_PAPER_PROTOCOL_AND_BEIJING_BOUNDARY.md",
-      "size": 1587,
-      "sha256": "8452ed56f0ffd4705f68759d673df7f29702d33a6794ca8cd870bcfe7970bd45",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/PUTS_STRICT_BEIJING_PROTOCOL.md",
-      "size": 2744,
-      "sha256": "34fe85e4f5e35be7fbdda7fd150c7291cfe17b5dd27a4fa9641fa1cd742fdabb",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/README.md",
-      "size": 2373,
-      "sha256": "25d5733bbbebf886789734f450f29ea5062a99eff0134f9ef19731555634021b",
-      "role": "source_or_documentation"
+      "sha256": "25414d510d37190cccfdcf2d7d1cb61727935d8546fb36f095ead4d6f9e513f2"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/audit_original_ucar_protocol.py",
+      "role": "source_or_documentation",
       "size": 2267,
-      "sha256": "c8d26a82ca6d05572d36a83bc33a39175ebfe0767cb09b17eff23b9857cee20e",
-      "role": "source_or_documentation"
+      "sha256": "c8d26a82ca6d05572d36a83bc33a39175ebfe0767cb09b17eff23b9857cee20e"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/build_fmm_network_from_public_osm.py",
+      "role": "source_or_documentation",
       "size": 2091,
-      "sha256": "efb89f72118830373db3b53644fec4bdecabceef726ea400e1c57d6ef434276c",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/evaluate_dpmm_puts_mtr_appendix.py",
-      "size": 4464,
-      "sha256": "b4dc24af40ef4b2e9e7a8156e44b31a6bb72a432ecd1b38ee59c63e3a0263e93",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/evaluate_independent_mtr_puts.py",
-      "size": 5503,
-      "sha256": "703889a764a561afbb7ec5682a419efee037f37a0063e1e5dd41a6cd16633ac6",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/evaluate_puts_native_graph_experiment.py",
-      "size": 5596,
-      "sha256": "a645076adcd08a9891616b6b94906d529e11de38cdead8ff64c29bf653ef89c2",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/plot_dpmm_puts_mtr_appendix.py",
-      "size": 4203,
-      "sha256": "64a82016f3da5b069ae12ddf3f528275ee3187f1e1b44a40c76adad7215cac7e",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/plot_independent_mtr_puts.py",
-      "size": 7068,
-      "sha256": "6ad5482626cdb7d36c00bd9703fc0110943c410045cf5b6dde75a2d3ee70a6e5",
-      "role": "source_or_documentation"
+      "sha256": "efb89f72118830373db3b53644fec4bdecabceef726ea400e1c57d6ef434276c"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/plot_original_ucar_puts_audit.py",
+      "role": "source_or_documentation",
       "size": 1841,
-      "sha256": "59974f73922dc86463243808dc19b167e29c532e29794431e35beda663720984",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/plot_puts_appendix_style.py",
-      "size": 2624,
-      "sha256": "3dbe87cf463b6c453d0d910b4b94eb910de16c4d34d56f0fb0a5224a63576899",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/plot_puts_native_graph_experiment.py",
-      "size": 3544,
-      "sha256": "c63992e6c8fc1269a19aa119b9131d9af02cea66d0e34bfa661c7792607c3fbc",
-      "role": "source_or_documentation"
+      "sha256": "59974f73922dc86463243808dc19b167e29c532e29794431e35beda663720984"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/plot_puts_strict_beijing.py",
+      "role": "source_or_documentation",
       "size": 3063,
-      "sha256": "920479932bcf95746f28be9b16ae6e2d1d3e3938d1b4eca35541e0f6ae042c80",
-      "role": "source_or_documentation"
+      "sha256": "920479932bcf95746f28be9b16ae6e2d1d3e3938d1b4eca35541e0f6ae042c80"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/prepare_beijing_district_subset.py",
+      "role": "source_or_documentation",
       "size": 1440,
-      "sha256": "fddf4e425700b2de87dacd591d8be7fefcce3308625e450f6b3812d77e4762ac",
-      "role": "source_or_documentation"
+      "sha256": "fddf4e425700b2de87dacd591d8be7fefcce3308625e450f6b3812d77e4762ac"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/prepare_parent_subset.py",
+      "role": "source_or_documentation",
       "size": 3252,
-      "sha256": "8f1648bc04adff19f41cbea7b66190cc20cbe86cc83a03bc29a4817b62bc5a21",
-      "role": "source_or_documentation"
+      "sha256": "8f1648bc04adff19f41cbea7b66190cc20cbe86cc83a03bc29a4817b62bc5a21"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/prepare_puts_author_beijing_subset.py",
+      "role": "source_or_documentation",
       "size": 4453,
-      "sha256": "6bfde7fd44458d9b567107d201d6e4c2783a858c90d7207c8c76475f3a9f0cb4",
-      "role": "source_or_documentation"
+      "sha256": "6bfde7fd44458d9b567107d201d6e4c2783a858c90d7207c8c76475f3a9f0cb4"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/prepare_puts_fmm_beijing_subset.py",
+      "role": "source_or_documentation",
       "size": 9329,
-      "sha256": "3fc54b02702ee724e3191831d5c0cd18187731f9fa863c5ee48e3b01e157a1f0",
-      "role": "source_or_documentation"
+      "sha256": "3fc54b02702ee724e3191831d5c0cd18187731f9fa863c5ee48e3b01e157a1f0"
     },
     {
-      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/run_mtr_dp_gsrt_on_puts_native_graph.py",
-      "size": 12379,
-      "sha256": "dc8e763d04818ef4895a185f9a53493dcf7392d8c23992cdea8d808dcf7bbf99",
-      "role": "source_or_documentation"
+      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/PUTS_PAPER_PROTOCOL_AND_BEIJING_BOUNDARY.md",
+      "role": "source_or_documentation",
+      "size": 1587,
+      "sha256": "8452ed56f0ffd4705f68759d673df7f29702d33a6794ca8cd870bcfe7970bd45"
+    },
+    {
+      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/PUTS_STRICT_BEIJING_PROTOCOL.md",
+      "role": "source_or_documentation",
+      "size": 2744,
+      "sha256": "34fe85e4f5e35be7fbdda7fd150c7291cfe17b5dd27a4fa9641fa1cd742fdabb"
+    },
+    {
+      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/README.md",
+      "role": "source_or_documentation",
+      "size": 2274,
+      "sha256": "207e4106d86fd286e1d0c921cc2029a4e1d5dc5303efc0aec2c543e7938f85e0"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/run_puts_beijing_full_release.py",
+      "role": "source_or_documentation",
       "size": 4324,
-      "sha256": "6e54fc2c543837db2c969c3e1a82fc3d29846cc3fd0edad473d899f73d6e0ce1",
-      "role": "source_or_documentation"
+      "sha256": "6e54fc2c543837db2c969c3e1a82fc3d29846cc3fd0edad473d899f73d6e0ce1"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/run_puts_same_train_subset.py",
+      "role": "source_or_documentation",
       "size": 18749,
-      "sha256": "7174012bd9a71435602dc16305abb87c5a3ac4680423028ec2f7e28114588ab4",
-      "role": "source_or_documentation"
+      "sha256": "7174012bd9a71435602dc16305abb87c5a3ac4680423028ec2f7e28114588ab4"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/puts/run_puts_upstream_unmodified.py",
+      "role": "source_or_documentation",
       "size": 5384,
-      "sha256": "904cd7e6f365a2467d537b6dabfe7f164b0d765c5ff7ba10f126d11f61a3ea0d",
-      "role": "source_or_documentation"
+      "sha256": "904cd7e6f365a2467d537b6dabfe7f164b0d765c5ff7ba10f126d11f61a3ea0d"
     },
     {
-      "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/DPStd/dpstd_final.py",
-      "size": 55877,
-      "sha256": "3def486f8b7f96627ca79b6cdec7ad49322194f272a8e27c586847993fc042b7",
-      "role": "source_or_documentation"
+      "path": "generation/baselines/algorithms/literature_baselines/external_adapters_snapshot/README.md",
+      "role": "source_or_documentation",
+      "size": 1164,
+      "sha256": "af41caeb984446cd5cd2f4f25a28a4ca74d16a897a10e42daf1bbb224423fa39"
     },
     {
-      "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/DPTrajPM/dptrajpm_final.py",
-      "size": 39233,
-      "sha256": "a5cead24d7a233a49eba4caac8339465fa3ec02bff38951d930358c199c578de",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/PrivTrace/privtrace_final.py",
-      "size": 66379,
-      "sha256": "370e6d1acb5a2adec95e22c8fbb54ed2c7965043201d0c70b006ceb663815840",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/README.md",
-      "size": 2268,
-      "sha256": "ea922f393db9299c4becc68cfac4b47503fd1b6235a63a6edb37e2ec56d53436",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/SPRT/sprt_final.py",
-      "size": 60636,
-      "sha256": "25d0990bf6ef672d58922afe2a0f5a502896176656d9a323012542b0af89d400",
-      "role": "source_or_documentation"
+      "path": "generation/baselines/algorithms/literature_baselines/README.md",
+      "role": "source_or_documentation",
+      "size": 1098,
+      "sha256": "04d5efdd580f6dd3463b87449e6170d0995723fbd1fa7f0d1f29d768cde6ffe8"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/common/eval_layered_framework.py",
+      "role": "source_or_documentation",
       "size": 21665,
-      "sha256": "a20c30e5cb82b52922815def0d6140ecdc14a9e577285449495d685d77a786d9",
-      "role": "source_or_documentation"
+      "sha256": "a20c30e5cb82b52922815def0d6140ecdc14a9e577285449495d685d77a786d9"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/common/evaluate.py",
+      "role": "source_or_documentation",
       "size": 10316,
-      "sha256": "e4a085d1eea6e593cabb36ae9c1f9f76b1ac56d3456d7fea806a41240d450959",
-      "role": "source_or_documentation"
+      "sha256": "e4a085d1eea6e593cabb36ae9c1f9f76b1ac56d3456d7fea806a41240d450959"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/common/osm_dbscan.py",
+      "role": "source_or_documentation",
       "size": 3539,
-      "sha256": "e262ad6fc1681b5ff95d9a6ab956c901dbc35bb57c355b67c756dc3072c7be27",
-      "role": "source_or_documentation"
+      "sha256": "e262ad6fc1681b5ff95d9a6ab956c901dbc35bb57c355b67c756dc3072c7be27"
     },
     {
       "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/common/run_papers.py",
+      "role": "source_or_documentation",
       "size": 9668,
-      "sha256": "38ebb85c883719272e780c08b136f2383d141fa62b5cd7f0f179f919b1383315",
-      "role": "source_or_documentation"
+      "sha256": "38ebb85c883719272e780c08b136f2383d141fa62b5cd7f0f179f919b1383315"
+    },
+    {
+      "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/DPStd/dpstd_final.py",
+      "role": "source_or_documentation",
+      "size": 55877,
+      "sha256": "3def486f8b7f96627ca79b6cdec7ad49322194f272a8e27c586847993fc042b7"
+    },
+    {
+      "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/DPTrajPM/dptrajpm_final.py",
+      "role": "source_or_documentation",
+      "size": 39233,
+      "sha256": "a5cead24d7a233a49eba4caac8339465fa3ec02bff38951d930358c199c578de"
+    },
+    {
+      "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/PrivTrace/privtrace_final.py",
+      "role": "source_or_documentation",
+      "size": 66379,
+      "sha256": "370e6d1acb5a2adec95e22c8fbb54ed2c7965043201d0c70b006ceb663815840"
+    },
+    {
+      "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/README.md",
+      "role": "source_or_documentation",
+      "size": 2242,
+      "sha256": "aa474ba0712238e250582b8e9618edc0a6b022d77efb63d877b41eaf4712b7fc"
+    },
+    {
+      "path": "generation/baselines/algorithms/literature_baselines/source_snapshot/SPRT/sprt_final.py",
+      "role": "source_or_documentation",
+      "size": 60636,
+      "sha256": "25d0990bf6ef672d58922afe2a0f5a502896176656d9a323012542b0af89d400"
     },
     {
       "path": "generation/baselines/configs/datasets.json",
-      "size": 2446,
-      "sha256": "1ede368d49b7f7f72ca1fa1c2809bfbcf2efd926b8454e2d295b6ea36accc0e6",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/configs/mtr_epsilon_sweep_beijing.json",
-      "size": 691,
-      "sha256": "8261f8b48b7dde8a79a37bb9a6c148661884697d3e4a8bc418bb7fdd2cbcb10f",
-      "role": "source_or_documentation"
+      "role": "source_or_documentation",
+      "size": 2418,
+      "sha256": "ad4e0f17ca65ee1e036931505ab4142b89162781e9c781e5f60ad260c602fc16"
     },
     {
       "path": "generation/baselines/configs/mtr_sf_trip20k_postprocess_tuning.json",
+      "role": "source_or_documentation",
       "size": 1315,
-      "sha256": "d658c1d308befa29d10d39c97ce1d8d0aa10b0b4221100284c25cc4fac52e96a",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/configs/ordered_interface_attack_active_hierarchy.json",
-      "size": 446,
-      "sha256": "da1f82944b834257abe38e44d4f86d1a79ca1e06646297240428577edca8f596",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/configs/ordered_interface_attack_beijing.json",
-      "size": 1507,
-      "sha256": "fa23fe0da6960fba8e71c49be273073bf317d2fb38672b85e7da1e4d1cd216f2",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/configs/ordered_interface_attack_beijing_puts.json",
-      "size": 1894,
-      "sha256": "689b02a495197f78e2e3a208eddc044e9c1ef8ff5481e443de7aebe606285497",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/configs/road_route_inputs.json",
-      "size": 2889,
-      "sha256": "1a059d276372667da005df763c37a90281e22a05a69c8b54c0060f919a165cc8",
-      "role": "source_or_documentation"
+      "sha256": "d658c1d308befa29d10d39c97ce1d8d0aa10b0b4221100284c25cc4fac52e96a"
     },
     {
       "path": "generation/baselines/data/osm/osm_cache_beijing.pkl",
+      "role": "source_or_documentation",
       "size": 10401969,
-      "sha256": "7159e12ab8712338b4ff5a2859c68b158e1374504f999dc44080c2fe2d53a5c5",
-      "role": "source_or_documentation"
+      "sha256": "7159e12ab8712338b4ff5a2859c68b158e1374504f999dc44080c2fe2d53a5c5"
     },
     {
       "path": "generation/baselines/data/osm/osm_cache_porto.manifest.json",
-      "role": "public_osm_asset",
+      "role": "source_or_documentation",
       "size": 351,
       "sha256": "0ca685b6572ca2c033a3de24a9ff211c26e38f660a9290fae112ab53895434dc"
     },
     {
       "path": "generation/baselines/data/osm/osm_cache_porto.pkl",
-      "role": "public_osm_asset",
+      "role": "source_or_documentation",
       "size": 14854915,
       "sha256": "584569f48998eff2f8a36cc52563e04023b22436395d2279f555c3ca5d7b68ee"
     },
     {
       "path": "generation/baselines/data/osm/osm_cache_sf_bay.manifest.json",
-      "role": "public_osm_asset",
+      "role": "source_or_documentation",
       "size": 534,
       "sha256": "2268c1f1d0d321760457c59898c53231573372c1ff56ec8bea70f4ce627ebaad"
     },
     {
       "path": "generation/baselines/data/osm/osm_cache_sf_bay.pkl",
-      "role": "public_osm_asset",
+      "role": "source_or_documentation",
       "size": 6727710,
       "sha256": "e1d0c190237b695ae03d6130de251c992ef2186bbf5338c3a32abc34b50805dd"
     },
     {
       "path": "generation/baselines/generation/common/__init__.py",
+      "role": "source_or_documentation",
       "size": 68,
-      "sha256": "389cf50ced9051ab941c1a780350b3bc3d85f0121212e6e1235e80873c4ca835",
-      "role": "source_or_documentation"
+      "sha256": "389cf50ced9051ab941c1a780350b3bc3d85f0121212e6e1235e80873c4ca835"
     },
     {
       "path": "generation/baselines/generation/common/runtime.py",
-      "size": 5090,
-      "sha256": "1f460cdd063269bf192950ec622dd2a6b6c27b0a88497a7b32285ab4cad21023",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/audit_anchor_support.py",
-      "size": 7528,
-      "sha256": "cf463d62c8e4a99238297515f611d4b62a6fade1ad07776378cb36ada397e93b",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/audit_final_release_evidence.py",
-      "size": 21823,
-      "sha256": "2ff0439a0453aabd62b7e309d27c666f598c75306544ce3d1e6de41f8d78a637",
-      "role": "source_or_documentation"
+      "role": "source_or_documentation",
+      "size": 5028,
+      "sha256": "8637897b12ed44ba7c529d9cf032c450514ad68b98dc253a0dffd3df28f5be09"
     },
     {
       "path": "generation/baselines/pipeline/audit_mtnet_fixed_batch_accounting.py",
+      "role": "source_or_documentation",
       "size": 3572,
-      "sha256": "ac45e5da90d2bc1218588867b6db76edcbc684ddc4c4a310308136cb7095b06c",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/audit_privacy_budget_artifacts.py",
-      "size": 4889,
-      "sha256": "57539ff7279eefbc5544c813e5eb49b98fef3297a17eecbc3f5e39f129472cfa",
-      "role": "source_or_documentation"
+      "sha256": "ac45e5da90d2bc1218588867b6db76edcbc684ddc4c4a310308136cb7095b06c"
     },
     {
       "path": "generation/baselines/pipeline/evaluate_adjacent_release_canary.py",
+      "role": "source_or_documentation",
       "size": 5788,
-      "sha256": "09dc4c3934d8801289170df2f5ec8531856fcef5eb31ee6b5b08ffc604b8524c",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/evaluate_common_trajectory_linkage.py",
-      "size": 8224,
-      "sha256": "8370eef58ef136f3e14599d179f2084d018b719247e1c121ebcea2b1d65d8eeb",
-      "role": "source_or_documentation"
+      "sha256": "09dc4c3934d8801289170df2f5ec8531856fcef5eb31ee6b5b08ffc604b8524c"
     },
     {
       "path": "generation/baselines/pipeline/evaluate_domias_official.py",
+      "role": "source_or_documentation",
       "size": 6037,
-      "sha256": "f40abf50234bef1b01cfd75295c4df9f6c5a4e34b57a02ef5705057a5ef44b69",
-      "role": "source_or_documentation"
+      "sha256": "f40abf50234bef1b01cfd75295c4df9f6c5a4e34b57a02ef5705057a5ef44b69"
     },
     {
       "path": "generation/baselines/pipeline/evaluate_downstream.py",
+      "role": "source_or_documentation",
       "size": 17010,
-      "sha256": "e8b94b577360213bb0888abd3818c42a4f177eec19bd9e53e644fe2b6f679c97",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/evaluate_external_comparator_suite.py",
-      "size": 11023,
-      "sha256": "04799ef1f5b06616e6c0055f0fa9eb80f24b399c8b10ff7e381406a1874c67fe",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/evaluate_external_road_comparators.py",
-      "size": 8820,
-      "sha256": "bfe45a26eb7a9af4232a04310d274fbf6d4cd536cf558c6472f401cdb2ce3526",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/evaluate_gda_mia.py",
-      "size": 7523,
-      "sha256": "d13bf3d2ee7c24a86e7fecd19bcc87931a2fed3e3f939c4419b51d7cac5dbb9f",
-      "role": "source_or_documentation"
+      "sha256": "e8b94b577360213bb0888abd3818c42a4f177eec19bd9e53e644fe2b6f679c97"
     },
     {
       "path": "generation/baselines/pipeline/evaluate_generic_mobility_tasks.py",
+      "role": "source_or_documentation",
       "size": 7084,
-      "sha256": "894db20e0a26e0caa69b92692ce6279f97d526af75ea1831201319644077da18",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/evaluate_kdd_revised_statistics.py",
-      "size": 19810,
-      "sha256": "b9e10cd29e6d84da37c575cd87ff746209744d41d7e90cac2583a946a1d19df6",
-      "role": "source_or_documentation"
+      "sha256": "894db20e0a26e0caa69b92692ce6279f97d526af75ea1831201319644077da18"
     },
     {
       "path": "generation/baselines/pipeline/evaluate_kdd_revised_tasks.py",
+      "role": "source_or_documentation",
       "size": 8005,
-      "sha256": "646f1fbb46164ac74956f626fba9a1c265ecb1a4643c61f5d6751c3fe39557ea",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/evaluate_linear_reconstruction_aia.py",
-      "size": 8812,
-      "sha256": "f8d72f85af07c285e13f27d8bd04bb0329a061024ef30b55bac964537acf73f3",
-      "role": "source_or_documentation"
+      "sha256": "646f1fbb46164ac74956f626fba9a1c265ecb1a4643c61f5d6751c3fe39557ea"
     },
     {
       "path": "generation/baselines/pipeline/evaluate_metrics.py",
+      "role": "source_or_documentation",
       "size": 12250,
-      "sha256": "6fcff06b989f2b4e750b406eb2eefb53696d47eca015e545764b8de6bf545247",
-      "role": "source_or_documentation"
+      "sha256": "6fcff06b989f2b4e750b406eb2eefb53696d47eca015e545764b8de6bf545247"
     },
     {
       "path": "generation/baselines/pipeline/evaluate_mtnet_condition_exposure.py",
+      "role": "source_or_documentation",
       "size": 2106,
-      "sha256": "191afa7759a6c6ed46eef8ad0b6ce642248164a0115255612bd0eab496292003",
-      "role": "source_or_documentation"
+      "sha256": "191afa7759a6c6ed46eef8ad0b6ce642248164a0115255612bd0eab496292003"
     },
     {
       "path": "generation/baselines/pipeline/evaluate_mtnet_origin_forwarding_mia.py",
+      "role": "source_or_documentation",
       "size": 4248,
-      "sha256": "33aa9ced85234888a22cb398b8d94c7cc0f9e88b584c563cfc8a4e3f86616069",
-      "role": "source_or_documentation"
+      "sha256": "33aa9ced85234888a22cb398b8d94c7cc0f9e88b584c563cfc8a4e3f86616069"
     },
     {
       "path": "generation/baselines/pipeline/evaluate_mtnet_private_condition_presence_mia.py",
+      "role": "source_or_documentation",
       "size": 6542,
-      "sha256": "dffdfe879d52026143ce7202f800d16a71e08d213048cc3ff40a9ccf9c410b98",
-      "role": "source_or_documentation"
+      "sha256": "dffdfe879d52026143ce7202f800d16a71e08d213048cc3ff40a9ccf9c410b98"
     },
     {
       "path": "generation/baselines/pipeline/evaluate_mtnet_teacher_forced_nll_mia.py",
+      "role": "source_or_documentation",
       "size": 4965,
-      "sha256": "7f8c2f67176c3496b1ee3af36c5d412ad3f874c7b927563deefad4e74fe8fc5d",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/evaluate_mtr_target_origin_presence.py",
-      "size": 4085,
-      "sha256": "3bcd91dec2431201c3867107d263bfa0fb69b9bf054f3649443183bd2af87a92",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/evaluate_ordered_interface_linkage.py",
-      "size": 9312,
-      "sha256": "821e92f6f953aa6caef4a4881ea1654d279e25200301dfe953b615bebaed60a4",
-      "role": "source_or_documentation"
+      "sha256": "7f8c2f67176c3496b1ee3af36c5d412ad3f874c7b927563deefad4e74fe8fc5d"
     },
     {
       "path": "generation/baselines/pipeline/evaluate_paired_record_linkage.py",
+      "role": "source_or_documentation",
       "size": 4586,
-      "sha256": "51bf122b4a6a935f896dcce26a815d2c17fb30c6f0c18a2b5e4174f1c9d7bd45",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/evaluate_population_linkage.py",
-      "size": 4726,
-      "sha256": "e75fee4ea52be3acf61615bb305d371ae851606d68e0f1d86c4e67a02ae1ff1f",
-      "role": "source_or_documentation"
+      "sha256": "51bf122b4a6a935f896dcce26a815d2c17fb30c6f0c18a2b5e4174f1c9d7bd45"
     },
     {
       "path": "generation/baselines/pipeline/evaluate_road_mining_tasks.py",
+      "role": "source_or_documentation",
       "size": 10671,
-      "sha256": "ab941a9a429a873d761f3235697ac97d7389f0df4161d21c4e4c7ac5e13ac483",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/evaluate_robustness.py",
-      "size": 10901,
-      "sha256": "f1ed41659db6cb83ebabc3e76ada5a7e44fdb525d20fb19f830efa066f438471",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/finalize_anchor_tuning.py",
-      "size": 7295,
-      "sha256": "5e98965c2d6e7059d0f8eb974818694e95d2d318324af11abbcbadb89a39de93",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/inspect_dp_ledger.py",
-      "size": 1197,
-      "sha256": "47cfe67bfff323eaaab33050afe0aade1e74db344e0a0181319be72aab634eec",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/make_mtr_adjacent_canary_source.py",
-      "size": 2439,
-      "sha256": "52a045cfe5ac48138a8dba6b46fca7856914ccef995b7fb68c8638fee3a54638",
-      "role": "source_or_documentation"
+      "sha256": "ab941a9a429a873d761f3235697ac97d7389f0df4161d21c4e4c7ac5e13ac483"
     },
     {
       "path": "generation/baselines/pipeline/materialize_dpmm_attack_members.py",
+      "role": "source_or_documentation",
       "size": 1134,
-      "sha256": "f657e3dc837b74c708eae9c7e53a8aa2dc848287a9c234673e12f556f9156ca9",
-      "role": "source_or_documentation"
+      "sha256": "f657e3dc837b74c708eae9c7e53a8aa2dc848287a9c234673e12f556f9156ca9"
     },
     {
       "path": "generation/baselines/pipeline/package_edge_witness_release.py",
+      "role": "source_or_documentation",
       "size": 7798,
-      "sha256": "ad3da521f8599a016734c8350da2e02b2ac867d2a48a717bb87143e22eec4f39",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/plot_appendix_external_comparisons.py",
-      "size": 3211,
-      "sha256": "c2fb7d3729ab092a11aab08989296b7402b399612c5ba880f23bee2ba4081f90",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/plot_downstream_results.py",
-      "size": 14600,
-      "sha256": "c874dca43417f5e6644ea70982dac2b88e762d4180a79686bf38275f47e5dddb",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/plot_external_road_diagnostics.py",
-      "size": 5016,
-      "sha256": "2f7845d69397207634ca37db638064d49b865d805a4e32339b1f3976b812287f",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/plot_kdd_task_utility.py",
-      "size": 2119,
-      "sha256": "0b16cc48b6cb9f72afa54a2d41315b1743e46865e8b09a8eec5865dcf7ee8979",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/plot_trajectory_panels.py",
-      "size": 24862,
-      "sha256": "81753eea62e86caca99cdc1b7b13751d8c6dcd926c1709ed1faa45eb36cd92b9",
-      "role": "source_or_documentation"
+      "sha256": "ad3da521f8599a016734c8350da2e02b2ac867d2a48a717bb87143e22eec4f39"
     },
     {
       "path": "generation/baselines/pipeline/prepare_drivable_osm_cache.py",
+      "role": "source_or_documentation",
       "size": 2168,
-      "sha256": "e0d54787b5e00e9d1059cba581567ca49dfe6c6a2197532431cc5e88a1e60b2c",
-      "role": "source_or_documentation"
+      "sha256": "e0d54787b5e00e9d1059cba581567ca49dfe6c6a2197532431cc5e88a1e60b2c"
     },
     {
       "path": "generation/baselines/pipeline/prepare_external_competitor_release.py",
+      "role": "source_or_documentation",
       "size": 3683,
-      "sha256": "65045c0842b8d6e9c8857732a4fcdc2b4e6c444737ffde030b9c0e76df215216",
-      "role": "source_or_documentation"
+      "sha256": "65045c0842b8d6e9c8857732a4fcdc2b4e6c444737ffde030b9c0e76df215216"
     },
     {
       "path": "generation/baselines/pipeline/prepare_kdd_revised_split.py",
+      "role": "source_or_documentation",
       "size": 2593,
-      "sha256": "a74f9cd9c6d6b24edc607b409964b4e5dd485befd83e9524361d91f6524967c8",
-      "role": "source_or_documentation"
+      "sha256": "a74f9cd9c6d6b24edc607b409964b4e5dd485befd83e9524361d91f6524967c8"
     },
     {
       "path": "generation/baselines/pipeline/prepare_mtnet_conditional_mia_candidates.py",
+      "role": "source_or_documentation",
       "size": 14414,
-      "sha256": "d5f896223a7a4e3e7f1417b0d65f19d0d93627e5fb3ac05f20296f88834b5969",
-      "role": "source_or_documentation"
+      "sha256": "d5f896223a7a4e3e7f1417b0d65f19d0d93627e5fb3ac05f20296f88834b5969"
     },
     {
       "path": "generation/baselines/pipeline/prepare_mtnet_lira_shadow_data.py",
+      "role": "source_or_documentation",
       "size": 7663,
-      "sha256": "ba93fbd37b3124b8b954296f49b47bacaf8e1649e2135382eb6ed2a6347f12cc",
-      "role": "source_or_documentation"
+      "sha256": "ba93fbd37b3124b8b954296f49b47bacaf8e1649e2135382eb6ed2a6347f12cc"
     },
     {
       "path": "generation/baselines/pipeline/prepare_privacy_attack_splits.py",
+      "role": "source_or_documentation",
       "size": 4463,
-      "sha256": "b1e1a840329e7dc641c3a82cc307a56f2bf172f7c5fb2cb794ea2d530f72235b",
-      "role": "source_or_documentation"
+      "sha256": "b1e1a840329e7dc641c3a82cc307a56f2bf172f7c5fb2cb794ea2d530f72235b"
     },
     {
       "path": "generation/baselines/pipeline/prepare_puts_beijing_subset.py",
+      "role": "source_or_documentation",
       "size": 1851,
-      "sha256": "56a49b8fa7fa11b8f91cf545aef134193a9a1c9dce587c1e80820eb93a92a837",
-      "role": "source_or_documentation"
+      "sha256": "56a49b8fa7fa11b8f91cf545aef134193a9a1c9dce587c1e80820eb93a92a837"
     },
     {
       "path": "generation/baselines/pipeline/prepare_puts_public_graph.py",
+      "role": "source_or_documentation",
       "size": 1693,
-      "sha256": "a14e6fdb5167a098895b6b334130e42a368ad4cf34fe4fb2a1cbf29c14a38c79",
-      "role": "source_or_documentation"
+      "sha256": "a14e6fdb5167a098895b6b334130e42a368ad4cf34fe4fb2a1cbf29c14a38c79"
     },
     {
       "path": "generation/baselines/pipeline/prepare_raopt_official_pairs.py",
+      "role": "source_or_documentation",
       "size": 5427,
-      "sha256": "c25d9d814e79dded71ffbbb61f4d2dd002e8ce25300ac0529d2550ac8bd08a9f",
-      "role": "source_or_documentation"
+      "sha256": "c25d9d814e79dded71ffbbb61f4d2dd002e8ce25300ac0529d2550ac8bd08a9f"
     },
     {
       "path": "generation/baselines/pipeline/prepare_sf_trip20k.py",
-      "size": 8310,
-      "sha256": "e2a19791abcb11ef146075253a253e7caf542c424c745c6fcd1d3412f32a5ef8",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/promote_edge_witness_release.py",
-      "size": 10464,
-      "sha256": "973d7b7a9fd622f782052546a2a880e5c6e3f6ab49231112b0d4b95aee2fc25e",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/redecode_active_hierarchy_transcript.py",
-      "size": 9139,
-      "sha256": "143b3b88ec59918474fb52bbe68176396d9e018aa168129a03c49f39888b5bd8",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/render_crosscity_full_artifacts.py",
-      "size": 2885,
-      "sha256": "78e67ca9673988606f44f1228189efc7d06784d5849421afb4cb7a655a30a133",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/render_current_statistical_tables.py",
-      "size": 6682,
-      "sha256": "cf05c7d1022c57350006eb40da77b2881ab2e99d2fdaacab6959d70ffeacc21e",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/render_kdd_revised_artifacts.py",
-      "size": 8607,
-      "sha256": "73144e290c7d4d150514828eed748b21a077839ec38ac765a832988a1a580f92",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/render_multicity_current.py",
-      "size": 11626,
-      "sha256": "1138261313790635c1c360d92bbb3911e70a6cdda5e014a5fd703264a92e5c40",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/run_formal_edge_witness_decode.py",
-      "size": 4852,
-      "sha256": "b931a5ed0f6fed94d6e52b6f847f0592be38ddba78ee5ebec2426d5c3e67687f",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/run_matched_active_hierarchy.py",
-      "size": 10598,
-      "sha256": "4013249b4b9594332cd2555c6f82ab5ae7d52cec092acee01fa8fc84da80da9d",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/run_matched_route_attribution.py",
-      "size": 2874,
-      "sha256": "0df57553e35ebe769d42379baa94eb286b2e22e9228939884dc6f576ec78491d",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/run_matched_route_suite.py",
-      "size": 7086,
-      "sha256": "46d720e1aee896eb8bf84ab5de72bdcfc63cb796fe55506ae346c2b8b1aca768",
-      "role": "source_or_documentation"
+      "role": "source_or_documentation",
+      "size": 8153,
+      "sha256": "fc73c0fbfc243097c7a8074fb1cbb377206e13fd488c78f2e791d52b2128bc95"
     },
     {
       "path": "generation/baselines/pipeline/run_mtnet_conditional_lira.py",
+      "role": "source_or_documentation",
       "size": 8610,
-      "sha256": "9d28feabfda2c3e8fa60439df24df7739dcb504ef8d41f4b75f1b8bea9c46a15",
-      "role": "source_or_documentation"
+      "sha256": "9d28feabfda2c3e8fa60439df24df7739dcb504ef8d41f4b75f1b8bea9c46a15"
     },
     {
       "path": "generation/baselines/pipeline/run_mtnet_conditional_mc_mia.py",
+      "role": "source_or_documentation",
       "size": 8732,
-      "sha256": "92d6a45eb22c5d2e1eb06ebcc744b1e040009f17093f2f28bfa9d7f7b60cceb4",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/run_mtr_portal_fiber_audit_instance.py",
-      "size": 7422,
-      "sha256": "c947e181bd10b0b677699c3d231338981a7aadcb949c389cbb320823f9ab3f76",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/run_route_component_ablation.py",
-      "size": 16228,
-      "sha256": "ce5fae932c35d78064dbf60d9b42cd295e7d957ba018e5186a364b646cd75591",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/summarize_component_ablation_extended.py",
-      "size": 7363,
-      "sha256": "52fe3c367498be0866f5006bf17ad114d898b79610f5bad2b7e67d0d56e6377a",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/summarize_matched_active_hierarchy.py",
-      "size": 5831,
-      "sha256": "662195b9635781b0856ecd76f5cac8a4f64c832565fca1499469a0868979bbed",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/summarize_matched_route_attribution.py",
-      "size": 16396,
-      "sha256": "845f427e34c18c1b099b1125fe955ba5d7e9bb52ea64e93ed585e5bf43ff913b",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/summarize_multicity.py",
-      "size": 4777,
-      "sha256": "1118da5c8e2bcc1aaded438b07768be60ef0bdd10111f2199f7c7934aa814690",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/summarize_refresh_results.py",
-      "size": 4381,
-      "sha256": "b488496e09740d55c076607e6799663c47d60be14aa1deaa416e6dc70757b89f",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/synthesize_city_batch.py",
-      "size": 8392,
-      "sha256": "b894ce79cab16c0df1753a66739b46bb7fe45609ac1fe2ba9c7f033477f04f8f",
-      "role": "source_or_documentation"
+      "sha256": "92d6a45eb22c5d2e1eb06ebcc744b1e040009f17093f2f28bfa9d7f7b60cceb4"
     },
     {
       "path": "generation/baselines/pipeline/synthesize_dataset.py",
-      "size": 36449,
-      "sha256": "71c41868eb83ef9da2fe7d2a6e75fd381d51bec5792613a7f22d6088b060d045",
-      "role": "source_or_documentation"
+      "role": "source_or_documentation",
+      "size": 27246,
+      "sha256": "71a606853c081d9ffa4b0d73b9f5aabd30423a52af54044bc08504d48887a964"
     },
     {
       "path": "generation/baselines/pipeline/tight_audit_runtime.py",
+      "role": "source_or_documentation",
       "size": 1242,
-      "sha256": "c59d26106da35831fd367b17f4d7cb8376a7ef3ca5bc603ff98f33b96435371d",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/pipeline/validate_paper_experiments.py",
-      "size": 8722,
-      "sha256": "a75879f6184584822f366eff4fa89aa1e161838c02be66546d4bec8f249e9a97",
-      "role": "source_or_documentation"
+      "sha256": "c59d26106da35831fd367b17f4d7cb8376a7ef3ca5bc603ff98f33b96435371d"
     },
     {
       "path": "generation/baselines/public_utils.py",
-      "size": 15438,
-      "sha256": "c193aa6999546c4fa5e7996b5cd956c881b504c3a68e6dcb6fbd205e64a280d9",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/src/reproduced_papers/DPStd/dpstd_final.py",
-      "size": 55877,
-      "sha256": "3def486f8b7f96627ca79b6cdec7ad49322194f272a8e27c586847993fc042b7",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/src/reproduced_papers/DPTrajPM/dptrajpm_final.py",
-      "size": 39233,
-      "sha256": "a5cead24d7a233a49eba4caac8339465fa3ec02bff38951d930358c199c578de",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/src/reproduced_papers/PrivTrace/privtrace_final.py",
-      "size": 66379,
-      "sha256": "370e6d1acb5a2adec95e22c8fbb54ed2c7965043201d0c70b006ceb663815840",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/src/reproduced_papers/README.md",
-      "size": 2268,
-      "sha256": "ea922f393db9299c4becc68cfac4b47503fd1b6235a63a6edb37e2ec56d53436",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "generation/baselines/src/reproduced_papers/SPRT/sprt_final.py",
-      "size": 60636,
-      "sha256": "25d0990bf6ef672d58922afe2a0f5a502896176656d9a323012542b0af89d400",
-      "role": "source_or_documentation"
+      "role": "source_or_documentation",
+      "size": 15289,
+      "sha256": "4fe85b7635425e800193d51e2541aa9d3d5f4429872cdf0dcd84fc9d7ae85ade"
     },
     {
       "path": "generation/baselines/src/reproduced_papers/common/eval_layered_framework.py",
+      "role": "source_or_documentation",
       "size": 21665,
-      "sha256": "a20c30e5cb82b52922815def0d6140ecdc14a9e577285449495d685d77a786d9",
-      "role": "source_or_documentation"
+      "sha256": "a20c30e5cb82b52922815def0d6140ecdc14a9e577285449495d685d77a786d9"
     },
     {
       "path": "generation/baselines/src/reproduced_papers/common/evaluate.py",
+      "role": "source_or_documentation",
       "size": 10316,
-      "sha256": "e4a085d1eea6e593cabb36ae9c1f9f76b1ac56d3456d7fea806a41240d450959",
-      "role": "source_or_documentation"
+      "sha256": "e4a085d1eea6e593cabb36ae9c1f9f76b1ac56d3456d7fea806a41240d450959"
     },
     {
       "path": "generation/baselines/src/reproduced_papers/common/osm_dbscan.py",
+      "role": "source_or_documentation",
       "size": 3539,
-      "sha256": "e262ad6fc1681b5ff95d9a6ab956c901dbc35bb57c355b67c756dc3072c7be27",
-      "role": "source_or_documentation"
+      "sha256": "e262ad6fc1681b5ff95d9a6ab956c901dbc35bb57c355b67c756dc3072c7be27"
     },
     {
       "path": "generation/baselines/src/reproduced_papers/common/run_papers.py",
+      "role": "source_or_documentation",
       "size": 9668,
-      "sha256": "38ebb85c883719272e780c08b136f2383d141fa62b5cd7f0f179f919b1383315",
-      "role": "source_or_documentation"
+      "sha256": "38ebb85c883719272e780c08b136f2383d141fa62b5cd7f0f179f919b1383315"
+    },
+    {
+      "path": "generation/baselines/src/reproduced_papers/DPStd/dpstd_final.py",
+      "role": "source_or_documentation",
+      "size": 55877,
+      "sha256": "3def486f8b7f96627ca79b6cdec7ad49322194f272a8e27c586847993fc042b7"
+    },
+    {
+      "path": "generation/baselines/src/reproduced_papers/DPTrajPM/dptrajpm_final.py",
+      "role": "source_or_documentation",
+      "size": 39233,
+      "sha256": "a5cead24d7a233a49eba4caac8339465fa3ec02bff38951d930358c199c578de"
+    },
+    {
+      "path": "generation/baselines/src/reproduced_papers/PrivTrace/privtrace_final.py",
+      "role": "source_or_documentation",
+      "size": 66379,
+      "sha256": "370e6d1acb5a2adec95e22c8fbb54ed2c7965043201d0c70b006ceb663815840"
+    },
+    {
+      "path": "generation/baselines/src/reproduced_papers/README.md",
+      "role": "source_or_documentation",
+      "size": 2242,
+      "sha256": "aa474ba0712238e250582b8e9618edc0a6b022d77efb63d877b41eaf4712b7fc"
+    },
+    {
+      "path": "generation/baselines/src/reproduced_papers/SPRT/sprt_final.py",
+      "role": "source_or_documentation",
+      "size": 60636,
+      "sha256": "25d0990bf6ef672d58922afe2a0f5a502896176656d9a323012542b0af89d400"
     },
     {
       "path": "generation/mtr_dfr/algorithm/dfr_compat.py",
+      "role": "source_or_documentation",
       "size": 7826,
-      "sha256": "0abad958b16b9d0a2de7c3336596a47483e8f5e40603b06bf7413a225edaec49",
-      "role": "source_or_documentation"
+      "sha256": "0abad958b16b9d0a2de7c3336596a47483e8f5e40603b06bf7413a225edaec49"
     },
     {
       "path": "generation/mtr_dfr/algorithm/run_minimal_strong_family.py",
+      "role": "source_or_documentation",
       "size": 19278,
-      "sha256": "f4fa0021dada37dd4f325650720e1905f087c7a8acaec11f903a21bf14bdc0dc",
-      "role": "source_or_documentation"
+      "sha256": "f4fa0021dada37dd4f325650720e1905f087c7a8acaec11f903a21bf14bdc0dc"
     },
     {
       "path": "generation/mtr_dfr/run.py",
+      "role": "source_or_documentation",
       "size": 4189,
-      "sha256": "18ca41efbacc3974ab9424c7875fae5bb3abf3a226fc765f476774092910adc2",
-      "role": "source_or_documentation"
+      "sha256": "18ca41efbacc3974ab9424c7875fae5bb3abf3a226fc765f476774092910adc2"
     },
     {
       "path": "manifests/synthetic_data_provenance.json",
-      "size": 20617,
-      "sha256": "c05d40ef738fcd1f47fb4a991fb7d5aac3500a37da3cf25c09a3e0fbb6a41598",
-      "role": "source_or_documentation"
+      "role": "source_or_documentation",
+      "size": 20616,
+      "sha256": "736a3284defce0719cf71381a60d79cd588b2392e53108da4a11a9393a500c1b"
     },
     {
       "path": "plotting/regenerate_figures.py",
+      "role": "source_or_documentation",
       "size": 10517,
-      "sha256": "061cf32d9873a7dbdc89820ba4f0cde6ef139a7364cda1c816f0a15d3e97199e",
-      "role": "source_or_documentation"
+      "sha256": "061cf32d9873a7dbdc89820ba4f0cde6ef139a7364cda1c816f0a15d3e97199e"
     },
     {
       "path": "public_assets/beijing_network/manifest.json",
-      "size": 1012,
-      "sha256": "0c7d1eae507893f9b9ac2860a11fadb3dc63e811d1e2bdb19ff3e1d37a5902fe",
-      "role": "source_or_documentation"
+      "role": "public_osm_asset",
+      "size": 1014,
+      "sha256": "c3aabaf2be28b34c73ddd234f4dbd551ff7007569830abbc2f4d806efd84f676"
     },
     {
       "path": "public_assets/beijing_network/network.cpg",
+      "role": "public_osm_asset",
       "size": 5,
-      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
-      "role": "source_or_documentation"
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
     },
     {
       "path": "public_assets/beijing_network/network.dbf",
+      "role": "public_osm_asset",
       "size": 45627238,
-      "sha256": "6b14427065cb68e4943934825e8c55936d8a49cc68f2e038be78576fa7e677ab",
-      "role": "source_or_documentation"
+      "sha256": "6b14427065cb68e4943934825e8c55936d8a49cc68f2e038be78576fa7e677ab"
     },
     {
       "path": "public_assets/beijing_network/network.prj",
+      "role": "public_osm_asset",
       "size": 402,
-      "sha256": "99a5a32f41f7df7e52e869dca1b2df8b2009ba20c28dbf95e61dc9c891dffd38",
-      "role": "source_or_documentation"
+      "sha256": "99a5a32f41f7df7e52e869dca1b2df8b2009ba20c28dbf95e61dc9c891dffd38"
     },
     {
       "path": "public_assets/beijing_network/network.shp",
+      "role": "public_osm_asset",
       "size": 16800004,
-      "sha256": "f9ab3c394563e6516a5813cb303fa7c72b0c83c89479c404544984ed46f473c0",
-      "role": "source_or_documentation"
+      "sha256": "f9ab3c394563e6516a5813cb303fa7c72b0c83c89479c404544984ed46f473c0"
     },
     {
       "path": "public_assets/beijing_network/network.shx",
+      "role": "public_osm_asset",
       "size": 1527364,
-      "sha256": "210f13c332afcd8e2f22110ba064719a6d8de3bd54019a8aabe941d8e12f2e13",
-      "role": "source_or_documentation"
-    },
-    {
-      "path": "public_assets/matcher/FMMLIB.dll",
-      "size": 184832,
-      "sha256": "31dd27009ff6be4c5f7ea4b954333e6bdd1f8f35ab8395215ba60300decef4a3",
-      "role": "source_or_documentation"
+      "sha256": "210f13c332afcd8e2f22110ba064719a6d8de3bd54019a8aabe941d8e12f2e13"
     },
     {
       "path": "public_assets/matcher/fmm.exe",
+      "role": "public_osm_asset",
       "size": 699904,
-      "sha256": "f99d1247d545d5ddbbf6145dcb31ce278157c97cdefc8c9d8ae5ec437202b011",
-      "role": "source_or_documentation"
+      "sha256": "f99d1247d545d5ddbbf6145dcb31ce278157c97cdefc8c9d8ae5ec437202b011"
+    },
+    {
+      "path": "public_assets/matcher/FMMLIB.dll",
+      "role": "public_osm_asset",
+      "size": 184832,
+      "sha256": "31dd27009ff6be4c5f7ea4b954333e6bdd1f8f35ab8395215ba60300decef4a3"
     },
     {
       "path": "public_assets/matcher/stmatch.exe",
+      "role": "public_osm_asset",
       "size": 705024,
-      "sha256": "230aa7ccb0cca16baf14edf2833899bade7c1c37593b9cbcd6b0b4a842527265",
-      "role": "source_or_documentation"
+      "sha256": "230aa7ccb0cca16baf14edf2833899bade7c1c37593b9cbcd6b0b4a842527265"
     },
     {
       "path": "public_assets/matcher/ubodt_gen.exe",
+      "role": "public_osm_asset",
       "size": 535040,
-      "sha256": "7e89995b5606a3833124dd8ef52650c7b1cef8ace00daf690e05cffa28c4ab84",
-      "role": "source_or_documentation"
+      "sha256": "7e89995b5606a3833124dd8ef52650c7b1cef8ace00daf690e05cffa28c4ab84"
     },
     {
       "path": "public_assets/ordered_portal_route_cache.pkl.gz",
+      "role": "public_osm_asset",
       "size": 2486818,
-      "sha256": "235e1bd9a6db55ea4987a5bf91e29d71020db8bc2454ae4080c941cdbf8be588",
-      "role": "source_or_documentation"
+      "sha256": "235e1bd9a6db55ea4987a5bf91e29d71020db8bc2454ae4080c941cdbf8be588"
+    },
+    {
+      "path": "README.md",
+      "role": "source_or_documentation",
+      "size": 1985,
+      "sha256": "e6d3574cc24698a9cef7dd0d24a97c44d2a3068971babf0b7a3e0d4da4f3ed04"
+    },
+    {
+      "path": "README_CN.md",
+      "role": "source_or_documentation",
+      "size": 34013,
+      "sha256": "448603f4532388713b9736a57cc5486da2636dca1c7148e3f3b85e5a30e53814"
     },
     {
       "path": "requirements-lock.txt",
@@ -2199,27 +1629,21 @@
     },
     {
       "path": "requirements.txt",
+      "role": "source_or_documentation",
       "size": 174,
-      "sha256": "824a4cedfc9cc68a8a7936528b3650a2cd788dc5d3618e626e6f5d1fbb1fecb0",
-      "role": "source_or_documentation"
+      "sha256": "824a4cedfc9cc68a8a7936528b3650a2cd788dc5d3618e626e6f5d1fbb1fecb0"
     },
     {
       "path": "run.ps1",
+      "role": "source_or_documentation",
       "size": 644,
-      "sha256": "3334a20dfaf5612f10a9b07e862f4f8b91b6d2c9b2586fe9e46ff7c7a9e604ea",
-      "role": "source_or_documentation"
+      "sha256": "3334a20dfaf5612f10a9b07e862f4f8b91b6d2c9b2586fe9e46ff7c7a9e604ea"
     },
     {
       "path": "tests/test_baseline_dependency_preflight.py",
       "role": "source_or_documentation",
       "size": 4391,
       "sha256": "3a2fab7b4426a2313627670a3b512c7bd6add41c9b47bbd9caa8b46d9620a513"
-    },
-    {
-      "path": "tests/test_destination_model_audit.py",
-      "role": "source_or_documentation",
-      "size": 1231,
-      "sha256": "4cfb9e686316c4ae79ac42d0f064ed33da67a99f006c20e7b49be390eb78c85b"
     },
     {
       "path": "tests/test_dfr_input_binding.py",
@@ -2254,8 +1678,8 @@
     {
       "path": "tests/test_packaged_source_bindings.py",
       "role": "source_or_documentation",
-      "size": 1050,
-      "sha256": "4168059a933d35e581348e1818396c9187af0c819dd5fe67e0a3f546ce07e804"
+      "size": 1067,
+      "sha256": "32f1d0b7187b48b5ec1022a3c370c8aaab04c20cb7acab70925e0360c6d5b036"
     },
     {
       "path": "tests/test_physical_route_mass.py",

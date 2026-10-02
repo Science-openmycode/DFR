@@ -67,7 +67,9 @@ python commands/reproduce.py plot -- --figure structure --data-root experiment_r
 
 本目录包含 MTR-DFR、四种统计式 DP baseline 的合成数据、统一指标结果和论文图片。下面按照实验章节的叙述顺序执行合成、道路重建、指标与任务评估，最后调用对应作图命令，在 `experiment_results/regenerated_figures/` 产生 PNG 和 PDF。
 
-目录内容和每项实验的已保存事实见 [`docs/REPRODUCTION_FACTS_CN.md`](docs/REPRODUCTION_FACTS_CN.md)；该 DFR 目录只用于私有仓库，不与公开的 MTR-GSRT 仓库合并。
+目录内容和每项实验的已保存事实见 [`docs/REPRODUCTION_FACTS_CN.md`](docs/REPRODUCTION_FACTS_CN.md)。本目录只包含 MTR-DFR、四个统计式 baseline 及其评估工具。
+
+尚未完成的实验逐项列在 [`docs/UNCOMPLETED_EXPERIMENTS_CN.md`](docs/UNCOMPLETED_EXPERIMENTS_CN.md)，未完成项目不会被冻结表格或图片替代。
 
 ![MTR-DFR 实验顺序](experiment_results/published_figures/00_ordered_evidence_chain.png)
 
@@ -264,7 +266,7 @@ python commands/reproduce.py run-ablation -- --real-routes "C:\runs\real_road_re
 python commands/reproduce.py plot -- --figure ablation --data-root experiment_results/recomputed
 ```
 
-参数说明：这条命令不读取冻结消融表。它读取显式数据和公共道路资产，用同一预算、随机种子和固定输出规模逐臂重新合成。GSRT 的 `--component-modes` 控制 `full/no-portal-fiber/no-graph-flow/demand-only`；DFR 的 `--variants` 控制端点测量、路线族测量和匹配路由的组合。`--out-dir` 同时保存每一臂新生成的合成数据、指标和汇总表。
+参数说明：这条命令不读取冻结消融表。它读取显式数据和公共道路资产，用同一预算、随机种子和固定输出规模逐臂重新合成。DFR 的 `--variants` 控制端点测量、路线族测量和匹配路由的组合。`--out-dir` 同时保存每一臂新生成的合成数据、指标和汇总表。
 
 第一条命令对每个指定算法臂重新执行私有测量和公共路由，将新合成数据写入 `ablation/arms/`，将逐臂指标写入 `ablation/raw/`，再形成 `ablation/results.csv` 和参数 manifest；第二条命令只读取这些新结果生成 `05_ablation.png` 和 `05_ablation.pdf`。
 
