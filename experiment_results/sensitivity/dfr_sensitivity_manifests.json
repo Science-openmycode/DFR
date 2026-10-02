@@ -1,0 +1,197 @@
+[
+  {
+    "manifest": "cloud_runs/dfr_epsilon_0_2_seed20260722/seed_20260722_length/manifest.json",
+    "manifest_sha256": "E20CF0FBD965BF28E150671693476E4E1475AFE0709CEBCCB9BD2BDB7CA610D5",
+    "epsilon": 0.2,
+    "requested_epsilon_total": 0.2,
+    "delta": 1e-06,
+    "resolution_k": 8,
+    "fixed_output_slots": 17123,
+    "input_records": 10040,
+    "runtime_seconds": 836.3240327835083,
+    "outputs": {
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_epsilon_0_2_seed20260722/seed_20260722_length/road_routes.pkl.gz": "F93200A19CFBA5BCCB86E8AA3E8A1492A895E4814FA26F6B633ECF352B749450",
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_epsilon_0_2_seed20260722/seed_20260722_length/dp_transcript.pkl.gz": "6C14C4B8D0CFBAF9226DCFADF79C15B2898BFC618D91B368BBE0504B2B676C5D"
+    }
+  },
+  {
+    "manifest": "cloud_runs/dfr_epsilon_0_4_seed20260722/seed_20260722_length/manifest.json",
+    "manifest_sha256": "3D9A114A2772BDE55E26A8012A3D146164662C28C24B71DA2216C1AB5E40755A",
+    "epsilon": 0.4,
+    "requested_epsilon_total": 0.4,
+    "delta": 1e-06,
+    "resolution_k": 8,
+    "fixed_output_slots": 17123,
+    "input_records": 10040,
+    "runtime_seconds": 665.6007316112518,
+    "outputs": {
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_epsilon_0_4_seed20260722/seed_20260722_length/road_routes.pkl.gz": "7C76D26B5B294B26492ABFE33E8E922383DC87F412D9AE066E87D89C3927A7D6",
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_epsilon_0_4_seed20260722/seed_20260722_length/dp_transcript.pkl.gz": "94B6A275E0C9D8C77FF2AE39E1A0ED465DFDC58E6D0917F3EF27A3F59E2C0C30"
+    }
+  },
+  {
+    "manifest": "cloud_runs/dfr_epsilon_0_7_seed20260722/seed_20260722_length/manifest.json",
+    "manifest_sha256": "DA0C808848A6D6934E4843CAFB39788798BEDAB4D1168B041F8DF25BF5EA5C39",
+    "epsilon": 0.7,
+    "requested_epsilon_total": 0.7,
+    "delta": 1e-06,
+    "resolution_k": 8,
+    "fixed_output_slots": 17123,
+    "input_records": 10040,
+    "runtime_seconds": 574.0246269702911,
+    "outputs": {
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_epsilon_0_7_seed20260722/seed_20260722_length/road_routes.pkl.gz": "87AB1701BDE7E9AE293D182717E866CB42CD50B553F5E12EE1E29324A267FA32",
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_epsilon_0_7_seed20260722/seed_20260722_length/dp_transcript.pkl.gz": "37FFC8E0E9EBFA208931B3BD295FC0BAD49E86FF460438F7BBDCA8B291E8A76A"
+    }
+  },
+  {
+    "manifest": "cloud_runs/dfr_epsilon_1_0_seed20260722/seed_20260722_length/manifest.json",
+    "manifest_sha256": "AA7B8FA5E5B4C4FEB45AFDD783F7356913B0D7C3F47B268269E511844A56724B",
+    "epsilon": 0.9999999999999998,
+    "requested_epsilon_total": 1.0,
+    "delta": 1e-06,
+    "resolution_k": 8,
+    "fixed_output_slots": 17123,
+    "input_records": 10040,
+    "runtime_seconds": 522.8256723880768,
+    "outputs": {
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_epsilon_1_0_seed20260722/seed_20260722_length/road_routes.pkl.gz": "1B51C45A0EEAB526A774F3CB05452D15EBFE7149559A9BBB010875A56EC86CCF",
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_epsilon_1_0_seed20260722/seed_20260722_length/dp_transcript.pkl.gz": "AF7A69E376221DA8B612CAFA5EC3D06C36CA8FC2ECC485AD92A77D9055DCDF99"
+    }
+  },
+  {
+    "manifest": "cloud_runs/dfr_epsilon_1_4_seed20260722/seed_20260722_length/manifest.json",
+    "manifest_sha256": "ED610862CA1A706CD65281B31CAADC81914FAAAAC90B9E782ED34E9E945E6C45",
+    "epsilon": 1.4,
+    "requested_epsilon_total": 1.4,
+    "delta": 1e-06,
+    "resolution_k": 8,
+    "fixed_output_slots": 17123,
+    "input_records": 10040,
+    "runtime_seconds": 503.61625123023987,
+    "outputs": {
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_epsilon_1_4_seed20260722/seed_20260722_length/road_routes.pkl.gz": "03DD1F0E9E89FC0FD700EEF79BEC402000FB511B8B824A720F409768D70589A6",
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_epsilon_1_4_seed20260722/seed_20260722_length/dp_transcript.pkl.gz": "D6430138CC3C82E8108C8BC5642EAE2A17F9D82F7682844DCDA8FFE6166153A8"
+    }
+  },
+  {
+    "manifest": "cloud_runs/dfr_epsilon_2_0_seed20260722/seed_20260722_length/manifest.json",
+    "manifest_sha256": "D89975021255945B17B8EA069B163D7E6C015769EB44A430979FB5828098A5BF",
+    "epsilon": 1.9999999999999996,
+    "requested_epsilon_total": 2.0,
+    "delta": 1e-06,
+    "resolution_k": 8,
+    "fixed_output_slots": 17123,
+    "input_records": 10040,
+    "runtime_seconds": 492.2784478664398,
+    "outputs": {
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_epsilon_2_0_seed20260722/seed_20260722_length/road_routes.pkl.gz": "58919DCCFE172DA47EF92B62229DEC5C9BC15E6CDD884E1E4AD01048DB9BDA98",
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_epsilon_2_0_seed20260722/seed_20260722_length/dp_transcript.pkl.gz": "59280CCA07CF6F7282896E6BEEED1A68575EE273D5B2CAEE7A8525EB9E7A2314"
+    }
+  },
+  {
+    "manifest": "cloud_runs/dfr_epsilon_3_0_seed20260722/seed_20260722_length/manifest.json",
+    "manifest_sha256": "07CBC57D036BDA2CA1A43CCB6DDFEB62B04C73CF2980C22222CAE2B15B4243C1",
+    "epsilon": 3.0,
+    "requested_epsilon_total": 3.0,
+    "delta": 1e-06,
+    "resolution_k": 8,
+    "fixed_output_slots": 17123,
+    "input_records": 10040,
+    "runtime_seconds": 457.6787734031677,
+    "outputs": {
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_epsilon_3_0_seed20260722/seed_20260722_length/road_routes.pkl.gz": "430B061C6ED1974C3F62C7C81C30B03CE2C2006F0F04747A19BC95435FB38ED8",
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_epsilon_3_0_seed20260722/seed_20260722_length/dp_transcript.pkl.gz": "F554092142384421F14311667B0E92CA8B33D41B727F121927EEADB7A0DB4A87"
+    }
+  },
+  {
+    "manifest": "cloud_runs/dfr_resolution_k16_seed20260721/seed_20260721_length/manifest.json",
+    "manifest_sha256": "B1223A79684F6AA7A34ACE0FA97204CED009981769F6BC0A5B6333996DE1CDA2",
+    "epsilon": 1.1500000000000001,
+    "requested_epsilon_total": null,
+    "delta": 1e-06,
+    "resolution_k": 16,
+    "fixed_output_slots": 17123,
+    "input_records": 10040,
+    "runtime_seconds": 539.7207050323486,
+    "outputs": {
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_resolution_k16_seed20260721/seed_20260721_length/road_routes.pkl.gz": "69C80B4DC206583DA586335586F7DA4D7E3FDCA5F97B5E4FDE2ABA02A9E6AED1",
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_resolution_k16_seed20260721/seed_20260721_length/dp_transcript.pkl.gz": "80ACB8D57DD23127887ECAAF493671682BE64FC0B533FAE063273FD51A33D714"
+    }
+  },
+  {
+    "manifest": "cloud_runs/dfr_resolution_k2_seed20260721/seed_20260721_length/manifest.json",
+    "manifest_sha256": "12D3BE163EDBAA43215F41E5EA90BF771B3B504BA81A0F075B54244EC8B528CF",
+    "epsilon": 1.1500000000000001,
+    "requested_epsilon_total": null,
+    "delta": 1e-06,
+    "resolution_k": 2,
+    "fixed_output_slots": 17123,
+    "input_records": 10040,
+    "runtime_seconds": 554.2614367008209,
+    "outputs": {
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_resolution_k2_seed20260721/seed_20260721_length/road_routes.pkl.gz": "2122562FEE61EA8738EEAC442086865278F6A76BD05EBBEE4A3B51192D9341B2",
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_resolution_k2_seed20260721/seed_20260721_length/dp_transcript.pkl.gz": "E33289D25421689A770792F517FF0ADD2C06A53237DA26B4ECF14BA67B063DF7"
+    }
+  },
+  {
+    "manifest": "cloud_runs/dfr_resolution_k32_seed20260721/seed_20260721_length/manifest.json",
+    "manifest_sha256": "048BF699EF305F2CE14054B2A977FCD9682C011B22B94870E75D1F03B5A67215",
+    "epsilon": 1.1500000000000001,
+    "requested_epsilon_total": null,
+    "delta": 1e-06,
+    "resolution_k": 32,
+    "fixed_output_slots": 17123,
+    "input_records": 10040,
+    "runtime_seconds": 547.431934595108,
+    "outputs": {
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_resolution_k32_seed20260721/seed_20260721_length/road_routes.pkl.gz": "6D73327E58EF52DA757A16A91AB77D4DCC93EAB52FC1B268ACF2E9E5BE99A8B9",
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_resolution_k32_seed20260721/seed_20260721_length/dp_transcript.pkl.gz": "A04B80A0B1A282A0B1A0B991E07FF87C7294B97A44347B21891029195DA07D95"
+    }
+  },
+  {
+    "manifest": "cloud_runs/dfr_resolution_k4_seed20260721/seed_20260721_length/manifest.json",
+    "manifest_sha256": "73BD2B8774086A9441324EA269548193F63803C7B288EDE53BA49DF18B982828",
+    "epsilon": 1.1500000000000001,
+    "requested_epsilon_total": null,
+    "delta": 1e-06,
+    "resolution_k": 4,
+    "fixed_output_slots": 17123,
+    "input_records": 10040,
+    "runtime_seconds": 532.8840420246124,
+    "outputs": {
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_resolution_k4_seed20260721/seed_20260721_length/road_routes.pkl.gz": "F7708F91E7FF1324D5D51282F8B1404C970E3175AE38F05FFF968F9E33651D48",
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_resolution_k4_seed20260721/seed_20260721_length/dp_transcript.pkl.gz": "98FFD8FB7DD3BEE9B0FA974271EBA000E5429C5A70459BF69770CC88E5124807"
+    }
+  },
+  {
+    "manifest": "cloud_runs/dfr_resolution_k64_seed20260721/seed_20260721_length/manifest.json",
+    "manifest_sha256": "861B341C1BE245616523FCD5F3893B06E902A3000FF5B7B0A5A135DD3F8ECAA6",
+    "epsilon": 1.1500000000000001,
+    "requested_epsilon_total": null,
+    "delta": 1e-06,
+    "resolution_k": 64,
+    "fixed_output_slots": 17123,
+    "input_records": 10040,
+    "runtime_seconds": 565.3119127750397,
+    "outputs": {
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_resolution_k64_seed20260721/seed_20260721_length/road_routes.pkl.gz": "3EA1B624BEDCFA303C29DCA51F4FBF489F8733E9E312E603ADFE14FE7BE3A6A6",
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_resolution_k64_seed20260721/seed_20260721_length/dp_transcript.pkl.gz": "934A91B49BEF3E1FC341F5DE4DFC76E9A86A9DED3964994B88881E11B8576552"
+    }
+  },
+  {
+    "manifest": "cloud_runs/dfr_resolution_k8_seed20260721/seed_20260721_length/manifest.json",
+    "manifest_sha256": "76926CF99B5BCC6C0F45FEB7D457563EF9F323EB71C362E9EFFC81554DC020CB",
+    "epsilon": 1.1500000000000001,
+    "requested_epsilon_total": null,
+    "delta": 1e-06,
+    "resolution_k": 8,
+    "fixed_output_slots": 17123,
+    "input_records": 10040,
+    "runtime_seconds": 566.8835771083832,
+    "outputs": {
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_resolution_k8_seed20260721/seed_20260721_length/road_routes.pkl.gz": "24E7091F6A6B91073F77A25DA69EEE703100004BCF11550081A3ADF278818DCE",
+      "/hy-tmp/DFR_cloud/cloud_runs/dfr_resolution_k8_seed20260721/seed_20260721_length/dp_transcript.pkl.gz": "32B7565A1A7646889D474A9651C8B1623B0405F2AD25D9570C29AA12D94AEBCF"
+    }
+  }
+]
