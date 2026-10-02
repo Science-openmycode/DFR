@@ -31,6 +31,13 @@ def main() -> None:
     parser.add_argument("--length-aware", action="store_true")
     parser.add_argument("--public-slot-count", type=int, default=17123,
                         help="Predeclared fixed number of synthetic road trajectories.")
+    parser.add_argument("--resolution-k", type=int, default=None,
+                        help="Number of private fine endpoint cells retained per role. "
+                             "Default keeps the frozen DFR value (8).")
+    parser.add_argument("--epsilon-total", type=float, default=None,
+                        help="Total pure-DP budget for the private DFR measurements. "
+                             "The frozen component ratios are scaled proportionally; "
+                             "omitting this option keeps the published default.")
     args = parser.parse_args()
     for name in ("real_matched", "edge_cache", "network", "out_dir"):
         path = getattr(args, name)
@@ -57,6 +64,23 @@ def main() -> None:
     if args.public_slot_count <= 0:
         parser.error("--public-slot-count must be positive")
     module.SLOTS = int(args.public_slot_count)
+    if args.resolution_k is not None:
+        if not 1 <= args.resolution_k <= 384:
+            parser.error("--resolution-k must be in [1, 384]")
+        module.SELECTED_CELLS_PER_ROLE = int(args.resolution_k)
+    if args.epsilon_total is not None:
+        if args.epsilon_total <= 0:
+            parser.error("--epsilon-total must be positive")
+        base = (module.EPS_FINE + module.EPS_ENDPOINT_ATOM + module.EPS_OD +
+                module.EPS_FAMILY + module.EPS_COUNT +
+                (module.EPS_LENGTH if args.length_aware else 0.0))
+        scale = float(args.epsilon_total) / base
+        for name in ("EPS_FINE", "EPS_ENDPOINT_ATOM", "EPS_OD", "EPS_FAMILY",
+                     "EPS_COUNT", "EPS_LENGTH"):
+            setattr(module, name, float(getattr(module, name)) * scale)
+        module.REQUESTED_EPSILON_TOTAL = float(args.epsilon_total)
+    else:
+        module.REQUESTED_EPSILON_TOTAL = None
     if args.check_only:
         print("MTR-DFR dependency closure and explicit input paths: OK")
         return
@@ -72,6 +96,8 @@ def main() -> None:
                          "sha256": hashlib.sha256(getattr(args, name).read_bytes()).hexdigest()}
                    for name in ("real_matched", "edge_cache", "network")},
         "public_slot_count": args.public_slot_count,
+        "resolution_k": module.SELECTED_CELLS_PER_ROLE,
+        "epsilon_total": args.epsilon_total,
         "length_aware": args.length_aware,
         "randomness": "formal" if args.formal else "seeded_research",
     }

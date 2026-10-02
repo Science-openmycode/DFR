@@ -44,6 +44,7 @@ EPS_LENGTH = 0.10
 DELTA_FAMILY = 1e-6
 SLOTS = 17123
 SELECTED_CELLS_PER_ROLE = 8
+REQUESTED_EPSILON_TOTAL = None
 PUBLIC_VARIANTS_PER_FAMILY = 16
 MAX_ENDPOINT_PAIRS_PER_FAMILY = 96
 LENGTH_BINS_KM = np.asarray([0.0, .5, 1, 2, 3, 5, 8, 12, 20, 35, 60, 100, np.inf])
@@ -374,7 +375,12 @@ def main():
         "removed": ["legacy q5", "legacy route field", "residual deconvolution",
                     "length OT", "carrier reweighting"],
         "adjacency": "one road-realized trajectory record add/remove",
-        "privacy": ({"epsilon": 1.15 if args.length_aware else 1.05, "delta": 1e-6,
+        "privacy": ({"epsilon": float(sum(value for value in
+                                      (EPS_FINE, EPS_ENDPOINT_ATOM, EPS_OD,
+                                       EPS_FAMILY, EPS_COUNT,
+                                       *([EPS_LENGTH] if args.length_aware else [])))),
+                     "requested_epsilon_total": REQUESTED_EPSILON_TOTAL,
+                     "delta": 1e-6,
                      "composition": {"fine_endpoint": EPS_FINE,
                                      "endpoint_atom": EPS_ENDPOINT_ATOM,
                                      "coarse_od": EPS_OD,
@@ -386,7 +392,9 @@ def main():
         "research_seed": None if args.formal else args.seed,
         "formal_randomness": "unrevealed operating-system entropy" if args.formal else None,
         "oracle": args.oracle, "input_records": len(real),
-        "fixed_output_slots": SLOTS, "tail_states": dict(tail_states),
+        "fixed_output_slots": SLOTS,
+        "resolution_k": SELECTED_CELLS_PER_ROLE,
+        "tail_states": dict(tail_states),
         "family_release": family_transcript,
         "outputs": {str(routes_path.resolve()): digest(routes_path),
                     str(transcript_path.resolve()): digest(transcript_path)},

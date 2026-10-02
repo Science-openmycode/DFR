@@ -126,6 +126,14 @@ python commands/reproduce.py prepare-road-reference -- --dataset-config geolife 
 python commands/reproduce.py generate-main -- --real-matched "C:\runs\real_road_reference\matched_paths\Real.pkl.gz" --edge-cache "public_assets\ordered_portal_route_cache.pkl.gz" --network "public_assets\beijing_network\network.shp" --seed 20260719 --length-aware --public-slot-count 17123 --out-dir "C:\runs\mtr_dfr"
 ```
 
+DFR 的分辨率和预算敏感性使用同一个生成入口，不复用 GSRT 的 Q5 结果。`--resolution-k` 是每个端点角色保留的私有细胞数，控制私有测量分辨率；公共道路图、固定输出槽位和路由支撑不随 K 改变。省略该参数时使用论文冻结值 `K=8`。`--epsilon-total` 按冻结的测量块比例缩放端点、OD、路线族、计数（以及启用 `--length-aware` 时的长度）预算，并把实际组合预算写入 manifest。例如：
+
+```powershell
+python commands/reproduce.py generate-main -- --real-matched "C:\runs\real_road_reference\matched_paths\Real.pkl.gz" --edge-cache "public_assets\ordered_portal_route_cache.pkl.gz" --network "public_assets\beijing_network\network.shp" --seed 20260719 --length-aware --resolution-k 16 --epsilon-total 0.4 --public-slot-count 17123 --out-dir "C:\runs\dfr_k16_eps04"
+```
+
+该命令生成 `road_routes.pkl.gz`、`dp_transcript.pkl.gz`、`manifest.json` 和 `input_lineage.json`；manifest 中的 `resolution_k`、`privacy.composition` 和 `privacy.epsilon` 是本轮实际值。通过改变 `--resolution-k`（例如 2、4、8、16、32、64）或 `--epsilon-total`（例如 0.2、0.4、0.7、1.0、1.4、2.0、3.0）即可得到 DFR 自身的分辨率/预算曲线。每个点必须使用独立 `--out-dir`，不能覆盖冻结结果。
+
 运行四种统计式 DP 合成算法：
 
 ```powershell
