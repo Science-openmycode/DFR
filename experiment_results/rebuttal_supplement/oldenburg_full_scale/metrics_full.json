@@ -1,0 +1,31 @@
+{
+  "command_role": "evaluate_metrics",
+  "real": "ARA_codex/results/oldenburg_full_scale/oldenburg_normalized.dat",
+  "real_limit": 500000,
+  "real_count": 500000,
+  "osm_cache": "ARA_codex/exploration/oldenburg_btf_20260910/inputs/oldenburg_osm_cache_norm.pkl",
+  "grid": 64,
+  "road_sample_count": 75693,
+  "rows": [
+    {
+      "method": "trajectories",
+      "synthetic_file": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\results\\oldenburg_full_scale\\mtr_gsrt_release_v4\\trajectories.pkl",
+      "real": "ARA_codex/results/oldenburg_full_scale/oldenburg_normalized.dat",
+      "real_count": 500000,
+      "n_traj": 500000,
+      "mean_points": 73.66747,
+      "road_100m": 1.0,
+      "road_200m": 1.0,
+      "road_mean_dist_km": 0.020551942179405265,
+      "jump_gt1km": 0.19805409490656548,
+      "jump_gt2km": 0.01125458200209805,
+      "step_mean_km": 0.745602474941428,
+      "step_p95_km": 1.4583710419595692,
+      "length_mean_km": 54.181045479731964,
+      "grid_occupancy_jsd": 0.0768639601317825,
+      "od_jsd": 0.4398061516476595,
+      "length_jsd": 0.009858264513131786,
+      "step_jsd": 0.07853121683043829
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "classification": "RESEARCH_MULTICITY_FIVE_SEED_AGGREGATE_NO_SYNTHESIS",
+  "seeds": [
+    20260719,
+    20260720,
+    20260721,
+    20260722,
+    20260723
+  ],
+  "input_hashes": {
+    "porto/seed_20260719/protocol.json": "795e7ac0bfdcb6955247d0ec61ebb610ff26bf26818804f012eb2e1f33adf976",
+    "porto/seed_20260719/metrics.json": "4f87f7b1cfbae60ad47d4881d16a2749f2e31cd9bd099f64e6860f2ecc449a6e",
+    "porto/seed_20260720/protocol.json": "dce48f98c089af1d82680c618e01b1801a8142a9a2c9fe2239a8116a35b168a0",
+    "porto/seed_20260720/metrics.json": "1475b7bd10ba59ab0665e46a9db14e8c5982e670a17ee3e63d5a0d4c250d1af7",
+    "porto/seed_20260721/protocol.json": "5270f0f70e0bd7d72542d019ac5a417f8fc659f11cf2776f131a6ce68db81b50",
+    "porto/seed_20260721/metrics.json": "6a2e6928dfe1d573d5d16be0fd85438143a8750115549cc272f5340079fdd8d0",
+    "porto/seed_20260722/protocol.json": "1a0b3264ee27b2cb03868f822b127c6381b77ea7946bd2342d34965c9b68c627",
+    "porto/seed_20260722/metrics.json": "519fcec7988610f5221df935b0318cca1ae580cfeb7f11b5dbcaa5a2f8a914a9",
+    "porto/seed_20260723/protocol.json": "3829525464b94df8939851ccf42a8316728cfc7df315471ce81b85abb7ffcfc2",
+    "porto/seed_20260723/metrics.json": "5e8a067f9f90279a9c9399c576ab0154919994f90123aab38b004ab24f00ae1a",
+    "sf/seed_20260719/protocol.json": "5678c0845440e5e5fe4e4da3a233d32371b55c0ff16c69bb1f3885ce676d4ec8",
+    "sf/seed_20260719/metrics.json": "981c3340632e528561ab1518edd9d7f0862c41e6397970335f468d77012e38ca",
+    "sf/seed_20260720/protocol.json": "1f4a34a4f2076dcddac08c1264525c76c9b8e2f926914fa06b2f4e3cb37929ad",
+    "sf/seed_20260720/metrics.json": "adb06f7999a9be8951aa029710d40213f542a31b1c550630b5d3918ef440f3f0",
+    "sf/seed_20260721/protocol.json": "2e7ce522f70e0f3e817db0ba6f3dc986b5076ecefb2c678a781be9af6f3e8fc9",
+    "sf/seed_20260721/metrics.json": "55837c16a1785c0f6d8c4a3025f47ac02971d7343fbd0756c0ea5ee2bf03109b",
+    "sf/seed_20260722/protocol.json": "e6d9bf835bd6deba7f0a104abc99fe6bacf49f85c5c42893fabfce7d2e1babb4",
+    "sf/seed_20260722/metrics.json": "3b334809d5af60d93653678fe568f4737edd5c362cc37a68a3bb8c6a33e4f39c",
+    "sf/seed_20260723/protocol.json": "a99acedc4b2ff16d929b963461b0718db9402cb715315ec3f00fd16d7c2ace83",
+    "sf/seed_20260723/metrics.json": "08610ff1eaaa0fcdf348f9cc6171cdddb740c6987aa7ba4032a0d18f13b63fbd"
+  },
+  "code_sha256": "679ecd7a54090ea9f5d25b39bcd2cc1fc0d5c4cc11c72b59bbd705fa31065db6",
+  "output_hashes": {
+    "q6_multicity_five_seed_detailed.csv": "0d00a327a9a04ee36265151c7b2470bcd7ccfc8bd1521afd95eefb568373ae31",
+    "q6_multicity_five_seed_summary.csv": "a323be108fa44b902a39284f933fba8b969765cdf75f6d3a0213aa8bf438bfca"
+  }
+}

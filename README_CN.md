@@ -339,6 +339,43 @@ python commands/reproduce.py plot -- --figure all --data-root experiment_results
 前六个 `run-*` 入口和 `run-structure` 分别生成七个实验子目录；上述命令从这些结果统一生成八张 PNG 和 PDF。
 
 完整数值分析见 `docs/FROZEN_EXPERIMENT_REPORT_CN.md`。
+
+## 9. OpenReview 补充实验
+
+审稿回复中已经完成、但不替换北京主冻结批次的补充实验统一保存在
+`experiment_results/rebuttal_supplement/`。这些目录提交的是已核对的汇总表、逐种子结果、manifest
+和图片；它们不把评估侧道路匹配结果写成原生道路发布，也不把研究性低预算扫描称为新的正式隐私发布。
+
+先进入仓库根目录，再按下面的顺序重画四类补充图：
+
+```powershell
+python plotting/plot_rebuttal_supplement.py partition `
+  --input experiment_results/rebuttal_supplement/q5_partition_sensitivity/q5_partition_sensitivity_summary.csv `
+  --out-dir experiment_results/rebuttal_supplement/figures
+
+python plotting/plot_rebuttal_supplement.py multicity `
+  --input-dir experiment_results/rebuttal_supplement/q6_multicity_five_seed `
+  --out-dir experiment_results/rebuttal_supplement/figures
+
+python plotting/plot_rebuttal_supplement.py low-epsilon `
+  --input-dir experiment_results/rebuttal_supplement/q6_low_epsilon `
+  --out-dir experiment_results/rebuttal_supplement/figures
+
+python plotting/plot_rebuttal_supplement.py portal-ablation `
+  --input experiment_results/rebuttal_supplement/portal_fiber_ablation/portal_fiber_ablation.csv `
+  --out-dir experiment_results/rebuttal_supplement/figures
+```
+
+预期得到：`q5_partition_granularity_sensitivity.{png,pdf}`、
+`q6_multicity_five_seed.{png,pdf}`、`q6_low_epsilon.{png,pdf}` 和
+`portal_fiber_ablation.{png,pdf}`。Q5 展示分区分辨率，Q6 展示 Porto/SF 五种子与低预算诊断，
+Portal-Fiber 文件夹展示组件消融。Oldenburg 的 500,000 条 full-scale 原始/合成二进制不随 GitHub
+发布，以免把大文件误当作可直接下载的代码；其 manifest、同北京口径指标和来源说明保存在
+`experiment_results/rebuttal_supplement/oldenburg_full_scale/`，按其中的 `README_full_source.md`
+准备外部数据后即可重新生成。
+
+补充实验的逐项路径、数据分类和论文对应关系见
+`experiment_results/rebuttal_supplement/README_CN.md` 与 `docs/DFR_FACT_TABLE_CN.md`。
 ## 发布批次与实验输入
 
 精确复算使用 Python 3.11.15 和 `requirements-lock.txt`，其中同时固定直接与间接依赖；`requirements.txt` 保留主要依赖列表。这里的环境版本已经在独立 Windows 环境测试，不把未经运行的其它平台称为相同数值环境。

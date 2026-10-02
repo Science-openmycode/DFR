@@ -11,10 +11,24 @@
 | 隐私攻击 | MTR-GSRT、DPMM、PUTS、MTNet | DOMIAS、GDA-MIA、Origin、Route | 已完成 |
 | 严格 train-only TSTR | 13,698 训练，3,425 未见测试 | Next-cell、Destination、RoadContinuation、Route retrieval | 已完成 |
 | 逐轨迹结构 | 真实与 DFR 逐条比较 | Backbone、Turn、Closed、RepeatedEdge、Length retention | 已完成 |
-| Porto/SF | 跨城市配置和命令 | 生成、评估、作图 | 入口存在，完整结果未冻结 |
-| epsilon 曲线 | 北京多预算配置 | 预算—指标曲线 | 配置存在，完整批次未冻结 |
+| Porto/SF | 跨城市配置和命令 | 生成、评估、作图 | 主冻结表未收录；补充结果见 `experiment_results/rebuttal_supplement/q6_multicity_five_seed/` |
+| epsilon 曲线 | 北京多预算配置 | 预算—指标曲线 | 补充结果见 `experiment_results/rebuttal_supplement/q6_low_epsilon/`；标记为研究性预算诊断 |
 | WitnessValid | DFR 隔离产物 | 消费者可见 witness | 未完成，当前记录为 NOT_SERIALIZED |
-| Oldenburg | 独立 Brinkhoff 公共图 | 统计、道路、路线、TSTR、消融、攻击 | 尚未形成与北京完全同口径批次 |
+| Oldenburg | 独立模拟道路图，500,000 source | 统计、道路、路线、扩展性 | full-scale 指标摘要见 `experiment_results/rebuttal_supplement/oldenburg_full_scale/`；原始二进制不随仓库发布 |
+
+## OpenReview 补充实验
+
+审稿回复中已经完成、但不替换北京主冻结结果的补充批次统一放在
+`experiment_results/rebuttal_supplement/`，并由
+`plotting/plot_rebuttal_supplement.py` 重画：
+
+- `q5_partition_sensitivity/`：K=48--1024 的区域分辨率敏感性；
+- `q6_multicity_five_seed/`：Porto/SF 五种子汇总；
+- `q6_low_epsilon/`：1/5--3 的预算曲线、query-family 噪声和 fallback；
+- `portal_fiber_ablation/`：MTR-GSRT 与 No Portal unit；
+- `oldenburg_full_scale/`：500,000 条 source/output 的指标和协议摘要。
+
+这些文件是补充研究结果，使用前必须按照目录 README 区分 MTR-GSRT、MTR-DFR、主冻结批次和研究性诊断批次。
 
 ## DFR 冻结代表值
 

@@ -1,0 +1,15 @@
+{
+  "stages": [
+    "q6"
+  ],
+  "inputs": {
+    "q6": {
+      "path": "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\check\\rebuttal_public_repro_20260930\\q6_low_epsilon_full\\q6_query_family_summary.csv",
+      "sha256": "5258c62c13b662b4b1b13a6c35fdbcb9feac600ea2af56cab15cd7d810bd5e32"
+    }
+  },
+  "outputs": {
+    "q6_complete_low_epsilon_audit.pdf": "536da5b777a8dc69c24303dfe03d241a54a742c20b96c3c78632203acfe88c78",
+    "q6_complete_low_epsilon_audit.png": "95c75addedf0759c78eac2534e9210f044b69f6a132f60bc5b6e11714a1bb797"
+  }
+}

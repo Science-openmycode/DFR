@@ -32,3 +32,19 @@ conda create --prefix "C:\fmm-runtime" --override-channels --channel conda-forge
 ```
 
 Then follow the `PATH`, `GDAL_DATA`, `PROJ_LIB`, `verify-matcher`, and `prepare-road-reference` commands in `README_CN.md`. Do not substitute a different road graph for the frozen Beijing results without recording its SHA-256 in the run manifest.
+
+## Reviewer supplemental experiments
+
+Completed supplemental evidence is under `experiment_results/rebuttal_supplement/`. The committed CSV/JSON
+files and manifests are sufficient to regenerate the four supplement figures without private data:
+
+```powershell
+python plotting/plot_rebuttal_supplement.py partition --input experiment_results/rebuttal_supplement/q5_partition_sensitivity/q5_partition_sensitivity_summary.csv --out-dir experiment_results/rebuttal_supplement/figures
+python plotting/plot_rebuttal_supplement.py multicity --input-dir experiment_results/rebuttal_supplement/q6_multicity_five_seed --out-dir experiment_results/rebuttal_supplement/figures
+python plotting/plot_rebuttal_supplement.py low-epsilon --input-dir experiment_results/rebuttal_supplement/q6_low_epsilon --out-dir experiment_results/rebuttal_supplement/figures
+python plotting/plot_rebuttal_supplement.py portal-ablation --input experiment_results/rebuttal_supplement/portal_fiber_ablation/portal_fiber_ablation.csv --out-dir experiment_results/rebuttal_supplement/figures
+```
+
+These are supplemental diagnostics, not replacements for the frozen Beijing release. The Oldenburg
+500,000-record binaries are intentionally excluded from GitHub; its manifest, metrics, and source
+instructions are retained in `experiment_results/rebuttal_supplement/oldenburg_full_scale/`.

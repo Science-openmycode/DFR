@@ -1,0 +1,68 @@
+{
+  "protocol": {
+    "real_count": 500000,
+    "synthetic_count": 500000,
+    "max_point_to_edge_error": 0.07050230279982783,
+    "graph_nodes": 6105,
+    "graph_edges": 7029,
+    "source": "full oldenburg.dat",
+    "witness": "full mtr_gsrt release"
+  },
+  "metrics": {
+    "route_object_yield": 1.0,
+    "decision_yield": 0.99991,
+    "decision_btf_fidelity": 0.5935775719381776,
+    "rc_cpc": 0.59351108526632,
+    "edge_cpc": 0.6015178231831373,
+    "turn_cpc": 0.5456669812588522,
+    "edge_count_iou_equal_mass": 0.43012190870553274,
+    "turn_count_iou_equal_mass": 0.37520084755496685,
+    "edge_support_recall": 0.8664184981029422,
+    "edge_support_jaccard": 0.8657367668097282,
+    "od_prefix_fidelity_96": 0.3878515981733534,
+    "yield_adjusted_od_prefix_fidelity_96": 0.3878515981733534,
+    "real_od_coverage_96": 0.9968454834626246,
+    "od_prefix_fidelity_384": 0.17392926531189137,
+    "yield_adjusted_od_prefix_fidelity_384": 0.17392926531189137,
+    "real_od_coverage_384": 0.99687903918562
+  },
+  "partition": {
+    "24": {
+      "road_nodes": 6105,
+      "coarse_regions": 24,
+      "fine_regions": 24,
+      "coarse_directed_edges": 90,
+      "fine_directed_edges": 90,
+      "macro_regions": 4,
+      "phases": 3,
+      "fine_regions_per_coarse_min": 1,
+      "fine_regions_per_coarse_max": 1,
+      "parent_mismatch_count": 0
+    },
+    "96": {
+      "road_nodes": 6105,
+      "coarse_regions": 24,
+      "fine_regions": 96,
+      "coarse_directed_edges": 90,
+      "fine_directed_edges": 386,
+      "macro_regions": 4,
+      "phases": 3,
+      "fine_regions_per_coarse_min": 1,
+      "fine_regions_per_coarse_max": 12,
+      "parent_mismatch_count": 0
+    },
+    "384": {
+      "road_nodes": 6105,
+      "coarse_regions": 24,
+      "fine_regions": 384,
+      "coarse_directed_edges": 90,
+      "fine_directed_edges": 1354,
+      "macro_regions": 4,
+      "phases": 3,
+      "fine_regions_per_coarse_min": 1,
+      "fine_regions_per_coarse_max": 48,
+      "parent_mismatch_count": 0
+    }
+  },
+  "runtime_seconds": 606.1187391281128
+}
