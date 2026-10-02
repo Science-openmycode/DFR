@@ -1,0 +1,218 @@
+[
+  {
+    "Ablation arm": "endpoint-measurement-only",
+    "metric": "RoadYield",
+    "value": "1.0",
+    "profile_csv": "cloud_runs/profile_ablation_endpoint-measurement-only_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "endpoint-measurement-only",
+    "metric": "DirValid",
+    "value": "1.0",
+    "profile_csv": "cloud_runs/profile_ablation_endpoint-measurement-only_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "endpoint-measurement-only",
+    "metric": "WitnessValid",
+    "value": "1.0",
+    "profile_csv": "cloud_runs/profile_ablation_endpoint-measurement-only_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "endpoint-measurement-only",
+    "metric": "TripSim",
+    "value": "0.7310105834957283",
+    "profile_csv": "cloud_runs/profile_ablation_endpoint-measurement-only_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "endpoint-measurement-only",
+    "metric": "GridSim",
+    "value": "0.7468757275806841",
+    "profile_csv": "cloud_runs/profile_ablation_endpoint-measurement-only_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "endpoint-measurement-only",
+    "metric": "LengthSim",
+    "value": "0.9082241689632301",
+    "profile_csv": "cloud_runs/profile_ablation_endpoint-measurement-only_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "endpoint-measurement-only",
+    "metric": "NextRoadAcc",
+    "value": "0.5689924261514654",
+    "profile_csv": "cloud_runs/profile_ablation_endpoint-measurement-only_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "endpoint-measurement-only",
+    "metric": "RouteMRR",
+    "value": "0.4790132802288168",
+    "profile_csv": "cloud_runs/profile_ablation_endpoint-measurement-only_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "endpoint-measurement-only",
+    "metric": "RouteBest5F1",
+    "value": "0.5325847611574576",
+    "profile_csv": "cloud_runs/profile_ablation_endpoint-measurement-only_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "family-measured-unmatched-router",
+    "metric": "RoadYield",
+    "value": "1.0",
+    "profile_csv": "cloud_runs/profile_ablation_family-measured-unmatched-router_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "family-measured-unmatched-router",
+    "metric": "DirValid",
+    "value": "1.0",
+    "profile_csv": "cloud_runs/profile_ablation_family-measured-unmatched-router_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "family-measured-unmatched-router",
+    "metric": "WitnessValid",
+    "value": "1.0",
+    "profile_csv": "cloud_runs/profile_ablation_family-measured-unmatched-router_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "family-measured-unmatched-router",
+    "metric": "TripSim",
+    "value": "0.7310105834957283",
+    "profile_csv": "cloud_runs/profile_ablation_family-measured-unmatched-router_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "family-measured-unmatched-router",
+    "metric": "GridSim",
+    "value": "0.7468757275806841",
+    "profile_csv": "cloud_runs/profile_ablation_family-measured-unmatched-router_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "family-measured-unmatched-router",
+    "metric": "LengthSim",
+    "value": "0.9082241689632301",
+    "profile_csv": "cloud_runs/profile_ablation_family-measured-unmatched-router_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "family-measured-unmatched-router",
+    "metric": "NextRoadAcc",
+    "value": "0.5689924261514654",
+    "profile_csv": "cloud_runs/profile_ablation_family-measured-unmatched-router_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "family-measured-unmatched-router",
+    "metric": "RouteMRR",
+    "value": "0.4790132802288168",
+    "profile_csv": "cloud_runs/profile_ablation_family-measured-unmatched-router_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "family-measured-unmatched-router",
+    "metric": "RouteBest5F1",
+    "value": "0.5325847611574576",
+    "profile_csv": "cloud_runs/profile_ablation_family-measured-unmatched-router_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "full",
+    "metric": "RoadYield",
+    "value": "1.0",
+    "profile_csv": "cloud_runs/profile_ablation_full_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "full",
+    "metric": "DirValid",
+    "value": "1.0",
+    "profile_csv": "cloud_runs/profile_ablation_full_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "full",
+    "metric": "WitnessValid",
+    "value": "1.0",
+    "profile_csv": "cloud_runs/profile_ablation_full_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "full",
+    "metric": "TripSim",
+    "value": "0.7683848478247325",
+    "profile_csv": "cloud_runs/profile_ablation_full_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "full",
+    "metric": "GridSim",
+    "value": "0.7933929581713934",
+    "profile_csv": "cloud_runs/profile_ablation_full_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "full",
+    "metric": "LengthSim",
+    "value": "0.9522913588431301",
+    "profile_csv": "cloud_runs/profile_ablation_full_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "full",
+    "metric": "NextRoadAcc",
+    "value": "0.5806502066907113",
+    "profile_csv": "cloud_runs/profile_ablation_full_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "full",
+    "metric": "RouteMRR",
+    "value": "0.5249358326702763",
+    "profile_csv": "cloud_runs/profile_ablation_full_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "full",
+    "metric": "RouteBest5F1",
+    "value": "0.5422790403473489",
+    "profile_csv": "cloud_runs/profile_ablation_full_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "no-endpoint-measurement",
+    "metric": "RoadYield",
+    "value": "1.0",
+    "profile_csv": "cloud_runs/profile_ablation_no-endpoint-measurement_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "no-endpoint-measurement",
+    "metric": "DirValid",
+    "value": "1.0",
+    "profile_csv": "cloud_runs/profile_ablation_no-endpoint-measurement_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "no-endpoint-measurement",
+    "metric": "WitnessValid",
+    "value": "1.0",
+    "profile_csv": "cloud_runs/profile_ablation_no-endpoint-measurement_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "no-endpoint-measurement",
+    "metric": "TripSim",
+    "value": "0.46421653852481404",
+    "profile_csv": "cloud_runs/profile_ablation_no-endpoint-measurement_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "no-endpoint-measurement",
+    "metric": "GridSim",
+    "value": "0.569172318290283",
+    "profile_csv": "cloud_runs/profile_ablation_no-endpoint-measurement_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "no-endpoint-measurement",
+    "metric": "LengthSim",
+    "value": "0.87163117763177",
+    "profile_csv": "cloud_runs/profile_ablation_no-endpoint-measurement_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "no-endpoint-measurement",
+    "metric": "NextRoadAcc",
+    "value": "0.5664273787998187",
+    "profile_csv": "cloud_runs/profile_ablation_no-endpoint-measurement_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "no-endpoint-measurement",
+    "metric": "RouteMRR",
+    "value": "0.40447461489128156",
+    "profile_csv": "cloud_runs/profile_ablation_no-endpoint-measurement_seed20260723/results.csv"
+  },
+  {
+    "Ablation arm": "no-endpoint-measurement",
+    "metric": "RouteBest5F1",
+    "value": "0.4920240747094778",
+    "profile_csv": "cloud_runs/profile_ablation_no-endpoint-measurement_seed20260723/results.csv"
+  }
+]

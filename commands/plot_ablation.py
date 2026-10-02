@@ -1,6 +1,7 @@
 """Plot the checked-in DFR algorithm-level ablation table."""
 from pathlib import Path
 import argparse
+import json
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -25,6 +26,22 @@ def main() -> None:
     a.output.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(a.output, dpi=220)
     plt.close(fig)
+
+    full = a.input.parent / "full_metric_summary.json"
+    if full.exists():
+        rows = json.loads(full.read_text(encoding="utf-8"))
+        wide = pd.DataFrame(rows).pivot(index="Ablation arm", columns="metric", values="value")
+        metrics = ["TripSim", "GridSim", "LengthSim", "NextRoadAcc", "RouteMRR", "RouteBest5F1"]
+        fig, axes = plt.subplots(2, 3, figsize=(12, 6), constrained_layout=True)
+        for ax, metric in zip(axes.flat, metrics):
+            ax.bar(wide.index, wide[metric], color="#2f6b9a")
+            ax.set_title(metric)
+            ax.set_ylim(0, 1.02)
+            ax.tick_params(axis="x", labelrotation=45, labelsize=7)
+            ax.grid(axis="y", alpha=0.25)
+        fig.suptitle("DFR ablation on the unified profile metrics")
+        fig.savefig(a.output.with_name("ablation_full_metrics.png"), dpi=220)
+        plt.close(fig)
 
 
 if __name__ == "__main__":

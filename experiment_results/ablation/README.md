@@ -9,6 +9,8 @@ The result table in this directory was generated on the cloud reproduction host 
 
 `results.csv` reports the complete route-utility metric set used by DFR. `summary_manifest.json` records the arm hashes, protocol, seeds, epsilon, slot count, and the SHA-256 of the result table. The saved arm route files remain on the reproduction host because they are large; the table and hashes are sufficient to identify the released run.
 
+`full_metric_summary.json` adds the unified evaluator results for the same four arms. It contains RoadYield, DirValid, WitnessValid, TripSim, GridSim, LengthSim, NextRoadAcc, RouteMRR, and RouteBest5F1, so the ablation can be compared with the main DFR profile using one metric vocabulary.
+
 To regenerate the four arms from a local matched input, run:
 
 ```powershell
