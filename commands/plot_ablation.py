@@ -31,6 +31,7 @@ def main() -> None:
     if full.exists():
         rows = json.loads(full.read_text(encoding="utf-8"))
         wide = pd.DataFrame(rows).pivot(index="Ablation arm", columns="metric", values="value")
+        wide = wide.apply(pd.to_numeric, errors="coerce")
         metrics = ["TripSim", "GridSim", "LengthSim", "NextRoadAcc", "RouteMRR", "RouteBest5F1"]
         fig, axes = plt.subplots(2, 3, figsize=(12, 6), constrained_layout=True)
         for ax, metric in zip(axes.flat, metrics):
