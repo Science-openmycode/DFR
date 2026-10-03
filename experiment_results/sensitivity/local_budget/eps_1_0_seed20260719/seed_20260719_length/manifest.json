@@ -1,0 +1,305 @@
+{
+  "classification": "RESEARCH_ONLY_REPRODUCIBLE_NOISE_DO_NOT_RELEASE",
+  "algorithm": "DFR: demand-family measurement + family-guided routing + DP length-conditioned endpoint reconstruction",
+  "removed": [
+    "legacy q5",
+    "legacy route field",
+    "residual deconvolution",
+    "length OT",
+    "carrier reweighting"
+  ],
+  "adjacency": "one road-realized trajectory record add/remove",
+  "privacy": {
+    "epsilon": 0.9999999999999999,
+    "requested_epsilon_total": 1.0,
+    "delta": 1e-06,
+    "composition": {
+      "fine_endpoint": 0.03478260869565217,
+      "endpoint_atom": 0.2434782608695652,
+      "coarse_od": 0.2869565217391304,
+      "stable_family": 0.33043478260869563,
+      "noisy_total": 0.017391304347826084,
+      "global_length": 0.08695652173913043
+    }
+  },
+  "research_seed": 20260719,
+  "formal_randomness": null,
+  "oracle": null,
+  "input_records": 10040,
+  "fixed_output_slots": 17123,
+  "resolution_k": 8,
+  "tail_states": {
+    "public_shortest": 16922,
+    "single_edge_fallback": 201
+  },
+  "family_release": {
+    "threshold": 40.712415484249945,
+    "released_families": 23,
+    "requested_head": 5267,
+    "realized_head": 5267,
+    "unsupported_head": 0,
+    "realized_families": 23,
+    "noisy_total": 10053.629480176625,
+    "realization": [
+      {
+        "family": [
+          12
+        ],
+        "requested": 1296,
+        "endpoint_pairs": 430,
+        "variants": 16,
+        "expansions": 7856
+      },
+      {
+        "family": [
+          89,
+          68,
+          5
+        ],
+        "requested": 455,
+        "endpoint_pairs": 67,
+        "variants": 16,
+        "expansions": 19968
+      },
+      {
+        "family": [
+          93
+        ],
+        "requested": 308,
+        "endpoint_pairs": 30,
+        "variants": 16,
+        "expansions": 25854
+      },
+      {
+        "family": [
+          61
+        ],
+        "requested": 276,
+        "endpoint_pairs": 151,
+        "variants": 16,
+        "expansions": 16992
+      },
+      {
+        "family": [
+          12,
+          4
+        ],
+        "requested": 249,
+        "endpoint_pairs": 236,
+        "variants": 16,
+        "expansions": 20394
+      },
+      {
+        "family": [
+          61,
+          66
+        ],
+        "requested": 241,
+        "endpoint_pairs": 40,
+        "variants": 16,
+        "expansions": 24296
+      },
+      {
+        "family": [
+          43
+        ],
+        "requested": 227,
+        "endpoint_pairs": 51,
+        "variants": 16,
+        "expansions": 5528
+      },
+      {
+        "family": [
+          4
+        ],
+        "requested": 218,
+        "endpoint_pairs": 95,
+        "variants": 16,
+        "expansions": 9368
+      },
+      {
+        "family": [
+          66,
+          61
+        ],
+        "requested": 218,
+        "endpoint_pairs": 90,
+        "variants": 16,
+        "expansions": 34547
+      },
+      {
+        "family": [
+          5,
+          68,
+          89
+        ],
+        "requested": 217,
+        "endpoint_pairs": 48,
+        "variants": 16,
+        "expansions": 16977
+      },
+      {
+        "family": [
+          4,
+          12
+        ],
+        "requested": 180,
+        "endpoint_pairs": 264,
+        "variants": 16,
+        "expansions": 18337
+      },
+      {
+        "family": [
+          89
+        ],
+        "requested": 178,
+        "endpoint_pairs": 214,
+        "variants": 16,
+        "expansions": 11114
+      },
+      {
+        "family": [
+          12,
+          10,
+          12,
+          6,
+          1,
+          47,
+          43
+        ],
+        "requested": 163,
+        "endpoint_pairs": 55,
+        "variants": 16,
+        "expansions": 122765
+      },
+      {
+        "family": [
+          10
+        ],
+        "requested": 160,
+        "endpoint_pairs": 22,
+        "variants": 16,
+        "expansions": 7872
+      },
+      {
+        "family": [
+          43,
+          47,
+          1,
+          10,
+          6,
+          12,
+          10,
+          12
+        ],
+        "requested": 151,
+        "endpoint_pairs": 58,
+        "variants": 16,
+        "expansions": 135018
+      },
+      {
+        "family": [
+          12,
+          4,
+          12
+        ],
+        "requested": 131,
+        "endpoint_pairs": 430,
+        "variants": 16,
+        "expansions": 27763
+      },
+      {
+        "family": [
+          4,
+          73,
+          4,
+          12,
+          6,
+          11,
+          89,
+          68,
+          89
+        ],
+        "requested": 119,
+        "endpoint_pairs": 92,
+        "variants": 16,
+        "expansions": 145194
+      },
+      {
+        "family": [
+          89,
+          92,
+          93
+        ],
+        "requested": 87,
+        "endpoint_pairs": 130,
+        "variants": 16,
+        "expansions": 77761
+      },
+      {
+        "family": [
+          68,
+          89
+        ],
+        "requested": 85,
+        "endpoint_pairs": 30,
+        "variants": 16,
+        "expansions": 12451
+      },
+      {
+        "family": [
+          68,
+          5
+        ],
+        "requested": 83,
+        "endpoint_pairs": 3,
+        "variants": 2,
+        "expansions": 1261
+      },
+      {
+        "family": [
+          89,
+          11
+        ],
+        "requested": 79,
+        "endpoint_pairs": 47,
+        "variants": 16,
+        "expansions": 41436
+      },
+      {
+        "family": [
+          12,
+          10,
+          12,
+          6,
+          11,
+          89
+        ],
+        "requested": 74,
+        "endpoint_pairs": 83,
+        "variants": 16,
+        "expansions": 108505
+      },
+      {
+        "family": [
+          12,
+          0,
+          11,
+          5,
+          61
+        ],
+        "requested": 72,
+        "endpoint_pairs": 31,
+        "variants": 16,
+        "expansions": 101104
+      }
+    ]
+  },
+  "outputs": {
+    "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_1_0_seed20260719\\seed_20260719_length\\road_routes.pkl.gz": "E41A1A2AA9BF4248BBC56F74D92F38C0C44677053B57C961C12C1BE520BEDC8E",
+    "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_1_0_seed20260719\\seed_20260719_length\\dp_transcript.pkl.gz": "36E369479D9C897C905BA29EBD242C6EC2CD100B7891CF0ADA382BB3072B69E1"
+  },
+  "runtime_seconds": 692.4812037944794,
+  "paper_modified": false,
+  "public_release_modified": false
+}

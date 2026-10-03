@@ -1,0 +1,32 @@
+{
+  "status": "complete",
+  "epsilons": [
+    0.2,
+    0.4,
+    0.7,
+    1.0,
+    1.4,
+    2.0,
+    3.0
+  ],
+  "seeds": [
+    20260719,
+    20260720,
+    20260721,
+    20260722,
+    20260723
+  ],
+  "metrics": [
+    "RoadYield",
+    "DirValid",
+    "WitnessValid",
+    "TripSim",
+    "GridSim",
+    "LengthSim",
+    "NextRoadAcc",
+    "RouteMRR",
+    "RouteBest5F1"
+  ],
+  "classification": "RESEARCH_ONLY_REPRODUCIBLE_NOISE_DO_NOT_RELEASE",
+  "rows": 315
+}

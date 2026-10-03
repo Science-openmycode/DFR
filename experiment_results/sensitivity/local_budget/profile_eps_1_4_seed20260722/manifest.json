@@ -1,0 +1,20 @@
+{
+  "protocol": "executed_full_population_profile_v1",
+  "corpora": [
+    "MTR-DFR"
+  ],
+  "road_metric_source": {
+    "MTR-DFR": "derived_directed_routes"
+  },
+  "road_route_inputs": {
+    "MTR-DFR": {
+      "path": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_1_4_seed20260722\\seed_20260722_length\\road_routes.pkl.gz",
+      "sha256": "0026912b1a3b0f14bfaec9e130c1b1c3aad1c8513525b6c8e850d373838ad79b"
+    }
+  },
+  "witness_inputs": {},
+  "coordinate_projection_diagnostics": {
+    "MTR-DFR": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\profile_eps_1_4_seed20260722\\raw\\MTR-DFR\\metrics.json"
+  },
+  "result": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\profile_eps_1_4_seed20260722\\results.csv"
+}

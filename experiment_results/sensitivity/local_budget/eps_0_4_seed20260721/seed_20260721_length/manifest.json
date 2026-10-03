@@ -1,0 +1,159 @@
+{
+  "classification": "RESEARCH_ONLY_REPRODUCIBLE_NOISE_DO_NOT_RELEASE",
+  "algorithm": "DFR: demand-family measurement + family-guided routing + DP length-conditioned endpoint reconstruction",
+  "removed": [
+    "legacy q5",
+    "legacy route field",
+    "residual deconvolution",
+    "length OT",
+    "carrier reweighting"
+  ],
+  "adjacency": "one road-realized trajectory record add/remove",
+  "privacy": {
+    "epsilon": 0.4,
+    "requested_epsilon_total": 0.4,
+    "delta": 1e-06,
+    "composition": {
+      "fine_endpoint": 0.01391304347826087,
+      "endpoint_atom": 0.0973913043478261,
+      "coarse_od": 0.11478260869565218,
+      "stable_family": 0.13217391304347825,
+      "noisy_total": 0.006956521739130435,
+      "global_length": 0.034782608695652174
+    }
+  },
+  "research_seed": 20260721,
+  "formal_randomness": null,
+  "oracle": null,
+  "input_records": 10040,
+  "fixed_output_slots": 17123,
+  "resolution_k": 8,
+  "tail_states": {
+    "public_shortest": 16815,
+    "single_edge_fallback": 308
+  },
+  "family_release": {
+    "threshold": 100.28103871062486,
+    "released_families": 11,
+    "requested_head": 3912,
+    "realized_head": 3912,
+    "unsupported_head": 0,
+    "realized_families": 11,
+    "noisy_total": 10059.364636087235,
+    "realization": [
+      {
+        "family": [
+          12
+        ],
+        "requested": 1301,
+        "endpoint_pairs": 354,
+        "variants": 16,
+        "expansions": 10684
+      },
+      {
+        "family": [
+          89,
+          68,
+          5
+        ],
+        "requested": 472,
+        "endpoint_pairs": 4,
+        "variants": 4,
+        "expansions": 3676
+      },
+      {
+        "family": [
+          93
+        ],
+        "requested": 322,
+        "endpoint_pairs": 12,
+        "variants": 9,
+        "expansions": 12868
+      },
+      {
+        "family": [
+          61
+        ],
+        "requested": 279,
+        "endpoint_pairs": 65,
+        "variants": 16,
+        "expansions": 18200
+      },
+      {
+        "family": [
+          61,
+          66
+        ],
+        "requested": 274,
+        "endpoint_pairs": 18,
+        "variants": 16,
+        "expansions": 36947
+      },
+      {
+        "family": [
+          12,
+          4
+        ],
+        "requested": 252,
+        "endpoint_pairs": 254,
+        "variants": 16,
+        "expansions": 22764
+      },
+      {
+        "family": [
+          4
+        ],
+        "requested": 218,
+        "endpoint_pairs": 67,
+        "variants": 16,
+        "expansions": 8169
+      },
+      {
+        "family": [
+          66,
+          61
+        ],
+        "requested": 216,
+        "endpoint_pairs": 38,
+        "variants": 16,
+        "expansions": 29916
+      },
+      {
+        "family": [
+          89
+        ],
+        "requested": 207,
+        "endpoint_pairs": 92,
+        "variants": 16,
+        "expansions": 10011
+      },
+      {
+        "family": [
+          43
+        ],
+        "requested": 194,
+        "endpoint_pairs": 37,
+        "variants": 16,
+        "expansions": 7649
+      },
+      {
+        "family": [
+          5,
+          68,
+          89
+        ],
+        "requested": 177,
+        "endpoint_pairs": 118,
+        "variants": 16,
+        "expansions": 29130
+      }
+    ]
+  },
+  "outputs": {
+    "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_0_4_seed20260721\\seed_20260721_length\\road_routes.pkl.gz": "BD79C5A8D975CB11269FD77F41655B292D6DD82F07E245C0610B2815E320952B",
+    "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_0_4_seed20260721\\seed_20260721_length\\dp_transcript.pkl.gz": "B9B325DD2A2FE8FA3831382FCD27944F6996765EA6FC1221D6CDC30EBBBFDD47"
+  },
+  "runtime_seconds": 781.1056175231934,
+  "paper_modified": false,
+  "public_release_modified": false
+}

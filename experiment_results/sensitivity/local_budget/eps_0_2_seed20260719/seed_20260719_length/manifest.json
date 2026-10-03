@@ -1,0 +1,73 @@
+{
+  "classification": "RESEARCH_ONLY_REPRODUCIBLE_NOISE_DO_NOT_RELEASE",
+  "algorithm": "DFR: demand-family measurement + family-guided routing + DP length-conditioned endpoint reconstruction",
+  "removed": [
+    "legacy q5",
+    "legacy route field",
+    "residual deconvolution",
+    "length OT",
+    "carrier reweighting"
+  ],
+  "adjacency": "one road-realized trajectory record add/remove",
+  "privacy": {
+    "epsilon": 0.2,
+    "requested_epsilon_total": 0.2,
+    "delta": 1e-06,
+    "composition": {
+      "fine_endpoint": 0.006956521739130435,
+      "endpoint_atom": 0.04869565217391305,
+      "coarse_od": 0.05739130434782609,
+      "stable_family": 0.06608695652173913,
+      "noisy_total": 0.0034782608695652175,
+      "global_length": 0.017391304347826087
+    }
+  },
+  "research_seed": 20260719,
+  "formal_randomness": null,
+  "oracle": null,
+  "input_records": 10040,
+  "fixed_output_slots": 17123,
+  "resolution_k": 8,
+  "tail_states": {
+    "public_shortest": 16987,
+    "single_edge_fallback": 136
+  },
+  "family_release": {
+    "threshold": 199.5620774212497,
+    "released_families": 2,
+    "requested_head": 1756,
+    "realized_head": 1756,
+    "unsupported_head": 0,
+    "realized_families": 2,
+    "noisy_total": 10108.147400883126,
+    "realization": [
+      {
+        "family": [
+          12
+        ],
+        "requested": 1277,
+        "endpoint_pairs": 135,
+        "variants": 16,
+        "expansions": 9115
+      },
+      {
+        "family": [
+          89,
+          68,
+          5
+        ],
+        "requested": 479,
+        "endpoint_pairs": 9,
+        "variants": 9,
+        "expansions": 16788
+      }
+    ]
+  },
+  "outputs": {
+    "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_0_2_seed20260719\\seed_20260719_length\\road_routes.pkl.gz": "03EE2738C965C04096F9A79CBCF7BDF8C5D8A815425D1A3E8F7D8FB443762237",
+    "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_0_2_seed20260719\\seed_20260719_length\\dp_transcript.pkl.gz": "05527C1940419F520F0B9936BF5277F6E4C2305FAA91852F28E4AB65A7DF3715"
+  },
+  "runtime_seconds": 844.5951762199402,
+  "paper_modified": false,
+  "public_release_modified": false
+}

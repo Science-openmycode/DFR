@@ -1,0 +1,20 @@
+{
+  "schema": "road-route-coordinate-derivation-v1",
+  "route_source": {
+    "path": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_3_0_seed20260722\\seed_20260722_length\\road_routes.pkl.gz",
+    "sha256": "b041d22fe7dfc9140af4eb713b737c02ff1d1cb6133d488aad495bc0a44e68c6"
+  },
+  "network": {
+    "path": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\public_assets\\beijing_network\\network.shp",
+    "sha256": "f9ab3c394563e6516a5813cb303fa7c72b0c83c89479c404544984ed46f473c0"
+  },
+  "edge_cache": {
+    "path": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\public_assets\\ordered_portal_route_cache.pkl.gz",
+    "sha256": "235e1bd9a6db55ea4987a5bf91e29d71020db8bc2454ae4080c941cdbf8be588"
+  },
+  "coordinates": {
+    "path": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_3_0_seed20260722_coordinates.pkl",
+    "sha256": "7d26dd67640113191b693a1c402d0d8f97fbe261e18704fe3ebc6aa798c8b5ae"
+  },
+  "record_count": 17123
+}

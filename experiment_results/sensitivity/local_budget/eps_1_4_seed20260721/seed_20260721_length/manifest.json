@@ -1,0 +1,508 @@
+{
+  "classification": "RESEARCH_ONLY_REPRODUCIBLE_NOISE_DO_NOT_RELEASE",
+  "algorithm": "DFR: demand-family measurement + family-guided routing + DP length-conditioned endpoint reconstruction",
+  "removed": [
+    "legacy q5",
+    "legacy route field",
+    "residual deconvolution",
+    "length OT",
+    "carrier reweighting"
+  ],
+  "adjacency": "one road-realized trajectory record add/remove",
+  "privacy": {
+    "epsilon": 1.4,
+    "requested_epsilon_total": 1.4,
+    "delta": 1e-06,
+    "composition": {
+      "fine_endpoint": 0.048695652173913036,
+      "endpoint_atom": 0.3408695652173913,
+      "coarse_od": 0.4017391304347826,
+      "stable_family": 0.4626086956521739,
+      "noisy_total": 0.024347826086956518,
+      "global_length": 0.1217391304347826
+    }
+  },
+  "research_seed": 20260721,
+  "formal_randomness": null,
+  "oracle": null,
+  "input_records": 10040,
+  "fixed_output_slots": 17123,
+  "resolution_k": 8,
+  "tail_states": {
+    "public_shortest": 16915,
+    "single_edge_fallback": 208
+  },
+  "family_release": {
+    "threshold": 29.36601106017853,
+    "released_families": 40,
+    "requested_head": 6294,
+    "realized_head": 6231,
+    "unsupported_head": 63,
+    "realized_families": 39,
+    "noisy_total": 10045.532753167781,
+    "realization": [
+      {
+        "family": [
+          12
+        ],
+        "requested": 1301,
+        "endpoint_pairs": 487,
+        "variants": 16,
+        "expansions": 11295
+      },
+      {
+        "family": [
+          89,
+          68,
+          5
+        ],
+        "requested": 455,
+        "endpoint_pairs": 30,
+        "variants": 16,
+        "expansions": 26875
+      },
+      {
+        "family": [
+          93
+        ],
+        "requested": 313,
+        "endpoint_pairs": 18,
+        "variants": 13,
+        "expansions": 19199
+      },
+      {
+        "family": [
+          61
+        ],
+        "requested": 273,
+        "endpoint_pairs": 166,
+        "variants": 16,
+        "expansions": 17655
+      },
+      {
+        "family": [
+          61,
+          66
+        ],
+        "requested": 268,
+        "endpoint_pairs": 43,
+        "variants": 16,
+        "expansions": 39084
+      },
+      {
+        "family": [
+          12,
+          4
+        ],
+        "requested": 255,
+        "endpoint_pairs": 312,
+        "variants": 16,
+        "expansions": 19821
+      },
+      {
+        "family": [
+          66,
+          61
+        ],
+        "requested": 218,
+        "endpoint_pairs": 61,
+        "variants": 16,
+        "expansions": 23768
+      },
+      {
+        "family": [
+          4
+        ],
+        "requested": 216,
+        "endpoint_pairs": 85,
+        "variants": 16,
+        "expansions": 9879
+      },
+      {
+        "family": [
+          43
+        ],
+        "requested": 210,
+        "endpoint_pairs": 84,
+        "variants": 16,
+        "expansions": 6741
+      },
+      {
+        "family": [
+          5,
+          68,
+          89
+        ],
+        "requested": 209,
+        "endpoint_pairs": 88,
+        "variants": 16,
+        "expansions": 28616
+      },
+      {
+        "family": [
+          89
+        ],
+        "requested": 183,
+        "endpoint_pairs": 216,
+        "variants": 16,
+        "expansions": 10478
+      },
+      {
+        "family": [
+          12,
+          10,
+          12,
+          6,
+          1,
+          47,
+          43
+        ],
+        "requested": 163,
+        "endpoint_pairs": 101,
+        "variants": 16,
+        "expansions": 124878
+      },
+      {
+        "family": [
+          10
+        ],
+        "requested": 157,
+        "endpoint_pairs": 47,
+        "variants": 16,
+        "expansions": 28926
+      },
+      {
+        "family": [
+          4,
+          12
+        ],
+        "requested": 153,
+        "endpoint_pairs": 215,
+        "variants": 16,
+        "expansions": 16377
+      },
+      {
+        "family": [
+          43,
+          47,
+          1,
+          10,
+          6,
+          12,
+          10,
+          12
+        ],
+        "requested": 137,
+        "endpoint_pairs": 79,
+        "variants": 16,
+        "expansions": 123059
+      },
+      {
+        "family": [
+          12,
+          4,
+          12
+        ],
+        "requested": 136,
+        "endpoint_pairs": 487,
+        "variants": 16,
+        "expansions": 44730
+      },
+      {
+        "family": [
+          4,
+          73,
+          4,
+          12,
+          6,
+          11,
+          89,
+          68,
+          89
+        ],
+        "requested": 118,
+        "endpoint_pairs": 89,
+        "variants": 16,
+        "expansions": 158949
+      },
+      {
+        "family": [
+          68,
+          89
+        ],
+        "requested": 99,
+        "endpoint_pairs": 48,
+        "variants": 16,
+        "expansions": 20840
+      },
+      {
+        "family": [
+          68,
+          5
+        ],
+        "requested": 82,
+        "endpoint_pairs": 2,
+        "variants": 1,
+        "expansions": 2624
+      },
+      {
+        "family": [
+          12,
+          10,
+          12,
+          6,
+          11,
+          89
+        ],
+        "requested": 80,
+        "endpoint_pairs": 171,
+        "variants": 16,
+        "expansions": 108217
+      },
+      {
+        "family": [
+          12,
+          0,
+          11,
+          5,
+          61
+        ],
+        "requested": 77,
+        "endpoint_pairs": 32,
+        "variants": 16,
+        "expansions": 119648
+      },
+      {
+        "family": [
+          12,
+          10,
+          12,
+          6,
+          11,
+          89,
+          68,
+          89
+        ],
+        "requested": 77,
+        "endpoint_pairs": 171,
+        "variants": 16,
+        "expansions": 143955
+      },
+      {
+        "family": [
+          41
+        ],
+        "requested": 72,
+        "endpoint_pairs": 15,
+        "variants": 10,
+        "expansions": 4603
+      },
+      {
+        "family": [
+          43,
+          47,
+          10,
+          12
+        ],
+        "requested": 70,
+        "endpoint_pairs": 79,
+        "variants": 16,
+        "expansions": 80458
+      },
+      {
+        "family": [
+          89,
+          92,
+          93
+        ],
+        "requested": 70,
+        "endpoint_pairs": 81,
+        "variants": 16,
+        "expansions": 94132
+      },
+      {
+        "family": [
+          4,
+          73,
+          4,
+          12
+        ],
+        "requested": 69,
+        "endpoint_pairs": 215,
+        "variants": 16,
+        "expansions": 52071
+      },
+      {
+        "family": [
+          4,
+          12,
+          6,
+          11,
+          89,
+          68,
+          89
+        ],
+        "requested": 68,
+        "endpoint_pairs": 89,
+        "variants": 16,
+        "expansions": 107823
+      },
+      {
+        "family": [
+          13
+        ],
+        "requested": 67,
+        "endpoint_pairs": 3,
+        "variants": 2,
+        "expansions": 2642
+      },
+      {
+        "family": [
+          12,
+          10,
+          47,
+          43
+        ],
+        "requested": 66,
+        "endpoint_pairs": 101,
+        "variants": 16,
+        "expansions": 84083
+      },
+      {
+        "family": [
+          89,
+          11
+        ],
+        "requested": 64,
+        "endpoint_pairs": 72,
+        "variants": 16,
+        "expansions": 31239
+      },
+      {
+        "family": [
+          72,
+          33,
+          37
+        ],
+        "requested": 63,
+        "endpoint_pairs": 0,
+        "variants": 0,
+        "expansions": 0
+      },
+      {
+        "family": [
+          43,
+          47,
+          1,
+          10,
+          12
+        ],
+        "requested": 62,
+        "endpoint_pairs": 79,
+        "variants": 16,
+        "expansions": 85514
+      },
+      {
+        "family": [
+          11,
+          89
+        ],
+        "requested": 61,
+        "endpoint_pairs": 69,
+        "variants": 16,
+        "expansions": 27524
+      },
+      {
+        "family": [
+          12,
+          6,
+          1,
+          47,
+          43
+        ],
+        "requested": 58,
+        "endpoint_pairs": 101,
+        "variants": 16,
+        "expansions": 89667
+      },
+      {
+        "family": [
+          89,
+          6,
+          12
+        ],
+        "requested": 58,
+        "endpoint_pairs": 114,
+        "variants": 16,
+        "expansions": 52319
+      },
+      {
+        "family": [
+          21,
+          63,
+          65,
+          64,
+          92,
+          93,
+          6,
+          12,
+          10,
+          12
+        ],
+        "requested": 54,
+        "endpoint_pairs": 10,
+        "variants": 10,
+        "expansions": 149695
+      },
+      {
+        "family": [
+          89,
+          11,
+          6,
+          12
+        ],
+        "requested": 54,
+        "endpoint_pairs": 114,
+        "variants": 16,
+        "expansions": 76902
+      },
+      {
+        "family": [
+          11
+        ],
+        "requested": 53,
+        "endpoint_pairs": 13,
+        "variants": 11,
+        "expansions": 12252
+      },
+      {
+        "family": [
+          12,
+          10
+        ],
+        "requested": 53,
+        "endpoint_pairs": 190,
+        "variants": 16,
+        "expansions": 52256
+      },
+      {
+        "family": [
+          12,
+          10,
+          12
+        ],
+        "requested": 52,
+        "endpoint_pairs": 487,
+        "variants": 16,
+        "expansions": 36265
+      }
+    ]
+  },
+  "outputs": {
+    "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_1_4_seed20260721\\seed_20260721_length\\road_routes.pkl.gz": "E58E00E8417F1DE147ED47685EB2F7409E5B745D35D1691DE90E9A55B18EE497",
+    "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_1_4_seed20260721\\seed_20260721_length\\dp_transcript.pkl.gz": "70A9A179518C4DE0D83F0E40BE26882E65B0FF8A5569F00DB5F2439E901D683E"
+  },
+  "runtime_seconds": 487.59968638420105,
+  "paper_modified": false,
+  "public_release_modified": false
+}

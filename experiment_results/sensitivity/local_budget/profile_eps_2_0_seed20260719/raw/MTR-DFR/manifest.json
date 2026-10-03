@@ -1,0 +1,35 @@
+{
+  "classification": "RESEARCH_EVALUATION_LEDGER_NOT_A_DP_RELEASE",
+  "elapsed_sec": 91.41495180130005,
+  "inputs": {
+    "edge_cache": {
+      "path": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\public_assets\\ordered_portal_route_cache.pkl.gz",
+      "sha256": "235e1bd9a6db55ea4987a5bf91e29d71020db8bc2454ae4080c941cdbf8be588"
+    },
+    "osm": {
+      "path": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\check\\github_clean_repro_20260925\\evaluation\\data\\osm\\osm_cache_beijing.pkl",
+      "sha256": "7159e12ab8712338b4ff5a2859c68b158e1374504f999dc44080c2fe2d53a5c5"
+    },
+    "real": {
+      "count": 17123,
+      "path": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\check\\github_clean_repro_20260925\\input\\real_full_frozen.pkl",
+      "sha256": "6a160ca557fbd7bab97af489b56c931e73532c498c390e31965c0d61e53361fd",
+      "spec": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\check\\github_clean_repro_20260925\\input\\real_full_frozen.pkl"
+    },
+    "road_routes": {
+      "path": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_2_0_seed20260719\\seed_20260719_length\\road_routes.pkl.gz",
+      "sha256": "ea9ee304ed3a35ebb6adc27df49800db164a200e5d0261b09a3f8fbd00ae4f4a"
+    },
+    "synthetic": {
+      "path": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_2_0_seed20260719_coordinates.pkl",
+      "sha256": "145fb17cd50d368fc0f30dfcac83ca60c6b3370b5106e7ac6251c63eeaea7829"
+    },
+    "witness": null
+  },
+  "outputs": {
+    "destination_model_audit.json": "0c966cad24cf771b89016e4c1e82ca8e3be1a4876c636fb1c7cff20e21176141",
+    "metrics.csv": "f6703f0a8c2ee4148d791c4b7c721e85cf0d348c7fbfe69a49e435f80e7f03cf",
+    "metrics.json": "dc3cd089d2ff73e3a906eb757a556a1c5797a36ca5810cc21aa37819a8594748"
+  },
+  "schema_version": 1
+}

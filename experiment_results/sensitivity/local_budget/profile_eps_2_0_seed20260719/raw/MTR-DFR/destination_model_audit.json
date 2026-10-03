@@ -1,0 +1,134 @@
+{
+  "classification": "LOCAL_MODEL_AUDIT_NOT_A_DP_RELEASE",
+  "models": {
+    "16": {
+      "bbox": [
+        39.75,
+        40.15,
+        116.1,
+        116.65
+      ],
+      "hashes": {
+        "classes": "731f3a922454c22d6a7000bf148c748be62855504a83d6621db0bf9a6bc6b18f",
+        "coef": "d7193b2f02d57a363fab03a0a392e8c487cec40e85f7695e74335218a64ccee7",
+        "intercept": "799e21131cb299de11b3aaae5e18dc9b15f03b6583e004cdc76bd26a98e69a6d",
+        "predictions": "83a56efb5d2ae7f007758e049ea105a2637c0ebefe8c45d7ced7b00c8c88c850",
+        "probabilities": "9409df98c5167c32b009e0f5492f00fcec315271b94bf9a510df5e250eff2cfe",
+        "scaler_mean": "c16c59d8b32509dd599b8ca86e88202d9133c1dd609f87734668f677eb4a15dd",
+        "scaler_scale": "b48b1fe338cf1315f1196d6a4cc6beb68945b080499914485ab12e55964fbc63",
+        "x_test": "d8c3d271b3e9cfa6fc6b45e280ed028cd230b2613f8f5aae227a264bb6aed222",
+        "x_train": "defccaa5ba115f5d55125f78da6d0d61af28cd19880ba407eacdc3af7364ee35",
+        "y_test": "a0a8a7d5c6fb6f8d60bd7c5589cfd433bd1a1adf07757aeea20469b9910a3a43",
+        "y_train": "8d1a662cd4b69f9c2001f9ad4615c86ce9da99d15ce3dfcf721c2a1a47efa7ab"
+      },
+      "hyperparameters": {
+        "alpha": 0.0001,
+        "average": false,
+        "class_weight": "balanced",
+        "early_stopping": false,
+        "epsilon": 0.1,
+        "eta0": 0.0,
+        "fit_intercept": true,
+        "l1_ratio": 0.15,
+        "learning_rate": "optimal",
+        "loss": "log_loss",
+        "max_iter": 1000,
+        "n_iter_no_change": 5,
+        "n_jobs": null,
+        "penalty": "l2",
+        "power_t": 0.5,
+        "random_state": 20260704,
+        "shuffle": true,
+        "tol": 0.001,
+        "validation_fraction": 0.1,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "iterations": 46,
+      "test_rows": 3425,
+      "train_rows": 17123
+    },
+    "8": {
+      "bbox": [
+        39.75,
+        40.15,
+        116.1,
+        116.65
+      ],
+      "hashes": {
+        "classes": "f4c4dcd39e0351bca50619dc0a46b94f8061382cccf166fde30122c63d3c048f",
+        "coef": "530e370c9a98ebdd6a512fc9e6785d5ee98292e3ce18f7de9ca92ad0ab68735f",
+        "intercept": "0a895fd92686afe01599f5906222208d5422f76b9340cfffb47c61a6cadac332",
+        "predictions": "da00994f9b5f04e8d8bdf85797f29dce2cbdb00eb846708226aede9f8719518b",
+        "probabilities": "739149e0c0aabd922a62f375444a828a58f713c260f75b8291dacc6d034a9ac8",
+        "scaler_mean": "677fb4ca61f981ab93efc8b621535d7f648b2d2c9a27c67c5b4804396df1dfd1",
+        "scaler_scale": "58f8252dd3386047a7de516c7c3b1c469815a6f0c101ce7b7dc2c5ddffc74f55",
+        "x_test": "5ca15bcb5a77692ce854cb541ca480b15f0a9212ecce917ee9ad9440dbbf3c62",
+        "x_train": "e88d775fafc4ab218b2b0d9ec800a6e388c1575880d5d569a2a6111168905b04",
+        "y_test": "c37dc33a1a187ff53953f1ded2f286de8bf62d38b2f939f4278de6d3d9d97138",
+        "y_train": "1ef496b5c34c9eeac155e5b1348fa1958f02596fa073ac6dff48961bfac1c425"
+      },
+      "hyperparameters": {
+        "alpha": 0.0001,
+        "average": false,
+        "class_weight": "balanced",
+        "early_stopping": false,
+        "epsilon": 0.1,
+        "eta0": 0.0,
+        "fit_intercept": true,
+        "l1_ratio": 0.15,
+        "learning_rate": "optimal",
+        "loss": "log_loss",
+        "max_iter": 1000,
+        "n_iter_no_change": 5,
+        "n_jobs": null,
+        "penalty": "l2",
+        "power_t": 0.5,
+        "random_state": 20260704,
+        "shuffle": true,
+        "tol": 0.001,
+        "validation_fraction": 0.1,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "iterations": 72,
+      "test_rows": 3425,
+      "train_rows": 17123
+    }
+  },
+  "threadpools": [
+    {
+      "architecture": "Haswell",
+      "filepath": "C:\\Users\\ASUS\\AppData\\Roaming\\Python\\Python313\\site-packages\\numpy.libs\\libscipy_openblas64_-9e3e5a4229c1ca39f10dc82bba9e2b2b.dll",
+      "internal_api": "openblas",
+      "num_threads": 20,
+      "prefix": "libscipy_openblas",
+      "threading_layer": "pthreads",
+      "user_api": "blas",
+      "version": "0.3.30"
+    },
+    {
+      "architecture": "Haswell",
+      "filepath": "C:\\Users\\ASUS\\AppData\\Roaming\\Python\\Python313\\site-packages\\scipy.libs\\libscipy_openblas-48c358d105077551cc9cc3ba79387ed5.dll",
+      "internal_api": "openblas",
+      "num_threads": 20,
+      "prefix": "libscipy_openblas",
+      "threading_layer": "pthreads",
+      "user_api": "blas",
+      "version": "0.3.29.dev"
+    },
+    {
+      "filepath": "C:\\Users\\ASUS\\AppData\\Roaming\\Python\\Python313\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+      "internal_api": "openmp",
+      "num_threads": 20,
+      "prefix": "vcomp",
+      "user_api": "openmp",
+      "version": null
+    }
+  ],
+  "versions": {
+    "numpy": "2.3.5",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.16.3"
+  }
+}

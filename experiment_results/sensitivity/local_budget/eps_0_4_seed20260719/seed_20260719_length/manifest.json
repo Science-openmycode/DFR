@@ -1,0 +1,185 @@
+{
+  "classification": "RESEARCH_ONLY_REPRODUCIBLE_NOISE_DO_NOT_RELEASE",
+  "algorithm": "DFR: demand-family measurement + family-guided routing + DP length-conditioned endpoint reconstruction",
+  "removed": [
+    "legacy q5",
+    "legacy route field",
+    "residual deconvolution",
+    "length OT",
+    "carrier reweighting"
+  ],
+  "adjacency": "one road-realized trajectory record add/remove",
+  "privacy": {
+    "epsilon": 0.4,
+    "requested_epsilon_total": 0.4,
+    "delta": 1e-06,
+    "composition": {
+      "fine_endpoint": 0.01391304347826087,
+      "endpoint_atom": 0.0973913043478261,
+      "coarse_od": 0.11478260869565218,
+      "stable_family": 0.13217391304347825,
+      "noisy_total": 0.006956521739130435,
+      "global_length": 0.034782608695652174
+    }
+  },
+  "research_seed": 20260719,
+  "formal_randomness": null,
+  "oracle": null,
+  "input_records": 10040,
+  "fixed_output_slots": 17123,
+  "resolution_k": 8,
+  "tail_states": {
+    "public_shortest": 16924,
+    "single_edge_fallback": 199
+  },
+  "family_release": {
+    "threshold": 100.28103871062486,
+    "released_families": 13,
+    "requested_head": 4250,
+    "realized_head": 4250,
+    "unsupported_head": 0,
+    "realized_families": 13,
+    "noisy_total": 10074.073700441564,
+    "realization": [
+      {
+        "family": [
+          12
+        ],
+        "requested": 1289,
+        "endpoint_pairs": 258,
+        "variants": 16,
+        "expansions": 10653
+      },
+      {
+        "family": [
+          89,
+          68,
+          5
+        ],
+        "requested": 464,
+        "endpoint_pairs": 16,
+        "variants": 16,
+        "expansions": 28403
+      },
+      {
+        "family": [
+          93
+        ],
+        "requested": 306,
+        "endpoint_pairs": 34,
+        "variants": 16,
+        "expansions": 20900
+      },
+      {
+        "family": [
+          61
+        ],
+        "requested": 284,
+        "endpoint_pairs": 70,
+        "variants": 16,
+        "expansions": 11858
+      },
+      {
+        "family": [
+          43
+        ],
+        "requested": 242,
+        "endpoint_pairs": 18,
+        "variants": 16,
+        "expansions": 6050
+      },
+      {
+        "family": [
+          12,
+          4
+        ],
+        "requested": 240,
+        "endpoint_pairs": 146,
+        "variants": 16,
+        "expansions": 21947
+      },
+      {
+        "family": [
+          4
+        ],
+        "requested": 222,
+        "endpoint_pairs": 81,
+        "variants": 16,
+        "expansions": 9133
+      },
+      {
+        "family": [
+          66,
+          61
+        ],
+        "requested": 218,
+        "endpoint_pairs": 54,
+        "variants": 16,
+        "expansions": 32412
+      },
+      {
+        "family": [
+          4,
+          12
+        ],
+        "requested": 215,
+        "endpoint_pairs": 179,
+        "variants": 16,
+        "expansions": 17035
+      },
+      {
+        "family": [
+          5,
+          68,
+          89
+        ],
+        "requested": 209,
+        "endpoint_pairs": 24,
+        "variants": 16,
+        "expansions": 22227
+      },
+      {
+        "family": [
+          61,
+          66
+        ],
+        "requested": 204,
+        "endpoint_pairs": 20,
+        "variants": 16,
+        "expansions": 35454
+      },
+      {
+        "family": [
+          89
+        ],
+        "requested": 183,
+        "endpoint_pairs": 68,
+        "variants": 16,
+        "expansions": 12580
+      },
+      {
+        "family": [
+          43,
+          47,
+          1,
+          10,
+          6,
+          12,
+          10,
+          12
+        ],
+        "requested": 174,
+        "endpoint_pairs": 26,
+        "variants": 16,
+        "expansions": 123867
+      }
+    ]
+  },
+  "outputs": {
+    "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_0_4_seed20260719\\seed_20260719_length\\road_routes.pkl.gz": "5487F3E23FF82F72CD99795C03DBB50187BDCE1DD522936448AA5E5BFACA76C2",
+    "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\experiment_results\\sensitivity\\local_budget\\eps_0_4_seed20260719\\seed_20260719_length\\dp_transcript.pkl.gz": "BA384AD53C1C45F39815020C5E490EEE8006276AE6061F558573FDF20035B05D"
+  },
+  "runtime_seconds": 796.1480934619904,
+  "paper_modified": false,
+  "public_release_modified": false
+}
