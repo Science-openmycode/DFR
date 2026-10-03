@@ -16,6 +16,14 @@ Expected output includes `VERIFY OK`, `smoke: OK`, and PNG/PDF files under `expe
 
 ## From-scratch reproduction
 
+On a clean Linux GPU host, the repository and locked Python environment can be prepared with:
+
+```bash
+bash commands/cloud_bootstrap.sh /hy-tmp/DFR_cloud
+```
+
+The script clones the public repository, pulls Git LFS objects, creates `.venv`, installs `requirements-lock.txt`, and runs `verify` and `smoke`. It does not invent missing private/raw inputs; fresh Beijing generation still requires the external assets listed below.
+
 The exact Beijing release requires external materials that cannot be redistributed here:
 
 - Microsoft GeoLife GPS Trajectories 1.3 `.plt` files;
