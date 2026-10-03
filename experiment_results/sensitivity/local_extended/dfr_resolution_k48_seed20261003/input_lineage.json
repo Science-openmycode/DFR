@@ -1,0 +1,22 @@
+{
+  "classification": "LOCAL_SYNTHESIS_INPUT_LINEAGE_NOT_AN_ADDITIONAL_DP_RELEASE",
+  "inputs": {
+    "real_matched": {
+      "path": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\check\\github_clean_repro_20260925\\derived\\real_road_reference\\matched_paths\\Real.pkl.gz",
+      "sha256": "f53d7f9aabebed318d535bf01ab77a021feae618034d174a4d17a857aecf1bf4"
+    },
+    "edge_cache": {
+      "path": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\public_assets\\ordered_portal_route_cache.pkl.gz",
+      "sha256": "235e1bd9a6db55ea4987a5bf91e29d71020db8bc2454ae4080c941cdbf8be588"
+    },
+    "network": {
+      "path": "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\reproducibility_folders\\04_dfr_full_baseline_code\\public_assets\\beijing_network\\network.shp",
+      "sha256": "f9ab3c394563e6516a5813cb303fa7c72b0c83c89479c404544984ed46f473c0"
+    }
+  },
+  "public_slot_count": 17123,
+  "resolution_k": 48,
+  "epsilon_total": null,
+  "length_aware": true,
+  "randomness": "seeded_research"
+}

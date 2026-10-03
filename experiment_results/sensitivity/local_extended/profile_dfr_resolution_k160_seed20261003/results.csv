@@ -1,0 +1,10 @@
+algorithm,layer,metric,value,status
+MTR-DFR,executed_unified_evaluation,RoadYield,1.0,VALID
+MTR-DFR,executed_unified_evaluation,DirValid,1.0,VALID
+MTR-DFR,executed_unified_evaluation,WitnessValid,1.0,VALID
+MTR-DFR,executed_unified_evaluation,TripSim,0.7745328413723819,VALID
+MTR-DFR,executed_unified_evaluation,GridSim,0.7895966690288123,VALID
+MTR-DFR,executed_unified_evaluation,LengthSim,0.953607828063086,VALID
+MTR-DFR,executed_unified_evaluation,NextRoadAcc,0.5582298270255447,VALID
+MTR-DFR,executed_unified_evaluation,RouteMRR,0.49026095075477794,VALID
+MTR-DFR,executed_unified_evaluation,RouteBest5F1,0.5216511102795938,VALID

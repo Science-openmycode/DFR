@@ -1,11 +1,35 @@
 [
   {
+    "resolution_k": 48,
+    "manifest": "experiment_results/sensitivity/local_extended/dfr_resolution_k48_seed20261003/seed_20261003_length/manifest.json",
+    "sha256": "19763D51F45523FD65AAA7BAB5FA566CBCC98197AF9676F72A0C5E04CDDD4BD2",
+    "slots": 17123,
+    "runtime_seconds": 374.1732096672058,
+    "route_sha256": "5B824DC06FBCB3E3A1F56BE0E4BE5001F69DD197FB85A6D202B914EF0511FA69"
+  },
+  {
+    "resolution_k": 80,
+    "manifest": "experiment_results/sensitivity/local_extended/dfr_resolution_k80_seed20261003/seed_20261003_length/manifest.json",
+    "sha256": "2C8BE4B511F5ABCBFF304AA04C5ADCBA6F89C7911082B8678E5ED95098C6827F",
+    "slots": 17123,
+    "runtime_seconds": 366.7820529937744,
+    "route_sha256": "4E8B418460412E172AEC4F757F1AAD1718608AFE0759275DB2BFACBEB66762DD"
+  },
+  {
     "resolution_k": 96,
     "manifest": "experiment_results/sensitivity/local_extended/dfr_resolution_k96_seed20261003/seed_20261003_length/manifest.json",
     "sha256": "F18115A39F30CFC1C3BAE95E5B71850F607422EC2EF47B3750C1895F93943563",
     "slots": 17123,
     "runtime_seconds": 373.65406918525696,
     "route_sha256": "605F73128A95BF3313D9DE7B839FDD5BC676C5C9F46476B37C7CB6ADB9752B9A"
+  },
+  {
+    "resolution_k": 112,
+    "manifest": "experiment_results/sensitivity/local_extended/dfr_resolution_k112_seed20261003/seed_20261003_length/manifest.json",
+    "sha256": "09B6E60BBC560780202641AA2CC335FE1FCDB8F7EAEE5BC976C93CD32F83E5E1",
+    "slots": 17123,
+    "runtime_seconds": 377.8654124736786,
+    "route_sha256": "B5AC2C16C87FD747ADB2F4EC9DB0932B2EC6679777467CC731B6862AC945908F"
   },
   {
     "resolution_k": 128,
@@ -16,6 +40,14 @@
     "route_sha256": "787790C17BB1D35C473448CE730A7915108BA968DE5B436531FE3B8A29C8F53B"
   },
   {
+    "resolution_k": 160,
+    "manifest": "experiment_results/sensitivity/local_extended/dfr_resolution_k160_seed20261003/seed_20261003_length/manifest.json",
+    "sha256": "38799D830EB7D4217BDCF3A444A7FB72D5A04560BD3524983DCFA15D5D1B0971",
+    "slots": 17123,
+    "runtime_seconds": 373.02816128730774,
+    "route_sha256": "4E664419126FFD95FE8C3C82709EC232DFC9F872C869CAE8A13572BEE7430AA9"
+  },
+  {
     "resolution_k": 192,
     "manifest": "experiment_results/sensitivity/local_extended/dfr_resolution_k192_seed20261003/seed_20261003_length/manifest.json",
     "sha256": "7B23A25EA86585B80F6A5E65A318FCFC72C3FAAB9CC48BB6628B5632AB980747",
@@ -24,12 +56,44 @@
     "route_sha256": "A377B3B41716A9F6497D025BE21D81E54A05B6B0D1BA2CDEF6992B5F516C73D9"
   },
   {
+    "resolution_k": 224,
+    "manifest": "experiment_results/sensitivity/local_extended/dfr_resolution_k224_seed20261003/seed_20261003_length/manifest.json",
+    "sha256": "99F6252E91BA6A0953688C876E03E9AC9B6691197CD606DE0F69D7CAFBB7025B",
+    "slots": 17123,
+    "runtime_seconds": 383.06902837753296,
+    "route_sha256": "9D30CC1E2E8A0ABF0DC8653F6049F924E20434531CA6B3AD0FB8A18CCB05B8E9"
+  },
+  {
     "resolution_k": 256,
     "manifest": "experiment_results/sensitivity/local_extended/dfr_resolution_k256_seed20261003/seed_20261003_length/manifest.json",
     "sha256": "DFCD872D2CF636614C46EB9675C50E0409CEE6588A9953F261FA3A295028462A",
     "slots": 17123,
     "runtime_seconds": 402.0108997821808,
     "route_sha256": "D85110E511DC53E332F813FA9ED5A7F2311DCA982D850B67F6298EC0299FAF72"
+  },
+  {
+    "resolution_k": 288,
+    "manifest": "experiment_results/sensitivity/local_extended/dfr_resolution_k288_seed20261003/seed_20261003_length/manifest.json",
+    "sha256": "459640AAE5C10699B6A04687558D7D7C873678795243DA9D86DBF6354D039EF3",
+    "slots": 17123,
+    "runtime_seconds": 363.1003420352936,
+    "route_sha256": "8451FC6DDE679856BB8666CF7601CBB97286B051F23928641FE511190AE2D712"
+  },
+  {
+    "resolution_k": 320,
+    "manifest": "experiment_results/sensitivity/local_extended/dfr_resolution_k320_seed20261003/seed_20261003_length/manifest.json",
+    "sha256": "CFE2B4FFE30AC2B7B3067E67EE840D211022270918C796266BD40191133A2C66",
+    "slots": 17123,
+    "runtime_seconds": 390.2168333530426,
+    "route_sha256": "6B7F427CB9E69D63C8ADC2EA173779ABC740A83F89C74CB723F71A0056EEA6F0"
+  },
+  {
+    "resolution_k": 352,
+    "manifest": "experiment_results/sensitivity/local_extended/dfr_resolution_k352_seed20261003/seed_20261003_length/manifest.json",
+    "sha256": "9521003EEA72DA1332DDDE3AF2FC97FD0B5ECCDADF9B4201B2A2783C8F320E39",
+    "slots": 17123,
+    "runtime_seconds": 380.55536127090454,
+    "route_sha256": "B16A98523C6F77F652F212F26C729D53459AD6599A9C6AAB1CD86376C13A01D9"
   },
   {
     "resolution_k": 384,

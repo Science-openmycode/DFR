@@ -4,7 +4,7 @@
 
 生成 manifest 位于 `dfr_resolution_k96_seed20261003/seed_20261003_length/manifest.json`，道路输出为 `road_routes.pkl.gz`，坐标输出为 `k96_coordinates.pkl`。该断点的路由和 witness 检查均通过。
 
-同一独立种子还完成了 `K=128,192,256,384`。完整 5 点汇总在 `dfr_resolution_local_extended_summary.csv`，对应 manifest 的 SHA-256 在 `dfr_resolution_local_extended_manifests.json`。主要 profile 数值如下：
+同一独立种子还完成了 `K=48,80,112,128,160,192,224,256,288,320,352,384`。完整 13 点汇总（含 K=96）在 `dfr_resolution_local_extended_summary.csv`，对应 manifest 的 SHA-256 在 `dfr_resolution_local_extended_manifests.json`。其中新增点的主要 profile 数值如下：
 
 | K | TripSim | GridSim | LengthSim | NextRoadAcc | RouteMRR | RouteBest5F1 |
 |---:|---:|---:|---:|---:|---:|---:|
