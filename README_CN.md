@@ -20,6 +20,16 @@
 
 ## 两种完整复现模式
 
+### Linux/GPU 云端初始化
+
+在一台全新的 Linux GPU 服务器上，可以先执行：
+
+```bash
+bash commands/cloud_bootstrap.sh /hy-tmp/DFR_cloud
+```
+
+脚本会从 GitHub 克隆当前 DFR 仓库、拉取 Git LFS 文件、创建 `.venv`、安装 `requirements-lock.txt`，并运行 `verify` 与 `smoke`。它不会猜测或伪造 GeoLife、道路图和 FMM 输入；需要从原始数据生成新发布时，仍按下面的外部材料和参数准备步骤执行。
+
 ### A. 不下载原始数据：复现随包结果和全部论文图
 
 适用于审阅者、只需要检查代码和图表的人。先在仓库根目录执行：

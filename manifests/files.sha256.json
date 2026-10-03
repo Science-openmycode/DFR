@@ -1363,8 +1363,8 @@
     },
     {
       "path": "README_CN.md",
-      "size": 35436,
-      "sha256": "b15dfcd670094b77a47c84f6b89ad4bc3b70dad2484b52372cecc41cd96cf305"
+      "size": 35910,
+      "sha256": "2e3ffbaff3cba8d2ab5637b0e031901e2d4db824344712aa4d5947fbb5607f47"
     },
     {
       "path": "requirements-lock.txt",
