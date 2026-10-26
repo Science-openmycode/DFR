@@ -46,7 +46,9 @@ def metric_status(value, metric, manifest, result):
     return 'ZERO' if value == 0 else 'VALID'
 
 
-def collect(batch, spec):
+def collect(batch, spec, population=None):
+    population=population or dict(count=15730,train_count=12584,test_count=3146,
+        real_sha256='0a0b11c0fef09bf3267ffdeca9d9202bedb8bfd609cb7da5c381ed08dca4907c')
     cells = {}
     def add(row, col, value, family, manifest, result, source_metric, expected, scope):
         if row not in spec['rows'] or col not in spec['columns']:
@@ -68,31 +70,32 @@ def collect(batch, spec):
             return
         cells[key] = entry
 
-    families = ['scores', 'road_scores', 'physical_scores', 'road_tasks', 'coordinate_scores_audit_v2', 'coordinate_scores',
+    families = ['scores', 'road_scores', 'physical_scores', 'physical', 'road_tasks', 'coordinate_scores_audit_v2', 'coordinate_scores',
                 'remote_scores_1314', 'tstr_audit_v2', 'reference/Real-vs-real/road_scores',
                 'reference/Real-vs-real/physical', 'reference/Real-vs-real/road_tasks']
     for family in families:
         root = batch / family
-        manifests = [root / 'manifest.json'] if family.startswith('reference/') else sorted(root.glob('*/*/manifest.json'))
+        direct=root/'manifest.json'
+        manifests = [direct] if family.startswith('reference/') else ([direct] if direct.is_file() else [])+sorted(root.glob('*/*/manifest.json'))
         for manifest in manifests:
             if not manifest.is_file():
                 continue
             meta = json.loads(manifest.read_text(encoding='utf-8-sig'))
             reference = family.startswith('reference/')
             row = (('Real-vs-real [geometry reference]' if 'Real-vs-real [geometry reference]' in spec['rows'] else 'Real-vs-real [reference]') if reference else
-                   row_label(manifest.parent.parent.name, manifest.parent.name))
+                   row_label(meta.get('method',manifest.parent.parent.name), meta.get('router',manifest.parent.name)))
             scope = 'non-DP self-reference' if reference else 'full-release utility'
             if family in ('scores', 'road_scores') or family.endswith('/road_scores'):
-                if meta['inputs']['real_routes']['sha256'] != '0a0b11c0fef09bf3267ffdeca9d9202bedb8bfd609cb7da5c381ed08dca4907c':
+                if meta['inputs']['real_routes']['sha256'] != population['real_sha256']:
                     raise ValueError('Wrong road population')
-                if meta['real']['reference_slots'] != 15730 or meta['synthetic']['slots'] != 15730:
+                if meta['real']['reference_slots'] != population['count'] or meta['synthetic']['slots'] != population['count']:
                     raise ValueError('Wrong road denominator')
                 result = manifest.parent / 'metrics.json'
                 if sha(result) != meta['outputs']['metrics_json']['sha256']:
                     raise ValueError('Road output SHA mismatch')
                 for name, value in json.loads(result.read_text()).items():
                     add(row,name,value,family,manifest,result,name,meta['outputs']['metrics_json']['sha256'],scope)
-            elif family == 'physical_scores' or family.endswith('/physical'):
+            elif family in ('physical_scores','physical') or family.endswith('/physical'):
                 result = manifest.parent / 'results.csv'
                 if sha(result) != meta['results_sha256']:
                     raise ValueError('Physical output SHA mismatch')
@@ -104,7 +107,7 @@ def collect(batch, spec):
                     if name not in ('method','RoadYield','DemandFid'):
                         add(row,name,float(value),family,manifest,result,name,meta['results_sha256'],scope+'; independently sampled ordered-OD statistic')
             elif family == 'road_tasks' or family.endswith('/road_tasks'):
-                if meta['real_slots'] != 15730 or meta['synthetic_slots'] != 15730:
+                if meta['real_slots'] != population['count'] or meta['synthetic_slots'] != population['count']:
                     raise ValueError('Wrong road-task denominator')
                 result = manifest.parent / 'metrics.json'
                 if sha(result) != meta['result_sha256']:
@@ -113,7 +116,7 @@ def collect(batch, spec):
                 for name in ('RC-NDCG','NextRoadAcc','NextRoadNLL'):
                     add(row,name,values[name],family,manifest,result,name,meta['result_sha256'],'retrospective; not strict TSTR')
             elif family in ('coordinate_scores_audit_v2','coordinate_scores','remote_scores_1314'):
-                if meta['metric_revision']['protocol'] != 'metric-audit-v2-20261016' or meta['inputs']['real']['count'] != 15730:
+                if meta['metric_revision']['protocol'] != 'metric-audit-v2-20261016' or meta['inputs']['real']['count'] != population['count']:
                     raise ValueError('Wrong coordinate protocol/population')
                 result = manifest.parent / 'metrics.json'
                 if sha(result) != meta['outputs']['metrics.json']:
@@ -126,7 +129,7 @@ def collect(batch, spec):
                 if not meta['synthesis_lineage_verified'] or not meta['disjoint_split_verified']:
                     raise ValueError('Unverified TSTR lineage')
                 split = meta['split_binding']['disjoint_split']
-                if (split['train_count'],split['test_count']) != (12584,3146):
+                if (split['train_count'],split['test_count']) != (population['train_count'],population['test_count']):
                     raise ValueError('Wrong strict TSTR split')
                 result = manifest.parent / 'results.csv'
                 if sha(result) != meta['results_sha256']:
@@ -150,13 +153,20 @@ def main():
     p.add_argument('--batch',type=Path,required=True,action='append',help='Repeat for independent new result roots; no old scores are filled in')
     p.add_argument('--spec',type=Path,required=True)
     p.add_argument('--out',type=Path,required=True)
+    p.add_argument('--config',type=Path,help='New batch population configuration; uses its actual counts and real reference, without historical input digests')
     a = p.parse_args()
     if a.out.exists():
         raise FileExistsError(a.out)
     a.out.mkdir(parents=True)
     try:
         spec = json.loads(a.spec.read_text(encoding='utf-8'))
-        rows = merge_collections([collect(batch,spec) for batch in a.batch])
+        population=None
+        if a.config:
+            root=Path(__file__).resolve().parents[1]
+            config=json.loads(a.config.read_text(encoding='utf-8'))
+            population=dict(count=config['slots'],train_count=config['train_slots'],test_count=config['test_slots'],
+                real_sha256=sha((root/config['paths']['real_routes']).resolve()))
+        rows = merge_collections([collect(batch,spec,population) for batch in a.batch])
         with (a.out/'matrix_sources.csv').open('w',encoding='utf-8-sig',newline='') as f:
             writer = csv.DictWriter(f,fieldnames=list(rows[0]))
             writer.writeheader();writer.writerows(rows)

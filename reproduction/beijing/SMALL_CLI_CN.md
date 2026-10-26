@@ -70,15 +70,4 @@ python synthesize_dpmm.py --config data/dpmm_cli_fixture/native.json --adapter v
 
 ## 7. K、预算和攻击检查输入
 
-完成第4节训练专用DFR和REPRODUCE_NATIVE_TSTR_CN.md的确定几何转换后，可准备其余入口的小规模输入。以下使用前一轮保存的v2人工批次；已经跑过的生成不重复执行。
-
-```powershell
-python tools/prepare_cli_followups.py --config data/cli_fixture_v2/ready.json --out data/cli_followups --train-coordinates results/cli_fixture_v2/train_view/coordinates.pkl --train-lineage results/cli_fixture_v2/native_train/MTR-DFR/lineage.json
-python synthesize_k.py --config data/cli_fixture_v2/ready.json --length-aware --endpoint-partition data/cli_followups/partition24.json --out results/cli_followups/k24
-python synthesize_dfr.py --config data/cli_followups/budget_0p2.json --length-aware --out results/cli_followups/budget_0p2
-python prepare_attack_inputs.py --config data/cli_fixture_v2/ready.json --out data/cli_followups/attack --out-config data/cli_followups/attack_ready.json --releases data/cli_followups/releases.json
-python experiments/privacy_attack.py --config data/cli_followups/attack_ready.json --batch cli_membership_attack
-python evaluation/run_bound_ordered_attack.py --config data/cli_followups/ordered_attack.json --out results/cli_followups/ordered_attack
-```
-
-K24划分只由人工公共图生成，预算分支使用epsilon0.2；两个入口各生成16槽。攻击使用新生成的训练专用发布及12/4划分，小样本只验证执行流程，不解释攻击强弱。
+按[独立后续入口检查](SMALL_FOLLOWUPS_CN.md)从输入准备开始执行。使用64条人工轨迹、51条训练输入和具有多个道路选择的公共小图，满足原有序攻击至少50条对齐记录的要求。该页包含全部依赖命令，不需要本机或服务器已有的v2目录。
