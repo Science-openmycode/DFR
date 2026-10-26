@@ -1,5 +1,6 @@
 param([Parameter(Mandatory=$true)][string]$Root,[string]$PythonExecutable='')
 $ErrorActionPreference='Stop'
+$Root=(Resolve-Path -LiteralPath $Root -ErrorAction Stop).Path
 . (Join-Path $PSScriptRoot 'NativeArguments.ps1')
 $env:PYTHONUTF8='1'
 $env:OMP_NUM_THREADS='2'
