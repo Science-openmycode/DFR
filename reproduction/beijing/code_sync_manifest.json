@@ -2053,10 +2053,9 @@
     },
     {
       "path": "README.md",
-      "bytes": 7677,
-      "sha256": "ad3f88e78a87da85b805a784f6ab3c7a0a8fffa98ae0d74addd3ab1ad7c3b967",
-      "local_delivery_sha256": "52a657eaea7db7e1cd525a7c0a65dd3f241d850baf0d62887735facdd26ae9f0",
-      "change": "GitHub resource-import instructions; algorithm unchanged"
+      "bytes": 7357,
+      "sha256": "71c129195a02fca5052866c3b4b77ba6fe63b359ef90067553c4abbe187f125a",
+      "change": "Data acquisition documentation or preprocessing I/O; no synthesis core changes"
     },
     {
       "path": "register_mtnet.py",
@@ -3139,9 +3138,45 @@
       "bytes": 1681,
       "sha256": "47e22c5c1c27b530466a11c75b35488f09c01bbf75165efa6f562ec58ffbf20d",
       "change": "GitHub deployment helper"
+    },
+    {
+      "path": "DATA_CN.md",
+      "bytes": 7103,
+      "sha256": "b8fbd85b25e9126e908e8f23b5f1f4d3825c0fe007fa35b44260a914f67f5d44",
+      "change": "Data acquisition documentation or preprocessing I/O; no synthesis core changes"
+    },
+    {
+      "path": "configs/preprocess_beijing_8_16.json",
+      "bytes": 565,
+      "sha256": "da71df7ecfb49b875434545369c8d9470df6c57f9835b59d4273c59ac493dbdd",
+      "change": "Data acquisition documentation or preprocessing I/O; no synthesis core changes"
+    },
+    {
+      "path": "preprocess/fetch_geolife.py",
+      "bytes": 2584,
+      "sha256": "d9e229015047109cdb1da164d2282665f04bc262a2317b8ae77ea2cefc262817",
+      "change": "Data acquisition documentation or preprocessing I/O; no synthesis core changes"
+    },
+    {
+      "path": "preprocess/install_public_roads.py",
+      "bytes": 872,
+      "sha256": "7b2e4371d6185bd790d64fc5ee11a55f2f6f8dde1938522088c1f485c1ad5246",
+      "change": "Data acquisition documentation or preprocessing I/O; no synthesis core changes"
+    },
+    {
+      "path": "preprocess/recover_raw_metadata.py",
+      "bytes": 4368,
+      "sha256": "702eb95ea74c4919708a3414d151334c2b4e65c909c6a4a7fb3f6ebcaf7390f1",
+      "change": "Data acquisition documentation or preprocessing I/O; no synthesis core changes"
+    },
+    {
+      "path": "tests/test_data_download.py",
+      "bytes": 1274,
+      "sha256": "ec756e8d35a8135fa0e79cef3fd0625844433f3bab6261d0c1cab2f4c584d59d",
+      "change": "Data acquisition documentation or preprocessing I/O; no synthesis core changes"
     }
   ],
   "external_file_count": 881,
   "external_bytes": 9422470112,
-  "upload_scope": "Code and documentation only; resources require authorized separate import"
+  "upload_scope": "Code/docs plus public OSM snapshot in ../../public_assets; original GeoLife is downloaded from Microsoft. Full historical external bundle remains separate."
 }

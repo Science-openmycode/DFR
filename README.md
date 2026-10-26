@@ -4,7 +4,7 @@
 
 The independently organized, repaired Windows workflow is in [reproduction/beijing](reproduction/beijing/README.md). It includes direct CLI instructions for generation, M×R routing, evaluation, strict TSTR, ablation, resolution/budget sweeps, and matrix plotting. See its [connection verification report](reproduction/beijing/CONNECTION_REPORT_CN.md) for what was actually checked without repeating completed experiments.
 
-Private/raw research assets and runtime binaries are **not** included in that new code directory. Its README describes importing the exact authorized local delivery assets using a checked manifest. A code-only clone is not a complete data bundle. The older packaged workflow below remains unchanged.
+Start with [data download and preprocessing instructions](reproduction/beijing/DATA_CN.md): download GeoLife from Microsoft, rebuild the coordinate corpus, recover aligned timestamps, install the included frozen public road snapshot, then run road preprocessing. The new 15,730-road cohort is distinct from the older 17,123-coordinate cohort below. Importing an authorized historical snapshot is optional; the complete historical 9.42GB asset bundle is not yet distributed online. This remains a private repository, accessible to authorized collaborators.
 
 This repository contains the MTR-DFR implementation, four statistical DP baselines, frozen synthetic releases, evaluation scripts, and figure regeneration code.
 

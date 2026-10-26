@@ -887,3 +887,4 @@ setup_logs/
 /vendor/mtnet/canonical_mtnet_source_lock.json
 /vendor/mtnet/official/data/cuda_probe/temporal_32.emb
 /vendor/mtnet/official/data/demo/temporal_32.emb
+data/
