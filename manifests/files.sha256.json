@@ -318,18 +318,13 @@
     },
     {
       "path": "docs/CROSS_CITY_COMMANDS_CN.md",
-      "size": 6276,
-      "sha256": "a25f03af876b2f0e46df03119051f642c3be167e879865bea87cb3962ce517b3"
-    },
-    {
-      "path": "docs/DFR_FACT_TABLE_CN.md",
-      "size": 2890,
-      "sha256": "a324cdcdff745717a7ce43f9b347d75f79fa00c5c88114483177bf2708c40494"
+      "size": 6267,
+      "sha256": "225a9808a7fe01ba5a3d06ca771556ad4204006e06cecf3b3a70136463714a30"
     },
     {
       "path": "docs/FROZEN_EXPERIMENT_REPORT_CN.md",
-      "size": 7768,
-      "sha256": "933cb07ddb73060161ed457cd932409c0f4653b14ef88b70660c766065697956"
+      "size": 7814,
+      "sha256": "9449c5ca0f404cdd1d868dd6843027ccd4b5070aece74e0ef7d21fb30332e8d8"
     },
     {
       "path": "docs/RELEASE_BATCHES_AND_PROTOCOLS_CN.md",
@@ -337,19 +332,9 @@
       "sha256": "6e54bc19ef90f638ca6281aae5153ddfa8ee5b0db8cc9332d5fc514f7ec41cb6"
     },
     {
-      "path": "docs/REPRODUCTION_FACTS_CN.md",
-      "size": 2865,
-      "sha256": "56cc392bd1f69a205f1887ce10f76adbda0209a77dc17a3f3507d930955873f2"
-    },
-    {
       "path": "docs/TRAIN_ONLY_GENERATION_CN.md",
       "size": 2127,
       "sha256": "4f560dd7ff61eba4e74c78a6511676238757ca95bd912dc3b4143439e9514b89"
-    },
-    {
-      "path": "docs/UNCOMPLETED_EXPERIMENTS_CN.md",
-      "size": 2183,
-      "sha256": "ce95ecdec95712ac76c8fed8f0cce7f5e52a7b8d4813980eaa20177b6c400c87"
     },
     {
       "path": "evaluation/analysis_scripts/downstream_full_protocol.py",
@@ -1358,13 +1343,13 @@
     },
     {
       "path": "README.md",
-      "size": 3629,
-      "sha256": "0ffc89ab7e04bcadfe4ae83699a2c68710e819a9ea2c1c7361968a0132e9ce48"
+      "size": 3840,
+      "sha256": "69354816891f284eb379b73f903bd647655ea08607b4889a856b50ee445a9227"
     },
     {
       "path": "README_CN.md",
-      "size": 35910,
-      "sha256": "2e3ffbaff3cba8d2ab5637b0e031901e2d4db824344712aa4d5947fbb5607f47"
+      "size": 2406,
+      "sha256": "90c59b1737542212d712884d4283b970b9e2d52f3a23200a744650a33a53c2ce"
     },
     {
       "path": "requirements-lock.txt",

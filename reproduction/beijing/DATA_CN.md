@@ -1,10 +1,12 @@
 # 北京数据下载与预处理
 
+[English](DATA.md) · [实验说明](README_CN.md)
+
 以下命令在 `reproduction/beijing` 目录执行。原始数据、预处理数据、合成数据是三种不同对象：原始数据从 Microsoft 下载；预处理程序生成道路研究语料；各算法随后生成合成数据。真实数据及其时间戳不是 DP 发布物，不上传到合成数据目录。
 
 ## 1. 获取仓库与运行环境
 
-本仓库仍为私密仓库，协作者需先获得访问权限；有权限后执行 `git clone https://github.com/Science-openmycode/DFR.git`。已有历史合成数据使用 Git LFS，在仓库根目录执行 `git lfs install`、`git lfs pull`。不能把 LFS 指针文本当作数据文件。
+先执行 `git clone https://github.com/Science-openmycode/DFR.git`，再在仓库根目录执行 `git lfs install` 和 `git lfs pull`，取得合成数据和公共资源。
 
 进入 `reproduction/beijing`，按 README 第一节安装 Python 3.13.9 与锁定依赖。以下 `python` 表示已激活的该环境。
 
@@ -122,32 +124,3 @@ python experiments/plot.py --config configs/local_attack.json --experiment priva
 ```
 
 第一条复用原攻击划分程序：种子20260715，训练集抽1000个成员，测试集抽1000个非成员，其余测试记录作为参考集；样本不足时按原程序缩小。三者索引互斥检查不变。第二条执行原攻击器并校验每个发布的训练来源；第三条只作图。输入、输出及索引都是内部研究材料，不是隐私合成发布的一部分。
-
-## 7. 已提供与尚不能称为下载完成的材料
-
-现在可直接取得：Microsoft 原始 ZIP、本仓库冻结公共路网、仓库历史合成数据（Git LFS）、预处理源码。新版 README 的 `import_external_assets.py` 仍是**已有授权快照的可选导入器**，不是互联网下载器。
-
-旧本地9.42GB资源清单还包含完整匹配运行库、冻结私有审计记录、模型和新批次研究结果，不能因上述数据下载完成就声称它们全部已在线。没有授权快照的读者可以从上述原始来源建立新批次；新版整套冻结实验是否全部无需快照运行，仍需独立验证。本次未重跑长时道路匹配、模型训练或改变实验分数。
-
-## 8. 本次实际验证（2026-10-26）
-
-- 从Microsoft完整下载313,164,406字节，SHA与上文一致，ZIP CRC检查和解压通过。
-- 对新下载数据运行原有解析器，退出0：17,123条，298,170,617字节，序列化SHA与历史输入完全一致。
-- 对上述全部轨迹运行时间戳绑定，退出0：17,123/17,123精确绑定，未绑定记录0、未绑定合格文件0；程序报告耗时25.416秒。
-- 公共路网上传后，从GitHub提交`17e7717d8906fdfed2a2b609fd3cf8c24f1103d8`重新下载压缩包，SHA与上文一致；本地安装解压通过。
-- 解压安全与不覆盖测试2项通过；道路预处理配置可解析，dry-run退出0。dry-run不代表新环境的匹配器长任务已完成。
-- 复用本机已有Python环境；没有重跑已完成的合成/训练/评分，也没有修改其数值。
-- MTNet完整起止时间恢复耗时47.457秒，17123条records和参考输入摘要逐项与历史绑定完全相同。先前仅依赖坐标查找的候选转换有20条时间不一致，未采用。
-
-### 小规模接口回归
-
-已安装上述依赖及运行库后，可用人工小图/人工轨迹检查入口，不计算论文成绩：
-
-```powershell
-$env:DFR_TEST_RUNTIME = "$PWD/data/fmm-runtime/Library/bin"
-$env:PYTHONUTF8='1'
-$env:PYTHONIOENCODING='utf-8'
-python -m pytest tests -q
-```
-
-`DFR_TEST_RUNTIME`只指定测试用的运行库位置。实际实验仍使用config内的runtime路径。此次本地验证使用已有锁定Python环境和已有运行库，不等同于在新机器上重新安装conda成功。

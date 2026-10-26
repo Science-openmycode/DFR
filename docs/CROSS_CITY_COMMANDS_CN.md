@@ -33,7 +33,7 @@ python evaluation/evaluation/prepare_road_evaluation_network.py --dataset-config
 
 输出 network.shp、dbf、shx、prj 和 manifest.json。STMatch 使用此图无需 UBODT。FMM 需要把 --skip-ubodt 替换为 --ubodt-format csv --ubodt-delta-m 1000 --ubodt-bin public_assets/matcher/ubodt_gen.exe --fmm-runtime-dir $runtime，输出另含 ubodt.txt。相对二进制参数建议使用绝对路径；$runtime 取 README 的兼容依赖目录。
 
-公共路线支撑需要使用随目录提供的同城公共缓存。北京已有冻结支撑用于已有结果复现；Porto 和 SF 的完整 DFR 批次目前尚未冻结。
+公共路线支撑使用同城公共缓存；每个城市单独准备输入、路网和输出目录。北京保存结果使用随目录提供的北京冻结支撑。
 
 ## 3. 生成 MTR-DFR 数据
 

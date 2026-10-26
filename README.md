@@ -1,58 +1,58 @@
-# DFR: reproducible MTR-DFR experiments
+# MTR-DFR
 
-## Updated Beijing workflow (2026-10-26)
+MTR-DFR generates synthetic road trajectories from differentially private measurements. This repository includes the algorithm, baseline implementations, evaluation tools, saved synthetic datasets, and plotting code.
 
-The independently organized, repaired Windows workflow is in [reproduction/beijing](reproduction/beijing/README.md). It includes direct CLI instructions for generation, M×R routing, evaluation, strict TSTR, ablation, resolution/budget sweeps, and matrix plotting. See its [connection verification report](reproduction/beijing/CONNECTION_REPORT_CN.md) for what was actually checked without repeating completed experiments.
+[中文说明](README_CN.md) · [Step-by-step experiment guide](reproduction/beijing/README.md) · [Data download and preprocessing](reproduction/beijing/DATA.md)
 
-Start with [data download and preprocessing instructions](reproduction/beijing/DATA_CN.md): download GeoLife from Microsoft, rebuild the coordinate corpus, recover aligned timestamps, install the included frozen public road snapshot, then run road preprocessing. The new 15,730-road cohort is distinct from the older 17,123-coordinate cohort below. Importing an authorized historical snapshot is optional; the complete historical 9.42GB asset bundle is not yet distributed online. This remains a private repository, accessible to authorized collaborators.
+## Start here
 
-This repository contains the MTR-DFR implementation, four statistical DP baselines, frozen synthetic releases, evaluation scripts, and figure regeneration code.
+The current Beijing workflow is in [`reproduction/beijing`](reproduction/beijing). It separates data preparation, synthesis, routing, evaluation, and plotting. Follow its [English guide](reproduction/beijing/README.md) in order to run the experiments on your own machine.
 
-## Quick start without private/raw data
-
-The repository includes the synthetic releases and result tables needed to reproduce the packaged experiments and figures:
+Install [Git LFS](https://git-lfs.com/) before downloading the datasets and public road resources:
 
 ```powershell
-python commands/reproduce.py verify
-python commands/reproduce.py smoke
-python commands/reproduce.py all-precomputed
+git lfs install
+git clone https://github.com/Science-openmycode/DFR.git
+cd DFR
+git lfs pull
+cd reproduction/beijing
 ```
 
-Expected output includes `VERIFY OK`, `smoke: OK`, and PNG/PDF files under `experiment_results/regenerated_figures/`.
+The supplied FMM and STMatch executables run on Windows x64. Use Python 3.13.9 and the pinned dependencies described in the guide. MTNet training also requires an NVIDIA GPU.
 
-## From-scratch reproduction
+## Run the experiments
 
-On a clean Linux GPU host, the repository and locked Python environment can be prepared with:
+1. [Install the environment](reproduction/beijing/README.md#1-install-the-environment).
+2. [Download GeoLife and prepare the road dataset](reproduction/beijing/DATA.md). The preprocessing program reads the original GPS files, restores timestamps, and matches trajectories to the supplied public road graph.
+3. Generate synthetic data. Run SPRT, PrivTrace, DPTraj-PM, and DPStd as measurement methods, or use MTR-DFR, DPMM, and MTNet as native road generators.
+4. Route each statistical method's output with Origin, Nearest, FMM, STMatch, or MM2-MDP. Each router reads the synthetic output and the public graph.
+5. Evaluate distribution fidelity, road coverage, route choice, and downstream tasks. Run the component ablations and the resolution and privacy-budget sweeps.
+6. Plot the results. Plotting reads the score files produced by evaluation; synthesis and routing are separate commands.
 
-```bash
-bash commands/cloud_bootstrap.sh /hy-tmp/DFR_cloud
+The [experiment guide](reproduction/beijing/README.md#3-experiment-order) links the command lists for each stage and explains their outputs. For a new dataset batch, the preprocessing workflow creates command lists with your input paths and output directories.
+
+## Data and results
+
+Download the original GeoLife trajectories from Microsoft using the [data guide](reproduction/beijing/DATA.md). The repository supplies the public Beijing road graph through Git LFS.
+
+The current road-level Beijing reference contains 15,730 trajectories. Full-corpus experiments compare a synthetic dataset of the same size with this reference. Strict TSTR uses a separate 12,584/3,146 train/test split: fit the synthesizer on the real training set, train the downstream predictor on synthetic training data, and evaluate on the real test set.
+
+Earlier coordinate-level experiments use 17,123 trajectories. Their saved data and figures remain in the root-level `datasets/` and `experiment_results/` directories. The current road-level guide uses its own batch configurations and results.
+
+## Directory guide
+
+```text
+reproduction/beijing/
+  preprocess/        Download and prepare the input data
+  algorithms/        Measurement methods, routers, and native generators
+  configs/           Dataset paths and experiment parameters
+  evaluation/        Metric implementations
+  experiments/       Evaluation and plotting entry points
+  supplement/        Resolution and privacy-budget experiment configurations
+  reference_results/ Saved scores and figure inputs
+  results/           Outputs from your runs
+datasets/synthetic/  Earlier saved synthetic datasets
+experiment_results/  Earlier saved evaluation results and figures
 ```
 
-The script clones the public repository, pulls Git LFS objects, creates `.venv`, installs `requirements-lock.txt`, and runs `verify` and `smoke`. It does not invent missing private/raw inputs; fresh Beijing generation still requires the external assets listed below.
-
-The exact Beijing release requires external materials that cannot be redistributed here:
-
-- Microsoft GeoLife GPS Trajectories 1.3 `.plt` files;
-- the public Beijing road Shapefile (`.shp`, `.dbf`, `.shx`, `.prj`);
-- the FMM/UBODT and STMatch binaries;
-- Windows GDAL 2.4.4 and Boost.Serialization 1.75.0 runtime DLLs.
-
-The Chinese guide [`README_CN.md`](README_CN.md) gives the official download links, every preparation command, all required parameters, expected output paths, and the complete order for framework, privacy, profile, M×R, ablation, strict TSTR, and physical-structure experiments. `docs/COMMAND_PARAMETERS_CN.md` documents the meaning of every command-line parameter. Without the external GeoLife files, the packaged releases and all packaged figures remain reproducible, but new Beijing synthetic releases cannot be regenerated from raw data.
-
-On Windows, the tested matcher runtime is created with:
-
-```powershell
-conda create --prefix "C:\fmm-runtime" --override-channels --channel conda-forge --repodata-fn repodata.json libgdal=2.4.4 boost-cpp=1.75.0 --yes
-```
-
-Then follow the `PATH`, `GDAL_DATA`, `PROJ_LIB`, `verify-matcher`, and `prepare-road-reference` commands in `README_CN.md`. Do not substitute a different road graph for the frozen Beijing results without recording its SHA-256 in the run manifest.
-
-## DFR resolution and privacy-budget sweeps
-
-The DFR generator exposes two research parameters independent of the legacy GSRT Q5 batch. `--resolution-k` controls the number of private fine endpoint cells retained per endpoint role; the public road graph, routing support, and fixed output slots do not change. Omitting it keeps the frozen value `K=8`. `--epsilon-total` proportionally rescales the frozen measurement-block allocation and records the composed budget in `manifest.json` (including the length block when `--length-aware` is enabled). For example:
-
-```powershell
-python commands/reproduce.py generate-main -- --real-matched "C:\runs\real_road_reference\matched_paths\Real.pkl.gz" --edge-cache "public_assets\ordered_portal_route_cache.pkl.gz" --network "public_assets\beijing_network\network.shp" --seed 20260719 --length-aware --resolution-k 16 --epsilon-total 0.4 --public-slot-count 17123 --out-dir "C:\runs\dfr_k16_eps04"
-```
-
-Each point writes `road_routes.pkl.gz`, `dp_transcript.pkl.gz`, `manifest.json`, and `input_lineage.json`. Vary `--resolution-k` (for example `2,4,8,16,32,64`) or `--epsilon-total` (for example `0.2,0.4,0.7,1.0,1.4,2.0,3.0`) with a fresh output directory for every point.
+See the license and citation information alongside each external dataset, road resource, and baseline implementation.

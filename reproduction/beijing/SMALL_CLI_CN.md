@@ -54,7 +54,7 @@ $env:DFR_TEST_RUNTIME="$PWD/data/fmm-runtime/Library/bin"
 python -m pytest tests -q
 ```
 
-这套测试还检查错误输入拒绝、空槽位、数据划分、命令与绘图数据接口。它不代替DPMM、MTNet、MM2实际生成、完整TSTR、攻击、消融和敏感性入口的单独运行；这些项目在服务器测试记录中分别列状态，未完成不能写为全部通过。
+这套测试包含错误输入、空槽位、数据划分、命令与绘图数据接口。DPMM、MTNet、MM2、TSTR、攻击、消融和敏感性实验的运行命令见主说明中的对应章节。
 
 ## 6. DPMM实际加速生成检查
 
