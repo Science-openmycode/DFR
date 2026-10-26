@@ -1,0 +1,2 @@
+METHOD = "DPStd"
+IMPLEMENTATION = 'PaperDPStdModel'

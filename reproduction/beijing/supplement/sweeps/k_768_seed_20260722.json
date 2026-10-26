@@ -1,0 +1,83 @@
+{
+  "dataset": "beijing",
+  "road_reference_status": "FROZEN_EDGE_METRIC_READY",
+  "dataset_policy": "frozen-road-only",
+  "frozen_dataset_id": "afeddd66f0c6d5281dad5980bd56a8b62ffbd87ed53cd92493761a516ff1af35",
+  "batch": "k_768_seed_20260722",
+  "epsilon": 1.4,
+  "seed": 20260722,
+  "evaluation_seed": 20260713,
+  "slots": 15730,
+  "threads": 4,
+  "population": "full-corpus",
+  "population_status": "APPROVED_RELIABLY_ROAD_RECONSTRUCTABLE_COHORT",
+  "bbox": [
+    39.75,
+    40.15,
+    116.1,
+    116.65
+  ],
+  "methods": [
+    "SPRT",
+    "PrivTrace",
+    "DPTraj-PM",
+    "DPStd"
+  ],
+  "routers": [
+    "Origin",
+    "Nearest",
+    "FMM",
+    "STMatch"
+  ],
+  "paths": {
+    "legacy": "legacy",
+    "output": "results/portable_sweeps",
+    "prepared": "resources/dataset",
+    "network": "resources/network/network.shp",
+    "metric_network": "resources/network/network.shp",
+    "runtime": "resources/runtime",
+    "split_audit": "resources/dataset/split_audit.json",
+    "real": "resources/dataset/trajectories.pkl",
+    "real_routes": "resources/dataset/road_records.pkl.gz",
+    "metric_real_routes": "resources/dataset/road_records.pkl.gz",
+    "train": "resources/dataset/train.pkl",
+    "test": "resources/dataset/test.pkl",
+    "osm": "resources/osm/osm_cache_beijing_drivable_full.pkl",
+    "edge_cache": "resources/metric_cache/metric_cache.pkl.gz",
+    "metric_cache": "resources/metric_cache/metric_cache.pkl.gz",
+    "ubodt": "resources/ubodt/ubodt.txt",
+    "fmm": "resources/fmm/fmm.exe",
+    "stmatch": "resources/stmatch/stmatch.exe",
+    "source_cache": "resources/metric_cache/metric_cache.pkl.gz",
+    "mm2": "resources/mm2/map_matching_2.exe",
+    "mm2_network": "resources/mm2/network"
+  },
+  "releases": {},
+  "train_slots": 12584,
+  "routing_inputs": {},
+  "measurement_bbox": {
+    "DPStd": [
+      39.4,
+      40.8,
+      115.8,
+      117.4
+    ]
+  },
+  "test_slots": 3146,
+  "public_resources_status": "EDGE_METRIC_READY",
+  "fmm_resources_status": "READY",
+  "matcher_compatibility": {
+    "change": "Windows stat -> _stat64; result writer uses input trajectory ID even for empty matches",
+    "checked_files": 189,
+    "changed_files": [
+      "src/io/mm_writer.cpp",
+      "src/util/util.cpp"
+    ],
+    "fmm_sha256": "fa5042fb129a8a88fe80ae82342e14ac13e2d04d285c49b4d57189f76b6fee96",
+    "stmatch_sha256": "2596329f4539f7aeaf04b3c5a88c2f70b17889f8023c5354a37f34c8132a3513",
+    "input_config_sha256": "82ea713cefd6b05f3aacf3bbc1c09265eb604cce9816abab64555e4b5ffe4dac"
+  },
+  "unsupported_stages": {
+    "privacy_attack": "Current member/nonmember inputs are not bound"
+  }
+}

@@ -1,5 +1,11 @@
 # DFR: reproducible MTR-DFR experiments
 
+## Updated Beijing workflow (2026-10-26)
+
+The independently organized, repaired Windows workflow is in [reproduction/beijing](reproduction/beijing/README.md). It includes direct CLI instructions for generation, M×R routing, evaluation, strict TSTR, ablation, resolution/budget sweeps, and matrix plotting. See its [connection verification report](reproduction/beijing/CONNECTION_REPORT_CN.md) for what was actually checked without repeating completed experiments.
+
+Private/raw research assets and runtime binaries are **not** included in that new code directory. Its README describes importing the exact authorized local delivery assets using a checked manifest. A code-only clone is not a complete data bundle. The older packaged workflow below remains unchanged.
+
 This repository contains the MTR-DFR implementation, four statistical DP baselines, frozen synthetic releases, evaluation scripts, and figure regeneration code.
 
 ## Quick start without private/raw data

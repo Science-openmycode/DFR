@@ -1,5 +1,11 @@
 # MTR-DFR：按论文顺序复现实验
 
+## 2026-10-26 更新：独立北京命令行流程
+
+新版代码与逐步说明在 [reproduction/beijing/README.md](reproduction/beijing/README.md)，本轮接续和测试记录见 [CONNECTION_REPORT_CN.md](reproduction/beijing/CONNECTION_REPORT_CN.md)。包括生成、M×R路由、评分、严格TSTR、消融、K/预算汇总及矩阵作图。
+
+新版目录上传代码和说明，不上传原始轨迹、私有审计载荷或运行库二进制。README提供授权本地资源包的导入命令和精确清单；只有Git克隆还不等于已经取得实验数据。下方原有预计算结果与旧入口保留。
+
 > 本 README 说明两种可复现路径：
 > 1. **预计算结果复现**：不需要北京原始轨迹或 FMM/STMatch，直接重画论文结果并检查随包数据；
 > 2. **从原始数据重跑**：需要下载 GeoLife 原始轨迹、准备公共道路图，并安装道路匹配器运行库。所有外部材料、版本和路径都在本文明确列出。

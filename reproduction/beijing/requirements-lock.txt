@@ -1,0 +1,3 @@
+# Verified import versions for the bundled CPU/road validation scope.
+# Not a complete MTNet GPU / DPMM environment lock; see README.md.
+-r requirements-validated.txt
