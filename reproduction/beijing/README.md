@@ -31,6 +31,8 @@ python import_external_assets.py --check-only
 
 安装Python 3.13.9。Windows还需安装[微软Visual C++ x64运行库](https://aka.ms/vs/17/release/vc_redist.x64.exe)，按安装器提示完成；如系统要求管理员确认，由机器管理员操作。缺少它时，PyTorch可能报c10.dll初始化失败，安装Python依赖不能替代系统运行库。然后执行：
 
+本教程的激活、GPU安装和GPU运行入口使用PowerShell脚本。若首次运行提示“此系统上禁止运行脚本”，先在执行机器查看`Get-ExecutionPolicy -List`。本机个人账户需要允许本地脚本时，由用户在PowerShell执行`Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`并确认，再重新打开终端运行本教程；如果MachinePolicy或UserPolicy由组织配置，则由管理员处理。Python程序仍可用`.venv/Scripts/python.exe`直接运行。该设置不会由实验程序自动更改。
+
 ```powershell
 python -m venv .venv
 .venv/Scripts/python.exe -m pip install -r requirements-clean-windows-py313.txt
