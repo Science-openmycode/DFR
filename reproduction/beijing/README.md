@@ -47,6 +47,32 @@ powershell -NoProfile -File deployment/SETUP_MTNET_GPU.ps1 -Root . -BasePython p
 
 CPU版PyTorch也用于PrivTrace官方程序的导入，不仅是MTNet才需要PyTorch；因此基础安装不能漏掉第二条。MTNet的GPU安装会替换为锁定CUDA版本。安装、依赖检查与CUDA测试日志保存到setup_logs。安装需要访问软件源，实验计算不需要原服务器。
 
+### 在运行实验的客户端完成安装检查
+
+依赖安装在**实际运行代码的机器**：本机运行就在本机安装，远程运行就在远程机器安装。不要复制另一机器的`.venv`。按以下顺序准备：
+
+1. 安装64位Python 3.13.9和上面的微软Visual C++ x64运行库。运行库安装器若提示重启，先重启；管理员确认由用户完成。
+2. 执行上面的虚拟环境和两份Python依赖安装命令。
+3. 执行以下检查，确认不只是安装清单无冲突，PyTorch还能够真正加载并计算：
+
+```powershell
+.venv/Scripts/python.exe -m pip check
+.venv/Scripts/python.exe -c "import sys, torch; print(sys.executable); print('torch', torch.__version__); print('CPU_CHECK', (torch.ones(2)+1).tolist())"
+```
+
+第一条预期输出`No broken requirements found.`；第二条显示本目录虚拟环境解释器、PyTorch版本和`CPU_CHECK [2.0, 2.0]`，并正常结束。CPU版本不要求CUDA可用。`pip check`通过但第二条失败时，仍需处理系统运行库或DLL加载问题；不能继续把它记为依赖已就绪。若安装运行库后仍有`c10.dll`错误，保留完整错误，不直接归因于缺运行库。
+
+4. FMM/STMatch按[DATA_CN.md](DATA_CN.md)安装道路运行库，并在当前运行终端设置`GDAL_DATA`和`PROJ_LIB`；MM2使用该页的独立下载命令。
+5. 只有需要MTNet训练时才运行上面的GPU安装脚本，然后执行：
+
+```powershell
+.venv/Scripts/python.exe -c "import torch; assert torch.cuda.is_available(), 'CUDA unavailable'; x=torch.ones(2, device='cuda'); print(torch.cuda.get_device_name(0)); print('GPU_CHECK', (x+1).cpu().tolist())"
+```
+
+预期显示显卡名称及`GPU_CHECK [2.0, 2.0]`。这仅确认GPU运行环境，不能代替MTNet训练和生成测试。
+
+系统运行库、Python和GPU驱动属于机器安装前置条件；README漏列依赖则属于交付文档问题，应补齐。前置条件未满足时记录为“环境未就绪”，不归为算法错误，也不记作实验通过。输入适配、路径和程序异常仍由代码测试单独检查。
+
 ## 2. 从统计发布到道路轨迹
 
 已有完整冻结快照时执行 [116条M/R与全集评分命令](reproduction_checked_20261024/COMMANDS_CN.md)，每条列出参数、依赖和产物。从下载数据新建批次时，先完成 [DATA_CN.md 第6节](DATA_CN.md)，再使用其生成的同名命令文档；不要把新数据接到旧批次ID下。
