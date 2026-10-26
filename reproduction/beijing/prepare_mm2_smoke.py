@@ -17,6 +17,8 @@ def sha(path):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out',type=Path,required=True)
+    parser.add_argument('--network',type=Path,default=ROOT/'resources/network/network.shp',
+                        help='Public SHP for the same edge namespace as the installed MM2 network')
     args=parser.parse_args()
     out=args.out.resolve()
     if out.exists():raise FileExistsError(out)
@@ -46,7 +48,7 @@ def main():
     prepared=out/'unused_prepared';prepared.mkdir()
     paths={'prepared':str(prepared),'output':str(out/'unused_results'),'legacy':str(ROOT/'legacy'),
            'edge_cache':str(ROOT/'resources/edge_cache/edge_cache.pkl.gz'),
-           'network':str(ROOT/'resources/network/network.shp'),
+           'network':str(args.network.resolve()),
            'mm2':str(ROOT/'resources/mm2/map_matching_2.exe'),
            'mm2_network':str(ROOT/'resources/mm2/network')}
     (out/'config.json').write_text(json.dumps({'dataset':'artificial_public_geometry',

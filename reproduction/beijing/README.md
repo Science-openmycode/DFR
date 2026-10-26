@@ -27,11 +27,12 @@ python import_external_assets.py --check-only
 
 本交付绑定北京预处理后的15,730条道路轨迹，严格TSTR使用12,584条训练、3,146条测试。目录内含私有研究数据和来源记录，供授权研究，不自动公开上传。北京配置不能直接代表其它城市。
 
-安装Python 3.13.9，然后执行：
+安装Python 3.13.9。Windows还需安装[微软Visual C++ x64运行库](https://aka.ms/vs/17/release/vc_redist.x64.exe)，按安装器提示完成；如系统要求管理员确认，由机器管理员操作。缺少它时，PyTorch可能报c10.dll初始化失败，安装Python依赖不能替代系统运行库。然后执行：
 
 ```powershell
 python -m venv .venv
 .venv/Scripts/python.exe -m pip install -r requirements-clean-windows-py313.txt
+.venv/Scripts/python.exe -m pip install -r requirements-torch-cpu-py313.txt
 .venv/Scripts/python.exe -m pip check
 . .venv/Scripts/Activate.ps1
 $env:PYTHONUTF8='1'
@@ -44,7 +45,7 @@ $env:PYTHONIOENCODING='utf-8'
 powershell -NoProfile -File deployment/SETUP_MTNET_GPU.ps1 -Root . -BasePython python
 ```
 
-安装、依赖检查与CUDA测试日志保存到setup_logs。安装需要访问软件源，实验计算不需要原服务器。
+CPU版PyTorch也用于PrivTrace官方程序的导入，不仅是MTNet才需要PyTorch；因此基础安装不能漏掉第二条。MTNet的GPU安装会替换为锁定CUDA版本。安装、依赖检查与CUDA测试日志保存到setup_logs。安装需要访问软件源，实验计算不需要原服务器。
 
 ## 2. 从统计发布到道路轨迹
 

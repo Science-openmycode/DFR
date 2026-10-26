@@ -79,7 +79,7 @@ def test_migrated_network_keeps_identity(tmp_path):
     assert validate_dataset(data)['dataset_id']==hashlib.sha256(before).hexdigest()
     assert manifest.read_bytes()==before
     graph.write_bytes(b'wrong')
-    with pytest.raises(ValueError,match='graph changed'):validate_dataset(data)
+    with pytest.raises(ValueError,match='graph changed'):validate_dataset(data,verify_hashes=True)
 
 def test_scoring_core_comes_from_bundle(monkeypatch):
     monkeypatch.delenv('DFR_LEGACY_ROOT',raising=False)
