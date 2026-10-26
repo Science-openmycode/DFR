@@ -32,7 +32,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--archive', type=Path, required=True, help='Download path; existing archives are verified and reused')
     p.add_argument('--extract-to', type=Path, help='New extraction directory (never overwrite)')
-    p.add_argument('--expected-sha256', required=True, help='Published archive checksum from DATA_CN.md')
+    p.add_argument('--expected-sha256', help='Optional checksum supplied by the user; not required to use their data')
     a = p.parse_args()
     if not a.archive.exists():
         a.archive.parent.mkdir(parents=True, exist_ok=True)
@@ -41,12 +41,12 @@ def main():
             with urllib.request.urlopen(URL, timeout=120) as src:
                 shutil.copyfileobj(src, dst)
         with part.open('rb') as f:
-            if hashlib.file_digest(f, 'sha256').hexdigest() != a.expected_sha256.lower():
+            if a.expected_sha256 and hashlib.file_digest(f, 'sha256').hexdigest() != a.expected_sha256.lower():
                 raise ValueError('Download checksum mismatch; .part retained for inspection')
         part.rename(a.archive)
     with a.archive.open('rb') as f:
         sha = hashlib.file_digest(f, 'sha256').hexdigest()
-    if sha != a.expected_sha256.lower():
+    if a.expected_sha256 and sha != a.expected_sha256.lower():
         raise ValueError('Existing archive checksum mismatch; file unchanged')
     if a.extract_to:
         extract(a.archive, a.extract_to)

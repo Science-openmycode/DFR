@@ -6,7 +6,7 @@ from pathlib import Path
 def sha(path):
     with Path(path).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
 
-def validate_dataset(directory, public_network=None):
+def validate_dataset(directory, public_network=None, *, verify_hashes=False):
     root=Path(directory).resolve()
     manifest=root/'canonical_manifest.json'
     meta=json.loads(manifest.read_text(encoding='utf-8'))
@@ -21,7 +21,8 @@ def validate_dataset(directory, public_network=None):
     for name,digest in meta['artifacts'].items():
         path=(root/name).resolve()
         if path.parent!=root:raise ValueError('Artifact path escapes dataset')
-        if sha(path)!=digest:raise ValueError('Dataset artifact changed: '+name)
+        if not path.is_file():raise FileNotFoundError(path)
+        if verify_hashes and sha(path)!=digest:raise ValueError('Dataset artifact changed: '+name)
     # A migration may rebind the path, never the graph bytes or dataset identity.
     # Keep the canonical manifest bytes (and dataset identity) unchanged on migration.
     # A separately recorded relative location is usable only after the original
@@ -36,9 +37,11 @@ def validate_dataset(directory, public_network=None):
         network = (root/relative).resolve()
     else:
         network = Path(meta['network'])
-    if sha(network)!=meta['network_sha256']:raise ValueError('Public road graph changed')
+    if not network.is_file():raise FileNotFoundError(network)
+    if verify_hashes and sha(network)!=meta['network_sha256']:raise ValueError('Public road graph changed')
     for name,digest in meta.get('network_sidecars',{}).items():
-        if sha(network.with_suffix(name))!=digest:raise ValueError('Public network sidecar changed')
+        if not network.with_suffix(name).is_file():raise FileNotFoundError(network.with_suffix(name))
+        if verify_hashes and sha(network.with_suffix(name))!=digest:raise ValueError('Public network sidecar changed')
     ids=json.loads((root/'source_indices.json').read_text(encoding='utf-8'))
     train=json.loads((root/'train_split.json').read_text(encoding='utf-8'))['indices']
     test=json.loads((root/'test_split.json').read_text(encoding='utf-8'))['indices']

@@ -96,7 +96,7 @@ def main():
     p.add_argument('--threads',type=int,default=8)
     p.add_argument('--seed',type=int,default=20260713)
     p.add_argument('--review-only',action='store_true',help='Always stop after bias review, even if no flags')
-    p.add_argument('--accept-reviewed-subset',help='Exact SHA256 of the previously reviewed selection_review.json; explicitly accept the restricted cohort, not unbiasedness')
+    p.add_argument('--accept-reviewed-subset',help='yes accepts the restricted cohort; historical report digest remains optional')
     a=p.parse_args()
     if a.out.exists():p.error('Choose a new output; existing data are never overwritten')
     if a.threads<1:p.error('--threads must be positive')
@@ -204,7 +204,7 @@ def main():
         writer.writerows((r['source_index'],r['accepted'],r['first_success_candidates'],r['reason']) for r in records)
     save(a.out/'reviewed_records.pkl.gz',records)
     print(json.dumps({k:review[k] for k in ['source_count','retained','excluded','flags','decision']},ensure_ascii=False),flush=True)
-    acknowledged=bool(a.accept_reviewed_subset and a.accept_reviewed_subset==digest(a.out/'selection_review.json'))
+    acknowledged=bool(a.accept_reviewed_subset and (a.accept_reviewed_subset.lower()=='yes' or a.accept_reviewed_subset==digest(a.out/'selection_review.json')))
     if a.accept_reviewed_subset and not acknowledged:
         raise ValueError('Approval hash does not match the recomputed selection review')
     if (flags and not acknowledged) or a.review_only:

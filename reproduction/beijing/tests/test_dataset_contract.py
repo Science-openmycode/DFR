@@ -28,7 +28,11 @@ def test_frozen_dataset_returns_its_population_and_identity(tmp_path):
 
 def test_changed_coordinate_file_is_rejected(tmp_path):
     fixture(tmp_path);(tmp_path/'trajectories.pkl').write_bytes(b'old raw source')
-    with pytest.raises(ValueError,match='artifact changed'):contract().validate_dataset(tmp_path)
+    with pytest.raises(ValueError,match='artifact changed'):contract().validate_dataset(tmp_path,verify_hashes=True)
+
+def test_user_data_does_not_require_historical_bytes(tmp_path):
+    fixture(tmp_path);(tmp_path/'trajectories.pkl').write_bytes(b'user supplied data')
+    assert contract().validate_dataset(tmp_path)['count']==2
 
 def test_review_only_output_cannot_masquerade_as_frozen(tmp_path):
     meta=fixture(tmp_path);meta['status']='BLOCKED_SELECTION_DIFFERENCES'
