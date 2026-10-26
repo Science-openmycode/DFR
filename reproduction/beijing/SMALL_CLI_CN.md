@@ -67,3 +67,18 @@ python synthesize_dpmm.py --config data/dpmm_cli_fixture/native.json --adapter v
 ```
 
 预期先输出60条逐轨迹比较，再生成dpmm.pkl、dpmm.json、new_dataset_execution.json。输出数以DPMM实际发布情况为准，检查其保留的输入索引；不能把未发布记录补造为轨迹。
+
+## 7. K、预算和攻击检查输入
+
+完成第4节训练专用DFR和REPRODUCE_NATIVE_TSTR_CN.md的确定几何转换后，可准备其余入口的小规模输入。以下使用前一轮保存的v2人工批次；已经跑过的生成不重复执行。
+
+```powershell
+python tools/prepare_cli_followups.py --config data/cli_fixture_v2/ready.json --out data/cli_followups --train-coordinates results/cli_fixture_v2/train_view/coordinates.pkl --train-lineage results/cli_fixture_v2/native_train/MTR-DFR/lineage.json
+python synthesize_k.py --config data/cli_fixture_v2/ready.json --length-aware --endpoint-partition data/cli_followups/partition24.json --out results/cli_followups/k24
+python synthesize_dfr.py --config data/cli_followups/budget_0p2.json --length-aware --out results/cli_followups/budget_0p2
+python prepare_attack_inputs.py --config data/cli_fixture_v2/ready.json --out data/cli_followups/attack --out-config data/cli_followups/attack_ready.json --releases data/cli_followups/releases.json
+python experiments/privacy_attack.py --config data/cli_followups/attack_ready.json --batch cli_membership_attack
+python evaluation/run_bound_ordered_attack.py --config data/cli_followups/ordered_attack.json --out results/cli_followups/ordered_attack
+```
+
+K24划分只由人工公共图生成，预算分支使用epsilon0.2；两个入口各生成16槽。攻击使用新生成的训练专用发布及12/4划分，小样本只验证执行流程，不解释攻击强弱。

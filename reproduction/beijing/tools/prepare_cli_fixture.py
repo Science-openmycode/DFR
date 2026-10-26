@@ -49,7 +49,9 @@ def main():
         'labels96':{i:i//4 for i in range(384)},'labels24':{i:i//16 for i in range(384)},
         'outdegree':{i:2 for i in range(384)},'portals':{}}
     save(out/'metric_cache.pkl.gz',cache);save(out/'edge_cache.pkl.gz',{'edge_nodes':edges})
-    save(out/'osm.pkl',[{'id':i,'geometry':[{'lat':float(lat[s]),'lon':float(lon[s])},
+    # Upstream DPMM encodes a link by stripping two characters from OSM IDs.
+    # Use realistic multi-digit public way IDs; these are not metric edge IDs.
+    save(out/'osm.pkl',[{'id':100000+i,'geometry':[{'lat':float(lat[s]),'lon':float(lon[s])},
         {'lat':float(lat[t]),'lon':float(lon[t])}],'tags':{'highway':'residential'}} for i,(s,t) in edges.items()])
     trajectories=[];roads=[]
     for i in range(count):
