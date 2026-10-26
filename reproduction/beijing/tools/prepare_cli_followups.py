@@ -33,6 +33,10 @@ def main():
         source='public-road-graph-only',k=24,labels=cache['labels24'],
         network_sha256=sha(network),metric_cache_sha256=sha(metric),
         purpose='ARTIFICIAL_CLI_TEST_ONLY_NOT_RESEARCH_RESULTS'))
+    write(a.out/'partition96.json',dict(schema='dfr-public-endpoint-partition-v1',
+        source='public-road-graph-only',k=96,labels=cache['labels96'],
+        network_sha256=sha(network),metric_cache_sha256=sha(metric),
+        purpose='ARTIFICIAL_CLI_TEST_ONLY_NOT_RESEARCH_RESULTS'))
     budget=copy.deepcopy(c);budget['epsilon']=.2
     write(a.out/'budget_0p2.json',budget)
     releases={'MTR-DFR':dict(coordinates=str(a.train_coordinates.resolve()),
