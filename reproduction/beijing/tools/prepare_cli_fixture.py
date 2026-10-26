@@ -82,6 +82,10 @@ def main():
         edge_cache=str(out/'edge_cache.pkl.gz'),osm=str(out/'osm.pkl'),runtime=str(a.runtime.resolve()))
     write(out/'native.json',cfg)
     cfg['paths']['prepared']=str(measurements)
+    # This independent coordinate fixture has 1700 inputs, not the 16-slot
+    # frozen road population above. Do not claim that population contract.
+    cfg['dataset_policy']='artificial-coordinate-cli-test'
+    cfg.pop('frozen_dataset_id',None)
     write(out/'measurement.json',cfg)
     print('CLI_FIXTURE_READY',out,'16 native slots; 51000 observations for measurement input')
 

@@ -56,7 +56,7 @@ python preprocess/install_public_roads.py --out data/public
 本批次Windows匹配器位于 `resources/fmm` 和 `resources/stmatch`，包括对应FMMLIB.dll；不用根目录旧 `public_assets/matcher` 的匹配器替换它们。源项目为 [FMM/STMatch](https://github.com/cyang-kth/fmm)。先安装运行库（需要 conda）：
 
 ```powershell
-conda create --prefix ./data/fmm-runtime --override-channels --channel conda-forge --repodata-fn repodata.json libgdal=2.4.4 boost-cpp=1.75.0 --yes
+conda create --prefix ./data/fmm-runtime --override-channels --channel conda-forge --repodata-fn repodata.json libgdal=2.4.4 boost-cpp=1.75.0 conda-launchers --yes
 $env:PATH = "$PWD/data/fmm-runtime/Library/bin;$env:PATH"
 $env:GDAL_DATA = "$PWD/data/fmm-runtime/Library/share/gdal"
 $env:PROJ_LIB = "$PWD/data/fmm-runtime/Library/share/proj"
