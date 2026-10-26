@@ -10,6 +10,7 @@ ROOT=Path(__file__).resolve().parent
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--dataset',type=Path,required=True)
+    p.add_argument('--network',type=Path,help='Optional migrated public network; verified against original graph bytes')
     p.add_argument('--osm-cache',type=Path,required=True,help='Public OSM source corresponding to the frozen graph')
     p.add_argument('--out',type=Path,required=True,help='New JSON experiment configuration')
     p.add_argument('--batch',required=True)
@@ -25,8 +26,10 @@ def main():
     if not a.runtime.is_dir():p.error('Missing runtime directory')
     if not a.fmm.is_file() or not a.stmatch.is_file():p.error('Missing frozen matcher executable')
     if bool(a.mm2)!=bool(a.mm2_network):p.error('Provide both MM2 executable and network, or neither')
-    prepared=a.dataset.resolve();identity=validate_dataset(prepared)
+    prepared=a.dataset.resolve();identity=validate_dataset(prepared,a.network)
     meta=json.loads((prepared/'canonical_manifest.json').read_text(encoding='utf-8'))
+    location=prepared/'network_location.json'
+    network=a.network.resolve() if a.network else ((prepared/json.loads(location.read_text(encoding='utf-8'))['relative_path']).resolve() if location.exists() else Path(meta['network']).resolve())
     config=json.loads((ROOT/'configs/beijing.yaml').read_text(encoding='utf-8'))
     config.update(batch=a.batch,dataset_policy='frozen-road-only',frozen_dataset_id=identity['dataset_id'],
         slots=identity['count'],train_slots=identity['train_count'],test_slots=identity['test_count'],
@@ -36,7 +39,7 @@ def main():
     config['bbox']=json.loads((prepared/'bbox.json').read_text(encoding='utf-8'))['bbox']
     config['paths'].update(prepared=str(prepared),real=str(prepared/'trajectories.pkl'),
         real_routes=str(prepared/'road_records.pkl.gz'),metric_real_routes=str(prepared/'road_records.pkl.gz'),
-        train=str(prepared/'train.pkl'),test=str(prepared/'test.pkl'),network=meta['network'],metric_network=meta['network'],
+        train=str(prepared/'train.pkl'),test=str(prepared/'test.pkl'),network=str(network),metric_network=str(network),
         osm=str(a.osm_cache.resolve()),edge_cache=str(prepared/'public_resources/edge_cache.pkl.gz'),
         metric_cache=str(prepared/'public_resources/metric_cache.pkl.gz'),source_cache=str(prepared/'public_resources/metric_cache.pkl.gz'),
         ubodt=str(prepared/'public_resources/ubodt.txt'),split_audit=str(prepared/'public_resources/split_audit.json'))
@@ -52,7 +55,7 @@ def main():
             with path.open('rb') as handle:return hashlib.file_digest(handle,'sha256').hexdigest()
         bindings={'resources/mm2/map_matching_2.exe':a.mm2}
         bindings.update({key:a.mm2_network/Path(key).name for key in expected if key.startswith('resources/mm2/network/')})
-        bindings.update({'resources/network/network'+suffix:Path(meta['network']).with_suffix(suffix) for suffix in ('.shp','.shx','.dbf','.prj','.cpg')})
+        bindings.update({'resources/network/network'+suffix:network.with_suffix(suffix) for suffix in ('.shp','.shx','.dbf','.prj','.cpg')})
         for key,file in bindings.items():
             if digest(file)!=expected[key]:raise ValueError('MM2/public graph binding mismatch: '+key)
         config['paths'].update(mm2=str(a.mm2.resolve()),mm2_network=str(a.mm2_network.resolve()))

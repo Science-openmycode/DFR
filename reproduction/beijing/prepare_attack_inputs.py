@@ -14,7 +14,7 @@ def prepare(config,out,out_config,releases):
     out=Path(out).resolve();out_config=Path(out_config).resolve()
     if out.exists() or out_config.exists():raise FileExistsError('Choose new output paths')
     dataset=(ROOT/c['paths']['prepared']).resolve()
-    identity=validate_dataset(dataset)
+    identity=validate_dataset(dataset,ROOT/c['paths']['network'])
     if identity['dataset_id']!=c['frozen_dataset_id']:raise ValueError('Dataset identity changed')
     mapping=json.loads(Path(releases).read_text(encoding='utf-8'))
     if not mapping:raise ValueError('Register actual training-only releases first')

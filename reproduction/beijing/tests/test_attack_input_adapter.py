@@ -8,11 +8,11 @@ def test_original_sampler_small_fixture(tmp_path,monkeypatch):
     for key,indices in [('train',[0,1,2,3]),('test',[4,5,6,7])]:
         (dataset/(key+'.pkl')).write_bytes(pickle.dumps([np.array([[i,1.],[i,2.]]) for i in indices]))
         (dataset/(key+'_split.json')).write_text(json.dumps({'indices':indices}))
-    cfg=tmp_path/'config.json';cfg.write_text(json.dumps({'paths':{'prepared':str(dataset)},'frozen_dataset_id':'fixture'}))
+    cfg=tmp_path/'config.json';cfg.write_text(json.dumps({'paths':{'prepared':str(dataset),'network':'fixture.shp'},'frozen_dataset_id':'fixture'}))
     coords=tmp_path/'coords.pkl';coords.write_bytes(b'fixture')
     lineage=tmp_path/'lineage.json';lineage.write_text('{}')
     releases=tmp_path/'releases.json';releases.write_text(json.dumps({'fixture':{'coordinates':str(coords),'lineage':str(lineage)}}))
-    monkeypatch.setattr(adapter,'validate_dataset',lambda p:{'dataset_id':'fixture'})
+    monkeypatch.setattr(adapter,'validate_dataset',lambda p,n:{'dataset_id':'fixture'})
     adapter.prepare(cfg,tmp_path/'attack',tmp_path/'bound.json',releases)
     m=json.loads((tmp_path/'attack/split/manifest.json').read_text())
     assert m['attack_candidate_count_per_class']==2

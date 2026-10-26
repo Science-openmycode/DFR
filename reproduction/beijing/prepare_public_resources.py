@@ -42,7 +42,7 @@ def main():
     if a.out_config.exists():p.error('Output config already exists')
     c=json.loads(a.config.read_text(encoding='utf-8'))
     path=lambda key:(ROOT/c['paths'][key]).resolve()
-    identity=validate_dataset(path('prepared'))
+    identity=validate_dataset(path('prepared'),path('network'))
     if identity['dataset_id']!=c['frozen_dataset_id']:raise ValueError('Dataset binding changed')
     out=(a.out_dir or path('prepared')/'public_resources').resolve()
     if out.exists() and any(out.iterdir()):p.error('Public resource output exists; inspect prior run before retry')

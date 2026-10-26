@@ -20,7 +20,7 @@ def main():
         p.error('Outputs must be new')
     c=json.loads(a.config.read_text(encoding='utf-8'))
     prepared=(ROOT/c['paths']['prepared']).resolve()
-    identity=validate_dataset(prepared)
+    identity=validate_dataset(prepared,ROOT/c['paths']['network'])
     if identity['dataset_id']!=c['frozen_dataset_id']:
         raise ValueError('Wrong frozen population')
     train=json.loads((prepared/'train_split.json').read_text())['indices']

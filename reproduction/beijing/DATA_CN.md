@@ -87,6 +87,7 @@ python tools/write_batch_commands.py --config configs/local_ready.json --time-bi
 
 - MM2为作者1.2.1版本，校验压缩包和程序；`--extract-to`必须是新目录。公共MM2网络随仓库LFS提供，绑定程序同时验证其与冻结道路图一致。
 - `--batch`是新结果命名空间；所有输出配置必须不存在，避免覆盖旧实验。
+- 已有预处理数据迁到另一机器后，可给 `bind_dataset.py` 增加 `--network data/public/network/network.shp`，只更新位置并核验原图字节，不改数据身份。后续公共资源、划分和攻击准备使用该配置路径。
 - 公共缓存只包含道路图支持。`--frozen-support resources`逐项校验路网、OSM和缓存，不读取私有轨迹来构建查询支撑。
 - TSTR步骤检查已有训练/测试划分，不重新随机划分。
 - UBODT以原实验1500米生成，约6GB，须预留磁盘；`--threads`只控制并发。它不是合成数据。
