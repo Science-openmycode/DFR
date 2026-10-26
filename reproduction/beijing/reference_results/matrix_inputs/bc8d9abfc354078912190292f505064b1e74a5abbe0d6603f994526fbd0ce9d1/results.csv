@@ -1,0 +1,2 @@
+method,RoadYield,DemandFid,RoadRecovery,RoadSupport,TurnRecovery,TurnSupport,BackboneRecovery,BackboneSupport
+PrivTrace + Nearest,0.08753973299427845,0.08747616020343293,1.6692903426076016e-05,0.08143825334481812,0.0,0.0,2.4344095763666686e-05,0.031233834153703493

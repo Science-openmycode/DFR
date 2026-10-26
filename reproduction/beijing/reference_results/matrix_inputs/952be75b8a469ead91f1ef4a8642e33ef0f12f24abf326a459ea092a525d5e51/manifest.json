@@ -1,0 +1,13 @@
+{
+  "protocol": "full_od_ordered_physical_mass_v1",
+  "method": "MTR-DFR + Origin",
+  "sampling_label": "MTR-DFR + Origin",
+  "cap_per_stratum": 20,
+  "inputs_sha256": {
+    "real_routes": "0a0b11c0fef09bf3267ffdeca9d9202bedb8bfd609cb7da5c381ed08dca4907c",
+    "synthetic_routes": "d2bc460f0c52e4682d543e2be992f12f1e2086e1aadffcc6af533cf12ff5ab99",
+    "edge_cache": "06425ae753d7b2719c0c74fbe9a19eb22801f9872946c06f2a5ea753b6711101",
+    "network": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+  },
+  "results_sha256": "d4936898ba58b0ffc941fc1a90b60f4b29185222c1e6f7a51c9a64a9ed77efa5"
+}

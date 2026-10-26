@@ -1,0 +1,39 @@
+{
+  "classification": "RESEARCH_EVALUATION_LEDGER_NOT_A_DP_RELEASE",
+  "elapsed_sec": 217.6781792640686,
+  "inputs": {
+    "edge_cache": {
+      "path": "D:\\MTR\\experiments_20261016\\public_context\\edge_cache.pkl.gz",
+      "sha256": "fa9e025e2c3e71ae1e92652220905d5a516b58d70698490129800ae3d8679ed4"
+    },
+    "osm": {
+      "path": "D:\\MTR\\strict_tstr_mtnet_20261017\\inputs\\osm.pkl",
+      "sha256": "a768a5b41e1dffb4338e1ed9ace7bb7d0dd84d66dc30314801ec5bf9bb914c2c"
+    },
+    "real": {
+      "count": 15730,
+      "path": "D:\\MTR\\mtnet_input_remote_20261017\\inputs\\dataset\\trajectories.pkl",
+      "sha256": "97ab149c54fef1bad6cb3abe1848e7dfa5cceeafe312ab2084e4d0a6d26cb8e9",
+      "spec": "D:\\MTR\\mtnet_input_remote_20261017\\inputs\\dataset\\trajectories.pkl"
+    },
+    "road_routes": {
+      "path": "D:\\MTR\\remaining_20261017\\data_results\\simple_runs\\roads_8_16_20261016\\routes\\DPTraj-PM\\STMatch\\synthetic_routes.pkl.gz",
+      "sha256": "477c32acae3bf7c1142f42d07f1eaecb6870fba6bc9ce5f2ebdc393414b76dc4"
+    },
+    "synthetic": {
+      "path": "D:\\MTR\\remaining_20261017\\data_results\\simple_runs\\roads_8_16_20261016\\coordinate_views\\DPTraj-PM\\STMatch\\coordinates.pkl",
+      "sha256": "78470bdd6a5f6ce7217e89d710707d7d0928f73430ef9f6d2a57c99a36f92e94"
+    },
+    "witness": null
+  },
+  "outputs": {
+    "destination_model_audit.json": "fef6522f56eeb8d44a3d563c3e7116bef284a1d2ebd9421bbc86bdc7d24c8a25",
+    "metrics.csv": "835d2075d101ae2d1890ff742e8a54d032bb1aced4a397a469987ef7cba88ab8",
+    "metrics.json": "17ebc2dd86745bdb60dd02bb3645f08998a74134e3e5db4673f302ecf35b8532"
+  },
+  "schema_version": 1,
+  "metric_revision": {
+    "protocol": "metric-audit-v2-20261016",
+    "manifest_sha256": "514636dc396caa805844eea4b97b2c4d8488d4a5adfb01ef5fc45ac7740ee6d8"
+  }
+}

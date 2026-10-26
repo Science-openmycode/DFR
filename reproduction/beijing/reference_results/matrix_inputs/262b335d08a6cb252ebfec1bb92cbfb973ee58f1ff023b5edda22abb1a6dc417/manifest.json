@@ -1,0 +1,13 @@
+{
+  "protocol": "full_od_ordered_physical_mass_v1",
+  "method": "SPRT + Nearest",
+  "sampling_label": "SPRT + Nearest",
+  "cap_per_stratum": 20,
+  "inputs_sha256": {
+    "real_routes": "0a0b11c0fef09bf3267ffdeca9d9202bedb8bfd609cb7da5c381ed08dca4907c",
+    "synthetic_routes": "6354763d511daed5e52355369c696f558c2ed908de3541846072b242b51bce08",
+    "edge_cache": "06425ae753d7b2719c0c74fbe9a19eb22801f9872946c06f2a5ea753b6711101",
+    "network": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+  },
+  "results_sha256": "8e4851889bd04b03e14bd9e71fe7413ff4c62a2078548658a85c885810b0a160"
+}

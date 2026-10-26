@@ -1,0 +1,98 @@
+{
+  "protocol": "train_test_bound_task_scoring_v2",
+  "raw_generic_results": "D:\\MTR\\strict_tstr_remaining_20261017\\results\\roads_8_16_20261016\\tstr_audit_v2\\DPTraj-PM\\Nearest\\raw_generic\\generic_mobility_tasks.json",
+  "raw_road_results": "D:\\MTR\\strict_tstr_remaining_20261017\\results\\roads_8_16_20261016\\tstr_audit_v2\\DPTraj-PM\\Nearest\\raw_road\\road_network_mining_tasks.json",
+  "result": "D:\\MTR\\strict_tstr_remaining_20261017\\results\\roads_8_16_20261016\\tstr_audit_v2\\DPTraj-PM\\Nearest\\results.csv",
+  "normalization": "coverage times conditional quality, divided by the Real-train product; Real-train=1",
+  "pipelines": [
+    "Real-train",
+    "DPTraj-PM + Nearest"
+  ],
+  "split_binding": {
+    "classification": "LOCAL_RESEARCH_AUDIT_NOT_A_DP_RELEASE",
+    "train_sha256": "562389dd960b9e4179c7a7843bc39d8c5e20e8d69d72c8ecf4ba2183a49f7d1c",
+    "test_sha256": "4f8a3bb46ad2ff3ec61c9f63795c880ed979dbe61df9af189489d0217111e713",
+    "bbox": [
+      39.75,
+      40.15,
+      116.1,
+      116.65
+    ],
+    "seed": 20260713,
+    "osm_sha256": "a768a5b41e1dffb4338e1ed9ace7bb7d0dd84d66dc30314801ec5bf9bb914c2c",
+    "evaluation_scope": "strict_tstr",
+    "synthetic": {
+      "DPTraj-PM + Nearest": "ebde10c6aeb88411eb67f0868e8571c8f59996106b4d77b1d92a03f6a2123009"
+    },
+    "base_releases": {
+      "DPTraj-PM + Nearest": "097aec28557def4c98ba7d0a10a984d09e0c6029460eaed600b2e9f4661703b3"
+    },
+    "synthesis_lineage": {
+      "DPTraj-PM + Nearest": {
+        "record_sha256": "2eaa3860df58d3b5e40fbb0a1d18ee5dd3ff3bc789a6ade4ebdcc7875378880e",
+        "source_sha256": "feb900c0717704cc461b4d2cfed89f91a7e3fc818dea86b20fb9b848dd4a9414",
+        "release_sha256": "097aec28557def4c98ba7d0a10a984d09e0c6029460eaed600b2e9f4661703b3",
+        "generator": "DPTraj-PM preserved adapter",
+        "evidence_scope": "executed audited CLI input binding; not a formal noninterference proof"
+      }
+    },
+    "disjoint_split": {
+      "record_sha256": "ebc30dcf28b73c742332fd98575ae0fe0532f1b83ad326f200cacc371654178a",
+      "full_sha256": "97ab149c54fef1bad6cb3abe1848e7dfa5cceeafe312ab2084e4d0a6d26cb8e9",
+      "train_count": 12584,
+      "test_count": 3146
+    }
+  },
+  "synthesis_lineage_verified": true,
+  "disjoint_split_verified": true,
+  "lineage_note": "Executed generator input binding is checked separately from task scoring; it is local research provenance, not a DP release or formal noninterference proof.",
+  "results_sha256": "53392d8102bf582a161207a46678c82405eb3b6bfa1ec8ae4d41f2d56f155d6a",
+  "command": [
+    "D:\\MTR\\mtnet_20261016\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\evaluation\\audit_v2_runner.py",
+    "--stage",
+    "tstr",
+    "--legacy",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\legacy",
+    "--",
+    "--train-real",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\inputs\\train.pkl",
+    "--test-real",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\inputs\\test.pkl",
+    "--split-audit",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\inputs\\split_audit.json",
+    "--require-synthesis-lineage",
+    "--synthetic",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\views\\DPTraj-PM\\Nearest\\coordinates.pkl",
+    "--names",
+    "DPTraj-PM + Nearest",
+    "--synthesis-lineage",
+    "DPTraj-PM + Nearest=D:\\MTR\\strict_tstr_remaining_20261017\\inputs\\DPTraj-PM\\lineage.json",
+    "--osm-cache",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\inputs\\osm.pkl",
+    "--bbox",
+    "39.75",
+    "40.15",
+    "116.1",
+    "116.65",
+    "--seed",
+    "20260713",
+    "--out-dir",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\results\\roads_8_16_20261016\\tstr_audit_v2\\DPTraj-PM\\Nearest"
+  ],
+  "scoring_inputs_sha256": {
+    "D:\\MTR\\strict_tstr_remaining_20261017\\legacy\\evaluation\\run_tstr_experiment.py": "c7d5a3ff8fcccff1d15d5e58ef9508523d8f903d666d3c2a9f03d94b661ae728",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\views\\DPTraj-PM\\Nearest\\coordinates.pkl": "ebde10c6aeb88411eb67f0868e8571c8f59996106b4d77b1d92a03f6a2123009",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\inputs\\DPTraj-PM\\lineage.json": "2eaa3860df58d3b5e40fbb0a1d18ee5dd3ff3bc789a6ade4ebdcc7875378880e",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\inputs\\train.pkl": "562389dd960b9e4179c7a7843bc39d8c5e20e8d69d72c8ecf4ba2183a49f7d1c",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\inputs\\test.pkl": "4f8a3bb46ad2ff3ec61c9f63795c880ed979dbe61df9af189489d0217111e713",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\inputs\\split_audit.json": "ebc30dcf28b73c742332fd98575ae0fe0532f1b83ad326f200cacc371654178a",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\inputs\\osm.pkl": "a768a5b41e1dffb4338e1ed9ace7bb7d0dd84d66dc30314801ec5bf9bb914c2c",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\evaluation\\audit_v2_runner.py": "62b42a90d478369247e02e0ed31e94c34b282a9fa8a56ae03c756eae8d7ee0cf",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\evaluation\\audit_metric_fixes.py": "8d2e3ee4dca9307a6521f3b97e75966848e0db0b6e79830ba459e34645d7a72e",
+    "D:\\MTR\\strict_tstr_remaining_20261017\\views\\DPTraj-PM\\Nearest\\coordinates.pkl.manifest.json": "aed4eb60c098632e7633e62dc29f29e0cae9abcac30640416cb85182ba31fc03"
+  },
+  "elapsed_seconds": 20.796
+}

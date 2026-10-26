@@ -1,0 +1,1052 @@
+{
+  "protocol": "accelerated-only-process-validation-v1",
+  "slow_reference_executed": false,
+  "dataset_id": "afeddd66f0c6d5281dad5980bd56a8b62ffbd87ed53cd92493761a516ff1af35",
+  "population": "train",
+  "input_count": 12584,
+  "input_sha256": "562389dd960b9e4179c7a7843bc39d8c5e20e8d69d72c8ecf4ba2183a49f7d1c",
+  "adapter_sha256": "b341a8f6d6a53dd4fb966fd60c936048a91ab22d1647070df754a2b7164bd158",
+  "optimization_sha256": "67c5c437ce8aed5153ff88a134b859d089f2e8cff17f214dd5513bdf3d53d264",
+  "public_osm_sha256": "a768a5b41e1dffb4338e1ed9ace7bb7d0dd84d66dc30314801ec5bf9bb914c2c",
+  "public_network_sha256": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4",
+  "tool_sha256": "a2e57aeaf7204709bc7c7f06062325ecc0b045579502a8f1142c58dfb40ec95a",
+  "public_parameters": {
+    "bbox": [
+      39.75,
+      40.15,
+      116.1,
+      116.65
+    ],
+    "osm_cache": "D:\\MTR\\strict_tstr_mtnet_20261017\\inputs\\osm.pkl",
+    "zone_radius_m": 25,
+    "utm_zone_number": 50,
+    "utm_zone_letter": "S",
+    "epsilon": 1.4,
+    "clean_seed_waypoint_mode": "rdp",
+    "max_waypoints": null,
+    "seed": 20260714
+  },
+  "worker_bootstrap_sha256": "a71d94a382149335bf37f134e83a8809b1cb3bea37cfef4f6d46135cda853db5",
+  "prior_equivalence": {
+    "path": "D:\\MTR\\dpmm_accelerated_capacity_20261017\\evidence\\full_equivalence.json",
+    "sha256": "a2aa7faed892cb2fe67ed8127e3ca4d0b6bdddf697c60252d719c91aebeb036a",
+    "scope": "Existing complete full-input sixty semantic equivalence evidence; not relabeled as train or this server"
+  },
+  "benchmark_indices": [
+    14,
+    104,
+    577,
+    1171,
+    1222,
+    1658,
+    2009,
+    3547,
+    4531,
+    4852,
+    5434,
+    6127,
+    6216,
+    7239,
+    7674,
+    8214,
+    8504,
+    8688,
+    9305,
+    10493,
+    11276,
+    11369,
+    11652,
+    11748
+  ],
+  "validation_indices": [
+    0,
+    213,
+    427,
+    640,
+    853,
+    1066,
+    1280,
+    1493,
+    1706,
+    1919,
+    2133,
+    2346,
+    2559,
+    2773,
+    2986,
+    3199,
+    3412,
+    3480,
+    3626,
+    3839,
+    4052,
+    4265,
+    4299,
+    4479,
+    4692,
+    4905,
+    4933,
+    5119,
+    5332,
+    5545,
+    5758,
+    5879,
+    5972,
+    6185,
+    6398,
+    6611,
+    6825,
+    7038,
+    7251,
+    7265,
+    7464,
+    7678,
+    7891,
+    8104,
+    8167,
+    8318,
+    8504,
+    8531,
+    8744,
+    8957,
+    9171,
+    9384,
+    9597,
+    9810,
+    10024,
+    10237,
+    10439,
+    10450,
+    11494,
+    11748
+  ],
+  "logical_processors": 16,
+  "physical_processors": 10,
+  "candidates": [
+    {
+      "workers": 1,
+      "startup_seconds": 70.89748119999422,
+      "compute_seconds": 302.3688581000315,
+      "throughput_records_per_second": 0.0793732534190415,
+      "compute_cpu_seconds": 282.6875,
+      "mean_busy_cores": 0.934909440662304,
+      "worker_pids": [
+        760
+      ],
+      "results": [
+        {
+          "index": 14,
+          "digest": "c89862447fb40610a7f3eaf8f2207089fad27eb493e9691ff8eaad35b6f34b0e",
+          "seconds": 1.368467900028918,
+          "pid": 760
+        },
+        {
+          "index": 104,
+          "digest": "16e690775c077fa45ef33c812be6577e6dad4226b66b101a19c6370d0288d75b",
+          "seconds": 2.8726056999876164,
+          "pid": 760
+        },
+        {
+          "index": 577,
+          "digest": "f0ae1556cbb9cf6b98a3595402e8a1c10148bdcf9cfec26b86b5421581c8939b",
+          "seconds": 2.119651500019245,
+          "pid": 760
+        },
+        {
+          "index": 1171,
+          "digest": "78b2232e3c3067a4d15af9d531376bf062ed52e959d9f8903e13cc65af0de886",
+          "seconds": 1.3827243999694474,
+          "pid": 760
+        },
+        {
+          "index": 1222,
+          "digest": "9e4d4610078f96834945df8d69d6ff405ebac38b011d96eb9110683032a2b09f",
+          "seconds": 8.727003199979663,
+          "pid": 760
+        },
+        {
+          "index": 1658,
+          "digest": "149edb01e15dae97abe200fdbc0671e01afcb5cdafc7ed15c71a904d3a02fc51",
+          "seconds": 1.7773319999687374,
+          "pid": 760
+        },
+        {
+          "index": 2009,
+          "digest": "6c2a1f6b49c49a63caf8e0d58c579e2bb0178a6b8f46685b5330739f559738b4",
+          "seconds": 1.3707125000073574,
+          "pid": 760
+        },
+        {
+          "index": 3547,
+          "digest": "d45c9e2cd04948860fa32f9478a8648cda287e3265f741075e873433d9aeb9b6",
+          "seconds": 9.990091799991205,
+          "pid": 760
+        },
+        {
+          "index": 4531,
+          "digest": "ab0dfb7eab3e11cb78b0aa98033870f85040ea3f3c59f8e0b11dda6de566a789",
+          "seconds": 1.5488511999719776,
+          "pid": 760
+        },
+        {
+          "index": 4852,
+          "digest": "fd1cf3d7ae3e264af2f68e268113fba2bccc3e6ed9b9ae63f88a387a7de95c94",
+          "seconds": 4.599143699975684,
+          "pid": 760
+        },
+        {
+          "index": 5434,
+          "digest": "064c0a59dd31f4ad4a60bdc8051cfd6c7a9a2f5e26ce00233519f7d5fe64104a",
+          "seconds": 11.442542899982072,
+          "pid": 760
+        },
+        {
+          "index": 6127,
+          "digest": "148fede37a5a7e43ccffa774c78ade92bd01d7c66fda25d36c9ee3028330445a",
+          "seconds": 1.5895268999738619,
+          "pid": 760
+        },
+        {
+          "index": 6216,
+          "digest": "c5baec22e2f97195eaca58960fd2a690bccf382e46e1a0f6ebf7eb0e371dd1a6",
+          "seconds": 1.531962500012014,
+          "pid": 760
+        },
+        {
+          "index": 7239,
+          "digest": "8eff9c1ba10cf4b2a3a4697d94405e6973558f71736d65f2f95d0e677ca9d2af",
+          "seconds": 4.021594999998342,
+          "pid": 760
+        },
+        {
+          "index": 7674,
+          "digest": "8824a1c0bcb9a2a9a1e7023347c70d47dd64034f962e80bc22e687b0a4c1aa90",
+          "seconds": 1.259830700000748,
+          "pid": 760
+        },
+        {
+          "index": 8214,
+          "digest": "8c3938d97bca7b9640b191f2d6b1ee08a6ce48ea75b0954ab8294819bbcda165",
+          "seconds": 1.1822440999676473,
+          "pid": 760
+        },
+        {
+          "index": 8504,
+          "digest": "92440cf0919b608eab66f57986e78b645a1547244d31cd028a535df4362ce675",
+          "seconds": 26.311199599993415,
+          "pid": 760
+        },
+        {
+          "index": 8688,
+          "digest": "8f40ab4900a7e50768e5134fdf26d839c2d09a664dd4e2e0450e821ddf03d7b9",
+          "seconds": 7.1379375999676995,
+          "pid": 760
+        },
+        {
+          "index": 9305,
+          "digest": "3505013db4c4379575b3278484da6f50b669845722776f67eaf665c5e8d5127c",
+          "seconds": 7.689038300013635,
+          "pid": 760
+        },
+        {
+          "index": 10493,
+          "digest": "17ee092939fda130dfe5c5c73127972e7049dcce0e12366bad5b7d8cb9dfdc02",
+          "seconds": 1.5943296999903396,
+          "pid": 760
+        },
+        {
+          "index": 11276,
+          "digest": "847011372262923590d810a4b5eddfeb44ae77c59233803d5562fff1ee93cd30",
+          "seconds": 1.4740629000007175,
+          "pid": 760
+        },
+        {
+          "index": 11369,
+          "digest": "5e06d43f2ed8f92eab3acf332ee93f7c2392c95feebf2ee62cfa7e291117005e",
+          "seconds": 1.6806865999824367,
+          "pid": 760
+        },
+        {
+          "index": 11652,
+          "digest": "a8bd95c62a673e7e77e264d7c83f630fa4255592c6ddd03d0352d4f717db28ea",
+          "seconds": 4.991353299992625,
+          "pid": 760
+        },
+        {
+          "index": 11748,
+          "digest": "2ea8f0e58d229eeafd4094cf91865a1d1b27b35032a53e0310a02ef98087cc98",
+          "seconds": 194.6988660999923,
+          "pid": 760
+        }
+      ],
+      "memory": {
+        "minimum_available_gib": 7.373744964599609,
+        "max_worker_private_gib": 1.5155601501464844,
+        "peak_tree_private_gib": 1.7646408081054688,
+        "peak_tree_rss_gib": 1.7233314514160156,
+        "parent_peak_private_gib": 0.2504386901855469,
+        "sampling_seconds": 0.25
+      },
+      "status": "COMPLETED",
+      "same_outputs_as_one_worker": true
+    },
+    {
+      "workers": 2,
+      "startup_seconds": 64.51448630000232,
+      "compute_seconds": 246.8119000000297,
+      "throughput_records_per_second": 0.09724004393628148,
+      "compute_cpu_seconds": 282.859375,
+      "mean_busy_cores": 1.1460524188662133,
+      "worker_pids": [
+        3444,
+        19532
+      ],
+      "results": [
+        {
+          "index": 14,
+          "digest": "c89862447fb40610a7f3eaf8f2207089fad27eb493e9691ff8eaad35b6f34b0e",
+          "seconds": 1.2950822000275366,
+          "pid": 3444
+        },
+        {
+          "index": 104,
+          "digest": "16e690775c077fa45ef33c812be6577e6dad4226b66b101a19c6370d0288d75b",
+          "seconds": 2.981459399976302,
+          "pid": 19532
+        },
+        {
+          "index": 577,
+          "digest": "f0ae1556cbb9cf6b98a3595402e8a1c10148bdcf9cfec26b86b5421581c8939b",
+          "seconds": 2.17516370001249,
+          "pid": 3444
+        },
+        {
+          "index": 1171,
+          "digest": "78b2232e3c3067a4d15af9d531376bf062ed52e959d9f8903e13cc65af0de886",
+          "seconds": 1.2466539000160992,
+          "pid": 19532
+        },
+        {
+          "index": 1222,
+          "digest": "9e4d4610078f96834945df8d69d6ff405ebac38b011d96eb9110683032a2b09f",
+          "seconds": 8.42530619999161,
+          "pid": 3444
+        },
+        {
+          "index": 1658,
+          "digest": "149edb01e15dae97abe200fdbc0671e01afcb5cdafc7ed15c71a904d3a02fc51",
+          "seconds": 1.6838817999814637,
+          "pid": 19532
+        },
+        {
+          "index": 2009,
+          "digest": "6c2a1f6b49c49a63caf8e0d58c579e2bb0178a6b8f46685b5330739f559738b4",
+          "seconds": 1.319024799973704,
+          "pid": 19532
+        },
+        {
+          "index": 3547,
+          "digest": "d45c9e2cd04948860fa32f9478a8648cda287e3265f741075e873433d9aeb9b6",
+          "seconds": 9.839891200012062,
+          "pid": 19532
+        },
+        {
+          "index": 4531,
+          "digest": "ab0dfb7eab3e11cb78b0aa98033870f85040ea3f3c59f8e0b11dda6de566a789",
+          "seconds": 1.5887081999680959,
+          "pid": 3444
+        },
+        {
+          "index": 4852,
+          "digest": "fd1cf3d7ae3e264af2f68e268113fba2bccc3e6ed9b9ae63f88a387a7de95c94",
+          "seconds": 4.629400699981488,
+          "pid": 3444
+        },
+        {
+          "index": 5434,
+          "digest": "064c0a59dd31f4ad4a60bdc8051cfd6c7a9a2f5e26ce00233519f7d5fe64104a",
+          "seconds": 11.833087000006344,
+          "pid": 19532
+        },
+        {
+          "index": 6127,
+          "digest": "148fede37a5a7e43ccffa774c78ade92bd01d7c66fda25d36c9ee3028330445a",
+          "seconds": 1.5889880000031553,
+          "pid": 3444
+        },
+        {
+          "index": 6216,
+          "digest": "c5baec22e2f97195eaca58960fd2a690bccf382e46e1a0f6ebf7eb0e371dd1a6",
+          "seconds": 1.507836300006602,
+          "pid": 3444
+        },
+        {
+          "index": 7239,
+          "digest": "8eff9c1ba10cf4b2a3a4697d94405e6973558f71736d65f2f95d0e677ca9d2af",
+          "seconds": 3.982877699949313,
+          "pid": 3444
+        },
+        {
+          "index": 7674,
+          "digest": "8824a1c0bcb9a2a9a1e7023347c70d47dd64034f962e80bc22e687b0a4c1aa90",
+          "seconds": 1.2526856999611482,
+          "pid": 3444
+        },
+        {
+          "index": 8214,
+          "digest": "8c3938d97bca7b9640b191f2d6b1ee08a6ce48ea75b0954ab8294819bbcda165",
+          "seconds": 1.1637270000064746,
+          "pid": 3444
+        },
+        {
+          "index": 8504,
+          "digest": "92440cf0919b608eab66f57986e78b645a1547244d31cd028a535df4362ce675",
+          "seconds": 22.269322899985127,
+          "pid": 3444
+        },
+        {
+          "index": 8688,
+          "digest": "8f40ab4900a7e50768e5134fdf26d839c2d09a664dd4e2e0450e821ddf03d7b9",
+          "seconds": 6.247396300022956,
+          "pid": 19532
+        },
+        {
+          "index": 9305,
+          "digest": "3505013db4c4379575b3278484da6f50b669845722776f67eaf665c5e8d5127c",
+          "seconds": 6.847641000000294,
+          "pid": 19532
+        },
+        {
+          "index": 10493,
+          "digest": "17ee092939fda130dfe5c5c73127972e7049dcce0e12366bad5b7d8cb9dfdc02",
+          "seconds": 1.4300614999956451,
+          "pid": 19532
+        },
+        {
+          "index": 11276,
+          "digest": "847011372262923590d810a4b5eddfeb44ae77c59233803d5562fff1ee93cd30",
+          "seconds": 1.4470161000499502,
+          "pid": 19532
+        },
+        {
+          "index": 11369,
+          "digest": "5e06d43f2ed8f92eab3acf332ee93f7c2392c95feebf2ee62cfa7e291117005e",
+          "seconds": 1.6848641000106,
+          "pid": 19532
+        },
+        {
+          "index": 11652,
+          "digest": "a8bd95c62a673e7e77e264d7c83f630fa4255592c6ddd03d0352d4f717db28ea",
+          "seconds": 4.9176839999854565,
+          "pid": 19532
+        },
+        {
+          "index": 11748,
+          "digest": "2ea8f0e58d229eeafd4094cf91865a1d1b27b35032a53e0310a02ef98087cc98",
+          "seconds": 196.92891940003028,
+          "pid": 3444
+        }
+      ],
+      "memory": {
+        "minimum_available_gib": 5.968090057373047,
+        "max_worker_private_gib": 1.51666259765625,
+        "peak_tree_private_gib": 3.2792129516601562,
+        "peak_tree_rss_gib": 3.217906951904297,
+        "parent_peak_private_gib": 0.25040435791015625,
+        "sampling_seconds": 0.25
+      },
+      "status": "COMPLETED",
+      "same_outputs_as_one_worker": true
+    },
+    {
+      "workers": 3,
+      "startup_seconds": 66.34097820002353,
+      "compute_seconds": 223.14328769996064,
+      "throughput_records_per_second": 0.10755420988629735,
+      "compute_cpu_seconds": 284.421875,
+      "mean_busy_cores": 1.2746154183335094,
+      "worker_pids": [
+        2672,
+        14876,
+        16520
+      ],
+      "results": [
+        {
+          "index": 14,
+          "digest": "c89862447fb40610a7f3eaf8f2207089fad27eb493e9691ff8eaad35b6f34b0e",
+          "seconds": 1.4375896000419743,
+          "pid": 2672
+        },
+        {
+          "index": 104,
+          "digest": "16e690775c077fa45ef33c812be6577e6dad4226b66b101a19c6370d0288d75b",
+          "seconds": 3.2859895000001416,
+          "pid": 16520
+        },
+        {
+          "index": 577,
+          "digest": "f0ae1556cbb9cf6b98a3595402e8a1c10148bdcf9cfec26b86b5421581c8939b",
+          "seconds": 2.5003243999672122,
+          "pid": 14876
+        },
+        {
+          "index": 1171,
+          "digest": "78b2232e3c3067a4d15af9d531376bf062ed52e959d9f8903e13cc65af0de886",
+          "seconds": 1.4708472999627702,
+          "pid": 2672
+        },
+        {
+          "index": 1222,
+          "digest": "9e4d4610078f96834945df8d69d6ff405ebac38b011d96eb9110683032a2b09f",
+          "seconds": 9.431592500011902,
+          "pid": 14876
+        },
+        {
+          "index": 1658,
+          "digest": "149edb01e15dae97abe200fdbc0671e01afcb5cdafc7ed15c71a904d3a02fc51",
+          "seconds": 1.9238085000542924,
+          "pid": 2672
+        },
+        {
+          "index": 2009,
+          "digest": "6c2a1f6b49c49a63caf8e0d58c579e2bb0178a6b8f46685b5330739f559738b4",
+          "seconds": 1.495457399985753,
+          "pid": 16520
+        },
+        {
+          "index": 3547,
+          "digest": "d45c9e2cd04948860fa32f9478a8648cda287e3265f741075e873433d9aeb9b6",
+          "seconds": 10.936373900040053,
+          "pid": 16520
+        },
+        {
+          "index": 4531,
+          "digest": "ab0dfb7eab3e11cb78b0aa98033870f85040ea3f3c59f8e0b11dda6de566a789",
+          "seconds": 1.6500512000056915,
+          "pid": 2672
+        },
+        {
+          "index": 4852,
+          "digest": "fd1cf3d7ae3e264af2f68e268113fba2bccc3e6ed9b9ae63f88a387a7de95c94",
+          "seconds": 5.192015299980994,
+          "pid": 2672
+        },
+        {
+          "index": 5434,
+          "digest": "064c0a59dd31f4ad4a60bdc8051cfd6c7a9a2f5e26ce00233519f7d5fe64104a",
+          "seconds": 12.513223299989477,
+          "pid": 2672
+        },
+        {
+          "index": 6127,
+          "digest": "148fede37a5a7e43ccffa774c78ade92bd01d7c66fda25d36c9ee3028330445a",
+          "seconds": 1.6969135000254028,
+          "pid": 14876
+        },
+        {
+          "index": 6216,
+          "digest": "c5baec22e2f97195eaca58960fd2a690bccf382e46e1a0f6ebf7eb0e371dd1a6",
+          "seconds": 1.6550288000144064,
+          "pid": 14876
+        },
+        {
+          "index": 7239,
+          "digest": "8eff9c1ba10cf4b2a3a4697d94405e6973558f71736d65f2f95d0e677ca9d2af",
+          "seconds": 4.493333599995822,
+          "pid": 14876
+        },
+        {
+          "index": 7674,
+          "digest": "8824a1c0bcb9a2a9a1e7023347c70d47dd64034f962e80bc22e687b0a4c1aa90",
+          "seconds": 1.3676285999827087,
+          "pid": 16520
+        },
+        {
+          "index": 8214,
+          "digest": "8c3938d97bca7b9640b191f2d6b1ee08a6ce48ea75b0954ab8294819bbcda165",
+          "seconds": 1.295064200006891,
+          "pid": 16520
+        },
+        {
+          "index": 8504,
+          "digest": "92440cf0919b608eab66f57986e78b645a1547244d31cd028a535df4362ce675",
+          "seconds": 21.658243099984247,
+          "pid": 16520
+        },
+        {
+          "index": 8688,
+          "digest": "8f40ab4900a7e50768e5134fdf26d839c2d09a664dd4e2e0450e821ddf03d7b9",
+          "seconds": 6.816792599973269,
+          "pid": 14876
+        },
+        {
+          "index": 9305,
+          "digest": "3505013db4c4379575b3278484da6f50b669845722776f67eaf665c5e8d5127c",
+          "seconds": 7.983844400034286,
+          "pid": 2672
+        },
+        {
+          "index": 10493,
+          "digest": "17ee092939fda130dfe5c5c73127972e7049dcce0e12366bad5b7d8cb9dfdc02",
+          "seconds": 1.609884699981194,
+          "pid": 14876
+        },
+        {
+          "index": 11276,
+          "digest": "847011372262923590d810a4b5eddfeb44ae77c59233803d5562fff1ee93cd30",
+          "seconds": 1.447499500005506,
+          "pid": 14876
+        },
+        {
+          "index": 11369,
+          "digest": "5e06d43f2ed8f92eab3acf332ee93f7c2392c95feebf2ee62cfa7e291117005e",
+          "seconds": 1.6517987999832258,
+          "pid": 14876
+        },
+        {
+          "index": 11652,
+          "digest": "a8bd95c62a673e7e77e264d7c83f630fa4255592c6ddd03d0352d4f717db28ea",
+          "seconds": 4.759602200007066,
+          "pid": 14876
+        },
+        {
+          "index": 11748,
+          "digest": "2ea8f0e58d229eeafd4094cf91865a1d1b27b35032a53e0310a02ef98087cc98",
+          "seconds": 190.9694958999753,
+          "pid": 2672
+        }
+      ],
+      "memory": {
+        "minimum_available_gib": 4.5064239501953125,
+        "max_worker_private_gib": 1.5168685913085938,
+        "peak_tree_private_gib": 4.798954010009766,
+        "peak_tree_rss_gib": 4.717380523681641,
+        "parent_peak_private_gib": 0.2503700256347656,
+        "sampling_seconds": 0.25
+      },
+      "status": "COMPLETED",
+      "same_outputs_as_one_worker": true
+    },
+    {
+      "workers": 4,
+      "status": "SKIPPED_MEMORY_OR_CPU_LIMIT",
+      "available_gib": 8.921607971191406,
+      "observed_worker_peak_gib": 1.5168685913085938
+    },
+    {
+      "workers": 6,
+      "status": "SKIPPED_MEMORY_OR_CPU_LIMIT",
+      "available_gib": 8.921466827392578,
+      "observed_worker_peak_gib": 1.5168685913085938
+    },
+    {
+      "workers": 8,
+      "status": "SKIPPED_MEMORY_OR_CPU_LIMIT",
+      "available_gib": 8.921436309814453,
+      "observed_worker_peak_gib": 1.5168685913085938
+    },
+    {
+      "workers": 10,
+      "status": "SKIPPED_MEMORY_OR_CPU_LIMIT",
+      "available_gib": 8.921394348144531,
+      "observed_worker_peak_gib": 1.5168685913085938
+    },
+    {
+      "workers": 16,
+      "status": "SKIPPED_MEMORY_OR_CPU_LIMIT",
+      "available_gib": 8.921333312988281,
+      "observed_worker_peak_gib": 1.5168685913085938
+    }
+  ],
+  "complete": true,
+  "passed": true,
+  "limitation": "Accelerator replay, process invariance and binding; not a new slow-reference equivalence proof. Timing uses same fixed sample, not full-corpus runtime guarantee.",
+  "recommended_workers": 3,
+  "selection": "Lowest measured fixed-sample compute wall time among safely tested candidates; 30% worker-private-memory headroom and >=2GiB system reserve. Not absolute hardware limit.",
+  "sixty_record_validation": {
+    "workers": 3,
+    "startup_seconds": 66.18395279999822,
+    "compute_seconds": 332.7601855999674,
+    "throughput_records_per_second": 0.1803100328599104,
+    "compute_cpu_seconds": 631.578125,
+    "mean_busy_cores": 1.8979978745391766,
+    "worker_pids": [
+      2912,
+      8244,
+      16632
+    ],
+    "results": [
+      {
+        "index": 0,
+        "digest": "d85c7b28ba91f085cf4f4e4a770993a1e51409cb601e0391fdf1b1654037fa32",
+        "seconds": 1.609696899948176,
+        "pid": 2912
+      },
+      {
+        "index": 213,
+        "digest": "d4f9a4d6ae109dbf5f8f24259dc543841ec2fc24106f515c36da7c6689fd7b08",
+        "seconds": 22.83393150003394,
+        "pid": 16632
+      },
+      {
+        "index": 427,
+        "digest": "f6cb4ca6a4336356ab60a2dd15c2877c59985549f6da5ad892d84eb91829af66",
+        "seconds": 2.337052099988796,
+        "pid": 8244
+      },
+      {
+        "index": 640,
+        "digest": "a1bbd17983e20c46a94a1ba3642da11337a4d2adceeb9220b9d0dc076f488d86",
+        "seconds": 2.744581599952653,
+        "pid": 2912
+      },
+      {
+        "index": 853,
+        "digest": "2a80ff8b4d1e13d59c40fb14d3c2ef7534519be25909fd3e9bb11d20e14c23aa",
+        "seconds": 2.507203000015579,
+        "pid": 8244
+      },
+      {
+        "index": 1066,
+        "digest": "5a4de2caacb69834de7cc67b5f85c38741c75cc846a4367c9f243f9fec5c72f5",
+        "seconds": 6.5536138999741524,
+        "pid": 2912
+      },
+      {
+        "index": 1280,
+        "digest": "c6f2c3d1f5344032fd8b98e34191aac78ae16f6041f43a2e514e273fc66092d6",
+        "seconds": 4.615768400020897,
+        "pid": 8244
+      },
+      {
+        "index": 1493,
+        "digest": "16df446c3d0eeae3f92cefa239fe37d5cddd320bf8b3e4fb43952efbb944a9ae",
+        "seconds": 3.8530925999511965,
+        "pid": 8244
+      },
+      {
+        "index": 1706,
+        "digest": "05948ff67993c2030d0d31118b87c457e311535b086556579b4daea9aecda18d",
+        "seconds": 3.314054299960844,
+        "pid": 2912
+      },
+      {
+        "index": 1919,
+        "digest": "2b7558a5cd0423d6d4745b1d6f00e99485ebf59fb5da4a0a46c1265280720693",
+        "seconds": 1.564331600035075,
+        "pid": 8244
+      },
+      {
+        "index": 2133,
+        "digest": "7d28a5a3bd4eb05aaa1ebbfecb4a29ddaf5f93da3f531741087cda8f5f6f632f",
+        "seconds": 9.446917699999176,
+        "pid": 2912
+      },
+      {
+        "index": 2346,
+        "digest": "4b1fd6c0f8b8e041cc2f640585303838156855eb21f51df1112e7378908cdd5b",
+        "seconds": 3.4380946999881417,
+        "pid": 8244
+      },
+      {
+        "index": 2559,
+        "digest": "d6184cd663a2bc8f272b79fbc77df347485a9dc6e1f7e188c100a836b4669f32",
+        "seconds": 4.4153843999956734,
+        "pid": 8244
+      },
+      {
+        "index": 2773,
+        "digest": "fb1951c7f3ffae713011d7ddfb7ede476976dc08fbc50cbe2912607298fdc652",
+        "seconds": 19.618331799982116,
+        "pid": 8244
+      },
+      {
+        "index": 2986,
+        "digest": "06dfb303581a6a6961cb41d5b86a4d0094d983bb20b5b38b19c6178d3ec27596",
+        "seconds": 2.5432963999919593,
+        "pid": 16632
+      },
+      {
+        "index": 3199,
+        "digest": "996b53db5420171b1d4ca72b692c29d4cf82a808ffc5aa891febe4903752349e",
+        "seconds": 2.543133300030604,
+        "pid": 2912
+      },
+      {
+        "index": 3412,
+        "digest": "1378afd61c7f77da07091b34f7e2389d7759d0e0fb351685d0ec47552fb6a6d7",
+        "seconds": 2.2468693999690004,
+        "pid": 16632
+      },
+      {
+        "index": 3480,
+        "digest": "add63f9febc1316a5abd55d3840cdf7b9f6dc9aea2ff87d63ec63a6bee42fd96",
+        "seconds": 22.43129839998437,
+        "pid": 2912
+      },
+      {
+        "index": 3626,
+        "digest": "f1b78bf788437e65c11cc1ff91c693483c11b73ff19a210b1d244a9d781a455e",
+        "seconds": 4.234213099989574,
+        "pid": 16632
+      },
+      {
+        "index": 3839,
+        "digest": "f9c13900834720e67fae61fcf0d9a7b913e8eb08de89b675f2bf95fdccfc8077",
+        "seconds": 2.1478859999915585,
+        "pid": 16632
+      },
+      {
+        "index": 4052,
+        "digest": "35b079accb8c36a5d35d7716c16b1d0684cf9a7eb2e3bcd6f9ad7f9c603a097d",
+        "seconds": 5.404929599957541,
+        "pid": 16632
+      },
+      {
+        "index": 4265,
+        "digest": "6493fe37ebd30ac08086417fb1e6335eeab0bd92fc869974eeacfcdad23b7d41",
+        "seconds": 1.384042399993632,
+        "pid": 16632
+      },
+      {
+        "index": 4299,
+        "digest": "ee2e8204a4eeff7ed87db3d917a10a0a30c2cf66d77c77c89ffa26257deaa6bf",
+        "seconds": 21.65576209995197,
+        "pid": 16632
+      },
+      {
+        "index": 4479,
+        "digest": "1678d8761574b3712c107adef49843bfddd7432715edbee3cd51e1f8db76ab1e",
+        "seconds": 1.8816730999969877,
+        "pid": 8244
+      },
+      {
+        "index": 4692,
+        "digest": "859f700a51b7727a9c5f9fd1492790277e675534026f34468c83145eaa0a10bd",
+        "seconds": 7.387206999992486,
+        "pid": 8244
+      },
+      {
+        "index": 4905,
+        "digest": "0212aa0723f82e32dd0e96237789be3ee9c875a3322da47167738cc03afb7501",
+        "seconds": 1.254763200005982,
+        "pid": 2912
+      },
+      {
+        "index": 4933,
+        "digest": "4b7a92ef938e414624118e1ca9bc496ebd7d348b4b2c4d149cfe5ffc8773d5c3",
+        "seconds": 35.641756500001065,
+        "pid": 2912
+      },
+      {
+        "index": 5119,
+        "digest": "461ec9b54e14b7a086c66b08a327768785910d3df13d90383f90b26e165c2c1c",
+        "seconds": 2.2084012999548577,
+        "pid": 8244
+      },
+      {
+        "index": 5332,
+        "digest": "3454fb9aa8f92a71c1ab79f581cb31300cf06509150fa4857126ad6ffa5e96bf",
+        "seconds": 1.456242199987173,
+        "pid": 8244
+      },
+      {
+        "index": 5545,
+        "digest": "c3d9ee52ec016a07ed6bc3dcee96831d32607162e17babdc5fcc6becc96474ac",
+        "seconds": 3.836963400011882,
+        "pid": 8244
+      },
+      {
+        "index": 5758,
+        "digest": "9c0bae74951bcec76df12303d81aaddcb0f43617cdb4fc99a73dc10253084d9c",
+        "seconds": 1.5452829000423662,
+        "pid": 8244
+      },
+      {
+        "index": 5879,
+        "digest": "5bd6ac1b19c89dae36e7454cc5b704f304ed05bb764ac51707a9df5eda7b8717",
+        "seconds": 13.368764200014994,
+        "pid": 8244
+      },
+      {
+        "index": 5972,
+        "digest": "339f743479d61667cb2b25acab482de24689bfc5ae789c3884c794f7ee8fff55",
+        "seconds": 1.756245399999898,
+        "pid": 16632
+      },
+      {
+        "index": 6185,
+        "digest": "98703a9253ae0ad0c4421525aaaa7de3d3781d41d7b5c77628cca40b60974161",
+        "seconds": 1.9198940999922343,
+        "pid": 16632
+      },
+      {
+        "index": 6398,
+        "digest": "2f92e10411d2c57b755a76b0964802fe86ea4be4ed31848fe3811a27969ac350",
+        "seconds": 2.6066863000160083,
+        "pid": 16632
+      },
+      {
+        "index": 6611,
+        "digest": "26cc287e224f7545411191810da288018a010232798f379f721b94fa571854be",
+        "seconds": 1.8821711000055075,
+        "pid": 16632
+      },
+      {
+        "index": 6825,
+        "digest": "f2c7da631a25589f05b5d35a98a3869fa4bfcba1144a342c479feb92b1b46d0d",
+        "seconds": 5.077612599998247,
+        "pid": 16632
+      },
+      {
+        "index": 7038,
+        "digest": "1e2f46c5a85a7e3d8c1d2ffb2f9672cd5140e110112972cb97795b9030a87a4c",
+        "seconds": 40.07844960002694,
+        "pid": 8244
+      },
+      {
+        "index": 7251,
+        "digest": "d0cc51c5a5b17e0767f50361d2ae0a6db267ceafbef5e2538cfcaa9af0773f8e",
+        "seconds": 5.517001599946525,
+        "pid": 16632
+      },
+      {
+        "index": 7265,
+        "digest": "d5de04dcd5b36d6eeb0916a64df6e3bfae5b88db080831ee393ffb6b18cf87e7",
+        "seconds": 19.072048100002576,
+        "pid": 16632
+      },
+      {
+        "index": 7464,
+        "digest": "b8b21e78d4aa58075b50191ae7d3de2330a79d1502245ce551831a1d1549f39b",
+        "seconds": 4.118798000039533,
+        "pid": 2912
+      },
+      {
+        "index": 7678,
+        "digest": "d98bc4636080c14f421109d24de935de9a7d4262031a04587b6061b4f6a442b8",
+        "seconds": 3.1709813000052236,
+        "pid": 2912
+      },
+      {
+        "index": 7891,
+        "digest": "0d112d3d22e61814945d98b22390d16c7523bdafdd3106d351e0d85e84dff754",
+        "seconds": 1.7959342999965884,
+        "pid": 2912
+      },
+      {
+        "index": 8104,
+        "digest": "e4a5777d844d64d9d2284ac57607d8aaabfa83fd44d04f7f803a33f9d504cd7a",
+        "seconds": 8.506372300034855,
+        "pid": 2912
+      },
+      {
+        "index": 8167,
+        "digest": "2b43a998394dc65ad1fe47c71ce1fc2330f5510e0cbe7ed40680b8e3d2f1cb5b",
+        "seconds": 34.02551040000981,
+        "pid": 16632
+      },
+      {
+        "index": 8318,
+        "digest": "e253759ee11bc2737aa4cf9cd72e92e8a60d1dfd8b23ee60a37c76ed3315f09a",
+        "seconds": 1.8647136999643408,
+        "pid": 2912
+      },
+      {
+        "index": 8504,
+        "digest": "92440cf0919b608eab66f57986e78b645a1547244d31cd028a535df4362ce675",
+        "seconds": 22.947134299960453,
+        "pid": 2912
+      },
+      {
+        "index": 8531,
+        "digest": "c889b5583b86faf165ed4bcec04223247950d2ae9c5f9b75af41b74974d53eee",
+        "seconds": 3.5433183000423014,
+        "pid": 8244
+      },
+      {
+        "index": 8744,
+        "digest": "004e70a4423f040ec0b3de49d37f07358703ec98bd19b9f7585606c169cd986d",
+        "seconds": 4.718196699977852,
+        "pid": 8244
+      },
+      {
+        "index": 8957,
+        "digest": "e10742c8d294abd0a861cb2b8264a71fcac40ee5f3cb80bed598d15669edd5d8",
+        "seconds": 3.6090109000215307,
+        "pid": 8244
+      },
+      {
+        "index": 9171,
+        "digest": "e39ec30eca59c344ccd6f46a92298b89c6e06828b7dcdd5ffd189779da49f543",
+        "seconds": 11.265974499983713,
+        "pid": 8244
+      },
+      {
+        "index": 9384,
+        "digest": "79667ac4ad5319abec25d5de1f873df647413454a6a64d4eb2de484f304b8309",
+        "seconds": 1.6005549999536015,
+        "pid": 2912
+      },
+      {
+        "index": 9597,
+        "digest": "35a1f9eca13116ea163c552e14e37803659be852cde05bdb9497e6f215a0e315",
+        "seconds": 4.644244599970989,
+        "pid": 2912
+      },
+      {
+        "index": 9810,
+        "digest": "3e24840088f419591a9d775f33b658c5d0d97aac57d8fc5c0c26f21033d11187",
+        "seconds": 2.1526587000116706,
+        "pid": 2912
+      },
+      {
+        "index": 10024,
+        "digest": "def113189f6adc9588cbe552fc500b9904c891dfb49b89d1d01d0c807dca81fd",
+        "seconds": 4.16478420002386,
+        "pid": 16632
+      },
+      {
+        "index": 10237,
+        "digest": "e4f98dc28110770790a763c7a8294a7d68a69d4f39137a07224860a331d24f7e",
+        "seconds": 5.222356499987654,
+        "pid": 2912
+      },
+      {
+        "index": 10439,
+        "digest": "92e746d73a3bd7c26ba1a85a29823593110bf8c033ca48d44f143231fd93d9f8",
+        "seconds": 22.71578479994787,
+        "pid": 8244
+      },
+      {
+        "index": 10450,
+        "digest": "fd0454f3a6a2656646cc1ab6ed90b3e6823997ec266f7435214f19b6da659dcf",
+        "seconds": 1.6641604999895208,
+        "pid": 16632
+      },
+      {
+        "index": 11494,
+        "digest": "54d91b5f958f5521a75d6bccbb897ef55f57629c14813db9b897d853f61763fa",
+        "seconds": 33.45518649998121,
+        "pid": 16632
+      },
+      {
+        "index": 11748,
+        "digest": "2ea8f0e58d229eeafd4094cf91865a1d1b27b35032a53e0310a02ef98087cc98",
+        "seconds": 191.19015880004736,
+        "pid": 2912
+      }
+    ],
+    "memory": {
+      "minimum_available_gib": 4.509296417236328,
+      "max_worker_private_gib": 1.5166358947753906,
+      "peak_tree_private_gib": 4.795036315917969,
+      "peak_tree_rss_gib": 4.713592529296875,
+      "parent_peak_private_gib": 0.2518157958984375,
+      "sampling_seconds": 0.25
+    },
+    "status": "COMPLETED"
+  },
+  "tested_records": 60,
+  "target_records": 60
+}

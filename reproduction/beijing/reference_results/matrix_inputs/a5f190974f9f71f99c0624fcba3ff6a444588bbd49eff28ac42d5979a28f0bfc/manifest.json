@@ -1,0 +1,98 @@
+{
+  "protocol": "train_test_bound_task_scoring_v2",
+  "raw_generic_results": "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\tstr_audit_v2\\MTR-DFR\\Origin\\raw_generic\\generic_mobility_tasks.json",
+  "raw_road_results": "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\tstr_audit_v2\\MTR-DFR\\Origin\\raw_road\\road_network_mining_tasks.json",
+  "result": "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\tstr_audit_v2\\MTR-DFR\\Origin\\results.csv",
+  "normalization": "coverage times conditional quality, divided by the Real-train product; Real-train=1",
+  "pipelines": [
+    "Real-train",
+    "MTR-DFR"
+  ],
+  "split_binding": {
+    "classification": "LOCAL_RESEARCH_AUDIT_NOT_A_DP_RELEASE",
+    "train_sha256": "562389dd960b9e4179c7a7843bc39d8c5e20e8d69d72c8ecf4ba2183a49f7d1c",
+    "test_sha256": "4f8a3bb46ad2ff3ec61c9f63795c880ed979dbe61df9af189489d0217111e713",
+    "bbox": [
+      39.75,
+      40.15,
+      116.1,
+      116.65
+    ],
+    "seed": 20260713,
+    "osm_sha256": "a768a5b41e1dffb4338e1ed9ace7bb7d0dd84d66dc30314801ec5bf9bb914c2c",
+    "evaluation_scope": "strict_tstr",
+    "synthetic": {
+      "MTR-DFR": "d90c9a464785b54b423c284d2fbb570a4dfdc190680895f134b93cf136843f08"
+    },
+    "base_releases": {
+      "MTR-DFR": "f45bbca6508a9c51363fbab6ba18e698cf324c5378983f4f0f6b9dd142fef759"
+    },
+    "synthesis_lineage": {
+      "MTR-DFR": {
+        "record_sha256": "b4d126a14b26e9be3accc2bc159f7e9214e9208bdf0f8368de2a3e69548d4546",
+        "source_sha256": "8aea413c80c71609817f6ceaadc27abc9b0803bd9b885bd5abd92413f879ada3",
+        "release_sha256": "f45bbca6508a9c51363fbab6ba18e698cf324c5378983f4f0f6b9dd142fef759",
+        "generator": "Unchanged MTR-DFR core",
+        "evidence_scope": "executed audited CLI input binding; not a formal noninterference proof"
+      }
+    },
+    "disjoint_split": {
+      "record_sha256": "ebc30dcf28b73c742332fd98575ae0fe0532f1b83ad326f200cacc371654178a",
+      "full_sha256": "97ab149c54fef1bad6cb3abe1848e7dfa5cceeafe312ab2084e4d0a6d26cb8e9",
+      "train_count": 12584,
+      "test_count": 3146
+    }
+  },
+  "synthesis_lineage_verified": true,
+  "disjoint_split_verified": true,
+  "lineage_note": "Executed generator input binding is checked separately from task scoring; it is local research provenance, not a DP release or formal noninterference proof.",
+  "results_sha256": "37c05808f5123a6a543e054647b78bb8abd980b57b270f20b53fa857d1ee9d39",
+  "command": [
+    "E:\\anconda\\python.exe",
+    "-X",
+    "utf8",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\evaluation\\audit_v2_runner.py",
+    "--stage",
+    "tstr",
+    "--legacy",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\tmp_dfr_remote_verify_20261002_new",
+    "--",
+    "--train-real",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\preprocessing\\beijing_road_8_16_20261016\\dataset\\train.pkl",
+    "--test-real",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\preprocessing\\beijing_road_8_16_20261016\\dataset\\test.pkl",
+    "--split-audit",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\tstr_split\\split_audit.json",
+    "--require-synthesis-lineage",
+    "--synthetic",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\coordinate_views_train\\MTR-DFR\\Origin\\coordinates.pkl",
+    "--names",
+    "MTR-DFR",
+    "--synthesis-lineage",
+    "MTR-DFR=E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\native_train\\MTR-DFR\\lineage.json",
+    "--osm-cache",
+    "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\public_release\\data\\osm\\osm_cache_beijing_drivable_full.pkl",
+    "--bbox",
+    "39.75",
+    "40.15",
+    "116.1",
+    "116.65",
+    "--seed",
+    "20260713",
+    "--out-dir",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\tstr_audit_v2\\MTR-DFR\\Origin"
+  ],
+  "scoring_inputs_sha256": {
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\tmp_dfr_remote_verify_20261002_new\\evaluation\\run_tstr_experiment.py": "c7d5a3ff8fcccff1d15d5e58ef9508523d8f903d666d3c2a9f03d94b661ae728",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\coordinate_views_train\\MTR-DFR\\Origin\\coordinates.pkl": "d90c9a464785b54b423c284d2fbb570a4dfdc190680895f134b93cf136843f08",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\native_train\\MTR-DFR\\lineage.json": "b4d126a14b26e9be3accc2bc159f7e9214e9208bdf0f8368de2a3e69548d4546",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\preprocessing\\beijing_road_8_16_20261016\\dataset\\train.pkl": "562389dd960b9e4179c7a7843bc39d8c5e20e8d69d72c8ecf4ba2183a49f7d1c",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\preprocessing\\beijing_road_8_16_20261016\\dataset\\test.pkl": "4f8a3bb46ad2ff3ec61c9f63795c880ed979dbe61df9af189489d0217111e713",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\tstr_split\\split_audit.json": "ebc30dcf28b73c742332fd98575ae0fe0532f1b83ad326f200cacc371654178a",
+    "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\public_release\\data\\osm\\osm_cache_beijing_drivable_full.pkl": "a768a5b41e1dffb4338e1ed9ace7bb7d0dd84d66dc30314801ec5bf9bb914c2c",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\evaluation\\audit_v2_runner.py": "62b42a90d478369247e02e0ed31e94c34b282a9fa8a56ae03c756eae8d7ee0cf",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\evaluation\\audit_metric_fixes.py": "8d2e3ee4dca9307a6521f3b97e75966848e0db0b6e79830ba459e34645d7a72e",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\coordinate_views_train\\MTR-DFR\\Origin\\coordinates.pkl.manifest.json": "0bb8dc6e3ba1ff622a12d5649bf156638318521aca5369ec69ca2432fa9fd0cd"
+  },
+  "elapsed_seconds": 43.47
+}

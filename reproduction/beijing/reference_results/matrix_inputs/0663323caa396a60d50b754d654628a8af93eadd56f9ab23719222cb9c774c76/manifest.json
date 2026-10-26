@@ -1,0 +1,13 @@
+{
+  "protocol": "full_od_ordered_physical_mass_v1",
+  "method": "DPStd + Nearest",
+  "sampling_label": "DPStd + Nearest",
+  "cap_per_stratum": 20,
+  "inputs_sha256": {
+    "real_routes": "0a0b11c0fef09bf3267ffdeca9d9202bedb8bfd609cb7da5c381ed08dca4907c",
+    "synthetic_routes": "f1a7ef5d8dc6d0844142d6e507d126b41e6a52d4eefb8ef229715b6a3d513f2f",
+    "edge_cache": "06425ae753d7b2719c0c74fbe9a19eb22801f9872946c06f2a5ea753b6711101",
+    "network": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+  },
+  "results_sha256": "db5851e90368fa934008ce1837623a4bc1c3fe60cba4d1038dbd8742be0ba4f1"
+}

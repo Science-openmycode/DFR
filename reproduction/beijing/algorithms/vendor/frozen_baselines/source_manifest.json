@@ -1,0 +1,33 @@
+{
+  "source": "Verified original public_release snapshot, 2026-07-07/09 paper-structured SPRT/DPStd and official PrivTrace",
+  "files": {
+    "public_utils.py": "f579cb053210c6f3658d0060438cb44ca56ab7096edef9a1861c00523d4b4660",
+    "official_privtrace/config/parameter_carrier.py": "66e745409d5991c9268295de5f3ba7aee0836d022e34166b48ac0fdfd6b5bbb0",
+    "official_privtrace/primarkov/start_end_calibrator.py": "a2d9eb6cd8e6da05ff067a5186e663cebb34233b2f80d099285290160eb0ef03",
+    "official_privtrace/data_preparation/trajectory_set.py": "d862710fbbc4c82d772b76b9bdbc4d732eb5713b1fa89807995110a1c1ccdb88",
+    "official_privtrace/primarkov/build_markov_model.py": "1b2b0c80926e7444aa89ebc771723a031174033f1cbed29e8b189ea04fb6d42f",
+    "official_privtrace/generator/state_trajectory_generation.py": "d44f7d4019c5a5edd49111fe9b6d0241ddeaac52981243b7d3b14ef400056d72",
+    "check/export_privtrace_dataset.py": "aad258f25af56cc3263dccd0d8e254868be6ab4ee572360e738ea6a05318c7b8",
+    "official_privtrace/config/folder_and_file_names.py": "1a14d19a3a7dccb08a72c58fed6988c54a2db771e149e1156e4783038fbf7fd4",
+    "official_privtrace/tools/data_reader.py": "abc12531cc10689cba68f562d16acbd9cc7057f652c86cefcc566389f7789e8d",
+    "official_privtrace/discretization/divide.py": "831cd4b1e7779eb7ed1cbfc414f34693e1586a242ad4d5037c5b0b6f138fd53f",
+    "official_privtrace/config/experiment_parameter.py": "bb09ae90c414113d6079ccc5ec19995a55f6c615a221d51ebb2e093542335634",
+    "official_privtrace/discretization/grid.py": "44fd81a37a312134d2c31acd0415c29746546bae75c2660167fbdb0188542805",
+    "check/reproduce_sprt_paper_protocol.py": "0cc4e4349ad5ef533d75297c0043994cba5e96f0d848627f62b1cd20042d942d",
+    "official_privtrace/tools/general_tools.py": "e4b1e14bd19677a4388607a6b9f54bf74043c0f0bc30c150943eb829a8872bdc",
+    "official_privtrace/primarkov/sensitive_filter.py": "17d4850092607ffcdaa2ad079eae40e8aff128c4510bcfa239ed368e4246abd4",
+    "official_privtrace/primarkov/mar_model.py": "273930cd516c6c32f2c67e473f4f304629adc486815afa9c629f494f1b364a6b",
+    "src/reproduced_papers/SPRT/sprt_final.py": "25d0990bf6ef672d58922afe2a0f5a502896176656d9a323012542b0af89d400",
+    "official_privtrace/generator/trajectory_generator.py": "14cd1e974931616e25667f5cb52dc960afc00c8c1b1761d2d9a02129c0625758",
+    "official_privtrace/primarkov/guidepost.py": "0db50aa9fa438edc8bed4f2a3aa14681dbd513496ff743e26a9b3559e2f17962",
+    "official_privtrace/tools/data_writer.py": "6b15e1138abf345eef5b8e994f985e47513fda40b5858613246d9991d5dff05a",
+    "official_privtrace/config/parameter_setter.py": "2ccd2e86519eae12caa2bd4a61ff24cb684415480654acf9ee9cffe4e473d51f",
+    "official_privtrace/discretization/get_discretization.py": "6140c268e933e6ab9c73132f926731451d57d05d9ff4602ad6e376a1649da804",
+    "official_privtrace/tools/noise.py": "a08659b5fe88bbf87c0ec683fb0da39070820c008531dccef756e346db56f7e5",
+    "official_privtrace/data_preparation/data_preparer.py": "5136aa59ee0cacc04a9cff081f6cc2efc04f792b0b75b29942d8768f90c77374",
+    "official_privtrace/main.py": "cec3404460e614afc9d174acbcb1375b5f43bd4b79e73c0932f86e24a186f6a8",
+    "official_privtrace/generator/to_real_translator.py": "49ced072d81a9ad15ce9d09ddd768ec030ac812e0409d253345f0f59f6bacc70",
+    "check/reproduce_dpstd_paper_protocol.py": "00ffbb73ecebc3bf7223cf4ff4265f9bd5d8a3caf8c5dbc7834cd94a3063d42d",
+    "official_privtrace/data_preparation/trajectory.py": "e9ceb3a92073d343901c0cd3ba439102202427d81e44f98cfcaa609df991c2df"
+  }
+}

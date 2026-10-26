@@ -1,0 +1,61 @@
+{
+  "counts": {
+    "VALID": 869,
+    "NOT_APPLICABLE": 177,
+    "NA": 34,
+    "ZERO": 134,
+    "POSITIVE_INFINITY_ZERO_ROAD_EVIDENCE": 1
+  },
+  "common_numeric_unchanged": 878,
+  "new_numeric": 125,
+  "source_matrix_sha256": "2908abae68f6fb5108ba560823db56a9246a7a5c9d87234ef19eff76a59e044d",
+  "github_commit": "87be8ec856990cdec16cb4ccfb5ccc2a2c87b039",
+  "github_path": "experiment_results/published_figures/04_mr_matrix_mtr_gsrt.png",
+  "github_sha256": "0089b6c67abf116ac5409985b83c34caa4043006676d09738a88728cc7016aaf",
+  "all_experiments_complete": false,
+  "no_metrics_modified": true,
+  "applicable_beijing_matrix_complete": true,
+  "row_aliases": {
+    "MTR-public-only [ablation]": "Same-endpoint random [control]",
+    "Real-vs-real [reference]": "Real-vs-real [geometry reference]"
+  },
+  "remaining": [
+    "single research seed; no invented error bars",
+    "same DP endpoint requests, not a claim of per-slot equality to endpoints of the final DFR route release",
+    "random control is distance-decreasing, not uniform over all legal routes",
+    "shortest full control retains120single-edge fallback slots",
+    "DPMM120native-empty/213representation-failed are distinct",
+    "extensions and delivery-package work not completed by this matrix"
+  ],
+  "files": {
+    "cells.json": "e65619a43651952bc4feabed9ebf034210bc01b3db02e3b23c339fb766628396",
+    "current_full.pdf": "91be0b53fe25f83b937939e6bd0f0d946683c75a65b6db86a1fc119f948192f7",
+    "current_full.png": "00393b53f645f7a414a2bd6c7aece1159a4dc86b9de12f16515e5e94f9cc431d",
+    "github_vs_current.png": "4bdbed7fba421e9c3575d9f89be557dd3d1e600defe71ee7d691c5369eb84fc8",
+    "group_01.pdf": "744e036d6d89b994d6d0e6ba570e20febe57518b7b0cd0d8b829391697192906",
+    "group_01.png": "aeed4ae3a8340a32971b25762faca6765cc680dcc67a67d4d3570f0328038dfa",
+    "group_01_comparison.png": "cf5d2c45ec89f647c846f8a1279bf9be23d42f92f04ac35a19891dcf777f1298",
+    "group_02.pdf": "617b13ff2203a9bf4429b61469a67e65f2e278076cf27421135e564475f0fb8f",
+    "group_02.png": "42dbe476fc656e02a5a60c4cf8e887858ae3cc89b1c80fc4ee40e774e1d494ab",
+    "group_02_comparison.png": "8ce118b66182cd0995a85ca7d2bbd6a805de668b5a713e76709980bf5bcf6c5f",
+    "group_03.pdf": "18bbba830c4cc9c48c33cf2e4c1d332672db8a03d8d99b547f3d2b552b7c85f3",
+    "group_03.png": "31faadabeb655f615c3fcf3cd06f4ee8f0ed25fbad8cad71151ba8401f28171f",
+    "group_03_comparison.png": "0cfc36dbbe00957db545e354443d4921047dcdb7c7e5bb0d5aa24c45f432959f",
+    "group_04.pdf": "b084af029d87adfdb1ba1a879daebed38f55df50f2e48b57fb897a7427747571",
+    "group_04.png": "243b5052f3be72d13f4e43a937dbde64257d27ec7af74c1456925acd1ff7471f",
+    "group_04_comparison.png": "c4944327b40b5c4fe2e92a12d218f34ce676cc54627b66f8c80ca28aa85a6ccc",
+    "group_05.pdf": "6275deea31d25fb1adcdc2307e3c06a2749c535b910252e22471313e3afc58a6",
+    "group_05.png": "ca167a95b3991ce134a754d8d8c1a663fc68c0e16b915a50cb28e30561d64cb9",
+    "group_05_comparison.png": "2cec1e273f553bea25b6f9d58c295609b2d39b2a0abb4a0af188be79bc9b446f",
+    "group_06.pdf": "bac412550f84bc3e207e9f9553dc2e73ff2a1cb0359dd315a4251b8938bc040b",
+    "group_06.png": "b5832a62b0e9d9eb99a14645a55f321bbd3220b32bc7d910c8bc735bff81c5e7",
+    "group_06_comparison.png": "bed510dc6107f2d90f03b92a047278d8823365bbde049ef8b840a1140eb34045",
+    "previous_vs_current.png": "0aef50e76e82fab025950423e6b10c4e277b27e330eff7816c04492ba544ed65",
+    "group_01_github_vs_current.png": "489b2c92cb38820a545f4f8e4ef66f3c53ef9540d92d3dd3db48966d1b9d952f",
+    "group_02_github_vs_current.png": "c4f4e4ad7a841aea678a83f0caaf86219decbf3004954f5731a83324d3db272a",
+    "group_03_github_vs_current.png": "6b27bb2626bad4fa9ba4dcd0737188852e0d31ba57139374dae0f2a07a1aa93b",
+    "group_04_github_vs_current.png": "33e3a8036e528bdaa11d522c226aeabf2183728f0a25cfca8fc42f8f7a465bee",
+    "group_05_github_vs_current.png": "25d28978681f4329011d78b8291c1b8639eeba8321928d388bae2bae4fdde42d",
+    "group_06_github_vs_current.png": "9a12d26151a033c16a1ed8642859225dca887b00f0a1795a488a510054313ae1"
+  }
+}

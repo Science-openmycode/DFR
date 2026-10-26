@@ -1,0 +1,39 @@
+{
+  "classification": "RESEARCH_EVALUATION_LEDGER_NOT_A_DP_RELEASE",
+  "elapsed_sec": 163.02114725112915,
+  "inputs": {
+    "edge_cache": {
+      "path": "D:\\MTR\\mm2_frozen_20261018\\inputs\\metric_cache.pkl.gz",
+      "sha256": "06425ae753d7b2719c0c74fbe9a19eb22801f9872946c06f2a5ea753b6711101"
+    },
+    "osm": {
+      "path": "D:\\MTR\\strict_tstr_mtnet_20261017\\inputs\\osm.pkl",
+      "sha256": "a768a5b41e1dffb4338e1ed9ace7bb7d0dd84d66dc30314801ec5bf9bb914c2c"
+    },
+    "real": {
+      "count": 15730,
+      "path": "D:\\MTR\\mm2_evaluation_20261018\\check\\repro\\results\\reference\\Real-vs-real\\geometry_v2\\coordinates.pkl",
+      "sha256": "d2c4fd1615b9eb3a62a88d1168e64d18a0aee904de2cd1bbf7a32e8dd969121f",
+      "spec": "D:\\MTR\\mm2_evaluation_20261018\\check\\repro\\results\\reference\\Real-vs-real\\geometry_v2\\coordinates.pkl"
+    },
+    "road_routes": {
+      "path": "D:\\MTR\\mtnet_input_remote_20261017\\inputs\\dataset\\road_records.pkl.gz",
+      "sha256": "0a0b11c0fef09bf3267ffdeca9d9202bedb8bfd609cb7da5c381ed08dca4907c"
+    },
+    "synthetic": {
+      "path": "D:\\MTR\\mm2_evaluation_20261018\\check\\repro\\results\\reference\\Real-vs-real\\geometry_v2\\coordinates.pkl",
+      "sha256": "d2c4fd1615b9eb3a62a88d1168e64d18a0aee904de2cd1bbf7a32e8dd969121f"
+    },
+    "witness": null
+  },
+  "outputs": {
+    "destination_model_audit.json": "438ac2b920ca0e0263a720111d0b3d4beedb7e3334924e744acbd47c21f46b4d",
+    "metrics.csv": "9dcc72afa66e85a1dd4f7a77f887f617723cec5d7b85cc9b9d00ab11b9d0ffbe",
+    "metrics.json": "dfb5057106375016a6b415fa5934c6833c516010da35e73d424e5730044cf66a"
+  },
+  "schema_version": 1,
+  "metric_revision": {
+    "protocol": "metric-audit-v2-20261016",
+    "manifest_sha256": "0eb9a7933e12b07bd5d25b4a915d7174e7a7fbc5a5b69d1c6645a06000aa0525"
+  }
+}

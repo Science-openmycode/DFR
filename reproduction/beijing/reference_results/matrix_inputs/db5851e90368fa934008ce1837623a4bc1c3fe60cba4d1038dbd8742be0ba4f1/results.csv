@@ -1,0 +1,2 @@
+method,RoadYield,DemandFid,RoadRecovery,RoadSupport,TurnRecovery,TurnSupport,BackboneRecovery,BackboneSupport
+DPStd + Nearest,0.7854418308963763,0.5577240940877304,0.0001743046250383743,0.11783613913916478,0.0,0.0,3.218745585975743e-06,0.0005722572808895955

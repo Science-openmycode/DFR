@@ -1,0 +1,98 @@
+{
+  "protocol": "train_test_bound_task_scoring_v2",
+  "raw_generic_results": "D:\\MTR\\strict_tstr_mm2_20261018\\results\\tstr_audit_v2\\EndpointShortest\\Origin\\raw_generic\\generic_mobility_tasks.json",
+  "raw_road_results": "D:\\MTR\\strict_tstr_mm2_20261018\\results\\tstr_audit_v2\\EndpointShortest\\Origin\\raw_road\\road_network_mining_tasks.json",
+  "result": "D:\\MTR\\strict_tstr_mm2_20261018\\results\\tstr_audit_v2\\EndpointShortest\\Origin\\results.csv",
+  "normalization": "coverage times conditional quality, divided by the Real-train product; Real-train=1",
+  "pipelines": [
+    "Real-train",
+    "EndpointShortest"
+  ],
+  "split_binding": {
+    "classification": "LOCAL_RESEARCH_AUDIT_NOT_A_DP_RELEASE",
+    "train_sha256": "562389dd960b9e4179c7a7843bc39d8c5e20e8d69d72c8ecf4ba2183a49f7d1c",
+    "test_sha256": "4f8a3bb46ad2ff3ec61c9f63795c880ed979dbe61df9af189489d0217111e713",
+    "bbox": [
+      39.75,
+      40.15,
+      116.1,
+      116.65
+    ],
+    "seed": 20260713,
+    "osm_sha256": "a768a5b41e1dffb4338e1ed9ace7bb7d0dd84d66dc30314801ec5bf9bb914c2c",
+    "evaluation_scope": "strict_tstr",
+    "synthetic": {
+      "EndpointShortest": "2b2f94bdfcc68854f0f08a322c40445a999c94629d70095a955dff5388856699"
+    },
+    "base_releases": {
+      "EndpointShortest": "d7b85087580190047242d88e0993f8f6e5f1f3f43795e054b424a206e93c04c6"
+    },
+    "synthesis_lineage": {
+      "EndpointShortest": {
+        "record_sha256": "1f4544a18c4a1bc7f6d9171d14cbcfc9217eace16f30a11c0c87d9da1ac0a0a6",
+        "source_sha256": "6c3531a03782bd473e512c5fbd67dd98e6413eee93c5f9786229c1e4a7e4e024",
+        "release_sha256": "d7b85087580190047242d88e0993f8f6e5f1f3f43795e054b424a206e93c04c6",
+        "generator": "public postprocessing of saved train-only DFR endpoint transcript",
+        "evidence_scope": "executed audited CLI input binding; not a formal noninterference proof"
+      }
+    },
+    "disjoint_split": {
+      "record_sha256": "ebc30dcf28b73c742332fd98575ae0fe0532f1b83ad326f200cacc371654178a",
+      "full_sha256": "97ab149c54fef1bad6cb3abe1848e7dfa5cceeafe312ab2084e4d0a6d26cb8e9",
+      "train_count": 12584,
+      "test_count": 3146
+    }
+  },
+  "synthesis_lineage_verified": true,
+  "disjoint_split_verified": true,
+  "lineage_note": "Executed generator input binding is checked separately from task scoring; it is local research provenance, not a DP release or formal noninterference proof.",
+  "results_sha256": "c2e4990693bf754a2f6fc5367ca7941eab9357a1abe186ebdb4550cfc7cace76",
+  "command": [
+    "D:\\MTR\\mtnet_20261016\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\evaluation\\audit_v2_runner.py",
+    "--stage",
+    "tstr",
+    "--legacy",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\legacy",
+    "--",
+    "--train-real",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\train.pkl",
+    "--test-real",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\test.pkl",
+    "--split-audit",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\split_audit.json",
+    "--require-synthesis-lineage",
+    "--synthetic",
+    "D:\\MTR\\mm2_evaluation_20261018\\check\\repro\\results\\endpoint_controls\\shortest_train_view\\coordinates.pkl",
+    "--names",
+    "EndpointShortest",
+    "--synthesis-lineage",
+    "EndpointShortest=D:\\MTR\\mm2_evaluation_20261018\\check\\repro\\results\\endpoint_controls\\shortest_train_lineage.json",
+    "--osm-cache",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\osm.pkl",
+    "--bbox",
+    "39.75",
+    "40.15",
+    "116.1",
+    "116.65",
+    "--seed",
+    "20260713",
+    "--out-dir",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\results\\tstr_audit_v2\\EndpointShortest\\Origin"
+  ],
+  "scoring_inputs_sha256": {
+    "D:\\MTR\\strict_tstr_mm2_20261018\\legacy\\evaluation\\run_tstr_experiment.py": "c7d5a3ff8fcccff1d15d5e58ef9508523d8f903d666d3c2a9f03d94b661ae728",
+    "D:\\MTR\\mm2_evaluation_20261018\\check\\repro\\results\\endpoint_controls\\shortest_train_view\\coordinates.pkl": "2b2f94bdfcc68854f0f08a322c40445a999c94629d70095a955dff5388856699",
+    "D:\\MTR\\mm2_evaluation_20261018\\check\\repro\\results\\endpoint_controls\\shortest_train_lineage.json": "1f4544a18c4a1bc7f6d9171d14cbcfc9217eace16f30a11c0c87d9da1ac0a0a6",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\train.pkl": "562389dd960b9e4179c7a7843bc39d8c5e20e8d69d72c8ecf4ba2183a49f7d1c",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\test.pkl": "4f8a3bb46ad2ff3ec61c9f63795c880ed979dbe61df9af189489d0217111e713",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\split_audit.json": "ebc30dcf28b73c742332fd98575ae0fe0532f1b83ad326f200cacc371654178a",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\osm.pkl": "a768a5b41e1dffb4338e1ed9ace7bb7d0dd84d66dc30314801ec5bf9bb914c2c",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\evaluation\\audit_v2_runner.py": "62b42a90d478369247e02e0ed31e94c34b282a9fa8a56ae03c756eae8d7ee0cf",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\evaluation\\audit_metric_fixes.py": "8d2e3ee4dca9307a6521f3b97e75966848e0db0b6e79830ba459e34645d7a72e",
+    "D:\\MTR\\mm2_evaluation_20261018\\check\\repro\\results\\endpoint_controls\\shortest_train_view\\coordinates.pkl.manifest.json": "09c4915cc6ce883491ec35c154ec0b1fae96c30c5d4cd83d3b66630cd9e01eaf"
+  },
+  "elapsed_seconds": 36.11
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "executed_train_only_generation_v1",
+  "status": "passed",
+  "generator": "DPMM preserved native generator with validated path-cache acceleration",
+  "input_policy": "train_only_explicit_generator_input",
+  "returncode": 0,
+  "train_sha256": "562389dd960b9e4179c7a7843bc39d8c5e20e8d69d72c8ecf4ba2183a49f7d1c",
+  "test_sha256": "4f8a3bb46ad2ff3ec61c9f63795c880ed979dbe61df9af189489d0217111e713",
+  "dataset_id": "afeddd66f0c6d5281dad5980bd56a8b62ffbd87ed53cd92493761a516ff1af35",
+  "source_sha256": "b341a8f6d6a53dd4fb966fd60c936048a91ab22d1647070df754a2b7164bd158",
+  "optimizer_sha256": "67c5c437ce8aed5153ff88a134b859d089f2e8cff17f214dd5513bdf3d53d264",
+  "command": "python synthesize_dpmm.py --config configs/beijing_roads_8_16_matcher_io_v2_20261016.json --adapter original/check/run_dpmm_official_beijing.py --optimizer fast_dpmm_paths.py --validation D:/MTR/dpmm_accelerated_capacity_20261017/results/accelerated_capacity/validation.json --workers 3 --split train --public-network D:/MTR/network/network.shp --out results/native_train/DPMM --validation-protocol accelerated-only --memory-reserve-gib 2",
+  "public_slot_count": 12584,
+  "epsilon": 1.4,
+  "privacy_scope": "Official per-input link-level sanitization, not central trajectory DP",
+  "evidence_scope": "Observed completed outer CLI and hash-bound train input; not a formal noninterference or DP proof",
+  "execution_sha256": "77d23917742e13d736a60355b6bd297058c8da56e0548112c43578662d8207bc",
+  "outer_ledger_sha256": "10e84470638c19f923062511dac01603aac19f8e3b936263606fac302ae4e393",
+  "document_sha256": "82192210cb793916e21d7f61cbe421959ca577b681f6ccd9f5af5d6593d9e5b1",
+  "validation_sha256": "59c5231bdb1b6ec860a8a34abd4937b636d4d334ef5fd5c9dce23293dc49468f",
+  "split_audit_sha256": "ebc30dcf28b73c742332fd98575ae0fe0532f1b83ad326f200cacc371654178a",
+  "native_outputs": {
+    "dpmm.pkl": "a537da9d801db96cb07ab860244ef5afed56fe5fc3f7b57b76afc7d23d2be622",
+    "dpmm.json": "7e9d6a23d059ceab5786c73bf8c35bb07a9b2813852b513ba33f9c6e4b6043c5"
+  },
+  "outputs": {
+    "coordinates.pkl": "8c00061d4ed2ca19b42404564b0b021d6ac6fbd7793048173b486ce7bc59393a"
+  }
+}

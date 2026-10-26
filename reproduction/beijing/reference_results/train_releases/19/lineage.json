@@ -1,0 +1,39 @@
+{
+  "schema": "executed_train_only_generation_v1",
+  "status": "passed",
+  "generator": "PaperDPStdModel",
+  "input_policy": "train_only_explicit_generator_input",
+  "train_sha256": "562389dd960b9e4179c7a7843bc39d8c5e20e8d69d72c8ecf4ba2183a49f7d1c",
+  "test_sha256": "4f8a3bb46ad2ff3ec61c9f63795c880ed979dbe61df9af189489d0217111e713",
+  "source_sha256": "b593d98f321a79a1630480050f0ad7e2e0cdb5f8426149d8a256388e80966d04",
+  "returncode": 0,
+  "outputs": {
+    "measurement.pkl": "d3d85c4e206b43776ac907a249e059c64f9e517c1366dffdeeff9c9bd636785d"
+  },
+  "command": [
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\tools\\generate_train_measurement.py",
+    "--method",
+    "DPStd",
+    "--data",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\preprocessing\\beijing_road_8_16_20261016\\dataset\\train.pkl",
+    "--test",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\preprocessing\\beijing_road_8_16_20261016\\dataset\\test.pkl",
+    "--slots",
+    "12584",
+    "--epsilon",
+    "1.4",
+    "--seed",
+    "42",
+    "--bbox",
+    "39.4",
+    "40.8",
+    "115.8",
+    "117.4",
+    "--osm",
+    "E:\\study\\大四下\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\public_release\\data\\osm\\osm_cache_beijing_drivable_full.pkl",
+    "--legacy",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\tmp_dfr_remote_verify_20261002_new",
+    "--out",
+    "E:\\study\\大四下\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\measurements_train\\DPStd"
+  ]
+}

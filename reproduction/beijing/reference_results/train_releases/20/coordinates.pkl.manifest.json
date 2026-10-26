@@ -1,0 +1,82 @@
+{
+  "schema": "road-route-coordinate-derivation-v1",
+  "classification": "EVALUATION_ONLY",
+  "formal_output": false,
+  "derivation_mode": "checked-native-node-pairs-to-identical-edge-geometry",
+  "representation": "edge-ids",
+  "record_count": 12584,
+  "nonempty_slot_count": 12584,
+  "empty_native_slot_count": 0,
+  "invalid_slot_count": 0,
+  "reason_counts": {
+    "valid": 12584
+  },
+  "invalid_slots": [],
+  "edge_occurrences": 2371063,
+  "coordinates": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/simple_runs/roads_8_16_20261016/coordinate_views_train/MTR-DFR/Origin/coordinates.pkl",
+    "sha256": "d90c9a464785b54b423c284d2fbb570a4dfdc190680895f134b93cf136843f08"
+  },
+  "route_source": {
+    "path": "ancestors/f45bbca6508a9c51363fbab6ba18e698cf324c5378983f4f0f6b9dd142fef759/road_routes.pkl.gz",
+    "sha256": "f45bbca6508a9c51363fbab6ba18e698cf324c5378983f4f0f6b9dd142fef759"
+  },
+  "public_network": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.shp",
+    "sha256": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+  },
+  "network_files": [
+    {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.cpg",
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+    },
+    {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.dbf",
+      "sha256": "4c1ba41120793b0b06b68ff4fd120c4c597a9e84f487d70e7d0c309993f6f5c1"
+    },
+    {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.prj",
+      "sha256": "99a5a32f41f7df7e52e869dca1b2df8b2009ba20c28dbf95e61dc9c891dffd38"
+    },
+    {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.shp",
+      "sha256": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+    },
+    {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.shx",
+      "sha256": "2e1c7e0b2a617fa3197b06b5f4d208d9816548e8926eb75404d483ced4da5b62"
+    }
+  ],
+  "stager": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/tools/stage_native_edge_coordinates.py",
+    "sha256": "ee031c7e2dbb8474fd6a772d983cd897356f3f3b889f6697ad17ce1102402479"
+  },
+  "raw_source_used": false,
+  "rematched": false,
+  "fills_gaps": false,
+  "direction": "public network geometry in declared source->target direction; no reversal",
+  "join_policy": "exact directed-node and endpoint continuity; drop one shared endpoint only",
+  "invalid_slot_policy": "empty the entire slot, never concatenate partial valid pieces",
+  "started_at_utc": "2026-10-16T07:51:38.610735+00:00",
+  "finished_at_utc": "2026-10-16T07:52:09.589694+00:00",
+  "elapsed_seconds": 30.975244399989606,
+  "edge_cache": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/preprocessing/beijing_road_8_16_20261016/dataset/public_resources_v2/edge_cache.pkl.gz",
+    "sha256": "fa9e025e2c3e71ae1e92652220905d5a516b58d70698490129800ae3d8679ed4"
+  },
+  "routed_artifact": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/simple_runs/roads_8_16_20261016/routes_train/MTR-DFR/Origin/synthetic_routes.pkl.gz",
+    "sha256": "e63a3e56c64c696087329b9cec64dd5b57ada756a44cdd759b7efaed2f90075e"
+  },
+  "native_representation_manifest": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/simple_runs/roads_8_16_20261016/routes_train/MTR-DFR/Origin/route_manifest.json",
+    "sha256": "d1be97d07c009882eaa80a25ccb5c53ee0d2dc0cd4b29525ee0975e159e5d042"
+  },
+  "gap_filling": false,
+  "route_selection": false,
+  "relocation": {
+    "original_manifest_sha256": "0bb8dc6e3ba1ff622a12d5649bf156638318521aca5369ec69ca2432fa9fd0cd",
+    "payload_unchanged": true,
+    "ancestry_payload_sha256": "f45bbca6508a9c51363fbab6ba18e698cf324c5378983f4f0f6b9dd142fef759"
+  }
+}

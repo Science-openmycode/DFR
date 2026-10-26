@@ -9,6 +9,7 @@ import hashlib
 import json
 from pathlib import Path
 import pickle
+import shutil
 import sys
 import time
 
@@ -36,6 +37,7 @@ def main():
     p.add_argument('--config',type=Path,required=True)
     p.add_argument('--out-config',type=Path,required=True,help='New configuration with bound edge/metric resources')
     p.add_argument('--out-dir',type=Path,help='New public resource directory, default frozen dataset/public_resources')
+    p.add_argument('--frozen-support',type=Path,help='Use supplied graph-only frozen caches after exact graph/cache verification; preserves public K support')
     a=p.parse_args()
     if a.out_config.exists():p.error('Output config already exists')
     c=json.loads(a.config.read_text(encoding='utf-8'))
@@ -45,6 +47,30 @@ def main():
     out=(a.out_dir or path('prepared')/'public_resources').resolve()
     if out.exists() and any(out.iterdir()):p.error('Public resource output exists; inspect prior run before retry')
     begin=time.monotonic()
+    if a.frozen_support:
+        inventory=json.loads((ROOT/'external_assets.json').read_text(encoding='utf-8'))
+        expected={row['path']:row['sha256'] for row in inventory['files']}
+        for suffix in ('.shp','.shx','.dbf','.prj','.cpg'):
+            if sha(path('network').with_suffix(suffix))!=expected['resources/network/network'+suffix]:
+                raise ValueError('Frozen support belongs to a different graph')
+        if sha(path('osm'))!=expected['resources/osm/osm_cache_beijing_drivable_full.pkl']:
+            raise ValueError('Frozen support belongs to another OSM snapshot')
+        sources={name:(a.frozen_support/name/(name+'.pkl.gz')) for name in ('edge_cache','metric_cache')}
+        for name,source in sources.items():
+            if sha(source)!=expected['resources/'+name+'/'+name+'.pkl.gz']:raise ValueError('Frozen public cache changed')
+        out.mkdir(parents=True,exist_ok=True)
+        for name,source in sources.items():
+            target=out/(name+'.pkl.gz');shutil.copy2(source,target);c['paths'][name]=str(target)
+        c['paths']['source_cache']=c['paths']['metric_cache']
+        c['public_resources_status']='EDGE_METRIC_READY';c['road_reference_status']='FROZEN_EDGE_METRIC_READY'
+        c['fmm_resources_status']='UBODT_PENDING'
+        manifest=dict(status='EDGE_METRIC_COMPLETE',mode='EXACT_PUBLIC_SNAPSHOT_COPY',
+            private_measurement=False,network_sha256=sha(path('network')),
+            outputs={name:sha(out/(name+'.pkl.gz')) for name in sources},ubodt_status='NOT_BUILT')
+        (out/'resources_manifest.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
+        a.out_config.parent.mkdir(parents=True,exist_ok=True)
+        a.out_config.write_text(json.dumps(c,ensure_ascii=False,indent=2),encoding='utf-8')
+        print(json.dumps(manifest,indent=2));return
     legacy=path('legacy')/'evaluation'
     sys.path.insert(0,str(legacy));sys.path.insert(0,str(legacy/'evaluation'))
     from generation.common.runtime import dataset_config

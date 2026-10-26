@@ -1,0 +1,13 @@
+{
+  "protocol": "full_od_ordered_physical_mass_v1",
+  "method": "DPMM",
+  "sampling_label": "DPMM-native-representation-diagnostic",
+  "cap_per_stratum": 20,
+  "inputs_sha256": {
+    "real_routes": "0a0b11c0fef09bf3267ffdeca9d9202bedb8bfd609cb7da5c381ed08dca4907c",
+    "synthetic_routes": "546b93a6596b36f6731b4f3003968e645352842c4b7c45dadd69ae172546304a",
+    "edge_cache": "06425ae753d7b2719c0c74fbe9a19eb22801f9872946c06f2a5ea753b6711101",
+    "network": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+  },
+  "results_sha256": "bc4f4621ce9a5ab1a2bde4482251fd13e35ad6a7d8ec00b1385523252681d506"
+}

@@ -1,0 +1,13 @@
+{
+  "protocol": "full_od_ordered_physical_mass_v1",
+  "method": "PrivTrace + FMM",
+  "sampling_label": "PrivTrace + FMM",
+  "cap_per_stratum": 20,
+  "inputs_sha256": {
+    "real_routes": "0a0b11c0fef09bf3267ffdeca9d9202bedb8bfd609cb7da5c381ed08dca4907c",
+    "synthetic_routes": "cd3851f27933458c8e7b20c21aea1664b89638811f81e8ebbb857b2a56262445",
+    "edge_cache": "06425ae753d7b2719c0c74fbe9a19eb22801f9872946c06f2a5ea753b6711101",
+    "network": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+  },
+  "results_sha256": "46d12a8cfb4530d7cb81bd3c9360d51c667b5aa7b3f76d75963ae98e23cd0540"
+}

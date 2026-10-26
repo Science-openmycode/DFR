@@ -1,0 +1,16 @@
+{
+  "metrics": {
+    "RoadEvidenceYield": 0.0008900190718372536,
+    "RC-NDCG": 0.0005985512220246719,
+    "NextRoadAcc": 0.0001697223949448693,
+    "NextRoadNLL": 9.023092102103996,
+    "conditional_road_choice_cpc": 0.002390831539196944,
+    "conditional_rc_ndcg": 0.6725150516034349,
+    "conditional_next_road_accuracy": 0.190695233748771,
+    "conditional_next_road_nll": 1.9988244356669325
+  },
+  "metric_status": {
+    "NextRoadNLL": "VALID"
+  },
+  "scope": "Retrospective road-law utility; full-corpus synthesis, fixed real query subset; not strict TSTR"
+}

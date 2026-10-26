@@ -1,0 +1,88 @@
+{
+  "schema": "road-route-coordinate-derivation-v1",
+  "classification": "EVALUATION_ONLY",
+  "formal_output": false,
+  "derivation_mode": "public-router-edge-IDs-to-directed-geometry",
+  "representation": "edge-ids",
+  "record_count": 12584,
+  "nonempty_slot_count": 8783,
+  "empty_native_slot_count": 3801,
+  "invalid_slot_count": 0,
+  "reason_counts": {
+    "empty_native_slot": 3801,
+    "valid": 8783
+  },
+  "invalid_slots": [],
+  "edge_occurrences": 9364,
+  "coordinates": {
+    "path": "D:/MTR/geometry_train_20261017/views/DPStd/FMM/coordinates.pkl",
+    "sha256": "cfe07105ce69426b56527d415afb2f55f8aecc7bf8ce634ac95b015fd4b55a80"
+  },
+  "route_source": {
+    "path": "ancestors/d3d85c4e206b43776ac907a249e059c64f9e517c1366dffdeeff9c9bd636785d/measurement.pkl",
+    "sha256": "d3d85c4e206b43776ac907a249e059c64f9e517c1366dffdeeff9c9bd636785d"
+  },
+  "public_network": {
+    "path": "D:/MTR/network/network.shp",
+    "sha256": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+  },
+  "network_files": [
+    {
+      "path": "D:/MTR/network/network.cpg",
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+    },
+    {
+      "path": "D:/MTR/network/network.dbf",
+      "sha256": "4c1ba41120793b0b06b68ff4fd120c4c597a9e84f487d70e7d0c309993f6f5c1"
+    },
+    {
+      "path": "D:/MTR/network/network.prj",
+      "sha256": "99a5a32f41f7df7e52e869dca1b2df8b2009ba20c28dbf95e61dc9c891dffd38"
+    },
+    {
+      "path": "D:/MTR/network/network.shp",
+      "sha256": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+    },
+    {
+      "path": "D:/MTR/network/network.shx",
+      "sha256": "2e1c7e0b2a617fa3197b06b5f4d208d9816548e8926eb75404d483ced4da5b62"
+    }
+  ],
+  "stager": {
+    "path": "D:/MTR/geometry_train_20261017/stage_native_edge_coordinates.py",
+    "sha256": "ee031c7e2dbb8474fd6a772d983cd897356f3f3b889f6697ad17ce1102402479"
+  },
+  "raw_source_used": false,
+  "rematched": false,
+  "fills_gaps": false,
+  "direction": "public network geometry in declared source->target direction; no reversal",
+  "join_policy": "exact directed-node and endpoint continuity; drop one shared endpoint only",
+  "invalid_slot_policy": "empty the entire slot, never concatenate partial valid pieces",
+  "started_at_utc": "2026-10-16T22:01:18.630691+00:00",
+  "finished_at_utc": "2026-10-16T22:01:54.056532+00:00",
+  "elapsed_seconds": 35.41813189999084,
+  "edge_cache": {
+    "path": "D:/MTR/experiments_20261016/public_context/edge_cache.pkl.gz",
+    "sha256": "fa9e025e2c3e71ae1e92652220905d5a516b58d70698490129800ae3d8679ed4"
+  },
+  "measurement_source": {
+    "path": "D:/MTR/experiments_20261016/train_inputs/DPStd/measurement.pkl",
+    "sha256": "d3d85c4e206b43776ac907a249e059c64f9e517c1366dffdeeff9c9bd636785d"
+  },
+  "original_measurement_path": "D:\\MTR\\experiments_20261016\\train_inputs\\DPStd\\measurement.pkl",
+  "routed_artifact": {
+    "path": "D:/MTR/experiments_20261016/results_train/DPStd/FMM/synthetic_routes.pkl.gz",
+    "sha256": "dd93e45dbf0ad73d920427c9deb1ed119305c61c7d175ebac1c16920fa6ef682"
+  },
+  "route_manifest": {
+    "path": "D:/MTR/experiments_20261016/results_train/DPStd/FMM/route_manifest.json",
+    "sha256": "3a6e4c5fb2132063860414b8162b5b87123f26fe7975e2e40d8e60fa6230fe48"
+  },
+  "lineage_policy": "route_source binds the DP measurement ancestor; routed_artifact binds the exact geometry input",
+  "router": "FMM",
+  "relocation": {
+    "original_manifest_sha256": "e92ee32149e3f420585dce3094de6b3e9906391ba5a0ec5db1bce78749cb1d9f",
+    "payload_unchanged": true,
+    "ancestry_payload_sha256": "d3d85c4e206b43776ac907a249e059c64f9e517c1366dffdeeff9c9bd636785d"
+  }
+}

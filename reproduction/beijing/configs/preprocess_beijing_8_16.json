@@ -5,7 +5,7 @@
     "timestamp-bindings": "data/raw/metadata/source_binding.csv",
     "network": "data/public/network/network.shp",
     "matcher-module": "vendor/road_preprocessing/road_route_io_fixed.py",
-    "executable": "../../public_assets/matcher/stmatch.exe",
+    "executable": "resources/stmatch/stmatch.exe",
     "runtime": "data/fmm-runtime/Library/bin"
   },
   "parameters": {

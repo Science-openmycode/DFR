@@ -1,0 +1,18 @@
+{
+  "classification": "NEW_SUPPLEMENTARY_BUDGET_ATLAS",
+  "existing_github_figure_modified": false,
+  "summary_sha256": "78377c9fb3296c949bd6a118915632d24388055d39e8b44f6ea57f22cfa9f617",
+  "plot_source_sha256": "7a47abfa66490740f03d6603ecdd7e8907e1eef8e3d79c550482141938fbd401",
+  "metric_panels": 76,
+  "runs": 35,
+  "outputs": {
+    "budget35_page_01.png": "dcda8b36b8ca8723073ae8e719b3a6742050b174518b29606b79bb0b518f55f2",
+    "budget35_page_02.png": "151e7faaaa3ccf463ca5644773cf6108c47bca76a8981a337f4af021f0dfc94a",
+    "budget35_page_03.png": "1b7dd4d7457811e683b05f208db1651bc5d52fca9d82fc41b4c3d2b33d65de10",
+    "budget35_page_04.png": "edfd9940cb74aded5ff460582b8fb7b3405877c8fd879c0de8e76849eee6b6b0",
+    "budget35_page_05.png": "fce1d30f9ce8223d5599bee4b51ba3aaacb3da0d3a83eb55c98b5e7fabd24980",
+    "budget35_page_06.png": "716174651c0e8b12cef870fb551122a97e1763f6b09e90c39b126c700420154e",
+    "budget35_page_07.png": "08c92c98fd16588a3481a8c1b3fee5c09d1156a29722813d87d5701803e7715e",
+    "budget35_all_metrics.pdf": "beaf01974266838378d8f4ca09f70ffc5eacb0c477ad9da148c3d340c95bada8"
+  }
+}

@@ -4,3 +4,4 @@
 *.npz filter=lfs diff=lfs merge=lfs -text
 evaluation/src/mtr/DP_GSRT/final/** -text
 reproduction/beijing/** -text
+reproduction/beijing/resources/mm2/** filter=lfs diff=lfs merge=lfs -text

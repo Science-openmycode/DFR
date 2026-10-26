@@ -1,0 +1,39 @@
+{
+  "dataset_id": "afeddd66f0c6d5281dad5980bd56a8b62ffbd87ed53cd92493761a516ff1af35",
+  "real_slots": 15730,
+  "synthetic_slots": 15730,
+  "real_query_start": 12584,
+  "real_query_count": 3146,
+  "quotient_regions": 384,
+  "next_road_mixture_weight": 0.5,
+  "real_query_fraction": 0.2,
+  "failed_policy": "All slots retained; conditional utilities multiplied by actual road yield; NLL penalized by -log(yield)",
+  "inputs": {
+    "D:\\MTR\\mtnet_input_remote_20261017\\inputs\\dataset\\road_records.pkl.gz": "0a0b11c0fef09bf3267ffdeca9d9202bedb8bfd609cb7da5c381ed08dca4907c",
+    "D:\\MTR\\mm2_routing_20261018\\results\\roads_8_16_20261016\\routes\\PrivTrace\\MM2-MDP\\synthetic_routes.pkl.gz": "a0ff5739c3d481bd2b70d01c1f49d49fa0efe07915f63c1b93f876f48f20abc6",
+    "D:\\MTR\\mm2_frozen_20261018\\inputs\\metric_cache.pkl.gz": "06425ae753d7b2719c0c74fbe9a19eb22801f9872946c06f2a5ea753b6711101",
+    "D:\\MTR\\mm2_evaluation_20261018\\check\\repro\\results\\road_scores\\PrivTrace\\MM2-MDP\\manifest.json": "00b8061c05b15bf44a8742bdb924e7a10554fd9ef964c7c8dd625650cd0b60c3"
+  },
+  "metric_core": {
+    "path": "D:\\MTR\\mm2_evaluation_20261018\\check\\repro\\legacy\\evaluation\\evaluation\\metric_suites\\road_choice.py",
+    "sha256": "1f06e72ea1671d17e2bf9eef4caf5c2ba18967f532cff84767b376b8ff094d9e"
+  },
+  "result_sha256": "37a53c97db9ae6ac713c8b2f7fa9f2490a56486d81a92245f61b5d89521093f1",
+  "command": [
+    "D:\\MTR\\mtnet_20261016\\.venv\\Scripts\\python.exe",
+    "evaluate_road_tasks.py",
+    "--config",
+    "mm2_road_task_config_20261018.json",
+    "--method",
+    "PrivTrace",
+    "--router",
+    "MM2-MDP",
+    "--input",
+    "D:/MTR/mm2_routing_20261018/results/roads_8_16_20261016/routes/PrivTrace/MM2-MDP/synthetic_routes.pkl.gz",
+    "--score-manifest",
+    "results/road_scores/PrivTrace/MM2-MDP/manifest.json",
+    "--out",
+    "results/road_tasks/PrivTrace/MM2-MDP"
+  ],
+  "seconds": 20.90385800000513
+}

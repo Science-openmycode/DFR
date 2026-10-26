@@ -1,0 +1,282 @@
+{
+  "shape": [
+    27,
+    45
+  ],
+  "counts": {
+    "VALID": 869,
+    "NOT_APPLICABLE": 177,
+    "NA": 35,
+    "ZERO": 134
+  },
+  "row_aliases": {
+    "MTR-public-only [ablation]": "Same-endpoint random [control]",
+    "Real-vs-real [reference]": "Real-vs-real [geometry reference]"
+  },
+  "added": [
+    [
+      "DPMM",
+      "TotalLengthRetention"
+    ],
+    [
+      "DPMM",
+      "BackboneLengthRetention"
+    ],
+    [
+      "DPMM",
+      "ClosedLengthRetention"
+    ],
+    [
+      "DPMM",
+      "ClosedSegmentRetention"
+    ],
+    [
+      "DPMM",
+      "RepeatedEdgeRetention"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "RoadYield"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "DemandFid"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "BTF"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "RC-CPC"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "EdgeCPC"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "TurnCPC"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "FamilyCPC"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "EdgeRecall"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "EdgePrecision"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "EdgeF1"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "TurnRecall"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "TurnPrecision"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "TurnF1"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "EdgeIoU"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "TurnIoU"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "BranchCPC"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "ExitAcc"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "ODPF96"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "ODPF384"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "TotalLengthRetention"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "BackboneLengthRetention"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "ClosedLengthRetention"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "ClosedSegmentRetention"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "RepeatedEdgeRetention"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "RoadRecovery"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "RoadSupport"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "TurnRecovery"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "TurnSupport"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "BackboneRecovery"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "BackboneSupport"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "RC-NDCG"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "NextRoadAcc"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "NextRoadNLL"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "DirValid"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "Grid"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "Len"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "Trip"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "WitnessValid"
+    ],
+    [
+      "Real-vs-real [reference]",
+      "DirValid"
+    ],
+    [
+      "Real-vs-real [reference]",
+      "Grid"
+    ],
+    [
+      "Real-vs-real [reference]",
+      "Len"
+    ],
+    [
+      "Real-vs-real [reference]",
+      "Trip"
+    ],
+    [
+      "Real-vs-real [reference]",
+      "WitnessValid"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "NextCellHit1"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "NextCellMRR"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "DestinationHit5"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "DestinationMRR"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "RoadContinuationHit1"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "RoadContinuationMRR"
+    ],
+    [
+      "MTR-public-only [ablation]",
+      "RouteRetrievalNDCG5"
+    ],
+    [
+      "Public shortest path [control]",
+      "NextCellHit1"
+    ],
+    [
+      "Public shortest path [control]",
+      "NextCellMRR"
+    ],
+    [
+      "Public shortest path [control]",
+      "DestinationHit5"
+    ],
+    [
+      "Public shortest path [control]",
+      "DestinationMRR"
+    ],
+    [
+      "Public shortest path [control]",
+      "RoadContinuationHit1"
+    ],
+    [
+      "Public shortest path [control]",
+      "RoadContinuationMRR"
+    ],
+    [
+      "Public shortest path [control]",
+      "RouteRetrievalNDCG5"
+    ]
+  ],
+  "spec_sha256": "e9e36bf6fcb256580a94167f89b396a62d4436cf187f6f54d497f6eec64dbb1c",
+  "outputs": {
+    "matrix_sources.csv": "0e8351c0626fd756a18ce264611d5be16ff6dd87037539e50c34285142c64b1b"
+  },
+  "applicable_beijing_matrix_complete": true,
+  "all_experiments_complete": false,
+  "limitations": [
+    "single research seed; no invented error bars",
+    "same DP endpoint requests, not a claim of per-slot equality to endpoints of the final DFR route release",
+    "random control is distance-decreasing, not uniform over all legal routes",
+    "shortest full control retains120single-edge fallback slots",
+    "DPMM120native-empty/213representation-failed are distinct",
+    "extensions and delivery-package work not completed by this matrix"
+  ],
+  "portable_source_manifest_sha256": "7ac8eaaa81c55740646c02eb08dd140555ab03ff942c700b704b5290dc3fcb0a",
+  "relocation_only_values_unchanged": true
+}

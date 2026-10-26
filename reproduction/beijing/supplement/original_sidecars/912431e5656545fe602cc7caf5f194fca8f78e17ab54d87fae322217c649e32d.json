@@ -1,0 +1,83 @@
+{
+  "schema": "road-route-coordinate-derivation-v1",
+  "classification": "EVALUATION_ONLY",
+  "formal_output": false,
+  "derivation_mode": "public-router-edge-IDs-to-directed-geometry",
+  "representation": "edge-ids",
+  "record_count": 12584,
+  "nonempty_slot_count": 184,
+  "empty_native_slot_count": 12400,
+  "invalid_slot_count": 0,
+  "reason_counts": {
+    "empty_native_slot": 12400,
+    "valid": 184
+  },
+  "invalid_slots": [],
+  "edge_occurrences": 6714,
+  "coordinates": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/simple_runs/roads_8_16_20261016/coordinate_views_train/SPRT/FMM/coordinates.pkl",
+    "sha256": "288e8ce899bf7f6d887f7f3ee0fce6f882dca0e542f8a8daff19894b4a06aac6"
+  },
+  "route_source": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/simple_runs/roads_8_16_20261016/measurements_train/SPRT/measurement.pkl",
+    "sha256": "7710844353d9f0af0834d726f3896bda681c5fad0c1e3c7564d072ce5535b2df"
+  },
+  "public_network": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.shp",
+    "sha256": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+  },
+  "network_files": [
+    {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.cpg",
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+    },
+    {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.dbf",
+      "sha256": "4c1ba41120793b0b06b68ff4fd120c4c597a9e84f487d70e7d0c309993f6f5c1"
+    },
+    {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.prj",
+      "sha256": "99a5a32f41f7df7e52e869dca1b2df8b2009ba20c28dbf95e61dc9c891dffd38"
+    },
+    {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.shp",
+      "sha256": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+    },
+    {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.shx",
+      "sha256": "2e1c7e0b2a617fa3197b06b5f4d208d9816548e8926eb75404d483ced4da5b62"
+    }
+  ],
+  "stager": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/tools/stage_native_edge_coordinates.py",
+    "sha256": "ee031c7e2dbb8474fd6a772d983cd897356f3f3b889f6697ad17ce1102402479"
+  },
+  "raw_source_used": false,
+  "rematched": false,
+  "fills_gaps": false,
+  "direction": "public network geometry in declared source->target direction; no reversal",
+  "join_policy": "exact directed-node and endpoint continuity; drop one shared endpoint only",
+  "invalid_slot_policy": "empty the entire slot, never concatenate partial valid pieces",
+  "started_at_utc": "2026-10-16T18:06:17.580362+00:00",
+  "finished_at_utc": "2026-10-16T18:06:36.090153+00:00",
+  "elapsed_seconds": 18.50978659998509,
+  "edge_cache": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/preprocessing/beijing_road_8_16_20261016/dataset/public_resources_v2/edge_cache.pkl.gz",
+    "sha256": "fa9e025e2c3e71ae1e92652220905d5a516b58d70698490129800ae3d8679ed4"
+  },
+  "measurement_source": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/simple_runs/roads_8_16_20261016/measurements_train/SPRT/measurement.pkl",
+    "sha256": "7710844353d9f0af0834d726f3896bda681c5fad0c1e3c7564d072ce5535b2df"
+  },
+  "original_measurement_path": "D:\\MTR\\experiments_20261016\\train_inputs\\SPRT\\measurement.pkl",
+  "routed_artifact": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/simple_runs/roads_8_16_20261016/routes_train/SPRT/FMM/synthetic_routes.pkl.gz",
+    "sha256": "b21aedecf66f5fb3021dac302a17d09b4c7697c641532dd0b2f3da03b6827a14"
+  },
+  "route_manifest": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/simple_runs/roads_8_16_20261016/routes_train/SPRT/FMM/route_manifest.json",
+    "sha256": "057f85090cc58da0e7b0ebaefb48f823f0f640b18d7be489f868d67465dbe47d"
+  },
+  "lineage_policy": "route_source binds the DP measurement ancestor; routed_artifact binds the exact geometry input",
+  "router": "FMM"
+}

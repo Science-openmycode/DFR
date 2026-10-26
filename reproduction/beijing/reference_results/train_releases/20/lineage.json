@@ -1,0 +1,22 @@
+{
+  "schema": "executed_train_only_generation_v1",
+  "status": "passed",
+  "generator": "Unchanged MTR-DFR core",
+  "input_policy": "train_only_explicit_generator_input",
+  "train_sha256": "562389dd960b9e4179c7a7843bc39d8c5e20e8d69d72c8ecf4ba2183a49f7d1c",
+  "test_sha256": "4f8a3bb46ad2ff3ec61c9f63795c880ed979dbe61df9af189489d0217111e713",
+  "train_roads_sha256": "107c9fcded6b6416ae6a3296667837834f697fbbd20863ee3dcb32668934fa00",
+  "source_sha256": "8aea413c80c71609817f6ceaadc27abc9b0803bd9b885bd5abd92413f879ada3",
+  "adapter_sha256": "1d9f429638dbc65dadabbc55d4f12f6d51ec33dae6e6f416bbbf308da3e4c1bf",
+  "dataset_id": "afeddd66f0c6d5281dad5980bd56a8b62ffbd87ed53cd92493761a516ff1af35",
+  "public_slot_count": 12584,
+  "epsilon": 1.4,
+  "outputs": {
+    "release\\seed_42_length\\dp_transcript.pkl.gz": "72a627292d59c3b627355b9f6d7bdce5426e2fb7067dde3374e20440d01b9e53",
+    "release\\seed_42_length\\manifest.json": "a96e0cd649ad5e0a7357545d2c2a7c07169ff41af750c5b1526cc103bc99095f",
+    "release\\seed_42_length\\research_metadata.json": "fffec021af116f605d80bcb5800edfaa4450c18274aef2f5ca7526209a4dea35",
+    "release\\seed_42_length\\road_routes.pkl.gz": "f45bbca6508a9c51363fbab6ba18e698cf324c5378983f4f0f6b9dd142fef759"
+  },
+  "returncode": 0,
+  "seconds": 1691.6685540000035
+}

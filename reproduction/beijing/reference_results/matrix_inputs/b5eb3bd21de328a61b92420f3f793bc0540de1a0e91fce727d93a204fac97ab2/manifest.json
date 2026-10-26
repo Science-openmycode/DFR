@@ -1,0 +1,134 @@
+{
+  "schema_version": "saved-road-evaluation-v1",
+  "classification": "EVALUATION_ONLY_NOT_A_DP_RELEASE",
+  "method": "DPTraj-PM",
+  "router": "Nearest",
+  "representation": "edge-records",
+  "real_representation": "edge-records",
+  "rematched": false,
+  "gap_filling": false,
+  "self_reference": false,
+  "inputs": {
+    "real_routes": {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/preprocessing/beijing_road_8_16_20261016/dataset/road_records.pkl.gz",
+      "sha256": "0a0b11c0fef09bf3267ffdeca9d9202bedb8bfd609cb7da5c381ed08dca4907c",
+      "bytes": 147678559
+    },
+    "synthetic_routes": {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/simple_runs/roads_8_16_20261016/routes/DPTraj-PM/Nearest/synthetic_routes.pkl.gz",
+      "sha256": "295b19954ede75059458090be1f6a5f041a0c216b94c207424854aa0075fa418",
+      "bytes": 32165
+    },
+    "metric_cache": {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/preprocessing/beijing_road_8_16_20261016/dataset/public_resources_v2/metric_cache.pkl.gz",
+      "sha256": "06425ae753d7b2719c0c74fbe9a19eb22801f9872946c06f2a5ea753b6711101",
+      "bytes": 5462465
+    },
+    "network": {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.shp",
+      "sha256": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4",
+      "bytes": 52315572
+    },
+    "network_sidecars": [
+      {
+        "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.dbf",
+        "sha256": "4c1ba41120793b0b06b68ff4fd120c4c597a9e84f487d70e7d0c309993f6f5c1",
+        "bytes": 142084292
+      },
+      {
+        "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.shx",
+        "sha256": "2e1c7e0b2a617fa3197b06b5f4d208d9816548e8926eb75404d483ced4da5b62",
+        "bytes": 4756052
+      },
+      {
+        "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.prj",
+        "sha256": "99a5a32f41f7df7e52e869dca1b2df8b2009ba20c28dbf95e61dc9c891dffd38",
+        "bytes": 402
+      },
+      {
+        "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/real_road_preprocessing_20261014/network_drivable_complete/network.cpg",
+        "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+        "bytes": 5
+      }
+    ]
+  },
+  "metric_core": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/tmp_dfr_remote_verify_20261002_new/evaluation/route_metric_core.py",
+    "sha256": "c71c76a899cffe4e377896791d04215ac3256f94852ef8cd05fa39afcf0832a6",
+    "bytes": 12766
+  },
+  "evaluator": {
+    "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/tools/evaluate_saved_roads.py",
+    "sha256": "a63bf6a49e318b4cb7de63d15f691f2e8247d09066324a7a1f1a9dfec02d27c7",
+    "bytes": 14279
+  },
+  "real": {
+    "slots": 15730,
+    "valid_routes": 15730,
+    "empty_routes": 0,
+    "rejected_routes": 0,
+    "disconnected_routes": 0,
+    "source_disconnected_routes": 0,
+    "physical_disconnected_routes": 0,
+    "metric_disconnected_routes": 0,
+    "reference_slots": 15730,
+    "conditioning": "valid nonempty connected real roads only"
+  },
+  "synthetic": {
+    "slots": 15730,
+    "valid_routes": 0,
+    "empty_routes": 0,
+    "rejected_routes": 15730,
+    "disconnected_routes": 0,
+    "source_disconnected_routes": 0,
+    "physical_disconnected_routes": 0,
+    "metric_disconnected_routes": 0
+  },
+  "physical_connectivity_check": "public network source,target",
+  "node_namespace_policy": "source node pairs -> unique common edge ID -> optional physical network check -> metric-cache node pairs",
+  "synthetic_denominator_policy": "all saved slots; empty/rejected/disconnected slots contribute zero road mass",
+  "metric_count": 24,
+  "metric_status": {
+    "RoadYield": "ZERO",
+    "DemandFid": "ZERO",
+    "BTF": "ZERO",
+    "RC-CPC": "ZERO",
+    "EdgeCPC": "ZERO",
+    "TurnCPC": "ZERO",
+    "FamilyCPC": "ZERO",
+    "EdgeRecall": "ZERO",
+    "EdgePrecision": "ZERO",
+    "EdgeF1": "ZERO",
+    "TurnRecall": "ZERO",
+    "TurnPrecision": "ZERO",
+    "TurnF1": "ZERO",
+    "EdgeIoU": "ZERO",
+    "TurnIoU": "ZERO",
+    "BranchCPC": "ZERO",
+    "ExitAcc": "ZERO",
+    "ODPF96": "ZERO",
+    "ODPF384": "ZERO",
+    "TotalLengthRetention": "ZERO",
+    "BackboneLengthRetention": "ZERO",
+    "ClosedLengthRetention": "ZERO",
+    "ClosedSegmentRetention": "ZERO",
+    "RepeatedEdgeRetention": "ZERO"
+  },
+  "shape_length_policy": "historical run_mr_experiment: max(length_m,0.001), minimum per metric node pair",
+  "outputs": {
+    "metrics_json": {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/simple_runs/roads_8_16_20261016/scores/DPTraj-PM/Nearest/metrics.json",
+      "sha256": "09e4dcab444c53ee7fb59f9f1387d5b752b62609a2b674866fdd26ab107dd870",
+      "bytes": 551
+    },
+    "metrics_csv": {
+      "path": "E:/study/大四下/Paper-Agent-main/ARA_codex/check/dfr_reproducible_20261009/data_results/simple_runs/roads_8_16_20261016/scores/DPTraj-PM/Nearest/metrics.csv",
+      "sha256": "99dd255204d2e4f26e98bd5a2331a408ec7dd7defaaa977f23d424dfa1357f69",
+      "bytes": 1514
+    }
+  },
+  "started_at_utc": "2026-10-16T06:59:11.338988+00:00",
+  "finished_at_utc": "2026-10-16T07:00:33.394263+00:00",
+  "scoring_seconds": 25.020503100007772,
+  "elapsed_seconds": 82.05153379999683
+}

@@ -1,0 +1,39 @@
+{
+  "classification": "RESEARCH_EVALUATION_LEDGER_NOT_A_DP_RELEASE",
+  "elapsed_sec": 134.43556118011475,
+  "inputs": {
+    "edge_cache": {
+      "path": "D:\\MTR\\mm2_frozen_20261018\\inputs\\metric_cache.pkl.gz",
+      "sha256": "06425ae753d7b2719c0c74fbe9a19eb22801f9872946c06f2a5ea753b6711101"
+    },
+    "osm": {
+      "path": "D:\\MTR\\strict_tstr_mtnet_20261017\\inputs\\osm.pkl",
+      "sha256": "a768a5b41e1dffb4338e1ed9ace7bb7d0dd84d66dc30314801ec5bf9bb914c2c"
+    },
+    "real": {
+      "count": 15730,
+      "path": "D:\\MTR\\mtnet_input_remote_20261017\\inputs\\dataset\\trajectories.pkl",
+      "sha256": "97ab149c54fef1bad6cb3abe1848e7dfa5cceeafe312ab2084e4d0a6d26cb8e9",
+      "spec": "D:\\MTR\\mtnet_input_remote_20261017\\inputs\\dataset\\trajectories.pkl"
+    },
+    "road_routes": {
+      "path": "D:\\MTR\\mm2_routing_20261018\\results\\roads_8_16_20261016\\routes\\SPRT\\MM2-MDP\\synthetic_routes.pkl.gz",
+      "sha256": "6b03b88aadea78cbd91a5a132330197528f8e61fbdc462953e73d894979c9eac"
+    },
+    "synthetic": {
+      "path": "D:\\MTR\\mm2_evaluation_20261018\\check\\repro\\results\\coordinate_views\\SPRT\\MM2-MDP\\coordinates.pkl",
+      "sha256": "cab363c917ec9d2f16d76da3bf089c721d9f88bf1e1657d0e212a933996f35d3"
+    },
+    "witness": null
+  },
+  "outputs": {
+    "destination_model_audit.json": "4360d4e673237ad29ad21ea5c607a2fe321fb48c6bb40e2bf5883b5c4f1faff3",
+    "metrics.csv": "1db61aad5b77417deab6b1a8b71bb1bea5b9bbe027c19e191669924656b61b1f",
+    "metrics.json": "b85c3f19faee2d996a23e32614c0a4bc1fc05c9910b137b7e33c6c60b7dc8d89"
+  },
+  "schema_version": 1,
+  "metric_revision": {
+    "protocol": "metric-audit-v2-20261016",
+    "manifest_sha256": "a4c038c5a7f74225ff6587912c415060a66b383160ef6da04fb46c5186c33e34"
+  }
+}

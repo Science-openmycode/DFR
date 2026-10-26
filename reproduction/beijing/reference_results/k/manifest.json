@@ -1,0 +1,12 @@
+{
+  "status": "33_VERIFIED_RUNS_COLLECTED",
+  "main_runs": 30,
+  "diagnostic_runs": 3,
+  "classification": "PRIVATE_RESEARCH_EVALUATION_NOT_DP_RELEASE",
+  "source_sha256": "f781c5669cfe3d077cf615c01b4ff1a6afa6191f80b3b4707cd72852982b7c7e",
+  "hashes": {
+    "all_metrics.json": "49185522aea2bafead2ea3dfdb583d25fa8af9395e386a5ddd18807f578101aa",
+    "scores.csv": "44775651fabb8d4be55f48a6962680180456902dbf693c7734998cb5e4ec536e",
+    "summary.json": "48dd8c66a9201bd4b041c6230fc9aaf486d3f04508d9246093be74ac73267a2e"
+  }
+}

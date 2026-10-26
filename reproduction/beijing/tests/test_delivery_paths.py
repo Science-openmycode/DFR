@@ -5,6 +5,7 @@ from pathlib import Path
 import pytest
 import gzip
 import pickle
+import os
 from preprocess.dataset_contract import validate_dataset
 
 def test_delivery_archive_includes_runtime_contracts_and_excludes_runs(tmp_path,monkeypatch,capsys):
@@ -136,7 +137,7 @@ def test_actual_evaluate_entrypoint_in_clean_environment(tmp_path,router):
         'output':str(tmp_path/'outputs'),'legacy':str(root/'legacy'),
         'metric_real_routes':str(tmp_path/'real.pkl.gz'),'metric_cache':str(tmp_path/'cache.pkl.gz'),
         'metric_network':str(network),'network':str(network),'edge_cache':str(tmp_path/'cache.pkl.gz'),
-        'stmatch':str(root/'resources/stmatch/stmatch.exe'),'runtime':str(root/'resources/runtime'),
+            'stmatch':str(root/'resources/stmatch/stmatch.exe'),'runtime':os.environ.get('DFR_TEST_RUNTIME',str(root/'resources/runtime')),
         'fmm':str(root/'resources/fmm/fmm.exe'),'ubodt':str(ubodt),
         'prepared':str(tmp_path),'dataset':'unused'},'dataset':'isolated_fixture'}),encoding='utf-8')
     measurement=tmp_path/'saved measurement';measurement.mkdir()

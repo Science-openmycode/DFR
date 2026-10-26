@@ -1,0 +1,91 @@
+{
+  "schema": "road-route-coordinate-derivation-v1",
+  "classification": "EVALUATION_ONLY",
+  "formal_output": false,
+  "derivation_mode": "public-router-edge-IDs-to-directed-geometry",
+  "representation": "edge-ids",
+  "record_count": 12584,
+  "nonempty_slot_count": 12143,
+  "empty_native_slot_count": 441,
+  "invalid_slot_count": 0,
+  "reason_counts": {
+    "valid": 12143,
+    "empty_native_slot": 441
+  },
+  "invalid_slots": [],
+  "edge_occurrences": 2168806,
+  "coordinates": {
+    "path": "D:/MTR/mm2_evaluation_20261018/check/repro/results/coordinate_views_train/PrivTrace/MM2-MDP/coordinates.pkl",
+    "sha256": "c6cc4ac8fffcd6d61fadaf71db9dc8d85d982b6f1cecbd03fdda7548af7e5215"
+  },
+  "route_source": {
+    "path": "ancestors/d771d3a3042acc9bf947ee0a4697f24d45d1c905954a9a16ecd544a9404377c7/measurement.pkl",
+    "sha256": "d771d3a3042acc9bf947ee0a4697f24d45d1c905954a9a16ecd544a9404377c7"
+  },
+  "public_network": {
+    "path": "D:/MTR/network/network.shp",
+    "sha256": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+  },
+  "network_files": [
+    {
+      "path": "D:/MTR/network/network.cpg",
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+    },
+    {
+      "path": "D:/MTR/network/network.dbf",
+      "sha256": "4c1ba41120793b0b06b68ff4fd120c4c597a9e84f487d70e7d0c309993f6f5c1"
+    },
+    {
+      "path": "D:/MTR/network/network.prj",
+      "sha256": "99a5a32f41f7df7e52e869dca1b2df8b2009ba20c28dbf95e61dc9c891dffd38"
+    },
+    {
+      "path": "D:/MTR/network/network.shp",
+      "sha256": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+    },
+    {
+      "path": "D:/MTR/network/network.shx",
+      "sha256": "2e1c7e0b2a617fa3197b06b5f4d208d9816548e8926eb75404d483ced4da5b62"
+    }
+  ],
+  "stager": {
+    "path": "D:/MTR/mm2_evaluation_20261018/check/repro/tools/stage_native_edge_coordinates.py",
+    "sha256": "ee031c7e2dbb8474fd6a772d983cd897356f3f3b889f6697ad17ce1102402479"
+  },
+  "raw_source_used": false,
+  "rematched": false,
+  "fills_gaps": false,
+  "direction": "public network geometry in declared source->target direction; no reversal",
+  "join_policy": "exact directed-node and endpoint continuity; drop one shared endpoint only",
+  "invalid_slot_policy": "empty the entire slot, never concatenate partial valid pieces",
+  "started_at_utc": "2026-10-17T23:01:25.514393+00:00",
+  "finished_at_utc": "2026-10-17T23:02:51.253751+00:00",
+  "elapsed_seconds": 85.73936889995821,
+  "edge_cache": {
+    "path": "D:/MTR/mm2_frozen_20261018/inputs/metric_cache.pkl.gz",
+    "sha256": "06425ae753d7b2719c0c74fbe9a19eb22801f9872946c06f2a5ea753b6711101"
+  },
+  "measurement_source": {
+    "path": "D:/MTR/mm2_routing_20261018/inputs/measurements_train/PrivTrace/measurement.pkl",
+    "sha256": "d771d3a3042acc9bf947ee0a4697f24d45d1c905954a9a16ecd544a9404377c7"
+  },
+  "original_measurement_path": "D:\\MTR\\mm2_routing_20261018\\inputs\\measurements_train\\PrivTrace\\measurement.pkl",
+  "routed_artifact": {
+    "path": "D:/MTR/mm2_routing_20261018/results/roads_8_16_20261016/train_only/routes/PrivTrace/MM2-MDP/synthetic_routes.pkl.gz",
+    "sha256": "c82fad8a50eda359b3c58bdaecdfc732895881fd94c3b80d4ab7eabf00b5f5f5"
+  },
+  "route_manifest": {
+    "path": "D:/MTR/mm2_routing_20261018/results/roads_8_16_20261016/train_only/routes/PrivTrace/MM2-MDP/route_manifest.json",
+    "sha256": "110665524dc824333609f0d318392a0065c232ee76793b6f4ee630d07b60dbf9"
+  },
+  "lineage_policy": "route_source binds the DP measurement ancestor; routed_artifact binds the exact geometry input",
+  "router": "MM2-MDP",
+  "network_binding_policy": "explicit frozen-network SHA plus directed public geometry verification",
+  "expected_mm2_network_sha256": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4",
+  "raw_node_connectivity_evidence": "8952dac2b401b82ab40424b4c8954d356d5bb9658c55a775b217e0f69d38af50",
+  "relocation": {
+    "original_manifest_sha256": "b2c7e579e504c448ae80f602066a1552f4a03efa5327c20f730ccc8527a06ff1",
+    "payload_unchanged": true,
+    "ancestry_payload_sha256": "d771d3a3042acc9bf947ee0a4697f24d45d1c905954a9a16ecd544a9404377c7"
+  }
+}

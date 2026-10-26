@@ -1,0 +1,43 @@
+{
+  "schema": "executed_train_only_generation_v1",
+  "status": "passed",
+  "generator": "MTNet preserved fixed-B DP-SGD and native generator",
+  "input_policy": "train_only_explicit_generator_input",
+  "returncode": 0,
+  "train_sha256": "562389dd960b9e4179c7a7843bc39d8c5e20e8d69d72c8ecf4ba2183a49f7d1c",
+  "test_sha256": "4f8a3bb46ad2ff3ec61c9f63795c880ed979dbe61df9af189489d0217111e713",
+  "source_sha256": "f653a1e8e05de08131b87b227e96e4e3420aef022868aaaa71ede810faeddc3c",
+  "source_files_sha256": {
+    "official/mtnet.py": "7245841af543fc2b26e5ed686fa382a62d3ac8ebd3c2fc39f6591d64fbbc4d57",
+    "official/train.py": "6990c5eae8687e0869f26c61da96a0b2e88a22f0e51c80a63297ddf60f13fce3",
+    "official/util/config.py": "d06a5765bd6ee338adb4cae4aab42f54e704bfcdb51bd73a88df0ae2f379b4ef",
+    "official/util/dataloader.py": "9e65b74a73f304c5fdb66733eb9f34bba1aac7a7fd79ab1b5e8b12a5d87854c6",
+    "canonical_mtnet_source_lock.json": "b8642f386e0850f53823243dc910f237c86230edc3f2ec91e27036d5bbaf999e",
+    "train_native_mtnet_dpsgd_paper.py": "f653a1e8e05de08131b87b227e96e4e3420aef022868aaaa71ede810faeddc3c",
+    "full_preparation_manifest.json": "24317ae698e1b81f7975b9fd2365c1e5842197a55485ff72587263e2ea25c3d1",
+    "public_origin_ids.npy": "5d058d85ca1ee1d4fde21255cf28e7a70a481f940d3556921adcd1419f934ae5",
+    "data/beijing_roads_l20/edge_adj.txt": "c1c60e7ddc9dab3fca815ae2e4ece8c3e3b29634f385a1f851892b84c4b1ec68",
+    "data/beijing_roads_l20/edge_property.txt": "75fe7acdd486af2a50a174a8979d65730781770154ff93f4151420b21a007c66",
+    "data/beijing_roads_l20/native_input_manifest.json": "9d0b57bb934bcb7b71a9b571eb6982fc22e6904f71a901a18c0095dc191c8e25",
+    "data/beijing_roads_l20/temporal_32.emb": "51c73d2f9461931650a862ff7a44127bebe0e980198016c518cae801d57540c9",
+    "data/beijing_roads_l20/trajs_demo.csv": "a01b57fdd11a8ce62cfd39bbfbab4cba25ec514fd57f75bba4f6cc770c934d36",
+    "data/beijing_roads_l20/tstamps_demo.csv": "6fa1d4cd72757d158deff488115e8edda00bcd9f5e896c147374480f117f15e0",
+    "generate_mtnet.py": "3541db3144869c960b290afbae9fc8e17614ceaee21f7a257b12f2c1cf7f4ba2",
+    "RUN_MTNET_GPU.ps1": "8c4b93173eb0b20f9cb060381e73d6b03caca9957e5d7a36c6531fbe54d18493"
+  },
+  "dataset_id": "afeddd66f0c6d5281dad5980bd56a8b62ffbd87ed53cd92493761a516ff1af35",
+  "public_slot_count": 12584,
+  "epsilon": 1.4,
+  "delta": 1e-05,
+  "privacy_scope": "Prepared-aligned replacement-adjacency training; not certified end-to-end raw preprocessing",
+  "preparation_manifest_sha256": "24317ae698e1b81f7975b9fd2365c1e5842197a55485ff72587263e2ea25c3d1",
+  "execution_observation_sha256": "0f6f5a24e09a3480020bbf9871e6e778c395e80c9c5848563163fb1f5db2e335",
+  "evidence_scope": "Actual tool session completion observed on 2026-10-17; retrospective receipt, not a contemporaneous trainer-signed attestation. Training logs, model/native hashes, original deployment and train preparation independently verified.",
+  "command": "powershell -NoProfile -ExecutionPolicy Bypass -File D:/MTR/mtnet_train_20261017/RUN_MTNET_GPU.ps1 -Root D:/MTR/mtnet_train_20261017 -PythonExecutable D:/MTR/mtnet_20261016/.venv/Scripts/python.exe",
+  "outputs": {
+    "native_release/routes.pkl": "72cc7ebc560dc8680a1a3e05e4fb93b24987246e9cb1c5c1628bb401d76b6fb7",
+    "native_release/manifest.json": "9fb3c56f886f7d1aeac1c42a60a98da25bb400794b8e4e707f8dd7de69ae1dfa",
+    "model.pt": "19df1f4bbed5bb9496f3cf959611c8f830d9386ac7ac14abb3ac85d75c7b62fb",
+    "paper_algorithm_manifest.json": "cfcbc84befafa8bdc8aa1858f6df88bd2c724350915da09635d9a9462b931928"
+  }
+}

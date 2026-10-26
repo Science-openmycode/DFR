@@ -1,0 +1,13 @@
+{
+  "protocol": "full_od_ordered_physical_mass_v1",
+  "method": "DPTraj-PM-MM2-MDP",
+  "sampling_label": "DPTraj-PM + MM2-MDP",
+  "cap_per_stratum": 20,
+  "inputs_sha256": {
+    "real_routes": "0a0b11c0fef09bf3267ffdeca9d9202bedb8bfd609cb7da5c381ed08dca4907c",
+    "synthetic_routes": "a8b6cc132444d05763cd08e70f1433fd90b25e2f6fc5933f4db2f09c6b337b8e",
+    "edge_cache": "06425ae753d7b2719c0c74fbe9a19eb22801f9872946c06f2a5ea753b6711101",
+    "network": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+  },
+  "results_sha256": "e99749e4b91defe7b03d6e6946c8e3968dba0afb809fa42cbd8d711994802ac9"
+}

@@ -31,6 +31,7 @@ python import_external_assets.py --check-only
 python -m venv .venv
 .venv/Scripts/python.exe -m pip install -r requirements-clean-windows-py313.txt
 .venv/Scripts/python.exe -m pip check
+. .venv/Scripts/Activate.ps1
 $env:PYTHONUTF8='1'
 $env:PYTHONIOENCODING='utf-8'
 ```
@@ -45,7 +46,7 @@ powershell -NoProfile -File deployment/SETUP_MTNET_GPU.ps1 -Root . -BasePython p
 
 ## 2. 从统计发布到道路轨迹
 
-执行 [116条M/R与全集评分命令](reproduction_checked_20261024/COMMANDS_CN.md)，每条列出参数、依赖和产物：
+已有完整冻结快照时执行 [116条M/R与全集评分命令](reproduction_checked_20261024/COMMANDS_CN.md)，每条列出参数、依赖和产物。从下载数据新建批次时，先完成 [DATA_CN.md 第6节](DATA_CN.md)，再使用其生成的同名命令文档；不要把新数据接到旧批次ID下。
 
 - SPRT、PrivTrace、DPTraj-PM、DPStd分别生成全集和训练专用M，共8份。
 - 每份M选择Origin、Nearest、FMM、STMatch、MM2-MDP，共40份输出。R不读取真实数据。

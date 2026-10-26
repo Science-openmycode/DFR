@@ -33,6 +33,14 @@ python preprocess/recover_raw_metadata.py --source-dir "data/geolife/Geolife Tra
 
 第二条复用历史时间戳绑定逻辑，仅将硬编码路径改成参数。`--coordinates` 是第一条输出；`--out` 必须不存在。逐点精确比对后输出 `timestamps_day_serial.pkl.gz`、`original_observation_indices.pkl.gz`、`source_binding.csv`、`report.json`。时间戳来自 PLT 第五列（零基列号4），差值乘86400为秒。不完整绑定返回非零退出码。不要加载来源不可信的 pickle 文件。
 
+MTNet还需要原始轨迹起止时间。它使用原实验按文件顺序和固定排列恢复身份的程序，不能仅用坐标查找源文件（不同轨迹可能有完全相同的坐标）：
+
+```powershell
+python preprocess/prepare_mtnet_time_binding.py --source-dir "data/geolife/Geolife Trajectories 1.3/Data" --reference data/raw/real_full_frozen.pkl --out data/raw/mtnet_time_binding.json
+```
+
+生成17123条起止时间及坐标摘要。此输出与前一条道路预处理用的逐点时间戳文件用途不同。
+
 ## 4. 获取对应的公共道路图
 
 新版图已随仓库提供：[beijing_full_20261026.zip](../../public_assets/beijing_full_20261026.zip)，约31 MB。不是根目录旧 `public_assets/beijing_network`。公共 OSM 数据许可和来源见 [BEIJING_FULL_LICENSE.md](../../public_assets/BEIJING_FULL_LICENSE.md)。
@@ -45,7 +53,7 @@ python preprocess/install_public_roads.py --out data/public
 
 ## 5. 道路预处理入口
 
-Windows 匹配器已在仓库 `public_assets/matcher`，其源项目为 [FMM/STMatch](https://github.com/cyang-kth/fmm)。先安装运行库（需要 conda）：
+本批次Windows匹配器位于 `resources/fmm` 和 `resources/stmatch`，包括对应FMMLIB.dll；不用根目录旧 `public_assets/matcher` 的匹配器替换它们。源项目为 [FMM/STMatch](https://github.com/cyang-kth/fmm)。先安装运行库（需要 conda）：
 
 ```powershell
 conda create --prefix ./data/fmm-runtime --override-channels --channel conda-forge --repodata-fn repodata.json libgdal=2.4.4 boost-cpp=1.75.0 --yes
@@ -62,13 +70,59 @@ python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data
 
 历史新版冻结语料为15,730条道路轨迹，训练12,584、测试3,146；是否得到同一语料需核对实际匹配和筛选结果，不能强行截成该数。旧版17,123条不是新版道路语料。生成后可用 `bind_dataset.py --dataset ... --osm-cache ... --out ... --batch ...` 绑定新批次，再执行公共资源准备、TSTR划分与 README 后续命令；这些入口的完整参数见各自 `--help`。
 
-## 6. 已提供与尚不能称为下载完成的材料
+## 6. 将新数据接入实验命令
+
+以下假定上一节经人工审阅后生成的数据目录是 `data/road_accepted/dataset`。该目录不是dry-run产物。若实际目录不同，只修改下面 `--dataset`。新配置绑定新数据身份，不强行写成历史批次的ID。
+
+MM2从作者固定版本下载，保留解压目录中的许可说明：
+
+```powershell
+python preprocess/fetch_mm2.py --archive data/downloads/mm2_1.2.1.zip --extract-to data/mm2_upstream --install-to resources/mm2/map_matching_2.exe
+python bind_dataset.py --dataset data/road_accepted/dataset --osm-cache data/public/osm/osm_cache_beijing_drivable_full.pkl --runtime data/fmm-runtime/Library/bin --mm2 resources/mm2/map_matching_2.exe --mm2-network resources/mm2/network --out configs/local_new.json --batch local_new
+python prepare_public_resources.py --config configs/local_new.json --frozen-support resources --out-config configs/local_public.json
+python prepare_tstr_split.py --config configs/local_public.json --out data/local_split --out-config configs/local_split.json
+python prepare_ubodt.py --config configs/local_split.json --out-dir data/local_ubodt --out-config configs/local_ready.json --delta-m 1500 --threads 4
+python tools/write_batch_commands.py --config configs/local_ready.json --time-binding data/raw/mtnet_time_binding.json --raw-reference data/raw/real_full_frozen.pkl --out plans/local_new
+```
+
+- MM2为作者1.2.1版本，校验压缩包和程序；`--extract-to`必须是新目录。公共MM2网络随仓库LFS提供，绑定程序同时验证其与冻结道路图一致。
+- `--batch`是新结果命名空间；所有输出配置必须不存在，避免覆盖旧实验。
+- 公共缓存只包含道路图支持。`--frozen-support resources`逐项校验路网、OSM和缓存，不读取私有轨迹来构建查询支撑。
+- TSTR步骤检查已有训练/测试划分，不重新随机划分。
+- UBODT以原实验1500米生成，约6GB，须预留磁盘；`--threads`只控制并发。它不是合成数据。
+- 最后一条**只生成命令文档和配置，不运行实验**。依次阅读 `plans/local_new/commands/` 中的统计M/R、DFR、原生基线、评分、TSTR和敏感性文档，复制其中完整命令运行。种子、预算和算法参数沿用原文，输入绑定和输出位置改为新批次。新结果写入 `results/local_new/`，不覆盖历史成绩。
+- 该命令生成器不把旧结果重画称为新批次实验。隐私攻击需完成下面的独立输入绑定，不能使用不对应的旧真实集合。
+
+### 6.1 新批次隐私攻击
+
+先完成训练专用合成及来源登记。建立 `configs/local_attack_releases.json`，每个方法填写本批次的训练合成坐标文件和登记后的lineage，例如：
+
+```json
+{
+  "MTR-DFR": {
+    "coordinates": "results/local_new/实际训练发布目录/coordinates.pkl",
+    "lineage": "results/local_new/实际训练发布目录/lineage.json"
+  }
+}
+```
+
+这里的路径需要替换为前述命令实际生成的位置；不得填写全集发布或旧批次。多个方法继续添加同结构条目。
+
+```powershell
+python prepare_attack_inputs.py --config configs/local_ready.json --releases configs/local_attack_releases.json --out data/local_attack --out-config configs/local_attack.json
+python experiments/privacy_attack.py --config configs/local_attack.json --batch local_attack
+python experiments/plot.py --config configs/local_attack.json --experiment privacy_attack --batch local_attack
+```
+
+第一条复用原攻击划分程序：种子20260715，训练集抽1000个成员，测试集抽1000个非成员，其余测试记录作为参考集；样本不足时按原程序缩小。三者索引互斥检查不变。第二条执行原攻击器并校验每个发布的训练来源；第三条只作图。输入、输出及索引都是内部研究材料，不是隐私合成发布的一部分。
+
+## 7. 已提供与尚不能称为下载完成的材料
 
 现在可直接取得：Microsoft 原始 ZIP、本仓库冻结公共路网、仓库历史合成数据（Git LFS）、预处理源码。新版 README 的 `import_external_assets.py` 仍是**已有授权快照的可选导入器**，不是互联网下载器。
 
 旧本地9.42GB资源清单还包含完整匹配运行库、冻结私有审计记录、模型和新批次研究结果，不能因上述数据下载完成就声称它们全部已在线。没有授权快照的读者可以从上述原始来源建立新批次；新版整套冻结实验是否全部无需快照运行，仍需独立验证。本次未重跑长时道路匹配、模型训练或改变实验分数。
 
-## 7. 本次实际验证（2026-10-26）
+## 8. 本次实际验证（2026-10-26）
 
 - 从Microsoft完整下载313,164,406字节，SHA与上文一致，ZIP CRC检查和解压通过。
 - 对新下载数据运行原有解析器，退出0：17,123条，298,170,617字节，序列化SHA与历史输入完全一致。
@@ -76,3 +130,17 @@ python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data
 - 公共路网上传后，从GitHub提交`17e7717d8906fdfed2a2b609fd3cf8c24f1103d8`重新下载压缩包，SHA与上文一致；本地安装解压通过。
 - 解压安全与不覆盖测试2项通过；道路预处理配置可解析，dry-run退出0。dry-run不代表新环境的匹配器长任务已完成。
 - 复用本机已有Python环境；没有重跑已完成的合成/训练/评分，也没有修改其数值。
+- MTNet完整起止时间恢复耗时47.457秒，17123条records和参考输入摘要逐项与历史绑定完全相同。先前仅依赖坐标查找的候选转换有20条时间不一致，未采用。
+
+### 小规模接口回归
+
+已安装上述依赖及运行库后，可用人工小图/人工轨迹检查入口，不计算论文成绩：
+
+```powershell
+$env:DFR_TEST_RUNTIME = "$PWD/data/fmm-runtime/Library/bin"
+$env:PYTHONUTF8='1'
+$env:PYTHONIOENCODING='utf-8'
+python -m pytest tests -q
+```
+
+`DFR_TEST_RUNTIME`只指定测试用的运行库位置。实际实验仍使用config内的runtime路径。此次本地验证使用已有锁定Python环境和已有运行库，不等同于在新机器上重新安装conda成功。

@@ -1,0 +1,3 @@
+Pipeline,Next-cell Hit@1,Next-cell MRR,Destination Hit@5,Destination MRR,Road continuation Hit@1,Road continuation MRR,Route retrieval NDCG@5
+Real-train,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+DPStd,0.3092061972842017,0.3444656306210787,0.2760097919216646,0.2309775079968766,0.0,0.0,0.0

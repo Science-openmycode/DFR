@@ -1,0 +1,98 @@
+{
+  "protocol": "train_test_bound_task_scoring_v2",
+  "raw_generic_results": "D:\\MTR\\strict_tstr_mm2_20261018\\results\\tstr_audit_v2\\SPRT\\MM2-MDP\\raw_generic\\generic_mobility_tasks.json",
+  "raw_road_results": "D:\\MTR\\strict_tstr_mm2_20261018\\results\\tstr_audit_v2\\SPRT\\MM2-MDP\\raw_road\\road_network_mining_tasks.json",
+  "result": "D:\\MTR\\strict_tstr_mm2_20261018\\results\\tstr_audit_v2\\SPRT\\MM2-MDP\\results.csv",
+  "normalization": "coverage times conditional quality, divided by the Real-train product; Real-train=1",
+  "pipelines": [
+    "Real-train",
+    "SPRT + MM2-MDP"
+  ],
+  "split_binding": {
+    "classification": "LOCAL_RESEARCH_AUDIT_NOT_A_DP_RELEASE",
+    "train_sha256": "562389dd960b9e4179c7a7843bc39d8c5e20e8d69d72c8ecf4ba2183a49f7d1c",
+    "test_sha256": "4f8a3bb46ad2ff3ec61c9f63795c880ed979dbe61df9af189489d0217111e713",
+    "bbox": [
+      39.75,
+      40.15,
+      116.1,
+      116.65
+    ],
+    "seed": 20260713,
+    "osm_sha256": "a768a5b41e1dffb4338e1ed9ace7bb7d0dd84d66dc30314801ec5bf9bb914c2c",
+    "evaluation_scope": "strict_tstr",
+    "synthetic": {
+      "SPRT + MM2-MDP": "b280e57cf688ba3d999eedd20b3a82561dfb35794680bee5bd0c2bc19ca0866b"
+    },
+    "base_releases": {
+      "SPRT + MM2-MDP": "7710844353d9f0af0834d726f3896bda681c5fad0c1e3c7564d072ce5535b2df"
+    },
+    "synthesis_lineage": {
+      "SPRT + MM2-MDP": {
+        "record_sha256": "aae17ed45c23b7b2f3d21a37f430c57e507d96a5c990e56d93069e0afbecaf6c",
+        "source_sha256": "b593d98f321a79a1630480050f0ad7e2e0cdb5f8426149d8a256388e80966d04",
+        "release_sha256": "7710844353d9f0af0834d726f3896bda681c5fad0c1e3c7564d072ce5535b2df",
+        "generator": "PaperSPRTModel",
+        "evidence_scope": "executed audited CLI input binding; not a formal noninterference proof"
+      }
+    },
+    "disjoint_split": {
+      "record_sha256": "ebc30dcf28b73c742332fd98575ae0fe0532f1b83ad326f200cacc371654178a",
+      "full_sha256": "97ab149c54fef1bad6cb3abe1848e7dfa5cceeafe312ab2084e4d0a6d26cb8e9",
+      "train_count": 12584,
+      "test_count": 3146
+    }
+  },
+  "synthesis_lineage_verified": true,
+  "disjoint_split_verified": true,
+  "lineage_note": "Executed generator input binding is checked separately from task scoring; it is local research provenance, not a DP release or formal noninterference proof.",
+  "results_sha256": "955ee1a847ba8e414a95ce92e8c6b30a70e8889e47d9c00b4c1aaa7fc42fedc5",
+  "command": [
+    "D:\\MTR\\mtnet_20261016\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\evaluation\\audit_v2_runner.py",
+    "--stage",
+    "tstr",
+    "--legacy",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\legacy",
+    "--",
+    "--train-real",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\train.pkl",
+    "--test-real",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\test.pkl",
+    "--split-audit",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\split_audit.json",
+    "--require-synthesis-lineage",
+    "--synthetic",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\views\\SPRT\\MM2-MDP\\coordinates.pkl",
+    "--names",
+    "SPRT + MM2-MDP",
+    "--synthesis-lineage",
+    "SPRT + MM2-MDP=D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\SPRT\\lineage.json",
+    "--osm-cache",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\osm.pkl",
+    "--bbox",
+    "39.75",
+    "40.15",
+    "116.1",
+    "116.65",
+    "--seed",
+    "20260713",
+    "--out-dir",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\results\\tstr_audit_v2\\SPRT\\MM2-MDP"
+  ],
+  "scoring_inputs_sha256": {
+    "D:\\MTR\\strict_tstr_mm2_20261018\\legacy\\evaluation\\run_tstr_experiment.py": "c7d5a3ff8fcccff1d15d5e58ef9508523d8f903d666d3c2a9f03d94b661ae728",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\views\\SPRT\\MM2-MDP\\coordinates.pkl": "b280e57cf688ba3d999eedd20b3a82561dfb35794680bee5bd0c2bc19ca0866b",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\SPRT\\lineage.json": "aae17ed45c23b7b2f3d21a37f430c57e507d96a5c990e56d93069e0afbecaf6c",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\train.pkl": "562389dd960b9e4179c7a7843bc39d8c5e20e8d69d72c8ecf4ba2183a49f7d1c",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\test.pkl": "4f8a3bb46ad2ff3ec61c9f63795c880ed979dbe61df9af189489d0217111e713",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\split_audit.json": "ebc30dcf28b73c742332fd98575ae0fe0532f1b83ad326f200cacc371654178a",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\inputs\\osm.pkl": "a768a5b41e1dffb4338e1ed9ace7bb7d0dd84d66dc30314801ec5bf9bb914c2c",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\evaluation\\audit_v2_runner.py": "62b42a90d478369247e02e0ed31e94c34b282a9fa8a56ae03c756eae8d7ee0cf",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\evaluation\\audit_metric_fixes.py": "8d2e3ee4dca9307a6521f3b97e75966848e0db0b6e79830ba459e34645d7a72e",
+    "D:\\MTR\\strict_tstr_mm2_20261018\\views\\SPRT\\MM2-MDP\\coordinates.pkl.manifest.json": "56579bc9a8b0954cb8c238f518d4ed35a947c52d0833c97563a7191c22c5d52a"
+  },
+  "elapsed_seconds": 47.015
+}

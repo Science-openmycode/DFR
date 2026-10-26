@@ -1,0 +1,13 @@
+{
+  "protocol": "full_od_ordered_physical_mass_v1",
+  "method": "DPStd-MM2-MDP",
+  "sampling_label": "DPStd + MM2-MDP",
+  "cap_per_stratum": 20,
+  "inputs_sha256": {
+    "real_routes": "0a0b11c0fef09bf3267ffdeca9d9202bedb8bfd609cb7da5c381ed08dca4907c",
+    "synthetic_routes": "ae320406eccaf69adc358b19c7d4bbbbd319c00af1a3d83f4ae41075a2a72f13",
+    "edge_cache": "06425ae753d7b2719c0c74fbe9a19eb22801f9872946c06f2a5ea753b6711101",
+    "network": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4"
+  },
+  "results_sha256": "9782e2c984e115fb8033b5e9dd788cd3c8011538f5ea7d3029e36e98249d89ac"
+}

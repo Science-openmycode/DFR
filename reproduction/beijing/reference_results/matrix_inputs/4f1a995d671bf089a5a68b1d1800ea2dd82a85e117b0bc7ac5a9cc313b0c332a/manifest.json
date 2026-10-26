@@ -1,0 +1,78 @@
+{
+  "classification": "MISSING_FIVE_METRICS_ONLY",
+  "method": "DPMM",
+  "inputs": {
+    "real_routes": {
+      "path": "D:/MTR/mtnet_input_remote_20261017/inputs/dataset/road_records.pkl.gz",
+      "sha256": "0a0b11c0fef09bf3267ffdeca9d9202bedb8bfd609cb7da5c381ed08dca4907c",
+      "bytes": 147678559
+    },
+    "synthetic_routes": {
+      "path": "D:/MTR/dpmm_physical_20261018/inputs/synthetic_routes.pkl.gz",
+      "sha256": "546b93a6596b36f6731b4f3003968e645352842c4b7c45dadd69ae172546304a",
+      "bytes": 4356673
+    },
+    "metric_cache": {
+      "path": "D:/MTR/dpmm_physical_20261018/inputs/metric_cache.pkl.gz",
+      "sha256": "06425ae753d7b2719c0c74fbe9a19eb22801f9872946c06f2a5ea753b6711101",
+      "bytes": 5462465
+    },
+    "network": {
+      "path": "D:/MTR/network/network.shp",
+      "sha256": "f62db1db3058a3c6d4360a3295a2cb6f5e33ca025b56592f64d141959fbbf8d4",
+      "bytes": 52315572
+    },
+    "prior_manifest": {
+      "path": "D:/MTR/mm2_evaluation_20261018/check/repro/inputs/dpmm_prior_20261019.json",
+      "sha256": "477b155ed35f50950f301c32b3c4f8bbad1e97bf4ae726c464d12c10987ea6b2",
+      "bytes": 4253
+    }
+  },
+  "metric_core": {
+    "path": "D:/MTR/mm2_evaluation_20261018/tmp_dfr_remote_verify_20261002_new/evaluation/route_metric_core.py",
+    "sha256": "c71c76a899cffe4e377896791d04215ac3256f94852ef8cd05fa39afcf0832a6",
+    "bytes": 12766
+  },
+  "evaluator": {
+    "path": "D:/MTR/mm2_evaluation_20261018/check/repro/tools/evaluate_missing_shape.py",
+    "sha256": "2e185877eaa50331bfd5f1a32c09c3076226c9ac6f619ce1fd9fa8cd48828a94",
+    "bytes": 2699
+  },
+  "conversion": {
+    "path": "D:/MTR/mm2_evaluation_20261018/check/repro/tools/evaluate_saved_roads.py",
+    "sha256": "a63bf6a49e318b4cb7de63d15f691f2e8247d09066324a7a1f1a9dfec02d27c7",
+    "bytes": 14279
+  },
+  "real": {
+    "slots": 15730,
+    "valid_routes": 15730,
+    "empty_routes": 0,
+    "rejected_routes": 0,
+    "disconnected_routes": 0,
+    "source_disconnected_routes": 0,
+    "physical_disconnected_routes": 0,
+    "metric_disconnected_routes": 0
+  },
+  "synthetic": {
+    "slots": 15730,
+    "valid_routes": 15397,
+    "empty_routes": 0,
+    "rejected_routes": 333,
+    "disconnected_routes": 0,
+    "source_disconnected_routes": 0,
+    "physical_disconnected_routes": 0,
+    "metric_disconnected_routes": 0
+  },
+  "native_empty": 120,
+  "representation_rejected": 213,
+  "rematched": false,
+  "denominator": 15730,
+  "outputs": {
+    "metrics_json": {
+      "path": "D:/MTR/mm2_evaluation_20261018/check/repro/results/dpmm_shape_20261019/metrics.json",
+      "sha256": "481009f929e1ba8617bcaa5a81a52e4a68b211e045bd3c9be9d1b56cbe25e149",
+      "bytes": 200
+    }
+  },
+  "elapsed_seconds": 36.90123939997284
+}

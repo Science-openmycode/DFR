@@ -1,0 +1,33 @@
+{
+  "dataset_id": "afeddd66f0c6d5281dad5980bd56a8b62ffbd87ed53cd92493761a516ff1af35",
+  "real_slots": 15730,
+  "synthetic_slots": 15730,
+  "real_query_start": 12584,
+  "real_query_count": 3146,
+  "quotient_regions": 384,
+  "next_road_mixture_weight": 0.5,
+  "real_query_fraction": 0.2,
+  "failed_policy": "All slots retained; conditional utilities multiplied by actual road yield; NLL penalized by -log(yield)",
+  "inputs": {
+    "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\preprocessing\\beijing_road_8_16_20261016\\dataset\\road_records.pkl.gz": "0a0b11c0fef09bf3267ffdeca9d9202bedb8bfd609cb7da5c381ed08dca4907c",
+    "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\routes\\DPStd\\STMatch\\synthetic_routes.pkl.gz": "49ffff6d26d02cbb1bfeec7c7388654429620723e5026a2b5b67a9c81949d623",
+    "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\preprocessing\\beijing_road_8_16_20261016\\dataset\\public_resources_v2\\metric_cache.pkl.gz": "06425ae753d7b2719c0c74fbe9a19eb22801f9872946c06f2a5ea753b6711101",
+    "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\scores\\DPStd\\STMatch\\manifest.json": "d15a10c7cda2ad291d6b6df2a73369aeebc1d9b92bee6ccd218a4106386c1b5b"
+  },
+  "metric_core": {
+    "path": "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\ARA_codex\\tmp_dfr_remote_verify_20261002_new\\evaluation\\evaluation\\metric_suites\\road_choice.py",
+    "sha256": "1f06e72ea1671d17e2bf9eef4caf5c2ba18967f532cff84767b376b8ff094d9e"
+  },
+  "result_sha256": "76a0308b5d7e14777b1c1807e160b8165e48fa13d180fb139fccc3fc17cb781b",
+  "command": [
+    "E:\\anconda\\python.exe",
+    "evaluate_road_tasks.py",
+    "--config",
+    "configs/beijing_roads_8_16_matcher_io_v2_20261016.json",
+    "--method",
+    "DPStd",
+    "--router",
+    "STMatch"
+  ],
+  "seconds": 8.18023670000548
+}

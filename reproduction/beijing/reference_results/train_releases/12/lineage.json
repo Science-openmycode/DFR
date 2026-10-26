@@ -1,0 +1,40 @@
+{
+  "schema": "executed_train_only_generation_v1",
+  "status": "passed",
+  "generator": "DPTraj-PM preserved adapter",
+  "input_policy": "train_only_explicit_generator_input",
+  "train_sha256": "562389dd960b9e4179c7a7843bc39d8c5e20e8d69d72c8ecf4ba2183a49f7d1c",
+  "test_sha256": "4f8a3bb46ad2ff3ec61c9f63795c880ed979dbe61df9af189489d0217111e713",
+  "source_sha256": "feb900c0717704cc461b4d2cfed89f91a7e3fc818dea86b20fb9b848dd4a9414",
+  "returncode": 0,
+  "outputs": {
+    "measurement.pkl": "097aec28557def4c98ba7d0a10a984d09e0c6029460eaed600b2e9f4661703b3"
+  },
+  "command": [
+    "E:\\anconda\\python.exe",
+    "-X",
+    "utf8",
+    "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\ARA_codex\\tmp_dfr_remote_verify_20261002_new\\generation\\baselines\\algorithms\\literature_baselines\\entrypoints\\generate.py",
+    "--method",
+    "dptrajpm-native",
+    "--data",
+    "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\preprocessing\\beijing_road_8_16_20261016\\dataset\\train.pkl",
+    "--out-dir",
+    "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\measurements_train\\DPTraj-PM",
+    "--epsilon",
+    "1.4",
+    "--public-slot-count",
+    "12584",
+    "--seed",
+    "42",
+    "--format",
+    "pkl",
+    "--bbox",
+    "39.75",
+    "40.15",
+    "116.1",
+    "116.65",
+    "--osm-cache",
+    "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\public_release\\data\\osm\\osm_cache_beijing_drivable_full.pkl"
+  ]
+}

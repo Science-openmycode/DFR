@@ -1,0 +1,39 @@
+{
+  "classification": "RESEARCH_EVALUATION_LEDGER_NOT_A_DP_RELEASE",
+  "elapsed_sec": 171.02202796936035,
+  "inputs": {
+    "edge_cache": {
+      "path": "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\preprocessing\\beijing_road_8_16_20261016\\dataset\\public_resources_v2\\edge_cache.pkl.gz",
+      "sha256": "fa9e025e2c3e71ae1e92652220905d5a516b58d70698490129800ae3d8679ed4"
+    },
+    "osm": {
+      "path": "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\Paper-Agent-main\\ARA_codex\\public_release\\data\\osm\\osm_cache_beijing_drivable_full.pkl",
+      "sha256": "a768a5b41e1dffb4338e1ed9ace7bb7d0dd84d66dc30314801ec5bf9bb914c2c"
+    },
+    "real": {
+      "count": 15730,
+      "path": "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\preprocessing\\beijing_road_8_16_20261016\\dataset\\trajectories.pkl",
+      "sha256": "97ab149c54fef1bad6cb3abe1848e7dfa5cceeafe312ab2084e4d0a6d26cb8e9",
+      "spec": "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\preprocessing\\beijing_road_8_16_20261016\\dataset\\trajectories.pkl"
+    },
+    "road_routes": {
+      "path": "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\routes\\MTR-DFR\\Origin\\synthetic_routes.pkl.gz",
+      "sha256": "820ef4aed8b72aa48c2f1d71b5918b901e06fbda9a7689945b8de86040a4f7f7"
+    },
+    "synthetic": {
+      "path": "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\ARA_codex\\check\\dfr_reproducible_20261009\\data_results\\simple_runs\\roads_8_16_20261016\\coordinate_views\\MTR-DFR\\Origin\\coordinates.pkl",
+      "sha256": "ac7d012d8d99e14cbea3bda84429fa46536e83a6d40269a5e3c56dfa0e1846ab"
+    },
+    "witness": null
+  },
+  "outputs": {
+    "destination_model_audit.json": "63a59bd466c23a38ac58adfabe7a7620e5a416fc02dffd62d8badb5ecb28716a",
+    "metrics.csv": "9f050084ec63ded0688281ffb7e3f71791a907a1f536b9a9ff264c61fd430850",
+    "metrics.json": "2b22d4c7763849f2f86ac28ded82acc05a7777c9d39c8ea85ff4390126e83c64"
+  },
+  "schema_version": 1,
+  "metric_revision": {
+    "protocol": "metric-audit-v2-20261016",
+    "manifest_sha256": "f03cc06494ec16e7778013208168a25957cca627ba67f4eeb09bb718ccf2539b"
+  }
+}
