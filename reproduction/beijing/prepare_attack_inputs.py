@@ -33,6 +33,8 @@ def prepare(config,out,out_config,releases):
     for key,name in [('members','member_candidates.pkl'),('nonmembers','nonmember_candidates.pkl'),('reference','reference.pkl'),('attack_manifest','manifest.json')]:
         c['paths'][key]=str(out/'split'/name)
     c['attack_releases']=mapping;c['attack_resources_status']='PREPARED_CURRENT_TRAIN_SPLIT'
+    # Clear only the placeholder that this successful preparation resolved.
+    c.get('unsupported_stages',{}).pop('privacy_attack',None)
     out_config.parent.mkdir(parents=True,exist_ok=True)
     out_config.write_text(json.dumps(c,ensure_ascii=False,indent=2),encoding='utf-8')
     (out/'adapter_manifest.json').write_text(json.dumps({'dataset_id':identity['dataset_id'],'command':command,'exit_code':0,'release_map':str(Path(releases).resolve()),'note':'Private research inputs, not a DP release. Downstream evaluator verifies training lineage.'},indent=2),encoding='utf-8')

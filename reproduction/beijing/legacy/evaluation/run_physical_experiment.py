@@ -192,7 +192,7 @@ def main():
         raise ValueError("real reference and synthetic route slots must be nonempty")
     result = evaluate(real, synthetic, cache, edge_lengths(cache, inputs["network"]),
                       args.method, args.cap_per_stratum, args.sampling_label)
-    out = args.out_dir if args.out_dir.is_absolute() else ROOT / args.out_dir
+    out = args.out_dir.resolve()
     out.mkdir(parents=True, exist_ok=True)
     with (out / "results.csv").open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(result))

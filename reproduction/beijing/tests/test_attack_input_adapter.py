@@ -8,7 +8,8 @@ def test_original_sampler_small_fixture(tmp_path,monkeypatch):
     for key,indices in [('train',[0,1,2,3]),('test',[4,5,6,7])]:
         (dataset/(key+'.pkl')).write_bytes(pickle.dumps([np.array([[i,1.],[i,2.]]) for i in indices]))
         (dataset/(key+'_split.json')).write_text(json.dumps({'indices':indices}))
-    cfg=tmp_path/'config.json';cfg.write_text(json.dumps({'paths':{'prepared':str(dataset),'network':'fixture.shp'},'frozen_dataset_id':'fixture'}))
+    cfg=tmp_path/'config.json';cfg.write_text(json.dumps({'paths':{'prepared':str(dataset),'network':'fixture.shp'},'frozen_dataset_id':'fixture',
+        'unsupported_stages':{'privacy_attack':'inputs not bound','other':'keep'}}))
     coords=tmp_path/'coords.pkl';coords.write_bytes(b'fixture')
     lineage=tmp_path/'lineage.json';lineage.write_text('{}')
     releases=tmp_path/'releases.json';releases.write_text(json.dumps({'fixture':{'coordinates':str(coords),'lineage':str(lineage)}}))
@@ -19,3 +20,4 @@ def test_original_sampler_small_fixture(tmp_path,monkeypatch):
     assert m['reference_count']==2
     assert set(m['source_indices']['nonmember_candidates']).isdisjoint(m['source_indices']['reference'])
     assert json.loads((tmp_path/'bound.json').read_text())['attack_resources_status']=='PREPARED_CURRENT_TRAIN_SPLIT'
+    assert json.loads((tmp_path/'bound.json').read_text())['unsupported_stages']=={'other':'keep'}

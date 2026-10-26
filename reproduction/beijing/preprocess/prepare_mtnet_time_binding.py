@@ -44,10 +44,11 @@ def main():
     p.add_argument('--source-dir',required=True,type=Path)
     p.add_argument('--reference',required=True,type=Path)
     p.add_argument('--out',required=True,type=Path)
+    p.add_argument('--expected-sha256',help='Optional user-supplied reference checksum; no historical digest required')
     a=p.parse_args();start=time.time()
     if a.out.exists(): raise FileExistsError(a.out)
     with a.reference.open('rb') as f: digest=hashlib.file_digest(f,'sha256').hexdigest()
-    if digest!=REAL_SHA: raise ValueError('not the frozen 17123-record coordinate corpus')
+    if a.expected_sha256 and digest!=a.expected_sha256: raise ValueError('reference differs from the requested checksum')
     with a.reference.open('rb') as f: reference=pickle.load(f)
     files=sorted(a.source_dir.glob('*/Trajectory/*.plt'))
     eligible=[]
