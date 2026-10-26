@@ -30,7 +30,8 @@ function Invoke-SetupStep {
     $process=Start-Process -FilePath $python -ArgumentList (ConvertTo-NativeArguments $Values) -WindowStyle Hidden -Wait -PassThru -RedirectStandardOutput $stdout -RedirectStandardError $stderr
     if ($process.ExitCode -ne 0) { throw "$Name failed with exit $($process.ExitCode); see $stdout and $stderr" }
 }
-Invoke-SetupStep 'windows_runtime' @((Join-Path $PSScriptRoot 'configure_windows_runtime.py'),$Root)
+# Install the Microsoft Visual C++ x64 runtime on this machine first (README).
+# Loading torch in the computation check below verifies that prerequisite.
 Invoke-SetupStep 'base_dependencies' @('-m','pip','install','--disable-pip-version-check','-r',$requirements)
 Invoke-SetupStep 'cuda_dependencies' @('-m','pip','install','--disable-pip-version-check','-r',$gpuRequirements)
 Invoke-SetupStep 'dependency_consistency' @('-m','pip','check')

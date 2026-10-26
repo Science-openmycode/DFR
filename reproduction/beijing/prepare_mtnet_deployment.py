@@ -9,19 +9,21 @@ from preprocess.dataset_contract import sha
 
 
 def deployment_population(meta, train_only=False):
-    count=12584 if train_only else 15730
-    if meta['input_count']!=count or meta['original_loader_counts'].get('trainable',0)<10:
+    count=meta['input_count']
+    full_count=meta.get('full_population_count',count)
+    if (type(count) is not int or type(full_count) is not int or count<10
+            or full_count<count or meta['original_loader_counts'].get('trainable',0)<10):
         raise ValueError('Wrong or insufficient frozen MTNet inputs')
     if train_only:
         split=meta.get('split_binding',{})
         indices=meta.get('selected_frozen_indices',[])
-        if (meta.get('evaluation_scope')!='strict_tstr' or meta.get('full_population_count')!=15730
+        if (meta.get('evaluation_scope')!='strict_tstr'
                 or len(indices)!=count or len(set(indices))!=count
-                or any(type(i) is not int or i<0 or i>=15730 for i in indices)
+                or any(type(i) is not int or i<0 or i>=full_count for i in indices)
                 or not all(split.get(k) for k in ('split_audit_sha256','train_sha256','test_sha256','train_indices_sha256'))
                 or meta.get('input_sha256')!=split['train_sha256']):
             raise ValueError('Training-only input lacks frozen split binding')
-    elif meta.get('evaluation_scope','full_corpus')!='full_corpus':
+    elif meta.get('evaluation_scope','full_corpus')!='full_corpus' or count!=full_count:
         raise ValueError('Do not deploy a training release as full-corpus')
     return count
 
@@ -67,12 +69,8 @@ def main():
     copy(Path(__file__).parent/'deployment/RUN_MTNET_GPU.ps1','RUN_MTNET_GPU.ps1')
     for name in ('RUN_MTNET_GPU_RESUME.ps1','SETUP_MTNET_GPU.ps1','NativeArguments.ps1','configure_windows_runtime.py'):
         copy(Path(__file__).parent/'deployment'/name,name)
-    resource_root=Path(__file__).parent
-    resource_binding=json.loads((resource_root/'resources/binding.json').read_text(encoding='utf-8'))['files']
-    for rel,digest in resource_binding.items():
-        if rel.startswith('resources/runtime/') and Path(rel).name.startswith(('msvcp140','vcruntime140','concrt140')):
-            if sha(resource_root/rel)!=digest:raise ValueError('Runtime changed: '+rel)
-            copy(resource_root/rel,rel)
+    # Windows VC runtime is installed by the user as described in README.
+    # The export does not depend on a historical machine's private DLL bundle.
     copy(Path(__file__).parent/'requirements-clean-windows-py313.txt','requirements-clean-windows-py313.txt')
     copy(Path(__file__).parent/'requirements-gpu-windows-py313.txt','requirements-gpu-windows-py313.txt')
     (a.out/'deployment_binding.json').write_text(json.dumps(dict(files=files,

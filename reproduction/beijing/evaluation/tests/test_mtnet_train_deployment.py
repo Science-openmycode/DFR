@@ -28,7 +28,7 @@ def test_old_full_preparation_is_still_accepted_for_full_only():
 
 
 @pytest.mark.parametrize('field,value',[
-    ('evaluation_scope','full_corpus'),('full_population_count',17123),
+    ('evaluation_scope','full_corpus'),('full_population_count',100),
     ('input_sha256','test'),('selected_frozen_indices',[0]*12584),
     ('split_binding',{}),('original_loader_counts',{'trainable':0})])
 def test_train_export_rejects_wrong_or_incomplete_binding(field,value):
@@ -43,7 +43,7 @@ def test_runner_preserves_training_parameters_and_uses_bound_slot_count():
     assert "'--target-epsilon','1.4','--target-delta','0.00001'" in script
     assert "'--microbatch-size','1'" in script
     assert "'--public-slot-count',[string]$slots" in script
-    assert "$binding.evaluation_scope -ne 'strict_tstr'" in script
+    assert "$binding.evaluation_scope -notin @('full_corpus','strict_tstr')" in script
     assert '-WindowStyle Hidden' in script
 
 
@@ -52,7 +52,7 @@ def test_resume_runner_uses_explicit_root_and_bound_population():
     assert "D:/MTR" not in script
     assert '[Parameter(Mandatory=$true)]' in script
     assert "'--public-slot-count',[string]$slots" in script
-    assert "$binding.evaluation_scope -ne 'strict_tstr'" in script
+    assert "$binding.evaluation_scope -notin @('full_corpus','strict_tstr')" in script
 
 
 def test_clean_setup_installs_base_lock_before_gpu():

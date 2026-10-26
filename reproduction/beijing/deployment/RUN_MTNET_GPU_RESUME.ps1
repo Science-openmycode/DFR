@@ -16,8 +16,8 @@ if(-not (Test-Path -LiteralPath $checkpoint)){throw 'No complete epoch-boundary 
 if(Test-Path -LiteralPath (Join-Path $train 'model.pt')){throw 'Final model already exists; do not retrain'}
 $n=[string]$binding.training_count
 $slots=if($binding.public_slot_count){[int]$binding.public_slot_count}else{[int]$binding.input_count}
-if($slots -notin @(15730,12584)){throw 'Unexpected frozen population'}
-if($slots -eq 12584 -and $binding.evaluation_scope -ne 'strict_tstr'){throw 'Missing training-only binding'}
+if($slots -lt 1 -or $slots -ne [int]$binding.input_count){throw 'Invalid prepared population'}
+if($binding.evaluation_scope -notin @('full_corpus','strict_tstr')){throw 'Missing population scope'}
 $preflight=Start-Process -FilePath $python -ArgumentList @('-c','"import torch; assert torch.cuda.is_available(); print(torch.cuda.get_device_name(0))"') -WindowStyle Hidden -Wait -PassThru -RedirectStandardOutput (Join-Path $Root 'cuda_resume_check.log') -RedirectStandardError (Join-Path $Root 'cuda_resume_check.stderr.log')
 if($preflight.ExitCode -ne 0){throw 'CUDA resume check failed'}
 Get-Content (Join-Path $Root 'cuda_resume_check.log')

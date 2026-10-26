@@ -17,8 +17,8 @@ $train=Join-Path $Root 'trained'
 if(Test-Path -LiteralPath $train){throw 'Training output exists; no duplicate job'}
 $n=$binding.training_count
 $slots=if($binding.public_slot_count){[int]$binding.public_slot_count}else{[int]$binding.input_count}
-if($slots -notin @(15730,12584)){throw 'Unexpected frozen population'}
-if($slots -eq 12584 -and $binding.evaluation_scope -ne 'strict_tstr'){throw 'Missing training-only binding'}
+if($slots -lt 1 -or $slots -ne [int]$binding.input_count){throw 'Invalid prepared population'}
+if($binding.evaluation_scope -notin @('full_corpus','strict_tstr')){throw 'Missing population scope'}
 Write-Output "START MTNet 30 epochs; training records=$n; evaluation population=$slots; microbatch=1"
 $timer=[Diagnostics.Stopwatch]::StartNew()
 $arguments=@((Join-Path $Root 'train_native_mtnet_dpsgd_paper.py'),'--mtnet-root',(Join-Path $Root 'official'),'--data-parent',(Join-Path $Root 'data'),'--city','beijing_roads_l20','--max-route-edges','20','--out',$train,'--epochs','30','--batch-size',[string]$n,'--clip-C','1','--target-epsilon','1.4','--target-delta','0.00001','--dataset-size-public','--release-condition-policy','public_fixed','--dp-domain-scope','prepared_aligned','--gradient-engine','vmap','--microbatch-size','1','--split-per','1','--progress-every','64','--loss-probe-size','128','--seed','20260712','--source-lock',(Join-Path $Root 'canonical_mtnet_source_lock.json'))

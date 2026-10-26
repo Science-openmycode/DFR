@@ -1,0 +1,19 @@
+{
+  "source": "https://github.com/wangyong01/MTNet_Code",
+  "scope": "Author MTNet artifact core files used by the strict local adapter",
+  "files_sha256": {
+    "mtnet.py": "7245841AF543FC2B26E5ED686FA382A62D3AC8EBD3C2FC39F6591D64FBBC4D57",
+    "train.py": "6990C5EAE8687E0869F26C61DA96A0B2E88A22F0E51C80A63297DDF60F13FCE3",
+    "util/config.py": "D06A5765BD6EE338ADB4CAE4AAB42F54E704BFCDB51BD73A88DF0AE2F379B4EF"
+  },
+  "source_defaults": {
+    "BATCH_SIZE": 8192,
+    "EPOCHS": 3,
+    "USE_TGRAPH": true,
+    "TRAJ_FIX_LEN": 21,
+    "LAMBDA": 0.1,
+    "LSTMS_NUM": 2,
+    "L2_NUM": 1
+  },
+  "note": "The trainer may set data path, city, and sequence length for a transfer protocol. Any source-file mismatch aborts a strict run."
+}
