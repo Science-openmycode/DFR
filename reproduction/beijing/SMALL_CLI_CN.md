@@ -55,3 +55,15 @@ python -m pytest tests -q
 ```
 
 这套测试还检查错误输入拒绝、空槽位、数据划分、命令与绘图数据接口。它不代替DPMM、MTNet、MM2实际生成、完整TSTR、攻击、消融和敏感性入口的单独运行；这些项目在服务器测试记录中分别列状态，未完成不能写为全部通过。
+
+## 6. DPMM实际加速生成检查
+
+`--records 64`准备64条人工轨迹，以满足现有验证入口的60条对照要求；不降低原对照数量。先运行验证，再把刚生成的validation.json交给生成器，用户不用填写历史数据哈希。
+
+```powershell
+python tools/prepare_cli_fixture.py --out data/dpmm_cli_fixture --runtime data/fmm-runtime/Library/bin --records 64
+python validate_dpmm_dataset.py --config data/dpmm_cli_fixture/native.json --adapter vendor/dpmm/original/check/run_dpmm_official_beijing.py --optimizer vendor/dpmm/fast_dpmm_paths.py --out results/dpmm_cli_validation --records 60 --exact-records 60
+python synthesize_dpmm.py --config data/dpmm_cli_fixture/native.json --adapter vendor/dpmm/original/check/run_dpmm_official_beijing.py --optimizer vendor/dpmm/fast_dpmm_paths.py --validation results/dpmm_cli_validation/validation.json --workers 2 --split full --out results/dpmm_cli_generation
+```
+
+预期先输出60条逐轨迹比较，再生成dpmm.pkl、dpmm.json、new_dataset_execution.json。输出数以DPMM实际发布情况为准，检查其保留的输入索引；不能把未发布记录补造为轨迹。

@@ -26,7 +26,10 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--out',type=Path,required=True)
     p.add_argument('--runtime',type=Path,required=True)
+    p.add_argument('--records',type=int,default=16,help='Artificial native population size; use 64 for DPMM 60-record validation')
     a=p.parse_args();out=a.out.resolve()
+    if a.records<2: p.error('--records must be at least 2')
+    count=a.records;train_count=int(count*.8)
     if out.exists():raise FileExistsError(out)
     out.mkdir(parents=True)
     # 384 public endpoint regions, required by the unchanged DFR mechanism.
@@ -49,29 +52,29 @@ def main():
     save(out/'osm.pkl',[{'id':i,'geometry':[{'lat':float(lat[s]),'lon':float(lon[s])},
         {'lat':float(lat[t]),'lon':float(lon[t])}],'tags':{'highway':'residential'}} for i,(s,t) in edges.items()])
     trajectories=[];roads=[]
-    for i in range(16):
+    for i in range(count):
         nodes=[(i*19+j)%384 for j in range(30)]
         trajectories.append(np.array([[lat[n],lon[n]] for n in nodes]))
         roads.append({'source_index':i,'accepted':True,'cpath':[2*n+1 for n in nodes[:-1]],'connected':True,'observation_share':1.0})
     prepared=out/'dataset';prepared.mkdir()
     save(prepared/'trajectories.pkl',trajectories);save(prepared/'trajectories.pkl.gz',trajectories)
     save(prepared/'road_records.pkl.gz',roads)
-    save(prepared/'train.pkl',trajectories[:12]);save(prepared/'test.pkl',trajectories[12:])
-    write(prepared/'train_split.json',{'indices':list(range(12))})
-    write(prepared/'test_split.json',{'indices':list(range(12,16))})
-    write(prepared/'source_indices.json',list(range(16)))
+    save(prepared/'train.pkl',trajectories[:train_count]);save(prepared/'test.pkl',trajectories[train_count:])
+    write(prepared/'train_split.json',{'indices':list(range(train_count))})
+    write(prepared/'test_split.json',{'indices':list(range(train_count,count))})
+    write(prepared/'source_indices.json',list(range(count)))
     write(prepared/'bbox.json',{'bbox':[39.88,39.92,116.28,116.32]})
-    meta={'schema':'frozen-road-dataset-v1','status':'FROZEN','trajectory_count':16,
-        'train_count':12,'test_count':4,'network':str(network),'network_sha256':sha(network),
+    meta={'schema':'frozen-road-dataset-v1','status':'FROZEN','trajectory_count':count,
+        'train_count':train_count,'test_count':count-train_count,'network':str(network),'network_sha256':sha(network),
         'network_sidecars':{s:sha(network.with_suffix(s)) for s in ('.shp','.shx','.dbf','.prj','.cpg')},
         'artifacts':{f.name:sha(f) for f in prepared.iterdir()},'purpose':'ARTIFICIAL_CLI_TEST_ONLY_NOT_RESEARCH_RESULTS'}
     write(prepared/'canonical_manifest.json',meta)
     # PrivTrace's unchanged domain requires >=50,000 observations.
     measurements=out/'measurement_input';measurements.mkdir()
-    save(measurements/'trajectories.pkl',[trajectories[i%16] for i in range(1700)])
+    save(measurements/'trajectories.pkl',[trajectories[i%count] for i in range(1700)])
     write(measurements/'bbox.json',{'bbox':[39.88,39.92,116.28,116.32]})
     cfg=json.loads((ROOT/'configs/beijing.json').read_text(encoding='utf-8'))
-    cfg.update(dataset='beijing',batch='cli_fixture',slots=16,train_slots=12,test_slots=4,
+    cfg.update(dataset='beijing',batch='cli_fixture',slots=count,train_slots=train_count,test_slots=count-train_count,
         frozen_dataset_id=sha(prepared/'canonical_manifest.json'),bbox=[39.88,39.92,116.28,116.32],
         public_resources_status='EDGE_METRIC_READY',epsilon=1.4,seed=42,threads=2)
     cfg.pop('measurement_bbox',None)
@@ -87,6 +90,6 @@ def main():
     cfg['dataset_policy']='artificial-coordinate-cli-test'
     cfg.pop('frozen_dataset_id',None)
     write(out/'measurement.json',cfg)
-    print('CLI_FIXTURE_READY',out,'16 native slots; 51000 observations for measurement input')
+    print('CLI_FIXTURE_READY',out,count,'native slots; 51000 observations for measurement input')
 
 if __name__=='__main__':main()
