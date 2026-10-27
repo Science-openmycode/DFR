@@ -1,6 +1,6 @@
 # Data download and preprocessing
 
-[Experiment guide](README.md) · [中文说明](DATA_CN.md)
+[Experiment guide](../../README.md) · [中文说明](DATA_CN.md)
 
 Run these commands from `reproduction/beijing` after installing the environment in the experiment guide. Activate `.venv` so that `python` uses its interpreter.
 

@@ -1,6 +1,6 @@
 # 当前实验入口
 
-当前教程为 [README](README.md) 和 [补充实验逐条命令](SUPPLEMENT_COMMANDS_CN.md)。
+当前教程为 [README](../../README.md) 和 [补充实验逐条命令](SUPPLEMENT_COMMANDS_CN.md)。
 
 1. [M×R与全集评分](reproduction_checked_20261024/COMMANDS_CN.md)
 2. [DFR生成](REPRODUCE_DFR_LENGTH_20261024_CN.md)、[DFR评分](REPRODUCE_NATIVE_SCORES_20261024_CN.md)

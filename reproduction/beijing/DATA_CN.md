@@ -1,6 +1,6 @@
 # 北京数据下载与预处理
 
-[English](DATA.md) · [实验说明](README_CN.md)
+[English](DATA.md) · [实验说明](../../README_CN.md)
 
 以下命令在 `reproduction/beijing` 目录执行。原始数据、预处理数据、合成数据是三种不同对象：原始数据从 Microsoft 下载；预处理程序生成道路研究语料；各算法随后生成合成数据。真实数据及其时间戳不是 DP 发布物，不上传到合成数据目录。
 
