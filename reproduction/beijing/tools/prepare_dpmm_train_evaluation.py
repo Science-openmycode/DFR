@@ -30,6 +30,40 @@ def read(path):
     return json.loads(Path(path).read_text(encoding='utf-8-sig'))
 
 
+def validate_training_evidence(v, execution, train_sha, config):
+    """Accept either verified protocol without weakening its own assertions."""
+    if not (v.get('complete') and v.get('passed') and v.get('tested_records') == 60
+            and v.get('target_records') == 60 and v.get('population') == 'train'
+            and v.get('input_count') == config['train_slots']
+            and v.get('public_osm_sha256') == execution.get('osm_sha256')
+            and v.get('adapter_sha256') == execution.get('adapter_sha256')
+            and v.get('optimization_sha256') == execution.get('optimizer_sha256')
+            and v.get('public_parameters', {}).get('epsilon') == config['epsilon']):
+        raise ValueError('Validation input, source, population or budget mismatch')
+    protocol = execution.get('validation_protocol', 'accelerated-only')
+    if protocol == 'slow-equivalence':
+        rows = v.get('rows', [])
+        if not (v.get('frozen_dataset_id') == config['frozen_dataset_id']
+                and v.get('real_input_sha256') == train_sha
+                and v.get('input_sha256') == train_sha
+                and len(rows) == 60 and len({r['index'] for r in rows}) == 60
+                and all(r.get('exact_output_equal') is True for r in rows)
+                and v.get('public_path_comparisons')
+                and all(r.get('paths_equal') is True for r in v['public_path_comparisons'])):
+            raise ValueError('Incomplete slow-reference equivalence evidence')
+    elif protocol == 'accelerated-only':
+        rows = v.get('sixty_record_validation', {}).get('results', [])
+        if not (v.get('protocol') == 'accelerated-only-process-validation-v1'
+                and v.get('dataset_id') == config['frozen_dataset_id']
+                and v.get('input_sha256') == train_sha
+                and v.get('slow_reference_executed') is False
+                and len(rows) == 60 and len({r['index'] for r in rows}) == 60
+                and v.get('recommended_workers') == execution.get('workers')):
+            raise ValueError('Incomplete accelerated-process evidence')
+    else:
+        raise ValueError('Unknown DPMM validation protocol')
+
+
 def prepare(directory, config, ledger, document, validation, out):
     directory, out = Path(directory), Path(out)
     if out.exists():
@@ -54,22 +88,10 @@ def prepare(directory, config, ledger, document, validation, out):
             or execution.get('input_sha256') != train_sha
             or execution.get('rematched') is not False
             or execution.get('validation_sha256') != sha(validation)
-            or not v.get('complete') or not v.get('passed')
-            or v.get('protocol') != 'accelerated-only-process-validation-v1'
-            or v.get('tested_records') != 60 or v.get('target_records') != 60
-            or len(v.get('sixty_record_validation', {}).get('results', [])) != 60
-            or len({r['index'] for r in v['sixty_record_validation']['results']}) != 60
-            or v.get('slow_reference_executed') is not False
-            or v.get('population') != 'train' or v.get('input_sha256') != train_sha
-            or v.get('input_count') != c['train_slots']
-            or v.get('dataset_id') != c['frozen_dataset_id']
-            or v.get('public_osm_sha256') != execution.get('osm_sha256')
-            or v.get('recommended_workers') != execution.get('workers')
             or not execution.get('adapter_sha256') or not execution.get('optimizer_sha256')
-            or v.get('adapter_sha256') != execution.get('adapter_sha256')
-            or v.get('optimization_sha256') != execution.get('optimizer_sha256')
-            or v.get('public_parameters', {}).get('epsilon') != c['epsilon']):
+            ):
         raise ValueError('Incomplete or mismatched train-only DPMM execution')
+    validate_training_evidence(v, execution, train_sha, c)
     for name in ('dpmm.pkl', 'dpmm.json'):
         if execution.get('outputs', {}).get(name) != sha(directory / name):
             raise ValueError('Native output hash mismatch: ' + name)

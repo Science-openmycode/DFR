@@ -18,7 +18,7 @@ ROOT=Path(__file__).resolve().parent
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--config',type=Path,required=True)
-    p.add_argument('--method',required=True,choices=('SPRT','PrivTrace','DPStd','DPTraj-PM','MTR-DFR','MTNet'))
+    p.add_argument('--method',required=True,choices=('SPRT','PrivTrace','DPStd','DPTraj-PM','MTR-DFR','MTNet','DPMM'))
     p.add_argument('--router',required=True,choices=('Origin','Nearest','FMM','STMatch','MM2-MDP'))
     p.add_argument('--input',type=Path,help='Explicit route object if not in its default directory')
     p.add_argument('--out',type=Path)
@@ -42,6 +42,8 @@ def main():
     if out.exists():raise FileExistsError(out)
     road=None
     score_cache=path('edge_cache')
+    if a.method == 'DPMM' and (a.router != 'Origin' or a.input is None):
+        p.error('DPMM requires its explicitly staged original coordinates and router Origin')
     if a.method in ('MTR-DFR','MTNet'):
         if a.router != 'Origin':
             p.error('Native generators only have their own Original R; no rematching')
