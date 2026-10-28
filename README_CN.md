@@ -76,13 +76,17 @@ $env:PROJ_LIB = "$PWD/data/fmm-runtime/Library/share/proj"
 
 ## 7. 把真实 GPS 预处理为道路语料
 
-第一条显示参数，第二条实际匹配。配置使用全点、8→16候选、200米半径、50米GPS误差和8线程。阅读 `selection_review.json` 后，第三条接受道路子集并写入 `data/road_accepted/dataset`。筛选需审阅时第二条退出码为2。历史道路语料为15,730条，训练/测试为12,584/3,146；新运行以实际筛选报告为准。
+第一条只显示参数，通常数秒。第二条执行一次匹配并保存审核结果，不生成最终语料；配置使用全点、8→16候选、200米半径、50米GPS误差和8线程。阅读 `data/road_review/selection_review.json` 后，第三条用 `--review-from` 直接复用已保存的道路匹配记录，只验证、投影、划分和保存，不再次调用匹配器。`--out` 必须是新目录。审核发现筛选差异时第二条退出码为2，报告和匹配结果仍完整保留。历史道路语料为15,730条，训练/测试为12,584/3,146；新运行以实际筛选报告为准。
+
+用时参考：全量匹配按小时预留，而不是几分钟；历史4线程运行完成15,488/17,123条约5.06小时，另一次8线程的515条困难轨迹重试约1.98小时，最慢批次约47分钟。这是不同历史批次，不能相加当作本命令的实测总时间，也不能保证8线程用时减半。第三条不包含这些匹配时间，仅需输入读取、核验和几何投影，具体取决于点数与磁盘；大语料按分钟至数十分钟预留，属于估计。
+
+已有本版本生成的审核目录时，直接运行第三条即可；旧版缺少可复用证据的审核目录会明确报错，不会偷偷重新匹配。已有完整预处理语料时，可直接将其 `dataset` 目录用于第8步 `bind_dataset.py --dataset`，无需执行本节。保留目录内的全部数据和清单，并使用同一公共路网。仓库中的 `datasets/synthetic/` 是已跑好的合成数据，`reference_results/` 是结果，可用于复算和作图，但不能代替真实评分语料。真实GeoLife下载方式见第4步；本仓库没有提供预处理真实语料的下载包。
 
 
 ```powershell
 python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review --dry-run
-python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review
-python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_accepted --accept-reviewed-subset yes
+python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review --review-only
+python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_accepted --review-from data/road_review --accept-reviewed-subset yes
 ```
 
 ## 8. 绑定新批次并生成逐条实验命令

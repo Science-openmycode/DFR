@@ -55,7 +55,7 @@ Review the preprocessing configuration, then run matching:
 
 ```powershell
 python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review --dry-run
-python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review
+python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review --review-only
 ```
 
 `--dry-run` prints the configured inputs and matching parameters. The next command performs the matching. The configuration uses all points, 8 then 16 candidates, a 200 m search radius, a 50 m GPS error parameter, and eight threads. Change `threads` for your machine while retaining the matching parameters.
@@ -63,10 +63,12 @@ python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data
 The run writes chunk-level evidence, `reviewed_records.pkl.gz`, `selection.csv`, and `selection_review.json`. If the program requests a review of the selected road subset, it exits with code 2. Read the selection report, then accept that subset in a new output directory:
 
 ```powershell
-python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_accepted --accept-reviewed-subset yes
+python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_accepted --review-from data/road_review --accept-reviewed-subset yes
 ```
 
-The accepted dataset is written to `data/road_accepted/dataset`. The historical road batch contains 15,730 trajectories, split into 12,584 training and 3,146 test trajectories. Your run reports its own retained count and selection reasons.
+The accepted dataset is written to `data/road_accepted/dataset`. The review-only command does not create a final corpus. Acceptance reuses its records without importing or invoking the matcher. The historical road batch contains 15,730 trajectories, split into 12,584 training and 3,146 test trajectories. Your run reports its own retained count and selection reasons.
+
+Allow seconds for the dry run and hours for full matching. Historical measurements: 15,488/17,123 records took 5.06 hours on four threads; a separate eight-thread retry of 515 difficult records took 1.98 hours. These are not one combined benchmark. Acceptance only reads, validates, and projects; allow minutes to tens of minutes for a large corpus (estimate). Existing complete prepared datasets can be passed directly to `bind_dataset.py --dataset` below, skipping matching. Existing synthetic datasets in `datasets/synthetic/` and saved scores in `reference_results/` support rescoring and plotting, but do not replace the real reference. A preprocessed real-corpus download archive is not supplied. Older reviews without reusable evidence fail explicitly rather than rematching.
 
 ## 5. Create a new experiment batch
 

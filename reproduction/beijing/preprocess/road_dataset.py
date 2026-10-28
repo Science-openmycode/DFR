@@ -96,14 +96,17 @@ def main():
     p.add_argument('--threads',type=int,default=8)
     p.add_argument('--seed',type=int,default=20260713)
     p.add_argument('--review-only',action='store_true',help='Always stop after bias review, even if no flags')
+    p.add_argument('--review-from',type=Path,help='Completed review directory; reuse records without importing or invoking matcher')
     p.add_argument('--accept-reviewed-subset',help='yes accepts the restricted cohort; historical report digest remains optional')
     a=p.parse_args()
     if a.out.exists():p.error('Choose a new output; existing data are never overwritten')
     if a.threads<1:p.error('--threads must be positive')
     if not (a.bbox[0]<a.bbox[1] and a.bbox[2]<a.bbox[3]):p.error('Invalid public bbox')
     reuse=bool(a.base_matches or a.retry_dir or a.base_manifest)
+    if a.review_from and reuse:p.error('--review-from cannot be combined with legacy evidence')
+    if a.review_from and (not a.accept_reviewed_subset or a.review_only):p.error('Review reuse requires explicit acceptance and cannot use --review-only')
     if reuse and not all([a.base_matches,a.base_manifest,a.retry_dir]):p.error('Reuse requires all three evidence arguments')
-    if not reuse and not a.executable:p.error('Provide executable or reusable evidence')
+    if not reuse and not a.review_from and not a.executable:p.error('Provide executable or reusable evidence')
     raw=load(a.source);timestamps=load(a.timestamps)
     if len(timestamps)!=len(raw):raise ValueError('Timestamp count mismatch')
     with a.timestamp_bindings.open(encoding='utf-8-sig',newline='') as f:bindings=list(csv.DictReader(f))
@@ -113,19 +116,41 @@ def main():
         value=np.ascontiguousarray(coords,dtype='<f8')
         if hashlib.sha256(len(value).to_bytes(8,'little')+value.tobytes()).hexdigest()!=binding['coordinate_sha256']:raise ValueError('Timestamp binding changed')
     os.environ['OMP_NUM_THREADS']=str(a.threads);os.environ['PYTHONUTF8']='1'
-    sys.path.insert(0,str(a.matcher_module.resolve().parent))
-    spec=importlib.util.spec_from_file_location('preprocessing_matcher',a.matcher_module)
-    matcher=importlib.util.module_from_spec(spec);sys.modules[spec.name]=matcher;spec.loader.exec_module(matcher)
-    import full_point_matching as checks
-    checks.configure_csv_reader()
+    if not reuse and not a.review_from:
+        sys.path.insert(0,str(a.matcher_module.resolve().parent))
+        spec=importlib.util.spec_from_file_location('preprocessing_matcher',a.matcher_module)
+        matcher=importlib.util.module_from_spec(spec);sys.modules[spec.name]=matcher;spec.loader.exec_module(matcher)
+        import full_point_matching as checks
+        checks.configure_csv_reader()
     a.out.mkdir(parents=True)
     run_record=dict(command=[sys.executable,*sys.argv],program_sha256=digest(Path(__file__)),
         inputs={str(f.resolve()):digest(f) for f in [a.source,a.network,a.matcher_module,a.timestamps,a.timestamp_bindings]},
         network_sidecars={str(f.resolve()):digest(f) for f in a.network.parent.glob(a.network.stem+'.*') if f.suffix.lower() in ['.shp','.shx','.dbf','.prj','.cpg']},
         policy=dict(candidates=[8,16],radius_m=200,gps_error_m=50,split_trajectories=False),
         status='RUNNING_PRIVATE_PREPROCESSING')
+    run_record['input_roles']={k:digest(getattr(a,k)) for k in ['source','network','matcher_module','timestamps','timestamp_bindings']}
+    run_record['review_parameters']=dict(dataset=a.dataset,bbox=a.bbox)
+    run_record['matching_executed']=not bool(reuse or a.review_from)
     (a.out/'preprocessing_run.json').write_text(json.dumps(run_record,ensure_ascii=False,indent=2),encoding='utf-8')
-    if reuse:
+    if a.review_from:
+        previous=json.loads((a.review_from/'preprocessing_run.json').read_text(encoding='utf-8'))
+        if previous.get('status') not in ['REVIEW_ONLY','BLOCKED_SELECTION_DIFFERENCES','FROZEN']:
+            raise ValueError('Review did not finish')
+        if previous.get('input_roles')!=run_record['input_roles'] or previous.get('review_parameters')!=run_record['review_parameters'] or previous.get('policy')!=run_record['policy']:
+            raise ValueError('Review input or policy differs; use the configuration used for review')
+        expected=previous.get('review_artifacts',{})
+        if set(expected)!={'selection_review.json','reviewed_records.pkl.gz','selection.csv'}:
+            raise ValueError('Review lacks reusable evidence; use a review created by this version')
+        for name,value in expected.items():
+            if digest(a.review_from/name)!=value:raise ValueError('Review artifact changed: '+name)
+        old_sides={Path(k).suffix:v for k,v in previous['network_sidecars'].items()}
+        if old_sides!={Path(k).suffix:v for k,v in run_record['network_sidecars'].items()}:
+            raise ValueError('Review network sidecars changed')
+        records=load(a.review_from/'reviewed_records.pkl.gz')
+        if [r['source_index'] for r in records]!=list(range(len(raw))) or any(r['source_points']!=len(raw[i]) for i,r in enumerate(records)):
+            raise ValueError('Review record IDs or point counts differ')
+        run_record['review_from']=str(a.review_from.resolve())
+    elif reuse:
         meta=json.loads(a.base_manifest.read_text(encoding='utf-8'))
         if digest(a.base_matches)!=meta['output_sha256']:raise ValueError('Base record hash mismatch')
         for name,h in meta['input_bindings'].items():
@@ -198,11 +223,14 @@ def main():
         screening_rule='Review flag if KS>=0.20 or absolute SMD>=0.50; categorical TV>=0.10. Engineering safeguards, not proof of equivalence.',
         policy='k8 then k16 for failures only; radius=200m; gps_error=50m; no splitting; no raw deletion',
         decision='BLOCKED_SELECTION_DIFFERENCES' if flags else 'NO_SCREENING_FLAGS_NOT_PROOF_OF_EQUIVALENCE')
+    if a.review_from and review!=json.loads((a.review_from/'selection_review.json').read_text(encoding='utf-8')):
+        raise ValueError('Selection review differs from the accepted review')
     (a.out/'selection_review.json').write_text(json.dumps(review,ensure_ascii=False,indent=2),encoding='utf-8')
     with (a.out/'selection.csv').open('w',newline='',encoding='utf-8') as f:
         writer=csv.writer(f);writer.writerow(['source_index','retained','first_success_candidates','reason'])
         writer.writerows((r['source_index'],r['accepted'],r['first_success_candidates'],r['reason']) for r in records)
     save(a.out/'reviewed_records.pkl.gz',records)
+    run_record['review_artifacts']={name:digest(a.out/name) for name in ['selection_review.json','reviewed_records.pkl.gz','selection.csv']}
     print(json.dumps({k:review[k] for k in ['source_count','retained','excluded','flags','decision']},ensure_ascii=False),flush=True)
     acknowledged=bool(a.accept_reviewed_subset and (a.accept_reviewed_subset.lower()=='yes' or a.accept_reviewed_subset==digest(a.out/'selection_review.json')))
     if a.accept_reviewed_subset and not acknowledged:

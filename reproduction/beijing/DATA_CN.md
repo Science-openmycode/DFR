@@ -63,7 +63,7 @@ $env:PATH = "$PWD/data/fmm-runtime/Library/bin;$env:PATH"
 $env:GDAL_DATA = "$PWD/data/fmm-runtime/Library/share/gdal"
 $env:PROJ_LIB = "$PWD/data/fmm-runtime/Library/share/proj"
 python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review --dry-run
-python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review
+python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review --review-only
 ```
 
 `--config` 明确绑定坐标、时间戳、CSV、公共图、匹配程序与运行库；`--out` 为新目录；`--dry-run` 只显示参数，**不表示匹配成功**。配置固定全点、候选8→16、200m半径、50m GPS误差、8线程；不插入额外轨迹或读取其他批次的匹配结果。调整机器线程时只改配置中的 `threads`，不要修改匹配协议。
@@ -71,10 +71,12 @@ python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data
 实际匹配输出分块证据、`reviewed_records.pkl.gz`、`selection.csv`、`selection_review.json` 和运行记录。筛选差异触发时退出2；用户阅读报告后自行决定是否接受道路子集。接受时不再需要填写哈希，执行：
 
 ```powershell
-python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_accepted --accept-reviewed-subset yes
+python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_accepted --review-from data/road_review --accept-reviewed-subset yes
 ```
 
-该命令使用新目录，并生成dataset。保留筛选报告，不把被剔除的轨迹隐瞒为全部保留。
+第二条只保存审核，不生成最终语料；第三条复用已保存记录，不加载或调用匹配器，只核验、投影和保存dataset。保留筛选报告，不把被剔除的轨迹隐瞒为全部保留。
+
+时间参考：参数预览通常数秒，全量匹配按小时预留。历史4线程完成15,488/17,123条用时5.06小时，另一次8线程的515条困难轨迹重试用时1.98小时，两者不能相加当作本命令实测总时间。接受审核仅需读取、核验和投影，大语料按分钟至数十分钟预留（估计）。已有完整预处理语料可直接用于下文 `bind_dataset.py --dataset`，跳过匹配。仓库 `datasets/synthetic/` 与 `reference_results/` 可用于复算、作图，不能代替真实参考语料；目前没有提供预处理真实语料的下载包。旧版缺少复用证据的审核目录会明确报错，不会重新匹配。
 
 历史新版冻结语料为15,730条道路轨迹，训练12,584、测试3,146；是否得到同一语料需核对实际匹配和筛选结果，不能强行截成该数。旧版17,123条不是新版道路语料。生成后可用 `bind_dataset.py --dataset ... --osm-cache ... --out ... --batch ...` 绑定新批次，再执行公共资源准备、TSTR划分与 README 后续命令；这些入口的完整参数见各自 `--help`。
 

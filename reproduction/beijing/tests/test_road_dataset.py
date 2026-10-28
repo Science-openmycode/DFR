@@ -45,7 +45,8 @@ def test_cli_freezes_clean_toy_data_and_contract_checks_the_result(tmp_path):
     from pyproj import Transformer
     from shapely.geometry import LineString
     root=Path(__file__).resolve().parents[1]
-    adapter=root/'vendor/road_preprocessing/road_route_io_fixed.py'
+    adapter=tmp_path/'forbidden_matcher.py'
+    adapter.write_text("raise RuntimeError('Matcher must never be imported for reusable evidence')\n",encoding='utf-8')
     transform=Transformer.from_crs('EPSG:4326','EPSG:32650',always_xy=True)
     x,y=transform.transform(116.3,39.9)
     graph=tmp_path/'network.shp'
@@ -80,3 +81,50 @@ def test_cli_freezes_clean_toy_data_and_contract_checks_the_result(tmp_path):
     contract=importlib.util.module_from_spec(spec);spec.loader.exec_module(contract)
     assert contract.validate_dataset(out/'dataset')['count']==3
     assert source.read_bytes()==pickle.dumps([coords,coords,coords])
+    # Reuse the completed review without either the matcher executable or legacy inputs.
+    fresh=tmp_path/'accepted'
+    reuse_command=command[:]
+    for flag in ['--base-matches','--base-manifest','--retry-dir']:
+        i=reuse_command.index(flag);del reuse_command[i:i+2]
+    reuse_command[reuse_command.index('--out')+1]=str(fresh)
+    reuse_command+=['--review-from',str(out),'--accept-reviewed-subset','yes']
+    reused=subprocess.run(reuse_command,capture_output=True,text=True,encoding='utf-8')
+    assert reused.returncode==0,reused.stderr
+    assert contract.validate_dataset(fresh/'dataset')['count']==3
+    assert json.loads((fresh/'preprocessing_run.json').read_text(encoding='utf-8'))['matching_executed'] is False
+    for name in ['trajectories.pkl','train.pkl','test.pkl','source_indices.json']:
+        assert (out/'dataset'/name).read_bytes()==(fresh/'dataset'/name).read_bytes()
+    config=tmp_path/'config.json'
+    config.write_text(json.dumps({'paths':{k:str(v) for k,v in dict(source=source,network=graph,
+        **{'matcher-module':adapter,'timestamps':times,'timestamp-bindings':binding}).items()},
+        'parameters':{'bbox':[39.75,40.15,116.1,116.65]}}),encoding='utf-8')
+    wrapper=[sys.executable,str(root/'prepare_roads.py'),'--config',str(config),'--out',str(tmp_path/'wrapper'),
+        '--review-from',str(out),'--accept-reviewed-subset','yes']
+    wrapped=subprocess.run(wrapper,capture_output=True,text=True,encoding='utf-8')
+    assert wrapped.returncode==0,wrapped.stderr
+    assert (tmp_path/'wrapper'/'dataset'/'trajectories.pkl').read_bytes()==(fresh/'dataset'/'trajectories.pkl').read_bytes()
+    review_command=command[:]
+    review_command[review_command.index('--out')+1]=str(tmp_path/'review_only')
+    review_command+=['--review-only']
+    reviewed=subprocess.run(review_command,capture_output=True,text=True,encoding='utf-8')
+    assert reviewed.returncode==0,reviewed.stderr
+    assert not (tmp_path/'review_only'/'dataset').exists()
+    assert json.loads((tmp_path/'review_only'/'preprocessing_run.json').read_text(encoding='utf-8'))['status']=='REVIEW_ONLY'
+    original_times=times.read_bytes()
+    times.write_bytes(pickle.dumps([np.array([40001.,40001.001])]*3))
+    changed_command=reuse_command[:]
+    changed_command[changed_command.index('--out')+1]=str(tmp_path/'changed_inputs')
+    changed=subprocess.run(changed_command,capture_output=True,text=True,encoding='utf-8')
+    assert changed.returncode!=0 and 'Review input or policy differs' in changed.stderr
+    assert not (tmp_path/'changed_inputs'/'dataset').exists()
+    times.write_bytes(original_times)
+    # Existing outputs must never be overwritten.
+    collision=subprocess.run(reuse_command,capture_output=True,text=True,encoding='utf-8')
+    assert collision.returncode!=0 and 'existing data are never overwritten' in collision.stderr
+    # Changed evidence must fail before projection; never silently rematch.
+    (out/'selection.csv').write_text('changed',encoding='utf-8')
+    reuse_command[reuse_command.index('--out')+1]=str(tmp_path/'rejected')
+    rejected=subprocess.run(reuse_command,capture_output=True,text=True,encoding='utf-8')
+    assert rejected.returncode!=0
+    assert 'Review artifact changed' in rejected.stderr
+    assert not (tmp_path/'rejected'/'dataset').exists()

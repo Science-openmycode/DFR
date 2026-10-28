@@ -76,13 +76,17 @@ $env:PROJ_LIB = "$PWD/data/fmm-runtime/Library/share/proj"
 
 ## 7. Preprocess real GPS trajectories into a road corpus
 
-The first command prints parameters; the second performs matching. The configuration uses all points, 8→16 candidates, a 200 m radius, a 50 m GPS error parameter, and eight threads. Read `selection_review.json`, then use the third command to accept the road subset and write `data/road_accepted/dataset`. The second command exits with code 2 when selection needs review. The historical road corpus contains 15,730 trajectories, split into 12,584/3,146 training/test records. Use the selection report from your own run.
+The first command only prints parameters and normally takes seconds. The second runs matching once and saves review evidence without creating the final corpus. It uses all points, 8→16 candidates, a 200 m radius, a 50 m GPS error parameter, and eight threads. Read `data/road_review/selection_review.json`, then use the third command with `--review-from` to reuse the saved road matches. It only validates, projects, splits, and saves; it never calls the matcher again. `--out` must be a new directory. When selection differences are flagged, the second command exits with code 2 while retaining its complete review and matches. The historical corpus has 15,730 trajectories, split into 12,584/3,146 training/test records; use your own selection report.
+
+Timing: allow hours for full matching, not minutes. A historical four-thread run completed 15,488/17,123 records in about 5.06 hours. A separate eight-thread retry of 515 difficult trajectories took about 1.98 hours, with the slowest batch taking about 47 minutes. These are different historical batches: do not add them as a measured total for this command or assume eight threads halve the time. The third command excludes all matching time and only reads, validates, and projects. Depending on point count and disk speed, allow minutes to tens of minutes for a large corpus; this is an estimate.
+
+If you already have a review directory produced by this version, run only the third command. Older reviews without reusable evidence produce an explicit error rather than silently rematching. If you already have a complete prepared corpus, pass its `dataset` directory to `bind_dataset.py --dataset` in step 8 and skip this section. Keep all dataset files and the manifest, and use the same public road network. The repository provides saved synthetic datasets in `datasets/synthetic/` and results in `reference_results/` for rescoring and plotting; these do not replace the real evaluation corpus. Step 4 explains downloading real GeoLife data. This repository does not provide a download archive of the preprocessed real corpus.
 
 
 ```powershell
 python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review --dry-run
-python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review
-python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_accepted --accept-reviewed-subset yes
+python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review --review-only
+python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_accepted --review-from data/road_review --accept-reviewed-subset yes
 ```
 
 ## 8. Bind a new batch and create its experiment commands
