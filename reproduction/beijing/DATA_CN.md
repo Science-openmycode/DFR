@@ -74,9 +74,9 @@ python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data
 python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_accepted --review-from data/road_review --accept-reviewed-subset yes
 ```
 
-第二条只保存审核，不生成最终语料；第三条复用已保存记录，不加载或调用匹配器，只核验、投影和保存dataset。保留筛选报告，不把被剔除的轨迹隐瞒为全部保留。
+第二条把匹配记录和筛选报告保存到 `data/road_review`。读完报告后，第三条复用这些记录，将 GPS 点投影到道路，划分训练集和测试集，保存到 `data/road_accepted/dataset`。
 
-时间参考：参数预览通常数秒，全量匹配按小时预留。历史4线程完成15,488/17,123条用时5.06小时，另一次8线程的515条困难轨迹重试用时1.98小时，两者不能相加当作本命令实测总时间。接受审核仅需读取、核验和投影，大语料按分钟至数十分钟预留（估计）。已有完整预处理语料可直接用于下文 `bind_dataset.py --dataset`，跳过匹配。仓库 `datasets/synthetic/` 与 `reference_results/` 可用于复算、作图，不能代替真实参考语料；目前没有提供预处理真实语料的下载包。旧版缺少复用证据的审核目录会明确报错，不会重新匹配。
+参数预览通常只需几秒，全量匹配需要预留数小时。此前一次 4 线程运行处理 15,488 条轨迹用了约 5 小时，另一次用 8 线程重试 515 条较难匹配的轨迹用了约 2 小时。第三步预计几分钟到几十分钟，主要用于读取数据和坐标投影。已有完整的 `dataset` 目录，可以跳到下文 `bind_dataset.py --dataset`。重新评分或画图可使用仓库中的合成数据 `datasets/synthetic/` 和实验结果 `reference_results/`。
 
 历史新版冻结语料为15,730条道路轨迹，训练12,584、测试3,146；是否得到同一语料需核对实际匹配和筛选结果，不能强行截成该数。旧版17,123条不是新版道路语料。生成后可用 `bind_dataset.py --dataset ... --osm-cache ... --out ... --batch ...` 绑定新批次，再执行公共资源准备、TSTR划分与 README 后续命令；这些入口的完整参数见各自 `--help`。
 
