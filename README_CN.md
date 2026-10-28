@@ -74,23 +74,31 @@ $env:GDAL_DATA = "$PWD/data/fmm-runtime/Library/share/gdal"
 $env:PROJ_LIB = "$PWD/data/fmm-runtime/Library/share/proj"
 ```
 
-## 7. 把真实 GPS 预处理为道路语料
+## 7. 准备道路轨迹数据
 
-先运行第一条命令查看输入路径和参数，这一步通常只需几秒。第二条将 GPS 点匹配到道路，并把匹配记录和筛选报告保存到 `data/road_review`。配置使用全部 GPS 点、8→16 个候选道路、200 米搜索半径、50 米 GPS 误差参数和 8 个线程。
-
-打开 `data/road_review/selection_review.json` 查看保留和排除的轨迹。确认后运行第三条命令，读取刚才保存的匹配记录，把 GPS 点投影到对应道路，生成训练集和测试集，保存到 `data/road_accepted/dataset`。这一步复用第二步的结果，无需再次匹配。每次运行请给 `--out` 指定一个新目录。第二步若返回退出码 2，表示筛选报告有需要查看的差异；读完报告后仍可用第三条命令继续。
-
-全量道路匹配需要预留数小时。此前一次 4 线程运行处理了 15,488 条轨迹，用了约 5 小时；另一次用 8 线程重试 515 条较难匹配的轨迹，用了约 2 小时。轨迹长度和道路情况会影响速度。第三步预计需要几分钟到几十分钟，主要花在读取数据和坐标投影上。
-
-已有本版本保存的 `road_review` 目录，可以直接运行第三条命令。已有完整的 `dataset` 目录，可以跳到第 8 步，将它的路径传给 `bind_dataset.py --dataset`，并使用生成这份数据时的公共路网。历史北京道路数据集有 15,730 条轨迹，其中训练集 12,584 条、测试集 3,146 条；运行后可在筛选报告中查看本次保留的数量。
-
-只想重新评分或画图，可以使用仓库中已经生成的合成数据 `datasets/synthetic/` 和实验结果 `reference_results/`。从原始数据开始复现，请先按第 4 步下载 GeoLife。
+先查看输入路径和参数，这一步通常只需几秒：
 
 ```powershell
 python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review --dry-run
+```
+
+然后开始道路匹配。程序使用全部 GPS 点，先尝试 8 个候选道路，再对未成功的轨迹尝试 16 个候选道路；搜索半径为 200 米，GPS 误差参数为 50 米，使用 8 个线程。匹配记录和筛选报告保存在 `data/road_review`。全量数据需要预留数小时。
+
+```powershell
 python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review --review-only
+```
+
+打开 `data/road_review/selection_review.json`，查看哪些轨迹保留了、哪些被排除了。确认后运行下面的命令，直接用刚才保存的匹配结果生成道路数据集，无需重新匹配。若第二步返回退出码 2，读完筛选报告后也可用这条命令继续。
+
+```powershell
 python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_accepted --review-from data/road_review --accept-reviewed-subset yes
 ```
+
+完成后，数据保存在 `data/road_accepted/dataset`，其中包括道路轨迹、对应坐标，以及划分好的训练集和测试集。这一步预计需要几分钟到几十分钟。每次运行请给 `--out` 指定一个新目录。
+
+已有本版本保存的 `road_review` 目录，可以从第三条命令继续。已有完整的 `dataset` 文件夹，就直接进入下一节，并使用生成这份数据时的公共路网。
+
+如果只想重新评分或画图，可以用仓库里已经生成的合成数据 `datasets/synthetic/` 和实验结果 `reference_results/`。
 
 ## 8. 绑定新批次并生成逐条实验命令
 

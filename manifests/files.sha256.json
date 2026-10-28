@@ -1343,13 +1343,13 @@
     },
     {
       "path": "README.md",
-      "size": 12536,
-      "sha256": "5788911772446744b479250e143736d46cff196dbaf6a9e5b8d4b633588a99a2"
+      "size": 11986,
+      "sha256": "23eceb80c0dee9593f59d8e6ca648b3205714c40fcd2f02286e8e042a4423c3c"
     },
     {
       "path": "README_CN.md",
-      "size": 11275,
-      "sha256": "bb8eeedc8f3acaca202b94de0fdd4063770fa0a029fa8cc11e82e86ddb842f90"
+      "size": 10811,
+      "sha256": "550e156a5e99d74071f518f57df82e7721faddeb48468205f898d0a7aba8e789"
     },
     {
       "path": "requirements-lock.txt",

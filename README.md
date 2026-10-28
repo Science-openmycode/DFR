@@ -74,23 +74,31 @@ $env:GDAL_DATA = "$PWD/data/fmm-runtime/Library/share/gdal"
 $env:PROJ_LIB = "$PWD/data/fmm-runtime/Library/share/proj"
 ```
 
-## 7. Preprocess real GPS trajectories into a road corpus
+## 7. Prepare the road trajectory dataset
 
-Run the first command to view the input paths and parameters; it takes a few seconds. The second command matches GPS points to roads and saves the matches and selection report in `data/road_review`. The configuration uses all GPS points, 8→16 road candidates, a 200 m search radius, a 50 m GPS error parameter, and eight threads.
-
-Open `data/road_review/selection_review.json` to see which trajectories were kept or excluded. After reviewing it, run the third command. It reads the saved matches, projects GPS points onto their assigned roads, creates the training and test sets, and saves them in `data/road_accepted/dataset`. It reuses the second step's results, so no further matching is needed. Choose a new `--out` directory for each run. If the second command returns exit code 2, the selection report contains differences to review; the third command can continue after that review.
-
-Allow several hours for full road matching. One earlier four-thread run processed 15,488 trajectories in about five hours. A separate eight-thread retry of 515 difficult trajectories took about two hours. Speed depends on trajectory length and road conditions. The third step should take minutes to tens of minutes, mostly for reading data and projecting coordinates.
-
-With a `road_review` directory saved by this version, start with the third command. With a complete `dataset` directory, skip to step 8 and pass its path to `bind_dataset.py --dataset`, using the same public road network that produced it. The historical Beijing road dataset has 15,730 trajectories: 12,584 for training and 3,146 for testing. The selection report lists the retained count for each run.
-
-To rescore or redraw figures, use the saved synthetic datasets in `datasets/synthetic/` and experiment results in `reference_results/`. To reproduce from raw data, download GeoLife as described in step 4.
+View the input paths and parameters first. This takes a few seconds:
 
 ```powershell
 python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review --dry-run
+```
+
+Start road matching next. The program uses all GPS points, tries 8 road candidates, and retries unsuccessful trajectories with 16 candidates. It uses a 200 m search radius, a 50 m GPS error parameter, and eight threads. It saves the matches and selection report in `data/road_review`. Allow several hours for the full dataset.
+
+```powershell
 python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_review --review-only
+```
+
+Open `data/road_review/selection_review.json` to see which trajectories were kept or excluded. After reviewing it, run the command below to create the road dataset from the saved matches, with no further matching. If the second step returns exit code 2, use this command to continue after reading the selection report.
+
+```powershell
 python prepare_roads.py --config configs/preprocess_beijing_8_16.json --out data/road_accepted --review-from data/road_review --accept-reviewed-subset yes
 ```
+
+The completed dataset goes to `data/road_accepted/dataset`. It contains road trajectories, corresponding coordinates, and the training and test splits. This step should take minutes to tens of minutes. Choose a new `--out` directory for each run.
+
+With a `road_review` directory saved by this version, start with the third command. With a complete `dataset` folder, go to the next section and use the same public road network that produced it.
+
+To rescore or redraw figures, use the saved synthetic datasets in `datasets/synthetic/` and experiment results in `reference_results/`.
 
 ## 8. Bind a new batch and create its experiment commands
 

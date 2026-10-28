@@ -110,6 +110,13 @@ def test_cli_freezes_clean_toy_data_and_contract_checks_the_result(tmp_path):
     assert reviewed.returncode==0,reviewed.stderr
     assert not (tmp_path/'review_only'/'dataset').exists()
     assert json.loads((tmp_path/'review_only'/'preprocessing_run.json').read_text(encoding='utf-8'))['status']=='REVIEW_ONLY'
+    reviewed_wrapper=wrapper[:]
+    reviewed_wrapper[reviewed_wrapper.index('--review-from')+1]=str(tmp_path/'review_only')
+    reviewed_wrapper[reviewed_wrapper.index('--out')+1]=str(tmp_path/'accepted_review_only')
+    accepted_review=subprocess.run(reviewed_wrapper,capture_output=True,text=True,encoding='utf-8')
+    assert accepted_review.returncode==0,accepted_review.stderr
+    for name in ['trajectories.pkl','train.pkl','test.pkl','source_indices.json']:
+        assert (tmp_path/'accepted_review_only'/'dataset'/name).read_bytes()==(out/'dataset'/name).read_bytes()
     original_times=times.read_bytes()
     times.write_bytes(pickle.dumps([np.array([40001.,40001.001])]*3))
     changed_command=reuse_command[:]
