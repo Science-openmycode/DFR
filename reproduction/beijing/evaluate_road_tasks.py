@@ -21,6 +21,24 @@ def verify_score_inputs(scored, expected_inputs):
     return ledger
 
 
+def road_task_records(raw, representation, metric_edges, source_edges=None, network=None):
+    """Preserve legacy records, or deterministically represent verified native pairs.
+
+    Source node numbers are never treated as metric-cache node numbers. Only
+    the shared, explicitly bound edge IDs connect their two namespaces.
+    """
+    if representation == 'edge-records':
+        if any(not isinstance(row,dict) for row in raw):
+            raise ValueError('Expected explicit edge records')
+        return raw
+    if representation != 'node-pairs' or source_edges is None:
+        raise ValueError('Native task input requires explicit node-pairs source binding')
+    from tools.convert_native_node_pairs import convert, resolve_pairs
+    used={tuple(map(int,pair)) for route in raw for pair in route}
+    pairs=resolve_pairs(source_edges,metric_edges,network=network,required_pairs=used)
+    return convert(raw,pairs)
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--config',type=Path,required=True)
@@ -45,8 +63,8 @@ def main():
     out=(a.out or base/'road_tasks'/a.method/a.router).resolve()
     if out.exists():raise FileExistsError(out)
     scored=(a.score_manifest or base/'scores'/a.method/a.router/'manifest.json').resolve()
-    verify_score_inputs(scored,dict(real_routes=path('real_routes'),synthetic_routes=roads,
-                                    metric_cache=path('metric_cache')))
+    score_binding=verify_score_inputs(scored,dict(real_routes=path('real_routes'),synthetic_routes=roads,
+                                                 metric_cache=path('metric_cache')))
     legacy=path('legacy')/'evaluation'
     sys.path[:0]=[str(legacy),str(legacy/'evaluation')]
     from route_metric_core import load_pickle, normalize_routes, valid_routes
@@ -57,6 +75,21 @@ def main():
     regions={e:(int(labels[u]),int(labels[v])) for e,(u,v) in edge_nodes.items()}
     options,contexts=public_crossing_options(regions,edge_nodes)
     real=load_pickle(path('real_routes'));synthetic=load_pickle(roads)
+    representation=score_binding.get('representation','edge-records')
+    source_edges=None
+    if representation=='node-pairs':
+        binding=score_binding['inputs']['source_cache']
+        source=Path(binding['path'])
+        if sha(source)!=binding['sha256']:raise ValueError('Native source cache changed')
+        source_edges=load_pickle(source)['edge_nodes']
+    if representation=='node-pairs':
+        # Geometry proof must come from the same graph as the preceding score.
+        verify_score_inputs(scored,dict(network=path('network')))
+        for binding in score_binding['inputs'].get('network_sidecars',[]):
+            selected=path('network').with_suffix(Path(binding['path']).suffix)
+            if sha(selected)!=binding['sha256']:
+                raise ValueError('Native public network sidecar changed')
+    synthetic=road_task_records(synthetic,representation,edge_nodes,source_edges,path('network'))
     if len(real)!=c['slots'] or len(synthetic)!=c['slots'] or len(valid_routes(normalize_routes(real,cache)))!=c['slots']:
         raise ValueError('Do not change either full-population denominator')
     real_trips=matched_choice_trips(real,contexts,edge_nodes)
@@ -82,6 +115,8 @@ def main():
                   real_query_start=split,real_query_count=len(query),quotient_regions=a.regions,
                   next_road_mixture_weight=a.mixture_weight,real_query_fraction=a.real_query_fraction,
                   failed_policy='All slots retained; conditional utilities multiplied by actual road yield; NLL penalized by -log(yield)',
+                  source_representation=representation,representation_only=True,rematched=False,
+                  representation_resolver_sha256=sha(ROOT/'tools/convert_native_node_pairs.py'),
                   inputs={str(f):sha(f) for f in (path('real_routes'),roads,path('metric_cache'),scored)},
                   metric_core=dict(path=str(core),sha256=sha(core)),
                   result_sha256=sha(out/'metrics.json'),command=[sys.executable,*sys.argv],seconds=time.perf_counter()-started)

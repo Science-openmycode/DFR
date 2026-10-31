@@ -102,7 +102,8 @@ def _connected(pairs):
     return all(left[1] == right[0] for left, right in zip(pairs, pairs[1:]))
 
 
-def _convert(raw, representation, metric_edges, source_edges, physical_edges, label):
+def _convert(raw, representation, metric_edges, source_edges, physical_edges, label,
+             canonical_pairs=None):
     raw = _sequence(raw, label)
     pair_ids = defaultdict(list)
     if source_edges is not None:
@@ -140,9 +141,9 @@ def _convert(raw, representation, metric_edges, source_edges, physical_edges, la
                 candidates = pair_ids.get(pair, [])
                 if not candidates:
                     raise ValueError(f"{context}: unknown source node pair {pair}")
-                if len(candidates) != 1:
+                if len(candidates) != 1 and (canonical_pairs is None or pair not in canonical_pairs):
                     raise ValueError(f"{context}: ambiguous source node pair {pair}: {candidates[:5]}")
-                edge_id = candidates[0]
+                edge_id = canonical_pairs[pair] if canonical_pairs is not None else candidates[0]
                 if edge_id not in metric_edges:
                     raise ValueError(f"{context}: no common edge ID for source pair {pair}")
                 ids.append(edge_id)
@@ -224,9 +225,19 @@ def evaluate_saved(*, real_routes, synthetic_routes, metric_cache, representatio
                                if network is not None else (None, None))
     real, real_audit = _convert(core.load_pickle(paths["real_routes"]), "edge-records",
                                 edges, None, physical_edges, "real")
-    synthetic, synthetic_audit = _convert(core.load_pickle(paths["synthetic_routes"]),
+    synthetic_raw = core.load_pickle(paths["synthetic_routes"])
+    canonical = None
+    if representation == 'node-pairs':
+        import sys
+        if str(_ROOT) not in sys.path:
+            sys.path.insert(0, str(_ROOT))
+        from tools.convert_native_node_pairs import resolve_pairs
+        used = {tuple(_integer(v, 'synthetic node pair') for v in _sequence(pair, 'synthetic node pair'))
+                for row in _sequence(synthetic_raw, 'synthetic') for pair in _sequence(row, 'synthetic route')}
+        canonical = resolve_pairs(source_edges, edges, network=network, required_pairs=used)
+    synthetic, synthetic_audit = _convert(synthetic_raw,
                                           representation, edges, source_edges,
-                                          physical_edges, "synthetic")
+                                          physical_edges, "synthetic", canonical)
     # Historical native scores condition the reference, not the release slots.
     reference_roads = core.valid_routes(real, cache)
     if not reference_roads:
@@ -256,9 +267,10 @@ def evaluate_saved(*, real_routes, synthetic_routes, metric_cache, representatio
         "real_representation": "edge-records", "rematched": False, "gap_filling": False,
         "self_reference": inputs["real_routes"]["sha256"] == inputs["synthetic_routes"]["sha256"],
         "inputs": inputs, "metric_core": _binding(CORE_PATH), "evaluator": _binding(Path(__file__)),
+        "representation_resolver": _binding(_ROOT/'tools/convert_native_node_pairs.py') if canonical is not None else None,
         "real": real_audit, "synthetic": synthetic_audit,
         "physical_connectivity_check": "public network source,target" if network is not None else "not supplied; cache connectivity only",
-        "node_namespace_policy": "source node pairs -> unique common edge ID -> optional physical network check -> metric-cache node pairs",
+        "node_namespace_policy": "source node pairs -> common edge ID; parallel aliases require identical directed geometry, physical and metric endpoints; minimum alias ID -> metric-cache node pairs",
         "synthetic_denominator_policy": "all saved slots; empty/rejected/disconnected slots contribute zero road mass",
         "metric_count": len(values), "metric_status": statuses,
         "shape_length_policy": "historical run_mr_experiment: max(length_m,0.001), minimum per metric node pair" if network is not None else None,
