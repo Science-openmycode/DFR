@@ -2167,8 +2167,8 @@
     },
     {
       "path": "supplement/budget/render.py",
-      "bytes": 10905,
-      "sha256": "7869804d42c56995cbf7eb8dbc51fedba405ce18527863924e8bb59ef280595f"
+      "bytes": 679,
+      "sha256": "9391440cd0af5195097daca59cb58ca0ab0faa5ed88183b4d7ac33f8d066e240"
     },
     {
       "path": "supplement/k_original/diagnostic_core.py",
@@ -3214,9 +3214,80 @@
       "bytes": 1396,
       "sha256": "69bbdd29fab0fe9e325fef3d909a731b86b7d71030ceaeaeedd6c761b165dba3",
       "change": "Data acquisition documentation or preprocessing I/O; no synthesis core changes"
+    },
+    {
+      "path": "docs/ODPF384说明.md",
+      "bytes": 4232,
+      "sha256": "d171aa7ab67bf66a4331af930c8861b7b56cd37f352225eaa1ef4ced2e7df4f6"
+    },
+    {
+      "path": "plotting/render_current_sweeps.py",
+      "bytes": 6421,
+      "sha256": "6dd12b586c1015d31e0c5e0ba15fcccb304134cb5564437ca5e091ee362e568c"
+    },
+    {
+      "path": "reference_results/sensitivity_current/figures/budget/budget_current.pdf",
+      "bytes": 45808,
+      "sha256": "20b1a3e225eaa1cb6345b51c1c56e8d766da7c54c4cc17a4c60d550bc91b07e1"
+    },
+    {
+      "path": "reference_results/sensitivity_current/figures/budget/budget_current.png",
+      "bytes": 578389,
+      "sha256": "771342ec94e9054c4412de90ca070c1b0c4a30ada6cd232bc5bca836a570288f"
+    },
+    {
+      "path": "reference_results/sensitivity_current/figures/budget/manifest.json",
+      "bytes": 1780,
+      "sha256": "8ed9f87791f3c0fd4d3ea339f7fe7d1a6bf942b123f22c94d4fd68adb73b873a"
+    },
+    {
+      "path": "reference_results/sensitivity_current/figures/budget/plot_data.json",
+      "bytes": 23541,
+      "sha256": "b9b5a0167465e56959a800cb4b8c8a6cc1564bbab51d776bdd9ac81d799ae59b"
+    },
+    {
+      "path": "reference_results/sensitivity_current/figures/k/k_current.pdf",
+      "bytes": 44084,
+      "sha256": "1c6db219fd086bf0344dc523ec04c846ad54e6efe9994f13a69dd148b6e27d9a"
+    },
+    {
+      "path": "reference_results/sensitivity_current/figures/k/k_current.png",
+      "bytes": 551359,
+      "sha256": "6463175dddbea2641fa81fbb80dbad99edc0052f45cf9c1d529ae77414a3acf9"
+    },
+    {
+      "path": "reference_results/sensitivity_current/figures/k/manifest.json",
+      "bytes": 1792,
+      "sha256": "9f11531527d43c43cf9261ffdeb87fa8a8b228cf94a7635964f12a72ae00647b"
+    },
+    {
+      "path": "reference_results/sensitivity_current/figures/k/plot_data.json",
+      "bytes": 20188,
+      "sha256": "b7cbdbb9ffaeac2788c24de93a1b05ea89a5ada0a543e75344ceafc6d0182eef"
+    },
+    {
+      "path": "reference_results/sensitivity_current/manifest.json",
+      "bytes": 1258,
+      "sha256": "e70f97bf558af47052d1f35dfe4b86ae15bd8c3dd8d0b74a61e385a939f41ee8"
+    },
+    {
+      "path": "reference_results/sensitivity_current/metrics.json",
+      "bytes": 764,
+      "sha256": "54396f23e5a29eb31abc4bf6f0b692061b22f6cf428ab57e5aae1ff1bcfeacb8"
+    },
+    {
+      "path": "reference_results/sensitivity_current/summary.json",
+      "bytes": 92122,
+      "sha256": "7a060f38142a8095d960f034cc637fdfe830f8a79de34412d7dd7a85df3c4006"
+    },
+    {
+      "path": "tests/test_published_sweep_plot.py",
+      "bytes": 1904,
+      "sha256": "4669ab3e3f80c3426d9208d91a5198b29648609a1a6c81a445d606aaa038a8ab"
     }
   ],
   "external_file_count": 881,
   "external_bytes": 9422470112,
-  "upload_scope": "Code/docs plus public OSM snapshot in ../../public_assets; original GeoLife is downloaded from Microsoft. Full historical external bundle remains separate."
+  "upload_scope": "Code/docs plus public OSM snapshot in ../../public_assets; original GeoLife is downloaded from Microsoft. Full historical external bundle remains separate.",
+  "inventory_note": "Existing entries retained; verified plotting-only update against 1287a73. Not a claim that modified files are untouched original copies."
 }

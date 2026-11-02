@@ -1,0 +1,17 @@
+{
+  "schema": "dfr-sensitivity-reference-v1",
+  "scope": "Saved Beijing 15730 reference plotting; K30 + budget35; no scoring executed by plotting",
+  "source_execution_classification": "Independent research runs, not a joint DP release",
+  "outputs": {
+    "metrics.json": "54396f23e5a29eb31abc4bf6f0b692061b22f6cf428ab57e5aae1ff1bcfeacb8",
+    "summary.json": "7a060f38142a8095d960f034cc637fdfe830f8a79de34412d7dd7a85df3c4006",
+    "figures/budget/budget_current.pdf": "20b1a3e225eaa1cb6345b51c1c56e8d766da7c54c4cc17a4c60d550bc91b07e1",
+    "figures/budget/budget_current.png": "771342ec94e9054c4412de90ca070c1b0c4a30ada6cd232bc5bca836a570288f",
+    "figures/budget/manifest.json": "8ed9f87791f3c0fd4d3ea339f7fe7d1a6bf942b123f22c94d4fd68adb73b873a",
+    "figures/budget/plot_data.json": "b9b5a0167465e56959a800cb4b8c8a6cc1564bbab51d776bdd9ac81d799ae59b",
+    "figures/k/k_current.pdf": "1c6db219fd086bf0344dc523ec04c846ad54e6efe9994f13a69dd148b6e27d9a",
+    "figures/k/k_current.png": "6463175dddbea2641fa81fbb80dbad99edc0052f45cf9c1d529ae77414a3acf9",
+    "figures/k/manifest.json": "9f11531527d43c43cf9261ffdeb87fa8a8b228cf94a7635964f12a72ae00647b",
+    "figures/k/plot_data.json": "b7cbdbb9ffaeac2788c24de93a1b05ea89a5ada0a543e75344ceafc6d0182eef"
+  }
+}

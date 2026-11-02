@@ -1,0 +1,37 @@
+{
+  "columns": [
+    "Grid",
+    "Trip",
+    "Len",
+    "RoadYield",
+    "BTF",
+    "FamilyCPC",
+    "ODPF384",
+    "MFPOrderedRouteOverlap",
+    "RepresentativeRealCoverage",
+    "SelectedRoadMarginalOverlap",
+    "IncomingExitDistributionOverlap"
+  ],
+  "group_headers": {
+    "统计属性与行程需求": [
+      "Grid",
+      "Trip",
+      "Len"
+    ],
+    "道路合法性": [
+      "RoadYield"
+    ],
+    "路线选择与分布": [
+      "BTF",
+      "FamilyCPC",
+      "ODPF384"
+    ],
+    "四项道路应用": [
+      "MFPOrderedRouteOverlap",
+      "RepresentativeRealCoverage",
+      "SelectedRoadMarginalOverlap",
+      "IncomingExitDistributionOverlap"
+    ]
+  },
+  "dataset_id": "afeddd66f0c6d5281dad5980bd56a8b62ffbd87ed53cd92493761a516ff1af35"
+}

@@ -1343,13 +1343,13 @@
     },
     {
       "path": "README.md",
-      "size": 11986,
-      "sha256": "23eceb80c0dee9593f59d8e6ca648b3205714c40fcd2f02286e8e042a4423c3c"
+      "size": 854870,
+      "sha256": "237d06e9e59f3d6d6aa0c95f7efa662188c459b6ae186d099a62bcb510de35a3"
     },
     {
       "path": "README_CN.md",
-      "size": 10811,
-      "sha256": "550e156a5e99d74071f518f57df82e7721faddeb48468205f898d0a7aba8e789"
+      "size": 855663,
+      "sha256": "fcc90f3ac672962dce8bfa2e8967d4ad708114bc9d3f7121a9e4c7625a9bab88"
     },
     {
       "path": "requirements-lock.txt",
@@ -1455,6 +1455,96 @@
       "path": "tests/test_tstr_retention.py",
       "size": 961,
       "sha256": "263b1f4083fe5ecbab1cd354dda17bff9ddc406cbd3842dd2d5b9e7aa5ac1803"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size": 4629,
+      "sha256": "b0e989756fda43d88babc2379a8dda0254a3a660d88b7ed50af85881039cd8e8"
+    },
+    {
+      "path": "reproduction/beijing/docs/ODPF384说明.md",
+      "size": 4232,
+      "sha256": "d171aa7ab67bf66a4331af930c8861b7b56cd37f352225eaa1ef4ced2e7df4f6"
+    },
+    {
+      "path": "reproduction/beijing/plotting/render_current_sweeps.py",
+      "size": 6421,
+      "sha256": "6dd12b586c1015d31e0c5e0ba15fcccb304134cb5564437ca5e091ee362e568c"
+    },
+    {
+      "path": "reproduction/beijing/reference_results/sensitivity_current/figures/budget/budget_current.pdf",
+      "size": 45808,
+      "sha256": "20b1a3e225eaa1cb6345b51c1c56e8d766da7c54c4cc17a4c60d550bc91b07e1"
+    },
+    {
+      "path": "reproduction/beijing/reference_results/sensitivity_current/figures/budget/budget_current.png",
+      "size": 578389,
+      "sha256": "771342ec94e9054c4412de90ca070c1b0c4a30ada6cd232bc5bca836a570288f"
+    },
+    {
+      "path": "reproduction/beijing/reference_results/sensitivity_current/figures/budget/manifest.json",
+      "size": 1780,
+      "sha256": "8ed9f87791f3c0fd4d3ea339f7fe7d1a6bf942b123f22c94d4fd68adb73b873a"
+    },
+    {
+      "path": "reproduction/beijing/reference_results/sensitivity_current/figures/budget/plot_data.json",
+      "size": 23541,
+      "sha256": "b9b5a0167465e56959a800cb4b8c8a6cc1564bbab51d776bdd9ac81d799ae59b"
+    },
+    {
+      "path": "reproduction/beijing/reference_results/sensitivity_current/figures/k/k_current.pdf",
+      "size": 44084,
+      "sha256": "1c6db219fd086bf0344dc523ec04c846ad54e6efe9994f13a69dd148b6e27d9a"
+    },
+    {
+      "path": "reproduction/beijing/reference_results/sensitivity_current/figures/k/k_current.png",
+      "size": 551359,
+      "sha256": "6463175dddbea2641fa81fbb80dbad99edc0052f45cf9c1d529ae77414a3acf9"
+    },
+    {
+      "path": "reproduction/beijing/reference_results/sensitivity_current/figures/k/manifest.json",
+      "size": 1792,
+      "sha256": "9f11531527d43c43cf9261ffdeb87fa8a8b228cf94a7635964f12a72ae00647b"
+    },
+    {
+      "path": "reproduction/beijing/reference_results/sensitivity_current/figures/k/plot_data.json",
+      "size": 20188,
+      "sha256": "b7cbdbb9ffaeac2788c24de93a1b05ea89a5ada0a543e75344ceafc6d0182eef"
+    },
+    {
+      "path": "reproduction/beijing/reference_results/sensitivity_current/manifest.json",
+      "size": 1258,
+      "sha256": "e70f97bf558af47052d1f35dfe4b86ae15bd8c3dd8d0b74a61e385a939f41ee8"
+    },
+    {
+      "path": "reproduction/beijing/reference_results/sensitivity_current/metrics.json",
+      "size": 764,
+      "sha256": "54396f23e5a29eb31abc4bf6f0b692061b22f6cf428ab57e5aae1ff1bcfeacb8"
+    },
+    {
+      "path": "reproduction/beijing/reference_results/sensitivity_current/summary.json",
+      "size": 92122,
+      "sha256": "7a060f38142a8095d960f034cc637fdfe830f8a79de34412d7dd7a85df3c4006"
+    },
+    {
+      "path": "reproduction/beijing/supplement/budget/render.py",
+      "size": 679,
+      "sha256": "9391440cd0af5195097daca59cb58ca0ab0faa5ed88183b4d7ac33f8d066e240"
+    },
+    {
+      "path": "reproduction/beijing/tests/test_published_sweep_plot.py",
+      "size": 1904,
+      "sha256": "4669ab3e3f80c3426d9208d91a5198b29648609a1a6c81a445d606aaa038a8ab"
+    },
+    {
+      "path": "分节命令/第08节_敏感性结果汇总与作图.md",
+      "size": 5908,
+      "sha256": "4505e38b0022856b6d4276a6fee6ac0b9a30d55b822be4cea3c9ed13d5ff33b1"
+    },
+    {
+      "path": "reproduction/beijing/code_sync_manifest.json",
+      "size": 123672,
+      "sha256": "004d63154d080aa3308ffc7248e5e003377fb468674abfe94687bf6925c3e697"
     }
   ]
 }

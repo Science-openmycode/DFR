@@ -13555,22 +13555,28 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 
 完成后：summary.json、per_run.csv及清单；缺组时先补对应实验。
 
-### 预算作图
+### K与预算作图
 
-**步骤 08.04：绘制预算变化曲线和指标附录。**
+**步骤 08.04：重画已验收的北京K、预算参考曲线。**
 
-读取：已经汇总的summary.json。
+以下命令读取仓库携带的北京15730条冻结批次评分：K为6档×5种子，预算为7档×5种子。图包含7项基础指标和新四项应用；它们只重画结果，不训练、生成、匹配或重新评分。独立的四项任务评分链并不由这两条绘图命令执行。
 
 ```powershell
-.venv/Scripts/python.exe supplement/budget/render.py --source results/summaries/budget/summary.json --out results/figures/budget
+.venv/Scripts/python.exe plotting/render_current_sweeps.py --kind k --source reference_results/k/all_metrics.json --applications reference_results/sensitivity_current/summary.json --out results/figures/k_current
+.venv/Scripts/python.exe supplement/budget/render.py --source reference_results/budget/summary.json --applications reference_results/sensitivity_current/summary.json --out results/figures/budget_current
 ```
 
-| 参数 | 简单含义 |
-|---|---|
-| `--source` | 输入来源路径；登记MTNet时是native_release目录，预算作图时是summary.json。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
+`--source`是同批次基础评分；`--applications`是同批次四项应用汇总；`--out`为不存在的新目录。自己的新批次或其它城市必须同时替换前两项输入，不能把北京参考应用分数套用到新结果。上方08.01—08.03的基础统计汇总命令保留。
 
-完成后：预算主图和附录图，不重新生成数据。
+纵轴按实际范围展示，K和预算共用四项应用窗口：0.10—0.35、0.65—0.85、0.35—0.55、0.60—0.75。其它数据超出窗口时自动向外扩展，包含全部种子及误差带。点为5种子均值，阴影为样本标准差；原分数不做缩放或平滑，图内不放解释文字。
+
+完成后：各目录含PNG、PDF、逐点plot_data.json和输入/源码SHA清单。已有目录不会覆盖。
+
+ODPF384的定义、公式和例子见[独立指标说明](reproduction/beijing/docs/ODPF384说明.md)。
+
+![北京K参考曲线](reproduction/beijing/reference_results/sensitivity_current/figures/k/k_current.png)
+
+![北京预算参考曲线](reproduction/beijing/reference_results/sensitivity_current/figures/budget/budget_current.png)
 
 <a id="sec-09"></a>
 

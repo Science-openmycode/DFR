@@ -1,0 +1,79 @@
+{
+  "source_sha256": "49185522aea2bafead2ea3dfdb583d25fa8af9395e386a5ddd18807f578101aa",
+  "applications_sha256": "7a060f38142a8095d960f034cc637fdfe830f8a79de34412d7dd7a85df3c4006",
+  "renderer_sha256": "6dd12b586c1015d31e0c5e0ba15fcccb304134cb5564437ca5e091ee362e568c",
+  "panels": 11,
+  "aggregate_cells": 66,
+  "figure_inches": [
+    13,
+    6.4
+  ],
+  "axes_height_over_width": 0.6,
+  "axis_limits": {
+    "grid_density_jsd": [
+      0.1722724140752978,
+      0.2384131716123205
+    ],
+    "trip_error": [
+      0.17059964114798487,
+      0.23981363489909757
+    ],
+    "path_length_jsd": [
+      0.04857992195080804,
+      0.08888595684011472
+    ],
+    "RoadYield": [
+      0.945,
+      1.0550000000000002
+    ],
+    "BTF": [
+      0.35973926428893416,
+      0.411146912426627
+    ],
+    "FamilyCPC": [
+      0.3857755880483137,
+      0.4064049586776844
+    ],
+    "ODPF384": [
+      0.1511837345464217,
+      0.2204247267901576
+    ],
+    "MFPOrderedRouteOverlap": [
+      0.1,
+      0.35000000000000003
+    ],
+    "RepresentativeRealCoverage": [
+      0.65,
+      0.8500000000000001
+    ],
+    "SelectedRoadMarginalOverlap": [
+      0.35,
+      0.55
+    ],
+    "IncomingExitDistributionOverlap": [
+      0.6,
+      0.75
+    ]
+  },
+  "explanation_text_inside_figure": false,
+  "metric_groups": {
+    "base": [
+      "grid_density_jsd",
+      "trip_error",
+      "path_length_jsd",
+      "RoadYield",
+      "BTF",
+      "FamilyCPC",
+      "ODPF384"
+    ],
+    "applications": [
+      "MFPOrderedRouteOverlap",
+      "RepresentativeRealCoverage",
+      "SelectedRoadMarginalOverlap",
+      "IncomingExitDistributionOverlap"
+    ]
+  },
+  "unchanged_structure_values": true,
+  "old_prediction_tasks_displayed": false,
+  "error": "sample standard deviation, n=5; not confidence intervals"
+}
