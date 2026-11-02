@@ -20,7 +20,7 @@ def main():
     def check(file,expected):
         if sha(file)!=expected:raise ValueError('SHA256 differs: '+str(file))
     expected_real='97ab149c54fef1bad6cb3abe1848e7dfa5cceeafe312ab2084e4d0a6d26cb8e9'
-    for family in ('coordinate_scores','physical_scores','road_tasks','tstr'):
+    for family in ('coordinate_scores','physical_scores','road_tasks'):
         for file in sorted((args.batch/family).glob('*/*/manifest.json')):
             meta=json.loads(file.read_text(encoding='utf-8'));checks=0
             try:
@@ -43,20 +43,12 @@ def main():
                     if meta['real_slots']!=15730 or meta['synthetic_slots']!=15730:raise ValueError('Wrong road task population')
                     for path,digest in meta['inputs'].items():check(path,digest);checks+=1
                     check(file.parent/'metrics.json',meta['result_sha256']);checks+=1
-                else:
-                    split=meta['split_binding']
-                    if split['disjoint_split']['train_count']!=12584 or split['disjoint_split']['test_count']!=3146:
-                        raise ValueError('Wrong TSTR split')
-                    if not meta['synthesis_lineage_verified'] or not meta['disjoint_split_verified']:
-                        raise ValueError('Unverified TSTR lineage')
-                    for path,digest in meta['scoring_inputs_sha256'].items():check(path,digest);checks+=1
-                    check(meta['result'],meta['results_sha256']);checks+=1
                 records.append(dict(family=family,manifest=str(file),status='HASH_AND_POPULATION_VERIFIED',checks=checks))
             except Exception as error:
                 records.append(dict(family=family,manifest=str(file),status='FAILED',checks_before_failure=checks,error=str(error)))
     summary={family:{status:sum(r['family']==family and r['status']==status for r in records)
                      for status in ('HASH_AND_POPULATION_VERIFIED','FAILED')}
-             for family in ('coordinate_scores','physical_scores','road_tasks','tstr')}
+             for family in ('coordinate_scores','physical_scores','road_tasks')}
     args.out.parent.mkdir(parents=True,exist_ok=True)
     args.out.write_text(json.dumps(dict(summary=summary,records=records,
         limitation='Hash/population provenance only; not an independent reimplementation of all metric arithmetic.'),ensure_ascii=False,indent=2),encoding='utf-8')

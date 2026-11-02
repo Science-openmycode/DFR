@@ -8,7 +8,7 @@ _项目指标说明，2026-11-03；对应当前北京K、预算实验和主结�
 
 OD指起点和终点。ODPF384问的是：**同样从某一片区域出发、到另一片区域，合成轨迹是否保留了真实车辆中途经过区域的顺序和路线偏好？**
 
-它属于本次K与预算曲线中的基础路线结构指标。新四项下游任务仍是常走路线、代表路线覆盖、指定道路来源/去向、主要路口转向；ODPF384单独保留，不算第五项任务。指标清单见[曲线配置](../reference_results/sensitivity_current/metrics.json)。
+它属于主图中的基础路线结构指标。新四项下游任务仍是常走路线、代表路线覆盖、指定道路来源/去向、主要路口转向；ODPF384单独保留，不算第五项任务。正式指标清单见 [主图配置](../reference_results/matrix/spec_framework.json)。
 
 ## 📚 OD分布好，为什么这个分数仍可能低
 
@@ -54,7 +54,7 @@ K实验改变生成端使用的分区分辨率；评分时的`labels24`和`label
 
 - [前缀提取、归一化重合与最终加权](../legacy/evaluation/route_metric_core.py)：`_od_prefix_workload`、`_cpc`、`_od_prefix_fidelity`、`evaluate_routes`
 - [独立复核实现](../tools/independent_road_structure.py)
-- [本次曲线11项指标及分组](../reference_results/sensitivity_current/metrics.json)
+- [正式11项指标及分组](../reference_results/matrix/spec_framework.json)
 - [K/预算绘图入口](../plotting/render_current_sweeps.py)
 
 本说明描述项目的现有实现，没有改变指标定义、原始道路产物或既有分数。

@@ -39,7 +39,7 @@ def main():
                          metrics=values,manifest=str(file.resolve()),
                          result_sha256=score['sha256'],hash_verified=True))
     counts={}
-    for name in ('scores','coordinate_scores','physical_scores','road_tasks','tstr'):
+    for name in ('scores','coordinate_scores','physical_scores','road_tasks'):
         counts[name]=len(list((args.batch/name).glob('*/*/manifest.json')))
     report=dict(created_at_utc=datetime.now(timezone.utc).isoformat(),
                 classification='LOCAL_RESEARCH_STATUS_NOT_A_DP_RELEASE',

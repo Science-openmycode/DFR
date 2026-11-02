@@ -11,14 +11,22 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--config', type=Path, default=ROOT / 'configs/beijing.yaml')
     parser.add_argument('--batch')
+    parser.add_argument('--applications-config', type=Path,
+                        help='Section 05 application configuration for a complete run')
     parser.add_argument('--dry-run', action='store_true')
     parser.add_argument('--exclude-router', action='append', default=[])
     parser.add_argument('--only-router', choices=['Origin', 'Nearest', 'FMM', 'STMatch', 'MM2-MDP'])
     args = parser.parse_args()
-    names = ['main'] if args.only_router else ['main', 'ablation', 'tstr', 'privacy_attack']
+    names = ['main'] if args.only_router else ['main', 'ablation', 'applications', 'privacy_attack']
+    if not args.only_router and not args.applications_config:
+        parser.error('Complete runs require --applications-config prepared by README section 05')
     for name in names:
         command = [sys.executable, '-X', 'utf8', str(ROOT / 'experiments' / (name + '.py')), '--config', str(args.config.resolve())]
-        if args.batch:
+        if name == 'applications':
+            command = [sys.executable, '-X', 'utf8', str(ROOT/'experiments/applications.py'),
+                       '--config', str(args.applications_config.resolve()),
+                       '--out', str(ROOT/'results'/(args.batch or 'reproduction')/'applications')]
+        elif args.batch:
             command += ['--batch', args.batch]
         if args.dry_run:
             command += ['--dry-run']

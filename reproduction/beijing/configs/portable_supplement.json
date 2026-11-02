@@ -72,17 +72,17 @@
   "public_resources_status": "EDGE_METRIC_READY",
   "fmm_resources_status": "READY",
   "matcher_compatibility": {
-    "change": "Windows stat -> _stat64; result writer uses input trajectory ID even for empty matches",
+    "change": "Published safety build; no algorithm parameter changes",
     "checked_files": 189,
     "changed_files": [
       "src/io/mm_writer.cpp",
       "src/util/util.cpp"
     ],
-    "fmm_sha256": "fa5042fb129a8a88fe80ae82342e14ac13e2d04d285c49b4d57189f76b6fee96",
-    "stmatch_sha256": "2596329f4539f7aeaf04b3c5a88c2f70b17889f8023c5354a37f34c8132a3513",
+    "fmm_sha256": "7c9ce2a4b778ddcc4411bb3b6dde1ef451c83968e4380b8d36f40028d8005eb4",
+    "stmatch_sha256": "5ab9109d80276bea588ca1afa9f338f2802ca2b84549834062023307d72dd07a",
     "input_config_sha256": "82ea713cefd6b05f3aacf3bbc1c09265eb604cce9816abab64555e4b5ffe4dac"
   },
-  "tstr_releases": {
+  "train_releases": {
     "SPRT": {
       "coordinates": "reference_results/train_releases/00/measurement.pkl",
       "lineage": "reference_results/train_releases/00/lineage.json"

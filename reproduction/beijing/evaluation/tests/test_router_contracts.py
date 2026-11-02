@@ -24,7 +24,7 @@ class RouterContractTests(unittest.TestCase):
     def test_manifest_declares_all_public_routers(self):
         manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
         contracts = manifest["public_coordinate_router_contracts"]
-        self.assertEqual(set(contracts), {"Nearest", "FMM", "STMatch"})
+        self.assertEqual(set(contracts), {"Nearest", "FMM", "STMatch", "MM2-MDP"})
         for value in contracts.values():
             self.assertFalse(value["raw_source_used"])
             self.assertFalse(value["fills_gaps"])
@@ -211,7 +211,7 @@ class RouterContractTests(unittest.TestCase):
             self.assertEqual(json.loads(report.read_text(encoding="utf-8"))["status"], "INVALID")
 
     def test_plot_supports_full_matrix_and_column_removal(self):
-        spec = ROOT / "plotting/specs/full_27x48.json"
+        spec = ROOT / "reference_results/matrix/spec_framework.json"
         with tempfile.TemporaryDirectory(prefix="dfr_plot_test_") as tmp:
             tmp_path = Path(tmp)
             results = tmp_path / "metrics_long.csv"

@@ -1,4 +1,4 @@
-"""Stage a saved statistical M/R output for TSTR, without rerouting or scoring."""
+"""Stage a saved statistical M/R output with explicit release provenance, without rerouting or scoring."""
 import argparse
 import json
 from pathlib import Path

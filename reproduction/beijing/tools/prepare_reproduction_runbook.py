@@ -32,7 +32,7 @@ def build(config, config_path, root):
                 add(rid, 'route.py', ['--method', method, '--router', router, '--input', measurement, '--out', route],
                     [file, route/'route_manifest.json'], [mid])
                 if training:
-                    # TSTR lineage preparation is a separate protocol, not full-corpus scoring.
+                    # Training lineage preparation is a separate protocol, not full-corpus scoring.
                     continue
                 coord = base/'coordinate_scores_audit_v2'/method/router
                 add(f'{method}/{suffix}/{router}/coordinates', 'evaluate_coordinates.py',
@@ -89,7 +89,7 @@ def prepare(config_file, batch, out, root=ROOT, mm2_manifest=None):
     fresh['batch'] = batch
     fresh['methods'] = list(METHODS)
     fresh['routers'] = list(ROUTERS)
-    for key in ('saved_route_inputs', 'routing_inputs', 'releases', 'tstr_releases', 'attack_releases'):
+    for key in ('saved_route_inputs', 'routing_inputs', 'releases', 'train_releases', 'attack_releases'):
         fresh[key] = {}
     if mm2_manifest is not None:
         def sha(file):

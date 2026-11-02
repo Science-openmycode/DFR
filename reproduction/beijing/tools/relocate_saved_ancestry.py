@@ -25,7 +25,7 @@ def relocate(path,depth=0):
     if old.resolve().is_relative_to(ROOT):return 0
     if not old.exists():
         cfg=json.loads((ROOT/'configs/portable_supplement.json').read_text(encoding='utf-8'))
-        local=[ROOT/r['coordinates'] for r in cfg['tstr_releases'].values()]
+        local=[ROOT/r['coordinates'] for r in cfg['train_releases'].values()]
         found=next((p for p in local if sha(p)==source['sha256']),None)
         if found is not None:old=found
         elif REMOTE and old.as_posix().startswith('D:/MTR/'):
@@ -55,4 +55,4 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--remote-host')
     REMOTE=parser.parse_args().remote_host
     cfg=json.loads((ROOT/'configs/portable_supplement.json').read_text(encoding='utf-8'))
-    print({'relocated':sum(relocate(ROOT/r['coordinates']) for r in cfg['tstr_releases'].values())})
+    print({'relocated':sum(relocate(ROOT/r['coordinates']) for r in cfg['train_releases'].values())})

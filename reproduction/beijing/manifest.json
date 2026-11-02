@@ -1,0 +1,10 @@
+{
+  "schema": "dfr-runtime-contract-v1",
+  "downstream_entry": "evaluate_applications.py",
+  "public_coordinate_router_contracts": {
+    "Nearest": {"raw_source_used": false, "fills_gaps": false},
+    "FMM": {"raw_source_used": false, "fills_gaps": false},
+    "STMatch": {"raw_source_used": false, "fills_gaps": false},
+    "MM2-MDP": {"raw_source_used": false, "fills_gaps": false}
+  }
+}

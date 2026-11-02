@@ -31,12 +31,14 @@ def aggregate(rows,axis):
     return result
 
 
-def collect(kind,plan,out,config=None):
+def collect(kind,plan,out,config=None,applications_plan=None):
     if out.exists():raise FileExistsError(out)
+    if kind in ('k','budget') and applications_plan is None:
+        raise ValueError('Current sweep summary requires --applications-plan; complete README section 08 applications first')
     cells=[c for c in json.loads(plan.read_text(encoding='utf-8'))['cells'] if c['kind']==kind]
     expected={'budget':35,'k':30,'endpoint_diagnostic':3}[kind]
     if len(cells)!=expected:raise ValueError('Incomplete design')
-    rows=[];sources={};diagnostics=[]
+    rows=[];sources={};diagnostics=[];release_hashes={}
     cfg=json.loads(Path(config).read_text(encoding='utf-8')) if config else None
     population=cfg['slots'] if cfg else 15730
     def input_path(key,default):
@@ -74,6 +76,7 @@ def collect(kind,plan,out,config=None):
         rep=load(post/'representation/route_manifest.json')
         if rep['records']!=population or rep['rematched'] is not False:raise ValueError('Wrong representation')
         if rep['output_sha256']!=sha(post/'representation/synthetic_routes.pkl.gz'):raise ValueError('Road output changed')
+        release_hashes[(cell['value'],cell['seed'])]=rep['output_sha256']
         raw=native/f'seed_{cell["seed"]}_length/road_routes.pkl.gz'
         if rep['native_sha256']!=sha(raw):raise ValueError('Native source changed')
         diagnostic=dict(k=cell['value'],seed=cell['seed'],diagnostic=kind=='endpoint_diagnostic',generation_seconds=lineage['elapsed_seconds'])
@@ -115,6 +118,22 @@ def collect(kind,plan,out,config=None):
             diagnostic.update(endpoint_diagnostics(real,labels,cell['value'],transcript,metadata))
             diagnostics.append(diagnostic)
     axis='epsilon' if kind=='budget' else 'k'
+    if kind in ('k','budget'):
+        if applications_plan is None:
+            raise ValueError('Current sweep summary requires --applications-plan; complete README section 08 applications first')
+        try:
+            from tools.collect_sweep_applications import collect as collect_applications
+        except ModuleNotFoundError:
+            from collect_sweep_applications import collect as collect_applications
+        application_data=collect_applications(applications_plan,kind)
+        for r in application_data['rows']:
+            if r['kind']==kind:
+                if r['source_sha256']!=release_hashes.get((r['value'],r['seed'])):
+                    raise ValueError('Application source differs from structural sweep source')
+                rows.append(dict(run=f'{kind}_{r["value"]}_{r["seed"]}',
+                    **{axis:r['value']},seed=r['seed'],stage='applications',metric=r['metric'],
+                    value=r['score'],status='VALID'))
+        sources.update(application_data['sources'])
     result=dict(scope='Full-corpus research runs; not a joint DP release',runs=expected,rows=rows,
         seeds_per_epsilon=5 if kind=='budget' else None,
         aggregates=[] if kind=='endpoint_diagnostic' else aggregate(rows,axis),
@@ -136,4 +155,5 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--kind',choices=['k','budget','endpoint_diagnostic'],required=True)
     p.add_argument('--plan',type=Path,default=ROOT/'supplement/sweeps/plan.json');p.add_argument('--out',type=Path,required=True)
     p.add_argument('--config',type=Path,help='Current population/reference paths; defaults to the historical Beijing input layout')
-    a=p.parse_args();collect(a.kind,a.plan,a.out,a.config)
+    p.add_argument('--applications-plan',type=Path,help='Verified current four-application sweep plan (required for K/budget)')
+    a=p.parse_args();collect(a.kind,a.plan,a.out,a.config,a.applications_plan)

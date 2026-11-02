@@ -15,11 +15,7 @@ ROAD = ['RoadYield', 'DemandFid', 'BTF', 'RC-CPC', 'EdgeCPC', 'TurnCPC', 'Family
         'TotalLengthRetention', 'BackboneLengthRetention', 'ClosedLengthRetention',
         'ClosedSegmentRetention', 'RepeatedEdgeRetention']
 PHYSICAL = ['RoadRecovery', 'RoadSupport', 'TurnRecovery', 'TurnSupport', 'BackboneRecovery', 'BackboneSupport']
-ROAD_TASKS = {name: name for name in ('RC-NDCG', 'NextRoadAcc', 'NextRoadNLL')}
-TASKS = {'Next-cell Hit@1': 'NextCellHit1', 'Next-cell MRR': 'NextCellMRR',
-         'Destination Hit@5': 'DestinationHit5', 'Destination MRR': 'DestinationMRR',
-         'Road continuation Hit@1': 'RoadContinuationHit1', 'Road continuation MRR': 'RoadContinuationMRR',
-         'Route retrieval NDCG@5': 'RouteRetrievalNDCG5'}
+ROAD_TASKS = {name:name for name in ('RC-NDCG','NextRoadAcc','NextRoadNLL')}
 
 
 def prepare(batch, config_path=None):
@@ -106,36 +102,6 @@ def prepare(batch, config_path=None):
             for label, expected_hash in meta['inputs_sha256'].items():
                 identity = road_inputs['metric_cache' if label == 'edge_cache' else label]
                 bindings.append(pin(identity['path'], expected_hash))
-        if scope == 'tstr' and 'scoring_inputs_sha256' in meta:
-            if not meta.get('synthesis_lineage_verified') or not meta.get('disjoint_split_verified'):
-                raise ValueError('TSTR source lacks verified lineage/split')
-            split = meta['split_binding']
-            if (split['disjoint_split']['train_count'], split['disjoint_split']['test_count']) != (12584, 3146):
-                raise ValueError('TSTR split population mismatch')
-            required = {split['train_sha256'], split['test_sha256'],
-                        split['disjoint_split']['record_sha256']}
-            name = select['Pipeline']
-            if name != 'Real-train':
-                required.update((split['synthetic'][name],
-                                 split['synthesis_lineage'][name]['record_sha256']))
-            recorded = meta['scoring_inputs_sha256']
-            if not required.issubset(set(recorded.values())):
-                raise ValueError('TSTR scoring inputs omit required split/release/lineage binding')
-            for input_path, expected_hash in recorded.items():
-                bindings.append(pin(input_path, expected_hash))
-        elif scope == 'tstr':
-            if not meta.get('synthesis_lineage_verified') or not meta.get('disjoint_split_verified'):
-                raise ValueError('TSTR source lacks verified lineage/split')
-            for part in ('train', 'test'):
-                bindings.append(pin(ROOT / config['paths'][part], meta['split_binding'][part + '_sha256']))
-            name = select['Pipeline']
-            if name != 'Real-train':
-                method, _, router = name.partition(' + ')
-                release = config['releases'][method]
-                coordinate_path = (batch / 'tstr_matrix/routes' / method / router / 'view/coordinates.pkl'
-                                   if router and router != 'Origin' else ROOT / release['coordinates'])
-                bindings.append(pin(coordinate_path, meta['split_binding']['synthetic'][name]))
-                bindings.append(pin(ROOT / release['lineage'], meta['split_binding']['synthesis_lineage'][name]['record_sha256']))
         sources.append(dict(**pin(path, expected), row=row, columns=columns, protocol=protocol,
                             format=kind, key=key, select=select, scope=scope, bindings=bindings,
                             status_manifest=str(manifest.resolve())))
@@ -170,14 +136,5 @@ def prepare(batch, config_path=None):
         add(m, physical / 'results.csv', physical / 'manifest.json', dict(zip(PHYSICAL, PHYSICAL)), 'full_od_ordered_physical_mass_v1', kind='csv', select={'method': m})
         tasks = batch / 'road_tasks' / m / 'Origin'
         add(m, tasks / 'metrics.json', tasks / 'manifest.json', ROAD_TASKS, 'retrospective-road-tasks-v1', key='metrics')
-    task_dir = batch / 'tstr_matrix/evaluation'
-    if (task_dir / 'manifest.json').is_file():
-        names = json.loads((task_dir / 'manifest.json').read_text(encoding='utf-8'))['pipelines']
-    else:
-        task_dir = follow / 'tstr_results'
-        names = ('SPRT', 'PrivTrace', 'DPTraj-PM', 'DPStd', 'MTR-DFR', 'Real-train')
-    for name in names:
-        row = 'Real-train [TSTR reference]' if name == 'Real-train' else name if name == 'MTR-DFR' or ' + ' in name else name + ' + Origin'
-        add(row, task_dir / 'results.csv', task_dir / 'manifest.json', TASKS, 'train_test_bound_task_scoring_v2', kind='csv', select={'Pipeline': name}, scope='tstr')
     return {'classification': 'LOCAL_RESEARCH_TABLE_NOT_A_DP_RELEASE', 'batch': str(batch),
             'sources': sources, 'unavailable_sources': missing}

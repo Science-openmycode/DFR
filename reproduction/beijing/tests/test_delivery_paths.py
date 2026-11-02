@@ -12,7 +12,7 @@ def test_delivery_archive_includes_runtime_contracts_and_excludes_runs(tmp_path,
     import sys,zipfile
     from tools import package_delivery as package
     required=['manifest.json','pytest.ini','README.md','requirements-clean-windows-py313.txt',
-              'plotting/plot_matrix.py','plotting/specs/full_27x48.json','deployment/MemoryGuard.ps1']
+              'plotting/plot_matrix.py','reference_results/matrix/spec_framework.json','deployment/MemoryGuard.ps1']
     excluded=['environment_freeze.txt','validation/report.json','setup_logs/install.txt',
               '.venv/secret.py','plotting/__pycache__/plot.pyc','results/formal.json']
     root=tmp_path/'candidate';root.mkdir()
@@ -268,27 +268,10 @@ def test_actual_evaluate_entrypoint_in_clean_environment(tmp_path,router):
             '--config',str(tstr_config),'--method','DPStd','--train-only','--out',str(train_m)],
             cwd=tmp_path,capture_output=True,text=True,encoding='utf-8',timeout=90)
         assert generation_run.returncode==0,generation_run.stderr
-        tstr_out=tmp_path/'strict tstr score'
-        tstr_command=[sys.executable,str(root/'evaluate_tstr.py'),'--config',str(tstr_config),
-            '--method','DPStd','--router','Origin','--input',str(train_m/'measurement.pkl'),
-            '--lineage',str(train_m/'lineage.json'),'--metric-protocol','audit-v2','--out',str(tstr_out)]
-        tstr_run=subprocess.run(tstr_command,cwd=tmp_path,capture_output=True,text=True,encoding='utf-8',timeout=90)
-        assert tstr_run.returncode==0,tstr_run.stderr
-        tstr_manifest=json.loads((tstr_out/'manifest.json').read_text())
-        assert tstr_manifest['synthesis_lineage_verified'] is True
-        assert tstr_manifest['disjoint_split_verified'] is True
-        assert tstr_manifest['results_sha256']==hashlib.sha256((tstr_out/'results.csv').read_bytes()).hexdigest()
         lineage=json.loads((train_m/'lineage.json').read_text())
-        lineage['input_policy']='full_corpus'
-        bad_lineage=tmp_path/'invalid_full_corpus_lineage.json'
-        bad_lineage.write_text(json.dumps(lineage),encoding='utf-8')
-        bad_tstr=list(tstr_command)
-        bad_tstr[bad_tstr.index('--lineage')+1]=str(bad_lineage)
-        rejected_tstr=tmp_path/'rejected tstr'
-        bad_tstr[-1]=str(rejected_tstr)
-        bad_tstr_run=subprocess.run(bad_tstr,cwd=tmp_path,capture_output=True,text=True,encoding='utf-8',timeout=60)
-        assert bad_tstr_run.returncode!=0 and 'Unknown generator input policy' in bad_tstr_run.stderr
-        assert not rejected_tstr.exists()
+        assert lineage['outputs']
+        assert not (root/'evaluate_tstr.py').exists()
+        assert (root/'evaluate_applications.py').is_file()
 
         native_out=tmp_path/'native DFR'
         # The preserved DFR protocol samples all 384 fine cells; a three-edge

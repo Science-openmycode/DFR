@@ -8,7 +8,6 @@ import pytest
 @pytest.mark.parametrize('script,arguments', [
     ('synthesize.py', ['--method','SPRT']),
     ('route.py', ['--method','SPRT','--router','Nearest']),
-    ('evaluate_tstr.py', ['--method','SPRT']),
 ])
 def test_deprecated_reference_blocks_all_dataset_consumers(script, arguments, tmp_path):
     root=Path(__file__).resolve().parents[1]

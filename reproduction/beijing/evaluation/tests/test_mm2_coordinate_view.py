@@ -10,7 +10,7 @@ import pytest
 from shapely.geometry import LineString
 
 from tools.stage_routed_coordinates import stage
-from prepare_remote_tstr import parse_cell
+from preprocess.release_cell import parse_cell
 
 
 def digest(path):

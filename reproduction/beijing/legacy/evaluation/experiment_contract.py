@@ -145,7 +145,7 @@ def validate_routing_source(routes: Path, measurement: Path) -> dict:
 def validate_attack_release(split: Path, lineage: Path, release: Path,
                             members: Path, nonmembers: Path, reference: Path) -> dict:
     from synthesis_lineage import validate_record
-    from run_tstr_experiment import base_release_hash
+    from release_provenance import base_release_hash
     record = json.loads(split.read_text(encoding="utf-8-sig"))
     validate_attack_indices(record["source_indices"])
     for key, path in (("member_candidates", members), ("nonmember_candidates", nonmembers),
@@ -158,7 +158,7 @@ def validate_attack_release(split: Path, lineage: Path, release: Path,
 
 
 def validate_generation_source(ledger: Path, source: Path, release: Path, population: str) -> dict:
-    from run_tstr_experiment import base_release_hash
+    from release_provenance import base_release_hash
     record = json.loads(ledger.read_text(encoding="utf-8-sig"))
     source_sha = reject_synthetic_reference(source)
     if record.get("classification") == "BASELINE_REPRODUCTION_WRAPPER_NOT_AN_MTR_RELEASE":

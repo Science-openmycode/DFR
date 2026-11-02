@@ -1,0 +1,41 @@
+{
+  "status": "COMPLETE",
+  "methods": 22,
+  "receipts": {
+    "Real": "ef146b6b7409bb2e754689baa24d7bbec0c3c942626567944e83de2bac90cfd4",
+    "SPRT__Nearest": "88971e192270de44897cb170761aea357fc1cb8e21844c1a2a68a4082943b710",
+    "SPRT__FMM": "286e4468f83aa45dccc9ac780d8f7eab582d0b409aa617e0541c7b41e245c0c1",
+    "SPRT__STMatch": "794da345ba2ad10d2985e9e1d76f34d0efbb5595336bb515f00a11ce1bafaed3",
+    "SPRT__MM2-MDP": "bc539b10bb13ad323bacce9ecb63b8b17a0b63cfac20103054d8b0c18f584f40",
+    "PrivTrace__Nearest": "ca7f18407e275abc47b74c5ab44b76c7c2da6e9aec7ae7f71a9f0b3e7b7f421a",
+    "PrivTrace__FMM": "8d4219d37acfd6a48b1e049442be3a6dcc748676ca6245368864de567b9df2c2",
+    "PrivTrace__STMatch": "4dd0813a3a432f6658a566ad9ecbb81682a80598dd49f8463793f1cc7f63b85b",
+    "PrivTrace__MM2-MDP": "d7ec5e06dbe6522aef38be1cb694e6aeb09aff8b4e124b16c2b9d561abc60994",
+    "DPTraj-PM__Nearest": "ef1cf58dafce8f5ad4e0615c87ce6f1dd88591c1901ec510e268fe9f1eac1eb3",
+    "DPTraj-PM__FMM": "cc0b0b561c2d37481af3fe8a6fb402a0c40f27d27a164c21ecba4a4d904b8801",
+    "DPTraj-PM__STMatch": "126fb6b92162097627fcaf95feb98ce19a585c13bbbab2fe161e22968d18bdd5",
+    "DPTraj-PM__MM2-MDP": "ff40b33df2328ea6ef8e7338417d2ef984d6bfc52e02675834646bd13cda6c0d",
+    "DPStd__Nearest": "29afa406cdb8bd620cde40933761543494000b1ea7890f20692946540e3ea747",
+    "DPStd__FMM": "36cbbbe7805620f3b7786626be3d0ed0d4589a07c69286f98c0c2272ce1e1e29",
+    "DPStd__STMatch": "9dd3c242d04206b9d8945e4b696b1bcc511b0e4942e9c9260d2f5023359aa4ab",
+    "DPStd__MM2-MDP": "089f02e7a4dcf35b2e03d92faecfaf5b7cf4abade8c9fff1750786944d2c4707",
+    "MTR-DFR": "1d265f7a373f2b98e5dcc25307ec146af3f689c796a27bfd0fd799ac57193593",
+    "MTNet": "23826eeb5a545a5356d28d1ccba867f42d3647f2d49f0f711b82a8042806ee32",
+    "MTNet_DP_OD_coarse24": "05d6e1b528ca14ffd01d1abb873fb0e9bc22d5ccd7875cf8b163ebc85c0f7199",
+    "Same-endpoint random [control]": "b5deef82c942b832f7eab0d7a6874514b513c7ff41f304a7eb817910a1cee6e2",
+    "Public shortest path [control]": "7a5ab932544b56b39ba7f730edba3a0003516931aa375f0dbd68bbb6799d5969"
+  },
+  "dataset_id": "afeddd66f0c6d5281dad5980bd56a8b62ffbd87ed53cd92493761a516ff1af35",
+  "slots": 15730,
+  "scope": "retrospective_four_road_applications",
+  "protocol": "supported_questions_20261102",
+  "task_counts": {
+    "od": 73,
+    "roads": 284,
+    "incoming": 265,
+    "region_trips": 2851
+  },
+  "representative_K": 3,
+  "table_sha256": "5254417c14b3dfebeff75aef6eb763ad4624c7809d79f8d5673add8aebd1177e",
+  "questions_sha256": "d90cda34cb0432ba16e9d9f0daae2dda86a0a949bf5e54b13cb6c6c4a20b3193"
+}

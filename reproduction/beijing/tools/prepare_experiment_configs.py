@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT))
 from preprocess.dataset_contract import validate_dataset
 DOCS = ['reproduction_checked_20261024/COMMANDS_CN.md', 'REPRODUCE_DFR_LENGTH_20261024_CN.md',
         'REPRODUCE_NATIVE_BASELINES_20261024_CN.md', 'REPRODUCE_NATIVE_SCORES_20261024_CN.md',
-        'REPRODUCE_TSTR_20261024_CN.md', 'REPRODUCE_NATIVE_TSTR_CN.md', 'REPRODUCE_NEW_MATRIX_CN.md',
+        'REPRODUCE_NEW_MATRIX_CN.md',
         'supplement/sweeps/k_COMMANDS_CN.md', 'supplement/sweeps/budget_COMMANDS_CN.md',
         'supplement/sweeps/endpoint_diagnostic_COMMANDS_CN.md']
 IDENTITY = ['dataset', 'dataset_policy', 'frozen_dataset_id', 'slots', 'train_slots', 'test_slots',
@@ -69,7 +69,7 @@ def prepare(config, out, root=ROOT):
         # --out in the existing command documents controls the result folder.
         # Do not silently add a second batch prefix to that folder.
         value['paths']['output'] = output
-        for key in ('routing_inputs', 'releases', 'tstr_releases', 'attack_releases', 'saved_route_inputs'):
+        for key in ('routing_inputs', 'releases', 'train_releases', 'attack_releases', 'saved_route_inputs'):
             value[key] = {}
         value['attack_resources_status'] = 'UNBOUND'
         payloads[name] = value

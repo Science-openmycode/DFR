@@ -30,10 +30,6 @@ def retain_numeric_cells(table):
 
 
 def metric_display_name(name):
-    retention_tasks = {'NextCellHit1','NextCellMRR','DestinationHit5','DestinationMRR',
-                       'RoadContinuationHit1','RoadContinuationMRR','RouteRetrievalNDCG5'}
-    if name in retention_tasks:
-        return name + ' [relative retention, clipped]'
     return {'DirValid':'DirValid [road object only in audit-v2]',
             'RC-CPC':'RC-CPC [physical junction]',
             'Len':'Len [JS divergence; lower is better]'}.get(name,name)
@@ -69,7 +65,7 @@ def main() -> None:
     args = parser.parse_args()
     spec = json.loads(args.spec.read_text(encoding="utf-8"))
     if not spec.get("rows") or not spec.get("columns"):
-        raise SystemExit("full_27x48.json must contain frozen rows and columns; refusing to invent experiment cells")
+        raise SystemExit("spec_framework.json must contain frozen rows and columns; refusing to invent experiment cells")
     table = pd.read_csv(args.results)
     if {"M", "R"}.issubset(table.columns) and "row" not in table.columns:
         native = set(spec.get("native_rows", []))

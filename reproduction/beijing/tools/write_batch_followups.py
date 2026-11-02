@@ -37,7 +37,7 @@ def write_followups(root,out,base,config,rewrite):
     for kind in ('k','budget','endpoint_diagnostic'):
         commands.append((kind+' aggregation',f'tools/collect_portable_sweeps.py --kind {kind} --config {config} --plan {prefix}/sweeps_plan.json --out {result}/summaries/{kind}'))
     commands.append(('Budget figures',f'supplement/budget/render.py --source {result}/summaries/budget/summary.json --out {result}/figures/budget'))
-    text='# Supplementary experiments for this batch\n\nRun the generated synthesis, routing, native scoring, TSTR and sweep commands first. Each command below reads this batch only. The 23-entry release map lists expected outputs; preparation checks that they exist.\n'
+    text='# Supplementary experiments for this batch\n\nRun the generated synthesis, routing, native scoring, application and sweep commands first. Each command below reads this batch only. The 23-entry release map lists expected outputs; preparation checks that they exist.\n'
     for title,command in commands:text+=f'\n## {title}\n\n```powershell\n.venv/Scripts/python.exe {command}\n```\n'
     target=out/'commands/SUPPLEMENT_COMMANDS.md';target.write_text(text,encoding='utf-8')
     return dict(supplement=target.relative_to(root).as_posix(),sweep_cells=len(plan['cells']),training_releases=len(releases))

@@ -5,8 +5,6 @@ import json
 import math
 from pathlib import Path
 
-TSTR = {'NextCellHit1', 'NextCellMRR', 'DestinationHit5', 'DestinationMRR',
-        'RoadContinuationHit1', 'RoadContinuationMRR', 'RouteRetrievalNDCG5'}
 
 
 def sha256(path):
@@ -59,7 +57,7 @@ def collect(spec, sources):
                 continue
             if original not in values:
                 raise ValueError(f"missing declared metric {original}: {source['path']}")
-            scope = 'tstr' if metric in TSTR else 'full'
+            scope = 'full'
             if source['scope'] != scope:
                 raise ValueError(f"wrong scope for {metric}: {source['scope']}")
             definition = source['protocol']
@@ -84,7 +82,7 @@ def collect(spec, sources):
                                  status='ZERO' if value == 0 else 'VALID', scope=scope,
                                  protocol=definition, source=source['path'], source_sha256=source['sha256'])
     return [observed.get((row, metric), dict(row=row, column=metric, metric=metric,
-             value='', status='MISSING', scope='tstr' if metric in TSTR else 'full',
+             value='', status='MISSING', scope='full',
              protocol='', source='', source_sha256=''))
             for row in spec['rows'] for metric in spec['columns']]
 

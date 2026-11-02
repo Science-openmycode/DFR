@@ -208,11 +208,11 @@ def main() -> None:
         load_osm_ways,
         load_trajectories,
     )
-    import downstream_full_protocol as tasks
+    import distribution_diagnostics as diagnostics
     import evaluate_kdd_revised_statistics as stats
 
     config = _resolve_config(args)
-    tasks.BBOX = config["bbox"]
+    diagnostics.BBOX = config["bbox"]
     synthetic_path = public_path(args.synthetic)
     witness_path = public_path(args.witness) if args.witness else None
     road_routes_path = public_path(args.road_routes) if args.road_routes else None
@@ -271,15 +271,9 @@ def main() -> None:
         metrics, synthetic_path, witness_path, road_routes_path, edge_cache_path, len(synthetic)
     )
 
-    logger.info("running retrospective query, OD, destination and grid-route tasks")
-    split = int(len(real) * 0.8)
-    real_eval = real[split:]
-    metrics.update(tasks.count_query_metrics(real, synthetic))
-    metrics.update(tasks.od_demand_metrics(real, synthetic))
-    destination_audit = {}
-    metrics.update(tasks.destination_tstr_metrics(synthetic, real_eval, audit=destination_audit))
-    metrics.update(tasks.grid_route_choice_metrics(synthetic, real_eval))
-    metrics.update(tasks.destination_conditioned_next_region_metrics(synthetic, real_eval))
+    logger.info("running count and OD distribution diagnostics")
+    metrics.update(diagnostics.count_query_metrics(real, synthetic))
+    metrics.update(diagnostics.od_demand_metrics(real, synthetic))
     for name, value in metrics.items():
         if value is not None and isinstance(value, (int, float, np.number)) and not math.isfinite(float(value)):
             raise RuntimeError(f"metric is not finite: {name}={value}")
@@ -290,14 +284,12 @@ def main() -> None:
         "dataset": config["name"],
         "task_mode": args.task_mode,
         "task_warning": (
-            "Retrospective TSTR proxy: the synthetic release may have been fitted on the full real corpus; "
-            "this is not unseen-contributor generalization."
+            "Full-release coordinate/distribution scoring; four road applications are evaluated separately."
         ),
         "real_spec": str(config["real_data"]),
         "real_sha256": config["real_data_sha256"],
         "real_count": len(real),
         "public_slot_count": config["public_slot_count"],
-        "real_eval_start": split,
         "synthetic_count": len(synthetic),
         "output_yield": len(synthetic) / max(len(real), 1),
         "bbox": config["bbox"],
@@ -316,12 +308,11 @@ def main() -> None:
             "entrypoint": str(Path(__file__).resolve()),
             "entrypoint_sha256": sha256_file(Path(__file__).resolve()),
             "statistics_sha256": sha256_file(PUBLIC_RELEASE / "pipeline" / "evaluate_kdd_revised_statistics.py"),
-            "tasks_sha256": sha256_file(PUBLIC_RELEASE / "analysis_scripts" / "downstream_full_protocol.py"),
+            "distribution_diagnostics_sha256": sha256_file(PUBLIC_RELEASE / "analysis_scripts" / "distribution_diagnostics.py"),
         },
     }
     payload = {"protocol": protocol, "metrics": jsonable(metrics)}
     write_json(out_dir / "metrics.json", payload)
-    write_json(out_dir / "destination_model_audit.json", destination_audit)
     with (out_dir / "metrics.csv").open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=["metric", "value"])
         writer.writeheader()
@@ -350,7 +341,6 @@ def main() -> None:
         "outputs": {
             "metrics.json": sha256_file(out_dir / "metrics.json"),
             "metrics.csv": sha256_file(out_dir / "metrics.csv"),
-            "destination_model_audit.json": sha256_file(out_dir / "destination_model_audit.json"),
         },
         "elapsed_sec": time.time() - started,
     }

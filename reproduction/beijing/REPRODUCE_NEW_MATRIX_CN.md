@@ -1,19 +1,62 @@
-# 新评分 → 新矩阵 → 同版式图
+# 第09节 完整矩阵与图件
 
-按仓库根 README 第8步准备配置，并在同一 PowerShell 窗口执行本页。本页随仓库提供，不由运行命令生成。`configs/experiments/` 是当前数据的配置目录；`results/` 下的名称以北京复现为例，不是必须的文件名。更改结果目录时，将本页及依赖文档中对应的 `--out`、`--input`、`--source` 等路径同步替换；不要改算法名、预算或种子来代替改文件名。Porto 使用另一个检出目录，命令相同。
+[完整指南](../../README_CN.md#sec-09) · [上一节：四任务](../../分节命令/第05节_四项下游任务与图件.md)
 
-前置：统计M×R、DFR、原生基线和严格TSTR命令分别完成相应评分。下面只收集各新结果目录，不计算分数、不读旧CSV填数、不重复算法。一个目录没有某项时保留MISSING；重复格子分数冲突则停止。原生方法各一行，不把输出再匹配到多个R。
+第09节输出你保留的11项指标大图：四项新道路任务替换旧任务；Real合为最右一列，DFR倒数第二，MTNet＋DPOD紧跟MTNet，随机/最短位于DFR左侧；连续红框与并列标注规则不变。本图只接收第05节四项道路应用的评分。
+
+本节不生成轨迹、不重新评分。只读已完成的评分及第05节的答案汇总，逐一核对来源后作图。只缺一项适用成绩也会停止并列出缺项；n/a、未定义、实测0、按要求排除分别保留，不用旧图补数。
+
+### 09.01 选择本次结果和输出目录
+
+以下均在 `reproduction/beijing` 执行。北京为例，换城市仍使用第01节选定配置生成的同名入口。改目录时只改这里的变量，后面命令不变。
 
 ```powershell
-.venv/Scripts/python.exe tools/collect_frozen_matrix.py --config configs/experiments/configs/beijing.json --batch results/reproduction_checked_20261024 --batch results/reproduction_native_20261024 --batch results/reproduction_dfr_length_20261024 --spec reference_results/matrix/spec.json --out results/reproduction_matrix/sources
+$MatrixConfig = "configs/experiments/configs/beijing.json"
+$ApplicationSummary = "results/application_tasks/summary"
+$MatrixSources = "results/reproduction_matrix/sources"
+$MatrixFigures = "results/reproduction_matrix/figures"
+$ScoreInputs = @("--batch", "results/reproduction_checked_20261024", "--batch", "results/reproduction_native_20261024", "--batch", "results/reproduction_dfr_length_20261024")
 ```
 
-输出matrix_sources.csv与manifest.json。每格记录真实评分JSON/CSV、对应manifest和来源指标；统计和严格TSTR分别保留scope。1215格是27×45的展示位置，不表示每格都有成绩。
+`MatrixConfig`是本批真实数据与分集配置；`ApplicationSummary`是第05节实际生成的四任务汇总；两个输出目录必须是新目录。下游就绪后只接着评分和绘图，不重跑上游。
+
+如果两个控制的旧七项评分或MTNet＋DPOD评分在独立目录，向`ScoreInputs`添加相应结果根目录。结果根目录内沿用`road_scores`、`coordinate_scores_audit_v2`等评分目录；只有变体确实独立生成/评分时才使用新名字，不能把原MTNet改名充数。例如：
 
 ```powershell
-.venv/Scripts/python.exe plotting/render_verified_matrix.py --sources results/reproduction_matrix/sources --previous reference_results/matrix_previous --spec reference_results/matrix/spec.json --new-batch --out results/reproduction_matrix/figures
+$ControlScores = Read-Host "输入两个公共控制已评分的结果根目录"
+$ScoreInputs += @("--batch", $ControlScores)
 ```
 
-输出current_full.png/PDF、各分组图、逐图旧版/新版对照、cells.json以及manifest.json。使用同一绘图函数、行列和配色；新结果允许与旧结果不同，每个变化记录before/after，而不强迫新随机批次逐值相等。没有新评分的格子不会从旧图补数。
+独立变体可使用`--labeled-batch "MTNet_DP_OD_coarse24=结果根目录"`明确这一整份结果的展示名称，仍核查真实人口及各评分文件；只有部分评分时不会伪造其余成绩。MTNet＋DPOD是可选扩展，未生成时整列不展示；生成后须补齐适用项。
 
-仅重画旧冻结结果时仍用SUPPLEMENT_COMMANDS_CN.md中的命令，不加--new-batch；旧模式仍逐值检查不变。
+**已有同一批次的验收结果时，可复用，不重训。**只在这种情况下，用下面三行替换`ScoreInputs`。提供的是你自己的已有评分归档及数据绑定，不是仓库自带的示例成绩；程序会核对dataset_id、槽数、原始评分文件及解析后的数值，换城市或换批次会拒绝。四任务仍读取本次指定的`ApplicationSummary`。
+
+```powershell
+$SavedCells = Read-Host "输入已有评分归档 cells.json 的路径"
+$SavedBinding = Read-Host "输入该归档的数据与槽数绑定文件路径"
+$ScoreInputs = @("--verified-cells", $SavedCells, "--verified-binding", $SavedBinding)
+```
+
+### 09.02 收集当前实际成绩
+
+首次完整复现使用评分结果目录；已有同批成绩使用上面的显式复用分支，二选一，不重复跑两遍。
+
+```powershell
+.venv/Scripts/python.exe tools/collect_frozen_matrix.py --config $MatrixConfig @ScoreInputs --applications $ApplicationSummary --spec reference_results/matrix/spec_framework.json --out $MatrixSources
+```
+
+输出`matrix_sources.csv`和`manifest.json`。每格保存指标、实际JSON/CSV及来源清单；不同来源的同一格冲突就停止。Origin只有坐标，不适用的道路任务显示n/a；DPMM四项按本次比较范围标excl.。其他适用成绩缺失仍是MISSING，下一步不会把它画成已完成。
+
+### 09.03 生成最终大图
+
+```powershell
+.venv/Scripts/python.exe plotting/render_verified_matrix.py --sources $MatrixSources --previous reference_results/applications/figures --spec reference_results/matrix/spec_framework.json --new-batch --out $MatrixFigures
+```
+
+输出`framework_matrix_transposed.png`、同名PDF、`cells.json`、`manifest.json`及对照图。主入口直接调用正式四任务绘图模块，不依赖开发目录、个人路径或临时修图脚本。前七项取实际统计/道路评分，后四项取同题回答；Real合并展示但逐格保留各自来源，不做平均。新随机运行不要求分数逐字相同，图型、顺序和标注规则相同。
+
+`--previous`只作已发布图与新图的左右对照，不提供缺失数值。GitHub历史图也仅用于来源对照，不声称不同历史批次逐值相同。
+
+如只需要重画，保留`MatrixSources`，把`MatrixFigures`改为新的输出目录后只执行09.03。不要重跑生成或评分。第05节的单独四任务图继续可用；需要同时画大图时，可给`plot_applications.py`增加`--sources $MatrixSources`，它与09.03使用同一套最终布局。
+
+全局绘图入口支持`python plotting/regenerate_figures.py --figure framework --data-root reproduction/beijing/results/reproduction_matrix --out-dir 新图目录`（从仓库根运行）；独立实验绘图入口支持`experiments/plot.py --experiment framework --sources $MatrixSources`。它们读取相同来源，不另算指标。

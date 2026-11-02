@@ -7,10 +7,10 @@ The paper uses three evidence layers.
 3. Real mobility characteristics: OD-conditioned road-transition divergence
    and route recommendation on actual directed public-road edge IDs.
 
-`evaluation/evaluate_all.py` retains the refrozen broad diagnostic suite.  Its
-legacy `B2_route_*` values are grid-cell-transition retrieval values implemented
-in `analysis_scripts/downstream_full_protocol.py`; maintained outputs call them
-`B2_grid_route_*`, and they must not be described as OSM directed-edge recovery.
+`evaluation/evaluate_all.py` evaluates coordinate statistics and shared count/OD
+distribution diagnostics. It does not train predictive downstream models.
+The four road applications run through `evaluate_applications.py` in README
+section 05, directly answering fixed real-data questions from saved road releases.
 
 The corrected road implementation is `metric_suites/road_route.py`:
 

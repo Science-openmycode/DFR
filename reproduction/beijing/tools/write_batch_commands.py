@@ -13,7 +13,6 @@ import re
 ROOT=Path(__file__).resolve().parents[1]
 DOCS=['reproduction_checked_20261024/COMMANDS_CN.md','REPRODUCE_DFR_LENGTH_20261024_CN.md',
  'REPRODUCE_NATIVE_BASELINES_20261024_CN.md','REPRODUCE_NATIVE_SCORES_20261024_CN.md',
- 'REPRODUCE_TSTR_20261024_CN.md','REPRODUCE_NATIVE_TSTR_CN.md',
  'REPRODUCE_NEW_MATRIX_CN.md',
  'supplement/sweeps/k_COMMANDS_CN.md','supplement/sweeps/budget_COMMANDS_CN.md',
  'supplement/sweeps/endpoint_diagnostic_COMMANDS_CN.md']
@@ -70,7 +69,7 @@ def generate(config,out,time_binding=None,raw_reference=None):
                     if key in base:c[key]=copy.deepcopy(base[key])
                 c['paths'].update(copy.deepcopy(base['paths']))
                 c['paths']['output']=(output_prefix.rstrip('/') if old_output=='results' else rewrite(old_output))
-                for name in ('routing_inputs','releases','tstr_releases','attack_releases','saved_route_inputs'):
+                for name in ('routing_inputs','releases','train_releases','attack_releases','saved_route_inputs'):
                     c[name]={}
                 c['attack_resources_status']='UNBOUND'
                 target=out/'configs'/old

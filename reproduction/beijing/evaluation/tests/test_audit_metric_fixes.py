@@ -28,22 +28,8 @@ def functions(relative, **extra):
     return module
 
 
-def test_hidden_suffix_no_longer_changes_prefix_tie_winner():
-    road = functions('pipeline/evaluate_road_mining_tasks.py', graph_context=lambda: None)
-    train = [[0,1,2,3,4],[0,1,2,8,9]]
-    old = [road.retrieval_metrics(train,[x])['retrieval_top1_suffix_edge_jaccard'] for x in train]
-    fixes.install_road_fixes(road)
-    new = [road.retrieval_metrics(train,[x])['retrieval_top1_suffix_edge_jaccard'] for x in train]
-    assert old == [.5,.5]
-    assert new == [.5,0.]
-    assert np.mean(new) == .25
 
 
-def test_candidate_order_depends_only_on_prefix_and_training_ids():
-    grams = [{(0,1),(1,2)},{(0,1),(1,2)}]
-    assert fixes.blind_candidate_order({(0,1),(1,2)}, {1,0}, grams) == [0,1]
-    with pytest.raises(ValueError):
-        fixes.blind_candidate_order(set(),set(),[],0)
 
 
 def test_lengths_keep_tail_and_have_real_only_shared_bins():
@@ -67,27 +53,8 @@ def test_empty_and_one_point_slots_are_retained():
         fixes.preserve_slots([[[math.nan,0.]]])
 
 
-def test_normalized_continuation_law_and_no_negative_loss():
-    c=Counter({2:1})
-    p=[fixes.normalized_probability(c,x,{2,3}) for x in (2,3)]
-    assert sum(p) == pytest.approx(1.)
-    assert all(-math.log(x) >= 0 for x in p)
-    assert fixes.normalized_probability(c,2,{2}) == 1.
-    with pytest.raises(ValueError):
-        fixes.normalized_probability(c,4,{2,3})
 
 
-def test_auxiliary_nll_changes_but_continuation_hit_does_not():
-    road=functions('pipeline/evaluate_road_mining_tasks.py',
-                   graph_context=lambda: (None,{(0,1),(1,2),(2,3)},None,None))
-    rows=[[0,1,2,3]]
-    old=road.continuation_metrics(rows,rows)
-    fixes.install_road_fixes(road)
-    road.graph_context()
-    new=road.continuation_metrics(rows,rows)
-    assert old['continuation_nll'] < 0
-    assert new['continuation_nll'] == 0
-    assert old['continuation_hit_at_1'] == new['continuation_hit_at_1']
 
 
 def test_dirvalid_does_not_rank_coordinate_pairs_as_complete_routes():
@@ -106,7 +73,7 @@ def test_zero_is_numeric_and_missing_stays_missing():
     assert x['value'].iloc[0] == 0
     assert x['value'].iloc[1] == .3
     assert x['value'].iloc[2:].isna().all()
-    assert 'relative retention' in metric_display_name('DestinationHit5')
+    assert metric_display_name('MFPOrderedRouteOverlap') == 'MFPOrderedRouteOverlap'
 
 
 def test_frozen_btf_and_family_definitions_are_not_replaced():

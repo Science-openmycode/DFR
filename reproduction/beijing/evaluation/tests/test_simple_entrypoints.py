@@ -61,9 +61,9 @@ def test_main_dry_run_is_read_only_and_mm2_last():
 
 def test_all_planned_scripts_import_and_show_help():
     # --help verifies imports, not argument compatibility or numeric results.
-    for experiment in ('main', 'ablation', 'tstr', 'privacy_attack'):
+    for experiment in ('main', 'ablation', 'privacy_attack'):
         result = subprocess.run([sys.executable, '-X', 'utf8', str(ROOT / f'experiments/{experiment}.py'), '--dry-run'], capture_output=True, text=True, encoding='utf-8')
-        if experiment in ('privacy_attack', 'tstr'):
+        if experiment == 'privacy_attack':
             assert result.returncode != 0
             assert 'not bound' in result.stderr
             continue
@@ -86,11 +86,11 @@ def test_unregistered_output_is_not_overwritten(tmp_path):
 def test_reproduce_help_and_plot_dry_run():
     result = subprocess.run([sys.executable, '-X', 'utf8', str(ROOT / 'reproduce.py'), '--help'], capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
-    result = subprocess.run([sys.executable, '-X', 'utf8', str(ROOT / 'experiments/plot.py'), '--experiment', 'tstr', '--dry-run'], capture_output=True, text=True, encoding='utf-8')
+    result = subprocess.run([sys.executable, '-X', 'utf8', str(ROOT / 'experiments/plot.py'), '--experiment', 'applications', '--dry-run'], capture_output=True, text=True, encoding='utf-8')
     assert result.returncode == 0, result.stderr
     steps = json.loads(result.stdout)
-    assert '--data-root' in steps[0]['command']
-    assert '--figure' in steps[0]['command']
+    assert '--summary' in steps[0]['command']
+    assert Path(steps[0]['command'][3]).name == 'plot_applications.py'
 
 
 def test_changed_dependency_rejects_reuse(tmp_path):

@@ -147,22 +147,6 @@ def test_defined_na_is_a_complete_observation_not_zero(tmp_path):
     assert rows[0]['status'] == 'NA' and rows[0]['value'] == ''
 
 
-def test_tstr_plan_routes_only_train_releases(tmp_path):
-    import subprocess
-    import sys
-    config=json.loads((ROOT/'configs/beijing.json').read_text(encoding='utf-8'))
-    config['releases']={m:{'coordinates':str(tmp_path/(m+'_coordinates.pkl')),
-                           'lineage':str(tmp_path/(m+'_lineage.json'))}
-                        for m in ('SPRT','PrivTrace','DPTraj-PM','DPStd')}
-    config_path=tmp_path/'planning.json';config_path.write_text(json.dumps(config),encoding='utf-8')
-    run = subprocess.run([sys.executable, '-X', 'utf8', str(ROOT / 'experiments/table.py'), 'tstr', '--config',str(config_path),'--batch',str(tmp_path/'batch'), '--dry-run'], capture_output=True, encoding='utf-8')
-    assert run.returncode == 0, run.stderr
-    jobs = json.loads(run.stdout)
-    routes = [s for s in jobs if 'route-cell' in s['command']]
-    assert len(routes) == 12
-    assert all('MM2-MDP' not in s['command'] and 'MTR-DFR' not in s['command'] for s in routes)
-    assert all('tstr_matrix' in s['command'][s['command'].index('--measurement')+1] for s in routes)
-    assert '--require-synthesis-lineage' in jobs[-1]['command']
 
 
 def test_final_plot_refuses_an_incomplete_table(tmp_path):
@@ -347,37 +331,3 @@ def test_default_register_road_tasks_verifies_path_hash_inputs(tmp_path):
     command[-1]=str(tmp_path/'rejected')
     done=subprocess.run(command,capture_output=True,encoding='utf-8')
     assert done.returncode!=0 and 'hash mismatch' in done.stderr
-
-
-def test_tstr_registry_requires_scoring_split_release_and_lineage(tmp_path):
-    import hashlib
-    import subprocess
-    import sys
-    files={}
-    for label in ('train','test','split','synthetic','lineage'):
-        path=tmp_path/(label+'.bin');path.write_bytes(label.encode())
-        files[label]=(str(path),hashlib.sha256(path.read_bytes()).hexdigest())
-    result=tmp_path/'results.csv';result.write_text('Pipeline,Next-cell Hit@1\nDPStd + FMM,0.25\n')
-    meta={'protocol':'train_test_bound_task_scoring_v2','synthesis_lineage_verified':True,
-          'disjoint_split_verified':True,'results_sha256':hashlib.sha256(result.read_bytes()).hexdigest(),
-          'scoring_inputs_sha256':dict(files.values()),
-          'split_binding':{'train_sha256':files['train'][1],'test_sha256':files['test'][1],
-             'disjoint_split':{'train_count':12584,'test_count':3146,'record_sha256':files['split'][1]},
-             'synthetic':{'DPStd + FMM':files['synthetic'][1]},
-             'synthesis_lineage':{'DPStd + FMM':{'record_sha256':files['lineage'][1]}}}}
-    manifest=tmp_path/'manifest.json';manifest.write_text(json.dumps(meta))
-    config=json.loads((ROOT/'configs/beijing.json').read_text(encoding='utf-8'))
-    config['table_sources']=[{'row':'DPStd + FMM','path':'results.csv','manifest':'manifest.json',
-        'columns':{'Next-cell Hit@1':'NextCellHit1'},'protocol':meta['protocol'],
-        'format':'csv','select':{'Pipeline':'DPStd + FMM'},'scope':'tstr'}]
-    selected=tmp_path/'config.json';selected.write_text(json.dumps(config))
-    command=[sys.executable,str(ROOT/'experiments/table.py'),'register','--config',str(selected),
-             '--batch',str(tmp_path),'--out',str(tmp_path/'accepted')]
-    done=subprocess.run(command,capture_output=True,encoding='utf-8')
-    assert done.returncode==0,done.stderr
-    registry=json.loads((tmp_path/'accepted/source_registry.json').read_text())
-    assert module().collect({'rows':['DPStd + FMM'],'columns':['NextCellHit1']},registry['sources'])[0]['value']==0.25
-    del meta['scoring_inputs_sha256'][files['lineage'][0]]
-    manifest.write_text(json.dumps(meta));command[-1]=str(tmp_path/'rejected')
-    done=subprocess.run(command,capture_output=True,encoding='utf-8')
-    assert done.returncode!=0 and 'omit required' in done.stderr

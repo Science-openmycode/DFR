@@ -18,47 +18,6 @@ def jobs(step, batch, config_path=None):
             raise ValueError(f'partial output for {name}; inspect before retrying')
         output.append({'name': name, 'command': [sys.executable, '-X', 'utf8', str(script), *map(str, flags)],
                        'inputs': list(map(str, [script, *inputs])), 'outputs': list(map(str, artifacts))})
-    if step == 'tstr':
-        if not config.get('releases'):
-            raise ValueError('No registered train-only releases; supply an explicit bound configuration')
-        target = batch / 'tstr_matrix'
-        names, views, lineage_args, score_inputs = [], [], [], []
-        for m, release in config['releases'].items():
-            source, lineage = (ROOT / release['coordinates']).resolve(), (ROOT / release['lineage']).resolve()
-            names.append(m if m == 'MTR-DFR' else m + ' + Origin')
-            views.append(source)
-            lineage_args += ['--synthesis-lineage', names[-1] + '=' + str(lineage)]
-            score_inputs += [source, lineage]
-            if m == 'MTR-DFR':
-                continue
-            measurement = target / 'measurements' / m
-            add('train_' + m, ROOT / 'tools/register_train_measurement.py', ['--source', source, '--lineage', lineage, '--out-dir', measurement], [measurement / 'measurement.pkl', measurement / 'measurement_manifest.json'], [source, lineage])
-            for router in ('Nearest', 'FMM', 'STMatch'):
-                cell = target / 'routes' / m / router
-                flags = ['route-cell', '--dataset', 'beijing', '--m', m, '--r', router, '--measurement', measurement, '--prepared-data', p('prepared'), '--public-network', p('network'), '--edge-cache', p('edge_cache'), '--out-dir', cell]
-                inputs = [measurement / 'measurement.pkl', p('network'), p('edge_cache')]
-                if router in ('FMM', 'STMatch'):
-                    key = router.lower()
-                    flags += ['--' + key + '-executable', p(key), '--runtime-dir', p('runtime')]
-                    inputs += [p(key)]
-                    if router == 'FMM':
-                        flags += ['--ubodt', p('ubodt')]
-                        inputs += [p('ubodt')]
-                roads = cell / 'synthetic_routes.pkl.gz'
-                manifest = cell / 'route_manifest.json'
-                add('train_route_' + m + '_' + router, ROOT / 'run.py', flags, [roads, manifest], inputs)
-                view = cell / 'view'
-                add('train_geometry_' + m + '_' + router, ROOT / 'tools/stage_routed_coordinates.py', ['--routes', roads, '--manifest', manifest, '--network', p('network'), '--out-dir', view], [view / 'coordinates.pkl', view / 'coordinates.pkl.manifest.json'], [roads, manifest, p('network')])
-                names.append(m + ' + ' + router)
-                views.append(view / 'coordinates.pkl')
-                lineage_args += ['--synthesis-lineage', names[-1] + '=' + str(lineage)]
-                score_inputs += [view / 'coordinates.pkl', view / 'coordinates.pkl.manifest.json']
-        flags = ['--train-real', p('train'), '--test-real', p('test'), '--split-audit', p('split_audit'), '--require-synthesis-lineage', '--osm-cache', p('osm'), '--bbox', *config['bbox'], '--seed', config['evaluation_seed'], '--names', *names]
-        for view in views:
-            flags += ['--synthetic', view]
-        flags += [*lineage_args, '--out-dir', target / 'evaluation']
-        add('tstr_matrix', p('legacy') / 'evaluation/run_tstr_experiment.py', flags, [target / 'evaluation/results.csv', target / 'evaluation/manifest.json'], [*score_inputs, p('train'), p('test'), p('split_audit'), p('osm')])
-        return output
     for m in ('PrivTrace', 'DPStd', 'DPTraj-PM', 'SPRT'):
         measurement = batch / 'measurements' / m
         route = base / m / 'MM2-MDP'

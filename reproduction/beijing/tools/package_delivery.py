@@ -7,7 +7,8 @@ import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
 DIRECTORIES=('algorithms','configs','deployment','evaluation','experiments','legacy',
-             'plotting','preprocess','resources','tests','tools','vendor')
+             'plotting','preprocess','resources','tests','tools','vendor',
+             'reference_results','supplement','repairs')
 EXCLUDE={'__pycache__','.pytest_cache','.git','.venv'}
 
 def collect_files(root):

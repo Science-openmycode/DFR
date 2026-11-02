@@ -28,7 +28,7 @@ def load(path, name):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--stage', choices=('coordinates', 'tstr', 'generic', 'road'), required=True)
+    p.add_argument('--stage', choices=('coordinates',), required=True)
     p.add_argument('--legacy', type=Path, required=True)
     args, rest = p.parse_known_args()
     if rest[:1] == ['--']:
@@ -38,13 +38,10 @@ def main():
     import public_utils
     public_utils._coerce_traj_list = fixes.preserve_slots
     os.environ['DFR_PRESERVE_EMPTY_SLOTS'] = '1'
-    paths = dict(coordinates=legacy/'evaluation/evaluate_all.py',
-                 tstr=legacy/'run_tstr_experiment.py',
-                 generic=legacy/'pipeline/evaluate_generic_mobility_tasks.py',
-                 road=legacy/'pipeline/evaluate_road_mining_tasks.py')
+    paths = dict(coordinates=legacy/'evaluation/evaluate_all.py')
     bound = [Path(__file__), Path(fixes.__file__), legacy/'public_utils.py',
              legacy/'pipeline/evaluate_kdd_revised_statistics.py',
-             legacy/'pipeline/evaluate_road_mining_tasks.py', paths[args.stage]]
+             paths[args.stage]]
     before = {str(f): digest(f) for f in set(bound)}
     module = load(paths[args.stage], 'audit_v2_'+args.stage)
     length_audit = {}
@@ -72,15 +69,6 @@ def main():
             return source
 
         module._score_published_road_object = object_score
-    elif args.stage == 'road':
-        fixes.install_road_fixes(module)
-    elif args.stage == 'tstr':
-        def run(script, common, out):
-            stage = 'generic' if script == 'evaluate_generic_mobility_tasks.py' else 'road'
-            subprocess.run([sys.executable, '-X', 'utf8', str(Path(__file__).resolve()),
-                '--stage', stage, '--legacy', str(args.legacy.resolve()), '--', *common,
-                '--out-dir', str(out)], check=True)
-        module.run = run
     out = Path(rest[rest.index('--out-dir')+1]).resolve()
     if out.exists():
         raise FileExistsError(out)

@@ -38,7 +38,7 @@ def main():
               'script_sha256': sha(script), 'config_sha256': sha(args.config),
               'train_sha256': sha(train), 'rows': [], 'command': [sys.executable, *sys.argv]}
     start = time.perf_counter()
-    for i, (name, item) in enumerate(config['tstr_releases'].items()):
+    for i, (name, item) in enumerate(config['train_releases'].items()):
         source = (ROOT/item['coordinates']).resolve()
         raw = original.load_payload(source, None)
         # Preserve original positional semantics. Never silently drop empty paths.
@@ -61,7 +61,7 @@ def main():
             command = [sys.executable, '-X', 'utf8', str(script), '--config', str(cfg.resolve()),
                        '--out', str((cell/'results').resolve())]
             tick = time.perf_counter()
-            print(f'[{i+1}/{len(config["tstr_releases"])}] {name}', flush=True)
+            print(f'[{i+1}/{len(config["train_releases"])}] {name}', flush=True)
             result = subprocess.run(command, cwd=ROOT)
             row.update(child_argv=command, exit_code=result.returncode,
                        seconds=time.perf_counter()-tick)

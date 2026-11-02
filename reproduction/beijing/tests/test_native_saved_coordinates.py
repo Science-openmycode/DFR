@@ -40,13 +40,13 @@ def test_native_view_preserves_geometry_slots_and_exact_road_binding(tmp_path):
 
 def test_train_view_binds_the_native_generator_release_not_a_temporary_file(tmp_path):
     routes,network,native=fixture(tmp_path)
-    result=build(routes,network,None,tmp_path/'view',native_source=native,for_tstr=True)
+    result=build(routes,network,None,tmp_path/'view',native_source=native,bind_native_source=True)
     assert result['route_source']['path']==native.as_posix()
     assert result['routed_artifact']['path']==routes.as_posix()
 
 
-def test_wrong_native_release_cannot_enter_strict_tstr(tmp_path):
+def test_wrong_native_release_cannot_enter_native_provenance(tmp_path):
     routes,network,native=fixture(tmp_path)
     native.write_bytes(b'changed')
     with pytest.raises(ValueError,match='executed native release'):
-        build(routes,network,None,tmp_path/'view',native_source=native,for_tstr=True)
+        build(routes,network,None,tmp_path/'view',native_source=native,bind_native_source=True)

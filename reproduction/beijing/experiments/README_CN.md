@@ -73,21 +73,9 @@ python experiments/plot.py --experiment ablation
 
 生成 `figures/ablation/05_ablation.png` 和 PDF。该命令调用原有绘图函数，只读本批次 CSV，不使用旧冻结分数补缺。
 
-## 4. 严格 TSTR 下游实验
+## 4. 四项下游任务
 
-```powershell
-python experiments/tstr.py
-```
-
-此入口读取配置中**已有的五份 train-only 合成数据**，重新执行下游模型训练和评分，不重新合成数据。五份是四个统计基线的 Origin 和 DFR 原生发布的确定性坐标表示，不是 FMM/STMatch 的 TSTR 组合。真实训练和合成训练使用同一个未见真实测试集；脚本强制校验合成来源与独立划分。
-
-产生 `tstr/results.csv`、`tstr/manifest.json`，以及 `raw_generic/`、`raw_road/` 中的原始任务结果。
-
-```powershell
-python experiments/plot.py --experiment tstr
-```
-
-生成 `figures/tstr/06_strict_tstr.png` 和 PDF，沿用原绘图函数及指标选择。
+按仓库主README第05节运行：准备道路输入、配置真实问题、各方法回答同题、汇总和绘图。使用全集道路发布，不再训练旧预测任务。
 
 ## 5. 隐私攻击实验
 
@@ -109,7 +97,7 @@ python experiments/plot.py --experiment privacy_attack
 python reproduce.py
 ```
 
-执行顺序为统计 M×R、DFR 消融、TSTR 重测、成员推断攻击重测；不包含 MM2，不自动作图。作图分别使用各节的命令。
+执行顺序为统计 M×R、DFR 消融、四项道路应用评价（需提供 --applications-config）、成员推断攻击重测；不包含 MM2，不自动作图。作图分别使用各节的命令。
 
 换配置、换批次、查看命令的参数通用：
 

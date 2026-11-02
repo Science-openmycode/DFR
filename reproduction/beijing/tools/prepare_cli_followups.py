@@ -42,7 +42,7 @@ def main():
     releases={'MTR-DFR':dict(coordinates=str(a.train_coordinates.resolve()),
                             lineage=str(a.train_lineage.resolve()))}
     write(a.out/'releases.json',releases)
-    c['tstr_releases']=releases
+    c['train_releases']=releases
     write(a.out/'ordered_attack.json',c)
     print('FOLLOWUP_INPUTS_READY',a.out)
 

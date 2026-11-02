@@ -14,7 +14,7 @@ from synthesis_lineage import SCHEMA, bind_records, bind_split, validate_record
 spec = importlib.util.spec_from_file_location("train_only", ROOT / "commands/generate_train_only.py")
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
-spec_tasks = importlib.util.spec_from_file_location("bound_tasks", ROOT / "evaluation/run_tstr_experiment.py")
+spec_tasks = importlib.util.spec_from_file_location("bound_tasks", ROOT / "evaluation/release_provenance.py")
 tasks = importlib.util.module_from_spec(spec_tasks)
 spec_tasks.loader.exec_module(tasks)
 spec_split = importlib.util.spec_from_file_location("checked_split", ROOT / "evaluation/audit_tstr_split.py")
@@ -23,23 +23,6 @@ spec_split.loader.exec_module(split)
 
 
 class SynthesisLineageTests(unittest.TestCase):
-    def test_raw_road_objects_rejected_before_training(self):
-        import contextlib
-        import io
-        with tempfile.TemporaryDirectory() as tmp:
-            output = Path(tmp) / "scores"
-            argv = ["tasks", "--train-real", "missing_train.pkl", "--test-real", "missing_test.pkl",
-                    "--synthetic", "coordinates.pkl", "--road-synthetic", "road_routes.pkl.gz",
-                    "--names", "M", "--osm-cache", "missing_osm.pkl",
-                    "--bbox", "0", "1", "0", "1", "--out-dir", str(output)]
-            errors = io.StringIO()
-            with patch.object(sys, "argv", argv), contextlib.redirect_stderr(errors):
-                with self.assertRaises(SystemExit) as result:
-                    tasks.main()
-            self.assertEqual(result.exception.code, 2)
-            self.assertIn("routes-to-coordinates", errors.getvalue())
-            self.assertFalse(output.exists())
-
     def fixture(self, root):
         record = root / "record.json"
         data = {"schema": SCHEMA, "status": "passed", "train_sha256": "train",

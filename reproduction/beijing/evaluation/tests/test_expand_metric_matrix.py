@@ -28,7 +28,7 @@ def _write_table(path: Path) -> None:
 
 
 def test_expands_every_frozen_row_and_metric_without_fabricating_values(tmp_path: Path) -> None:
-    spec = ROOT / "plotting" / "specs" / "full_27x48.json"
+    spec = ROOT / "reference_results" / "matrix" / "spec_framework.json"
     source = tmp_path / "metrics_long.csv"
     output = tmp_path / "metrics_full.csv"
     _write_table(source)
@@ -47,7 +47,7 @@ def test_expands_every_frozen_row_and_metric_without_fabricating_values(tmp_path
 
 
 def test_alias_is_only_used_for_exact_metric_name(tmp_path: Path) -> None:
-    spec = ROOT / "plotting" / "specs" / "full_27x48.json"
+    spec = ROOT / "reference_results" / "matrix" / "spec_framework.json"
     source = tmp_path / "metrics_long.csv"
     _write_table(source)
     rows = expand_metric_matrix.expand_table(spec, source)

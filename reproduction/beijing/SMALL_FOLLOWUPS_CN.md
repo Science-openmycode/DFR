@@ -13,7 +13,7 @@ python synthesize_dfr.py --config data/branch_cli_fixture/ready.json --length-aw
 python synthesize_dfr_train.py --config data/branch_cli_fixture/ready.json --length-aware --out results/branch_cli/train
 python tools/convert_native_node_pairs.py --routes results/branch_cli/full/seed_42_length/road_routes.pkl.gz --network data/branch_cli_fixture/network.shp --expected-slots 64 --out results/branch_cli/full_routes
 python tools/convert_native_node_pairs.py --routes results/branch_cli/train/release/seed_42_length/road_routes.pkl.gz --network data/branch_cli_fixture/network.shp --expected-slots 51 --out results/branch_cli/train_routes
-python tools/stage_native_saved_coordinates.py --routes results/branch_cli/train_routes/synthetic_routes.pkl.gz --network data/branch_cli_fixture/network.shp --edge-cache data/branch_cli_fixture/edge_cache.pkl.gz --native-source results/branch_cli/train/release/seed_42_length/road_routes.pkl.gz --for-tstr --out-dir results/branch_cli/train_view
+python tools/stage_native_saved_coordinates.py --routes results/branch_cli/train_routes/synthetic_routes.pkl.gz --network data/branch_cli_fixture/network.shp --edge-cache data/branch_cli_fixture/edge_cache.pkl.gz --native-source results/branch_cli/train/release/seed_42_length/road_routes.pkl.gz --bind-native-source --out-dir results/branch_cli/train_view
 python tools/prepare_cli_followups.py --config data/branch_cli_fixture/ready.json --out data/branch_followups --train-coordinates results/branch_cli/train_view/coordinates.pkl --train-lineage results/branch_cli/train/lineage.json
 ```
 

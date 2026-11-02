@@ -143,25 +143,6 @@ def plot_evidence_chain() -> None:
     copy_published("00_ordered_evidence_chain")
 
 
-def plot_tstr() -> None:
-    executed = ROOT / "experiment_results" / "executed_reference" / "tstr" / "results.csv"
-    table = read_table("tstr", "strict_tstr.csv")
-    if {"metric", "value"}.issubset(table.columns):
-        labels = table["metric"].astype(str).tolist()
-        values = table["value"].astype(float).to_numpy()
-        fig, ax = plt.subplots(figsize=(8.0, 4.0))
-        bars = ax.bar(np.arange(len(labels)), values, color=PALETTE[1:1 + len(labels)])
-        ax.set_xticks(np.arange(len(labels)), labels, rotation=20, ha="right")
-        ax.set_ylim(0, 1.05)
-        ax.set_ylabel("Task score")
-        for bar, value in zip(bars, values):
-            ax.text(bar.get_x() + bar.get_width() / 2, value + .02, f"{value:.3f}", ha="center")
-        ax.set_title("Strict train-only TSTR", weight="bold")
-        ax.grid(axis="y", alpha=.2)
-        save(fig, "06_strict_tstr")
-        return
-    frame = table.set_index(table.columns[0]).drop(columns=["Destination MRR"], errors="ignore").apply(pd.to_numeric, errors="coerce")
-    annotated_heatmap(frame, "Strict train-only TSTR utility retention", "06_strict_tstr")
 
 
 def plot_structure() -> None:
@@ -196,7 +177,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Regenerate one experiment figure or the complete sequence.")
     parser.add_argument(
         "--figure",
-        choices=("evidence", "framework", "privacy", "profile", "mr", "ablation", "tstr", "structure", "all"),
+        choices=("evidence", "framework", "privacy", "profile", "mr", "ablation", "structure", "all"),
         default="all",
     )
     parser.add_argument("--data-root", type=Path)
@@ -215,7 +196,6 @@ def main() -> None:
         "profile": plot_profile,
         "mr": plot_mr,
         "ablation": plot_ablation,
-        "tstr": plot_tstr,
         "structure": plot_structure,
     }
     selected = list(jobs) if args.figure == "all" else [args.figure]

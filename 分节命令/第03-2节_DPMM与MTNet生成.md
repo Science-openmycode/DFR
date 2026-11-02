@@ -257,7 +257,7 @@ powershell -NoProfile -File deployment/RUN_MTNET_GPU.ps1 -Root results/reproduct
 
 生成 results/reproduction_native_20261024/train/MTNet_deployment/trained 与 native_release，stdout/stderr分别保存；已有trained目录会拒绝重复训练。
 
-训练和原生生成成功后还写出execution_observation.json，保存真实子进程退出码及耗时，不伪造外层命令。之后按 [新原生结果的TSTR接续](第05-2节_原生方法严格TSTR.md) 登记、转换和评分。
+训练和原生生成成功后还写出execution_observation.json，保存真实子进程退出码及耗时，不伪造外层命令。之后按 [新原生结果的四项任务评价](第05节_四项下游任务与图件.md) 登记、转换和评分。
 
 ---
 

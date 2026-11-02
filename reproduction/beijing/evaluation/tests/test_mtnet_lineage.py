@@ -1,7 +1,7 @@
 import json
 import pytest
 from tools.finalize_mtnet_lineage import finalize
-from prepare_remote_tstr import parse_cell
+from preprocess.release_cell import parse_cell
 from preprocess.dataset_contract import sha
 
 

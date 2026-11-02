@@ -68,38 +68,24 @@ def build(experiment, config, args, root):
                 [args.config.resolve(), path('real_routes'), path('real'), path('metric_cache'), path('network')])
             return steps, output, legacy
         add('ablation', legacy / 'evaluation/run_ablation_experiment.py', ['--real-routes', path('real_routes'), '--real-source', path('real'), '--edge-cache', path('source_cache'), '--network', path('network'), '--population', config['population'], '--epsilon-total', config['epsilon'], '--public-slot-count', config['slots'], '--seed', config['seed'], '--length-aware', '--variants', 'no-endpoint-measurement', 'endpoint-measurement-only', 'no-length-measurement', 'full', '--out-dir', target], [target / 'results.csv', target / 'manifest.json', *(target / 'arms' / (arm + '.pkl.gz') for arm in ('no-endpoint-measurement', 'endpoint-measurement-only', 'no-length-measurement', 'full'))], [path('real_routes'), path('real'), path('source_cache'), path('network')])
-    elif experiment in ('tstr', 'privacy_attack'):
-        releases = config.get('tstr_releases' if experiment == 'tstr' else 'attack_releases', config.get('releases', {}))
+    elif experiment == 'privacy_attack':
+        releases = config.get('attack_releases', config.get('releases', {}))
         if config.get('frozen_dataset_id') and not releases:
-            raise ValueError('Training-only releases are not bound; Register actual train-only releases and lineage before planning TSTR or attacks')
-        if experiment == 'privacy_attack' and config.get('attack_resources_status') == 'UNBOUND':
-            raise ValueError('Attack inputs are not bound to this population; old population inputs cannot be reused')
-        flags = []
-        inputs = []
-        if experiment == 'tstr':
-            for flag, key in [('train-real', 'train'), ('test-real', 'test'), ('split-audit', 'split_audit'), ('osm-cache', 'osm')]:
-                flags += ['--' + flag, path(key)]
-                inputs += [path(key)]
-            flags += ['--require-synthesis-lineage', '--names', *releases]
-        else:
-            for flag, key in [('members', 'members'), ('nonmembers', 'nonmembers'), ('reference', 'reference'), ('attack-manifest', 'attack_manifest')]:
-                flags += ['--' + flag, path(key)]
-                inputs += [path(key)]
+            raise ValueError('Attack releases are not bound')
+        if config.get('attack_resources_status') == 'UNBOUND':
+            raise ValueError('Attack inputs are not bound to this population')
+        flags, inputs = [], []
+        for flag, key in [('members','members'),('nonmembers','nonmembers'),('reference','reference'),('attack-manifest','attack_manifest')]:
+            flags += ['--'+flag, path(key)]
+            inputs += [path(key)]
         for name, item in releases.items():
-            source = (root / item['coordinates']).resolve()
-            lineage = (root / item['lineage']).resolve()
-            flags += ['--synthetic', source] if experiment == 'tstr' else ['--release', f'{name}={source}']
-            flags += ['--synthesis-lineage', f'{name}={lineage}']
+            source, lineage = (root/item['coordinates']).resolve(), (root/item['lineage']).resolve()
+            flags += ['--release', f'{name}={source}', '--synthesis-lineage', f'{name}={lineage}']
             inputs += [source, lineage]
-        target = output / ('tstr_audit_v2' if experiment == 'tstr' else 'privacy')
+        target = output/'privacy'
         flags += ['--bbox', *config['bbox'], '--seed', config['evaluation_seed'], '--out-dir', target]
-        script = 'run_tstr_experiment.py' if experiment == 'tstr' else 'run_privacy_experiment.py'
-        if experiment == 'tstr':
-            add(experiment, root/'evaluation/audit_v2_runner.py',
-                ['--stage','tstr','--legacy',legacy,'--',*flags],
-                [target/'results.csv',target/'manifest.json'],inputs)
-        else:
-            add(experiment, root/'evaluation/run_registered_attacks.py', ['--legacy', legacy, *flags], [target / 'results.csv', target / 'manifest.json'], inputs)
+        add(experiment, root/'evaluation/run_registered_attacks.py', ['--legacy',legacy,*flags],
+            [target/'results.csv',target/'manifest.json'],inputs)
     else:
         raise ValueError(experiment)
     return steps, output, legacy

@@ -166,9 +166,6 @@ def stage_helper(name: str, args: list[str]) -> int:
     return run([sys.executable, str(entries[name]), *forwarded(args)])
 
 
-def stage_tstr(args: list[str]) -> int:
-    entry = ROOT / "evaluation" / "run_tstr_experiment.py"
-    return run([sys.executable, str(entry), *forwarded(args)])
 
 
 def stage_verify_matcher(args: list[str]) -> int:
@@ -235,7 +232,7 @@ def main() -> int:
     plot.add_argument("args", nargs=argparse.REMAINDER)
     for name in ("generate-main", "generate-baselines", "evaluate",
                  "verify-matcher", "generate-train-only", "prepare-geolife", "prepare-porto", "prepare-sf", "prepare-split", "prepare-attack-split", "prepare-road-reference", "subset-routes",
-                 "routes-to-coordinates", "run-tstr",
+                 "routes-to-coordinates",
                  "run-ablation", "run-framework", "run-privacy", "run-profile", "run-mr",
                  "run-physical", "run-structure"):
         child = sub.add_parser(name)
@@ -259,8 +256,6 @@ def main() -> int:
         return stage_verify_matcher(ns.args)
     if ns.stage in {"generate-train-only", "prepare-geolife", "prepare-porto", "prepare-sf", "prepare-split", "prepare-attack-split", "prepare-road-reference", "subset-routes", "routes-to-coordinates"}:
         return stage_helper(ns.stage, ns.args)
-    if ns.stage == "run-tstr":
-        return stage_tstr(ns.args)
     if ns.stage == "run-ablation":
         return stage_ablation(ns.args)
     if ns.stage.startswith("run-"):

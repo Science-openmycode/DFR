@@ -129,9 +129,9 @@ def test_node_pairs_require_source_cache(evaluator, inputs):
 
 
 @pytest.mark.parametrize(("source", "route", "message"), [
-    ({1: (100, 101), 2: (100, 101)}, [(100, 101)], "ambiguous"),
-    ({1: (100, 101)}, [(101, 102)], "unknown.*node"),
-    ({999: (100, 101)}, [(100, 101)], "common.*edge"),
+    ({1: (100, 101), 2: (100, 101)}, [(100, 101)], "(?i)ambiguous source node pair"),
+    ({1: (100, 101)}, [(101, 102)], "(?i)unknown source node pair"),
+    ({999: (100, 101)}, [(100, 101)], "(?i)no shared public edge ID"),
 ])
 def test_refuses_ambiguous_or_unmapped_source_pairs(evaluator, inputs, tmp_path, source, route, message):
     inputs["representation"] = "node-pairs"

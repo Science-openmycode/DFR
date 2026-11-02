@@ -9,11 +9,11 @@ from evaluation.table_collection import collect, save
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('step', choices=['register', 'collect', 'route', 'score', 'tstr', 'plot'])
+    parser.add_argument('step', choices=['register', 'collect', 'route', 'score', 'plot'])
     parser.add_argument('--dry-run', action='store_true')
     parser.add_argument('--batch', type=Path, help='Current result batch; defaults to the selected config output/batch')
     parser.add_argument('--out', type=Path, help='Table directory; defaults to the selected batch/table')
-    parser.add_argument('--spec', type=Path, default=ROOT / 'plotting/specs/full_27x48.json')
+    parser.add_argument('--spec', type=Path, default=ROOT / 'reference_results/matrix/spec_framework.json')
     parser.add_argument('--config', type=Path, default=ROOT / 'configs/beijing.yaml')
     args = parser.parse_args()
     if args.batch is None:
@@ -21,8 +21,8 @@ def main():
         args.batch = ROOT / config['paths']['output'] / config['batch']
     if args.out is None:
         args.out = args.batch / 'table'
-    if args.dry_run and args.step not in ('route', 'score', 'tstr'):
-        parser.error('--dry-run is supported only for route, score, and tstr')
+    if args.dry_run and args.step not in ('route', 'score'):
+        parser.error('--dry-run is supported only for route and score')
     directory = args.out.resolve()
     if args.step == 'plot':
         coverage = json.loads((directory / 'collected/coverage.json').read_text(encoding='utf-8'))
@@ -30,7 +30,7 @@ def main():
             parser.error('incomplete table: complete missing measurements before final plotting')
         parser.error('final plotting is not connected yet; source figure alignment is required')
     registry = directory / 'source_registry.json'
-    if args.step in ('route', 'score', 'tstr'):
+    if args.step in ('route', 'score'):
         from _table_jobs import jobs
         from _runner import execute
         import os

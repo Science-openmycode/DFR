@@ -79,7 +79,7 @@ def test_new_batch_binds_all_followups(tmp_path,monkeypatch):
     result=planner.generate(cfg,tmp_path/'plans/new',tmp_path/'times.json',tmp_path/'raw.pkl')
     assert result['followups']['sweep_cells']==68
     assert result['followups']['training_releases']==23
-    native=(tmp_path/'plans/new/commands/REPRODUCE_NATIVE_TSTR_CN.md').read_text()
+    native=(tmp_path/'plans/new/commands/REPRODUCE_NATIVE_BASELINES_20261024_CN.md').read_text()
     assert '--validation results/new_user_batch/dpmm_validation_train/validation.json' in native
     assert 'vendor/dpmm/evidence/train_accelerated.json' not in native
     sweep=json.loads((tmp_path/'plans/new/sweeps_plan.json').read_text())
@@ -94,7 +94,7 @@ def test_new_batch_binds_all_followups(tmp_path,monkeypatch):
     assert 'configs/portable_supplement.json' not in supplement
     for relative in result['configs'].values():
         bound=json.loads((tmp_path/relative).read_text())
-        assert bound['tstr_releases']==bound['attack_releases']=={}
+        assert bound['train_releases']==bound['attack_releases']=={}
 
 
 def test_readme_translation_has_identical_command_blocks():

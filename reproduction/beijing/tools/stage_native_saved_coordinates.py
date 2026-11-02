@@ -12,7 +12,7 @@ except ModuleNotFoundError:
     from stage_native_edge_coordinates import stage, _binding
 
 
-def build(routes, network, edge_cache, out, native_source=None, for_tstr=False):
+def build(routes, network, edge_cache, out, native_source=None, bind_native_source=False):
     routes = Path(routes)
     meta = json.loads((routes.parent/'route_manifest.json').read_text(encoding='utf-8'))
     binding = _binding(routes)
@@ -20,9 +20,9 @@ def build(routes, network, edge_cache, out, native_source=None, for_tstr=False):
         raise ValueError('Requires explicitly checked native representation, not a rematched route')
     if meta['output_sha256'] != binding['sha256'] or meta['public_network_sha256'] != _binding(network)['sha256']:
         raise ValueError('Native representation or public network changed')
-    if for_tstr:
+    if bind_native_source:
         if native_source is None or meta['native_sha256'] != _binding(native_source)['sha256']:
-            raise ValueError('TSTR view must bind the executed native release')
+            raise ValueError('Native provenance view must bind the executed native release')
     with gzip.open(routes,'rb') as f:
         records = pickle.load(f)
     edges = []
@@ -35,7 +35,7 @@ def build(routes, network, edge_cache, out, native_source=None, for_tstr=False):
         with gzip.open(ids,'wb') as f:
             pickle.dump(edges,f,pickle.HIGHEST_PROTOCOL)
         result = stage(routes=ids,network=network,edge_cache=edge_cache,out_dir=out)
-    result.update(route_source=_binding(native_source) if for_tstr else binding,
+    result.update(route_source=_binding(native_source) if bind_native_source else binding,
                   routed_artifact=binding,
                   native_representation_manifest=_binding(routes.parent/'route_manifest.json'),
                   rematched=False,gap_filling=False,route_selection=False,
@@ -50,9 +50,9 @@ def main():
     for key in ('routes','network','edge-cache','out-dir'):
         p.add_argument('--'+key,type=Path,required=True)
     p.add_argument('--native-source',type=Path)
-    p.add_argument('--for-tstr',action='store_true')
+    p.add_argument('--bind-native-source',action='store_true')
     a = p.parse_args()
-    result = build(a.routes,a.network,a.edge_cache,a.out_dir,a.native_source,a.for_tstr)
+    result = build(a.routes,a.network,a.edge_cache,a.out_dir,a.native_source,a.bind_native_source)
     print('NATIVE_GEOMETRY_VIEW',result['record_count'],result['nonempty_slot_count'])
 
 

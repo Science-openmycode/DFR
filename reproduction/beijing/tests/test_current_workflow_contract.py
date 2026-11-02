@@ -32,15 +32,14 @@ def test_current_generation_and_score_protocol():
     assert not any('evaluate-cell' in s['command'] for s in steps)
 
 
-def test_frozen_ablation_and_registered_tstr():
+def test_frozen_ablation_and_retired_prediction_stage():
     c, a = setup()
     steps, _, _ = plans.build('ablation', c, a, ROOT)
     assert Path(steps[0]['command'][3]).name == 'run_dfr_ablation_frozen.py'
-    with pytest.raises(ValueError, match='Register actual'):
+    with pytest.raises(ValueError, match='tstr'):
         plans.build('tstr', c, a, ROOT)
-    c['tstr_releases'] = {'example': {'coordinates': 'example.pkl', 'lineage': 'example.json'}}
-    steps, _, _ = plans.build('tstr', c, a, ROOT)
-    assert Path(steps[0]['command'][3]).name == 'audit_v2_runner.py'
+    assert (ROOT/'evaluate_applications.py').is_file()
+    assert not (ROOT/'evaluate_tstr.py').exists()
 
 
 def test_mm2_namespace_and_unbound_rejection():

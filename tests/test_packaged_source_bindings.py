@@ -18,7 +18,12 @@ class PackagedSourceBindingsTest(unittest.TestCase):
             return
         for manifest in manifests:
             entries = json.loads(manifest.read_text(encoding="utf-8-sig"))
-            self.assertEqual(len(entries), 38)
+            if isinstance(entries, dict):
+                self.assertIsInstance(entries.get('files'), dict)
+                entries = [{'file': name, 'sha256': digest}
+                           for name, digest in entries['files'].items()]
+            self.assertGreater(len(entries), 0)
+            self.assertEqual(len({entry['file'] for entry in entries}), len(entries))
             for entry in entries:
                 with self.subTest(manifest=manifest, source=entry["file"]):
                     path = manifest.parent / entry["file"]

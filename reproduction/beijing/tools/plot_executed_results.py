@@ -10,7 +10,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--script', type=Path, required=True)
     parser.add_argument('--results', type=Path, required=True)
-    parser.add_argument('--figure', choices=['tstr', 'ablation', 'privacy'], required=True)
+    parser.add_argument('--figure', choices=['ablation', 'privacy'], required=True)
     parser.add_argument('--out-dir', type=Path, required=True)
     args = parser.parse_args()
     if not args.results.is_file():

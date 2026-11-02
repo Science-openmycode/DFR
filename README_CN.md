@@ -21,8 +21,7 @@ MM2 并行设置：本指南的 MM2 正式路由命令明确使用 `--threads 4`
 - [第03-1节 DFR全集与训练专用生成](#sec-03-1) · [分节文件](分节命令/第03-1节_DFR全集与训练专用生成.md)
 - [第03-2节 DPMM与MTNet生成](#sec-03-2) · [分节文件](分节命令/第03-2节_DPMM与MTNet生成.md)
 - [第04节 原生方法全集效用评分](#sec-04) · [分节文件](分节命令/第04节_原生方法全集效用评分.md)
-- [第05-1节 统计方法严格TSTR](#sec-05-1) · [分节文件](分节命令/第05-1节_统计方法严格TSTR.md)
-- [第05-2节 原生方法严格TSTR](#sec-05-2) · [分节文件](分节命令/第05-2节_原生方法严格TSTR.md)
+- [第05节 四项下游任务与图件](#sec-05) · [分节文件](分节命令/第05节_四项下游任务与图件.md)
 - [第06节 算法消融与隐私攻击](#sec-06) · [分节文件](分节命令/第06节_算法消融与隐私攻击.md)
 - [第07-1节 K分辨率实验](#sec-07-1) · [分节文件](分节命令/第07-1节_K分辨率实验.md)
 - [第07-2节 隐私预算实验](#sec-07-2) · [分节文件](分节命令/第07-2节_隐私预算实验.md)
@@ -340,7 +339,7 @@ python tools/check_readme_handoff.py --config configs/local_all_ready.json --con
 
 [单独打开本节](分节命令/第02节_统计M与五种R及全集评分.md)
 
-**本节先生成，再处理道路，最后评分。** M是合成算法，R是处理其输出的道路方法。同一份M输出分别交给五种R，不为每种R重新生成M。`full`表示全集发布；`train`表示只读真实训练集的发布，留给严格TSTR。
+**本节先生成，再处理道路，最后评分。** M是合成算法，R是处理其输出的道路方法。同一份M输出分别交给五种R，不为每种R重新生成M。`full`表示全集发布；`train`表示只读真实训练集的发布，供训练集隔离与隐私攻击使用。
 
 `Origin`保留M原输出，`Nearest`做最近道路处理，`FMM`、`STMatch`和`MM2-MDP`运行各自道路方法。每条命令前面的标题会写明算法、full/train和当前阶段。当前主实验配置请求epsilon=1.4，生成种子由对应配置的seed给出；它与第01节的数据划分种子不是一回事。
 
@@ -379,7 +378,7 @@ $env:PYTHONIOENCODING='utf-8'
 
 完成后：仅影响当前PowerShell窗口，不生成轨迹或评分。
 
-全量发布用于统计/道路保真评价；训练发布只为后续严格TSTR准备，不能拿全量评分当TSTR。
+全量发布用于统计、道路保真和第05节四项下游任务；训练发布用于训练集隔离与隐私攻击。
 此清单覆盖四个统计M及五个R，不包括DFR/DPMM/MTNet原生生成、训练lineage登记、攻击、K/预算及作图。
 这是待执行的新批次计划，不是已完成的实验记录。M只生成一次，五个R读取同一份测量。
 
@@ -572,7 +571,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\SPRT\Nearest\metrics.json`、`results\reproduction_checked_20261024\road_tasks\SPRT\Nearest\manifest.json`
 
@@ -694,7 +693,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\SPRT\FMM\metrics.json`、`results\reproduction_checked_20261024\road_tasks\SPRT\FMM\manifest.json`
 
@@ -816,7 +815,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\SPRT\STMatch\metrics.json`、`results\reproduction_checked_20261024\road_tasks\SPRT\STMatch\manifest.json`
 
@@ -938,7 +937,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\SPRT\MM2-MDP\metrics.json`、`results\reproduction_checked_20261024\road_tasks\SPRT\MM2-MDP\manifest.json`
 
@@ -1274,7 +1273,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\PrivTrace\Nearest\metrics.json`、`results\reproduction_checked_20261024\road_tasks\PrivTrace\Nearest\manifest.json`
 
@@ -1396,7 +1395,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\PrivTrace\FMM\metrics.json`、`results\reproduction_checked_20261024\road_tasks\PrivTrace\FMM\manifest.json`
 
@@ -1518,7 +1517,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\PrivTrace\STMatch\metrics.json`、`results\reproduction_checked_20261024\road_tasks\PrivTrace\STMatch\manifest.json`
 
@@ -1640,7 +1639,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\PrivTrace\MM2-MDP\metrics.json`、`results\reproduction_checked_20261024\road_tasks\PrivTrace\MM2-MDP\manifest.json`
 
@@ -1976,7 +1975,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\DPTraj-PM\Nearest\metrics.json`、`results\reproduction_checked_20261024\road_tasks\DPTraj-PM\Nearest\manifest.json`
 
@@ -2098,7 +2097,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\DPTraj-PM\FMM\metrics.json`、`results\reproduction_checked_20261024\road_tasks\DPTraj-PM\FMM\manifest.json`
 
@@ -2220,7 +2219,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\DPTraj-PM\STMatch\metrics.json`、`results\reproduction_checked_20261024\road_tasks\DPTraj-PM\STMatch\manifest.json`
 
@@ -2342,7 +2341,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\DPTraj-PM\MM2-MDP\metrics.json`、`results\reproduction_checked_20261024\road_tasks\DPTraj-PM\MM2-MDP\manifest.json`
 
@@ -2678,7 +2677,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\DPStd\Nearest\metrics.json`、`results\reproduction_checked_20261024\road_tasks\DPStd\Nearest\manifest.json`
 
@@ -2800,7 +2799,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\DPStd\FMM\metrics.json`、`results\reproduction_checked_20261024\road_tasks\DPStd\FMM\manifest.json`
 
@@ -2922,7 +2921,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\DPStd\STMatch\metrics.json`、`results\reproduction_checked_20261024\road_tasks\DPStd\STMatch\manifest.json`
 
@@ -3044,7 +3043,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 预期输出：`results\reproduction_checked_20261024\road_tasks\DPStd\MM2-MDP\metrics.json`、`results\reproduction_checked_20261024\road_tasks\DPStd\MM2-MDP\manifest.json`
 
@@ -3241,7 +3240,7 @@ $env:PYTHONIOENCODING='utf-8'
 | `--length-aware` | 启用当前正式DFR的长度测量分支，仍在原总隐私预算内分配。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：训练专用道路发布和lineage.json，供第05节TSTR使用。
+完成后：训练专用道路发布和lineage.json，供训练集隔离与隐私攻击使用。
 
 预期原生发布 results/reproduction_dfr_length_20261024/native_train/MTR-DFR/release/seed_42_length/road_routes.pkl.gz，训练来源记录 native_train/MTR-DFR/lineage.json。生成后必须核对槽位、源码、输入、epsilon和length_aware分支，不能仅凭文件存在宣称复现。
 
@@ -3500,7 +3499,7 @@ powershell -NoProfile -File deployment/RUN_MTNET_GPU.ps1 -Root results/reproduct
 
 生成 results/reproduction_native_20261024/train/MTNet_deployment/trained 与 native_release，stdout/stderr分别保存；已有trained目录会拒绝重复训练。
 
-训练和原生生成成功后还写出execution_observation.json，保存真实子进程退出码及耗时，不伪造外层命令。之后按 [新原生结果的TSTR接续](#sec-05-2) 登记、转换和评分。
+训练和原生生成成功后还写出execution_observation.json，保存真实子进程退出码及耗时，不伪造外层命令。之后按 [第05节四项下游任务](#sec-05) 登记、转换和评分。
 
 <a id="sec-04"></a>
 
@@ -3578,9 +3577,9 @@ powershell -NoProfile -File deployment/RUN_MTNET_GPU.ps1 -Root results/reproduct
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
-第3步依赖第1步的真实评分来源。此处是全量发布的回顾性道路任务，不冒充严格TSTR。严格TSTR必须另外使用训练专用生成结果和对应lineage。
+第3步依赖第1步的真实评分来源。此处是全量发布的回顾性道路任务，不冒充四项下游任务。四项下游任务必须另外使用训练专用生成结果和对应lineage。
 
 ### 4. DFR 坐标统计
 
@@ -3719,7 +3718,7 @@ powershell -NoProfile -File deployment/RUN_MTNET_GPU.ps1 -Root results/reproduct
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 依次输出原生道路记录、道路指标、坐标统计、物理结构及道路任务；所有评分读取同一全集生成结果。
 
@@ -3765,1040 +3764,116 @@ powershell -NoProfile -File deployment/RUN_MTNET_GPU.ps1 -Root results/reproduct
 输出保留全集槽位的coordinates.pkl及统计评分。没有原生道路ID的指标保留缺失，不通过额外匹配填充。
 
 
-## 第05节 严格TSTR
+## 第05节 四项下游任务
 
-<a id="sec-05-1"></a>
+<a id="sec-05"></a>
 
-### 第05-1节 统计方法严格TSTR
+# 第05节 四项道路应用与图件
 
-[单独打开本节](分节命令/第05-1节_统计方法严格TSTR.md)
+所有命令仍在 `reproduction/beijing` 执行。先完成全集生成和道路输出，本节只读取这些结果，不重训、不重跑路由。四任务是“真实数据出题，合成数据回答同题”。
 
-TSTR的意思是：用合成数据训练任务模型，用真实测试数据检验。这里读取第02节的训练专用发布；真实训练集不能包含测试记录，各算法使用同一真实测试集。
+## 05.1 准备公共图与统一道路槽
 
-
-工作目录为交付根目录。先完成 reproduction_checked_20261024/COMMANDS_CN.md 中的训练 M 与训练 R。下面只转换已有道路的确定几何，再训练下游模型并在同一真实测试集评分；不会重新合成或重新匹配。
-
-四个 M 的 lineage.json 来自实际训练专用生成，不能用全集发布的 lineage 代替。坐标视图保留全部输出槽位，包括空槽位。指标协议固定 audit-v2。
-
-这些是新批次执行说明，不表示本轮重跑了正式 TSTR。已有冻结成绩继续保留。
-
-#### SPRT + Origin
-
-
-**步骤 05-1.01：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
+沿用第01节定义的$Network、$MetricCache、$RoadRecords、$FullSlots。public导出公共有向道路及原区域编号；adapt将accepted/cpath道路结果转为逐槽JSON。空槽保留，未知编号或已接受但不连通的路线报错，不补路、不再次匹配。
 
 ```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method SPRT --router Origin --input results/reproduction_checked_20261024/measurements_train/SPRT/measurement.pkl --lineage results/reproduction_checked_20261024/measurements_train/SPRT/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/SPRT/Origin
+.venv/Scripts/python.exe prepare_application_inputs.py public --network $Network --metric-cache $MetricCache --out results/application_inputs/public
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input $RoadRecords --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/Real
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/SPRT/Nearest/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/SPRT__Nearest
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/SPRT/FMM/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/SPRT__FMM
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/SPRT/STMatch/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/SPRT__STMatch
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/SPRT/MM2-MDP/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/SPRT__MM2-MDP
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/PrivTrace/Nearest/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/PrivTrace__Nearest
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/PrivTrace/FMM/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/PrivTrace__FMM
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/PrivTrace/STMatch/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/PrivTrace__STMatch
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/PrivTrace/MM2-MDP/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/PrivTrace__MM2-MDP
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/DPTraj-PM/Nearest/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/DPTraj-PM__Nearest
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/DPTraj-PM/FMM/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/DPTraj-PM__FMM
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/DPTraj-PM/STMatch/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/DPTraj-PM__STMatch
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/DPTraj-PM/MM2-MDP/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/DPTraj-PM__MM2-MDP
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/DPStd/Nearest/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/DPStd__Nearest
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/DPStd/FMM/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/DPStd__FMM
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/DPStd/STMatch/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/DPStd__STMatch
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_checked_20261024/routes/DPStd/MM2-MDP/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/DPStd__MM2-MDP
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_dfr_length_20261024/full_routes/MTR-DFR/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/MTR-DFR
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/reproduction_native_20261024/full/MTNet_routes/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/MTNet
 ```
 
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
+`--input`是对应方法已完成的道路文件；`--slots`包含空槽；`--public-edges`是同一张公共图。以上文件名是北京示例，改名时同步修改后续引用。坐标方法Origin没有原生道路，本节不临时再匹配后冒称Origin道路成绩。DFR和MTNet各用自身原生发布。DPMM依本四任务研究范围不列入，工具并未按名称禁止其它方法。
 
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
+## 05.2 一次配置，先计算真实参考，再分别答题
 
-生成：results/reproduction_checked_20261024/tstr_audit_v2/SPRT/Origin/results.csv 和 manifest.json。
-
-#### SPRT + Nearest
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.02：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
+完整对照表还包括两个已生成的同端点控制，先转成同格式再配置。下面输入自己批次里已完成的道路发布文件路径，不是坐标文件；不重新生成或匹配。缺少控制输入时不能宣称整图已补齐。
 
 ```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/SPRT/Nearest/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/SPRT/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/SPRT/Nearest
+$SameEndpointRandomRoutes = Read-Host "输入同端点随机路线 synthetic_routes.pkl.gz 的路径"
+$PublicShortestRoutes = Read-Host "输入公共最短路线 synthetic_routes.pkl.gz 的路径"
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input $SameEndpointRandomRoutes --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/SameEndpointRandom
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input $PublicShortestRoutes --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/PublicShortest
 ```
 
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/SPRT/Nearest/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.03：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
+北京随代码提供冻结的73组OD、284条道路、265个进口及固定4公里区域，代表路线主预算最多3条，补充1/5条。题集在评估所有合成方法前固定，不能按方法分数再挑题。记录槽位数、区域几何、文件路径与摘要由配置程序登记，用户不用手改Python或填写摘要。
 
 ```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method SPRT --router Nearest --input results/reproduction_checked_20261024/coordinate_views_train/SPRT/Nearest/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/SPRT/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/SPRT/Nearest
+.venv/Scripts/python.exe configure_applications.py --questions configs/application_tasks/beijing_questions.json --region configs/application_tasks/beijing_region.json --public-edges results/application_inputs/public/public_edges.jsonl.gz --real-slots results/application_inputs/Real/slots.jsonl.gz --release SPRT__Nearest=results/application_inputs/SPRT__Nearest/slots.jsonl.gz --release SPRT__FMM=results/application_inputs/SPRT__FMM/slots.jsonl.gz --release SPRT__STMatch=results/application_inputs/SPRT__STMatch/slots.jsonl.gz --release SPRT__MM2-MDP=results/application_inputs/SPRT__MM2-MDP/slots.jsonl.gz --release PrivTrace__Nearest=results/application_inputs/PrivTrace__Nearest/slots.jsonl.gz --release PrivTrace__FMM=results/application_inputs/PrivTrace__FMM/slots.jsonl.gz --release PrivTrace__STMatch=results/application_inputs/PrivTrace__STMatch/slots.jsonl.gz --release PrivTrace__MM2-MDP=results/application_inputs/PrivTrace__MM2-MDP/slots.jsonl.gz --release DPTraj-PM__Nearest=results/application_inputs/DPTraj-PM__Nearest/slots.jsonl.gz --release DPTraj-PM__FMM=results/application_inputs/DPTraj-PM__FMM/slots.jsonl.gz --release DPTraj-PM__STMatch=results/application_inputs/DPTraj-PM__STMatch/slots.jsonl.gz --release DPTraj-PM__MM2-MDP=results/application_inputs/DPTraj-PM__MM2-MDP/slots.jsonl.gz --release DPStd__Nearest=results/application_inputs/DPStd__Nearest/slots.jsonl.gz --release DPStd__FMM=results/application_inputs/DPStd__FMM/slots.jsonl.gz --release DPStd__STMatch=results/application_inputs/DPStd__STMatch/slots.jsonl.gz --release DPStd__MM2-MDP=results/application_inputs/DPStd__MM2-MDP/slots.jsonl.gz --release MTR-DFR=results/application_inputs/MTR-DFR/slots.jsonl.gz --release MTNet=results/application_inputs/MTNet/slots.jsonl.gz --slots $FullSlots --resources results/application_tasks/resources --release "Same-endpoint random [control]=results/application_inputs/SameEndpointRandom/slots.jsonl.gz" --release "Public shortest path [control]=results/application_inputs/PublicShortest/slots.jsonl.gz" --out configs/application_tasks/beijing.json
+.venv/Scripts/python.exe evaluate_applications.py prepare --config configs/application_tasks/beijing.json --out results/application_tasks/resources
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method Real --out results/application_tasks/answers/Real
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method SPRT__Nearest --reference results/application_tasks/answers/Real --out results/application_tasks/answers/SPRT__Nearest
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method SPRT__FMM --reference results/application_tasks/answers/Real --out results/application_tasks/answers/SPRT__FMM
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method SPRT__STMatch --reference results/application_tasks/answers/Real --out results/application_tasks/answers/SPRT__STMatch
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method SPRT__MM2-MDP --reference results/application_tasks/answers/Real --out results/application_tasks/answers/SPRT__MM2-MDP
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method PrivTrace__Nearest --reference results/application_tasks/answers/Real --out results/application_tasks/answers/PrivTrace__Nearest
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method PrivTrace__FMM --reference results/application_tasks/answers/Real --out results/application_tasks/answers/PrivTrace__FMM
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method PrivTrace__STMatch --reference results/application_tasks/answers/Real --out results/application_tasks/answers/PrivTrace__STMatch
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method PrivTrace__MM2-MDP --reference results/application_tasks/answers/Real --out results/application_tasks/answers/PrivTrace__MM2-MDP
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method DPTraj-PM__Nearest --reference results/application_tasks/answers/Real --out results/application_tasks/answers/DPTraj-PM__Nearest
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method DPTraj-PM__FMM --reference results/application_tasks/answers/Real --out results/application_tasks/answers/DPTraj-PM__FMM
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method DPTraj-PM__STMatch --reference results/application_tasks/answers/Real --out results/application_tasks/answers/DPTraj-PM__STMatch
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method DPTraj-PM__MM2-MDP --reference results/application_tasks/answers/Real --out results/application_tasks/answers/DPTraj-PM__MM2-MDP
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method DPStd__Nearest --reference results/application_tasks/answers/Real --out results/application_tasks/answers/DPStd__Nearest
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method DPStd__FMM --reference results/application_tasks/answers/Real --out results/application_tasks/answers/DPStd__FMM
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method DPStd__STMatch --reference results/application_tasks/answers/Real --out results/application_tasks/answers/DPStd__STMatch
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method DPStd__MM2-MDP --reference results/application_tasks/answers/Real --out results/application_tasks/answers/DPStd__MM2-MDP
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method MTR-DFR --reference results/application_tasks/answers/Real --out results/application_tasks/answers/MTR-DFR
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method MTNet --reference results/application_tasks/answers/Real --out results/application_tasks/answers/MTNet
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method "Same-endpoint random [control]" --reference results/application_tasks/answers/Real --out results/application_tasks/answers/SameEndpointRandom
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing.json --method "Public shortest path [control]" --reference results/application_tasks/answers/Real --out results/application_tasks/answers/PublicShortest
 ```
 
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
+`--release 名称=文件`可重复登记方法；`--reference`必须指向同一真实参考。已有另外生成并验收的MTNet+DPOD发布时，可在配置时增加相应release，并像其它方法一样独立answer，不复用原MTNet分数。首次成功后不要重新执行同一out；失败保留证据，在新目录恢复。
 
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
+换城市时，公共图/发布可沿用前文城市配置，但必须另给该城市的同格式真实题集与区域，不能复用北京名册。本节已经验收北京；Porto四任务尚未验收，不把北京结果复制给Porto。
 
-生成：results/reproduction_checked_20261024/tstr_audit_v2/SPRT/Nearest/results.csv 和 manifest.json。
-
-#### SPRT + FMM
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.04：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
+## 05.3 汇总与绘图
 
 ```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/SPRT/FMM/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/SPRT/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/SPRT/FMM
+.venv/Scripts/python.exe evaluate_applications.py summarize --config configs/application_tasks/beijing.json --input results/application_tasks/answers/Real --input results/application_tasks/answers/SPRT__Nearest --input results/application_tasks/answers/SPRT__FMM --input results/application_tasks/answers/SPRT__STMatch --input results/application_tasks/answers/SPRT__MM2-MDP --input results/application_tasks/answers/PrivTrace__Nearest --input results/application_tasks/answers/PrivTrace__FMM --input results/application_tasks/answers/PrivTrace__STMatch --input results/application_tasks/answers/PrivTrace__MM2-MDP --input results/application_tasks/answers/DPTraj-PM__Nearest --input results/application_tasks/answers/DPTraj-PM__FMM --input results/application_tasks/answers/DPTraj-PM__STMatch --input results/application_tasks/answers/DPTraj-PM__MM2-MDP --input results/application_tasks/answers/DPStd__Nearest --input results/application_tasks/answers/DPStd__FMM --input results/application_tasks/answers/DPStd__STMatch --input results/application_tasks/answers/DPStd__MM2-MDP --input results/application_tasks/answers/MTR-DFR --input results/application_tasks/answers/MTNet --input results/application_tasks/answers/SameEndpointRandom --input results/application_tasks/answers/PublicShortest --out results/application_tasks/summary
+.venv/Scripts/python.exe plot_applications.py --summary results/application_tasks/summary --out results/application_tasks/figures
 ```
 
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
+输出`summary/results.csv`及来源清单；每份答案含raw_answers.json、details.json、metrics.json和manifest.json。汇总拒绝混用不同图、发布、槽数或题目，缺少已登记方法则停止。图包含四个清楚标注的任务列、统一0—100色标，以及彩色/灰度PNG和PDF。
 
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
+| 结果列 | 含义 |
+| --- | --- |
+| MFPOrderedRouteOverlap | 常走路线的长度加权有序重合度 |
+| RepresentativeRealCoverage | 最多3条代表路线覆盖真实区域行程的比例 |
+| SelectedRoadMarginalOverlap | 指定道路的来源、去向两个边缘分布重合度 |
+| IncomingExitDistributionOverlap | 固定真实进口的具体出口比例重合度 |
 
-生成：results/reproduction_checked_20261024/coordinate_views_train/SPRT/FMM/coordinates.pkl 及其来源 manifest。
+缺答贡献0，不再乘一遍全局道路证据比例。代表路线的真实参考显示实际覆盖率，不强制设为1。其它三项直接比较真实答案与合成答案。
 
-**步骤 05-1.05：检验合成训练数据替代真实训练数据的能力。**
+随后进入第09节，使用`reference_results/matrix/spec_framework.json`收集并绘制最终11项大图。新四项替换旧下游任务，Real合列、DFR倒二、连续红框均由正式绘图入口完成。缺失适用成绩时停止，不用旧成绩填充新随机批次。
 
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
+北京既有结果的程序验证及本轮生成图：
 
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method SPRT --router FMM --input results/reproduction_checked_20261024/coordinate_views_train/SPRT/FMM/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/SPRT/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/SPRT/FMM
-```
+![北京四项道路应用](reproduction/beijing/reference_results/applications/figures/four_applications.png)
 
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
+*22个既有条件（含真实参考、两个控制与MTNet+DPOD变体）。上述默认命令运行18份主算法发布、两个控制和真实参考，共21条件；变体只在已有独立发布时加入，不能复用原MTNet冒充。加入时，对其执行同一adapt/answer命令，configure增加同名--release，summarize增加其答案--input；名称统一使用MTNet_DP_OD_coarse24。*
 
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
+![北京原指标与新四项便读汇总](reproduction/beijing/reference_results/applications/figures/framework_matrix_transposed.png)
 
-生成：results/reproduction_checked_20261024/tstr_audit_v2/SPRT/FMM/results.csv 和 manifest.json。
+*原大图末四项已替换；11项指标×27列。末六列为MTNet、MTNet+DPOD、同端点随机、公共最短路、DFR、Real。三种旧真实参考合并为Real显示，前七项取原几何参考、后四项取真实答题参考，逐格保留来源，不平均。两个控制已补测，MTNet+DPOD十一格来自自身记录；88格应用成绩齐备。Origin不适用为n/a，DPMM四格按要求排除（excl.）。并列含DFR仅框DFR，连续项合成大红框。*
 
-#### SPRT + STMatch
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.06：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/SPRT/STMatch/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/SPRT/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/SPRT/STMatch
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/SPRT/STMatch/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.07：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method SPRT --router STMatch --input results/reproduction_checked_20261024/coordinate_views_train/SPRT/STMatch/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/SPRT/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/SPRT/STMatch
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/SPRT/STMatch/results.csv 和 manifest.json。
-
-#### SPRT + MM2-MDP
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.08：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/SPRT/MM2-MDP/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/SPRT/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/SPRT/MM2-MDP
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/SPRT/MM2-MDP/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.09：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method SPRT --router MM2-MDP --input results/reproduction_checked_20261024/coordinate_views_train/SPRT/MM2-MDP/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/SPRT/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/SPRT/MM2-MDP
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/SPRT/MM2-MDP/results.csv 和 manifest.json。
-
-#### PrivTrace + Origin
-
-
-**步骤 05-1.10：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method PrivTrace --router Origin --input results/reproduction_checked_20261024/measurements_train/PrivTrace/measurement.pkl --lineage results/reproduction_checked_20261024/measurements_train/PrivTrace/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/PrivTrace/Origin
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/PrivTrace/Origin/results.csv 和 manifest.json。
-
-#### PrivTrace + Nearest
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.11：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/PrivTrace/Nearest/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/PrivTrace/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/PrivTrace/Nearest
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/PrivTrace/Nearest/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.12：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method PrivTrace --router Nearest --input results/reproduction_checked_20261024/coordinate_views_train/PrivTrace/Nearest/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/PrivTrace/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/PrivTrace/Nearest
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/PrivTrace/Nearest/results.csv 和 manifest.json。
-
-#### PrivTrace + FMM
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.13：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/PrivTrace/FMM/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/PrivTrace/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/PrivTrace/FMM
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/PrivTrace/FMM/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.14：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method PrivTrace --router FMM --input results/reproduction_checked_20261024/coordinate_views_train/PrivTrace/FMM/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/PrivTrace/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/PrivTrace/FMM
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/PrivTrace/FMM/results.csv 和 manifest.json。
-
-#### PrivTrace + STMatch
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.15：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/PrivTrace/STMatch/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/PrivTrace/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/PrivTrace/STMatch
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/PrivTrace/STMatch/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.16：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method PrivTrace --router STMatch --input results/reproduction_checked_20261024/coordinate_views_train/PrivTrace/STMatch/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/PrivTrace/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/PrivTrace/STMatch
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/PrivTrace/STMatch/results.csv 和 manifest.json。
-
-#### PrivTrace + MM2-MDP
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.17：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/PrivTrace/MM2-MDP/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/PrivTrace/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/PrivTrace/MM2-MDP
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/PrivTrace/MM2-MDP/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.18：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method PrivTrace --router MM2-MDP --input results/reproduction_checked_20261024/coordinate_views_train/PrivTrace/MM2-MDP/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/PrivTrace/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/PrivTrace/MM2-MDP
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/PrivTrace/MM2-MDP/results.csv 和 manifest.json。
-
-#### DPTraj-PM + Origin
-
-
-**步骤 05-1.19：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method DPTraj-PM --router Origin --input results/reproduction_checked_20261024/measurements_train/DPTraj-PM/measurement.pkl --lineage results/reproduction_checked_20261024/measurements_train/DPTraj-PM/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/DPTraj-PM/Origin
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/DPTraj-PM/Origin/results.csv 和 manifest.json。
-
-#### DPTraj-PM + Nearest
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.20：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/DPTraj-PM/Nearest/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/DPTraj-PM/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/DPTraj-PM/Nearest
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/DPTraj-PM/Nearest/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.21：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method DPTraj-PM --router Nearest --input results/reproduction_checked_20261024/coordinate_views_train/DPTraj-PM/Nearest/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/DPTraj-PM/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/DPTraj-PM/Nearest
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/DPTraj-PM/Nearest/results.csv 和 manifest.json。
-
-#### DPTraj-PM + FMM
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.22：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/DPTraj-PM/FMM/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/DPTraj-PM/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/DPTraj-PM/FMM
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/DPTraj-PM/FMM/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.23：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method DPTraj-PM --router FMM --input results/reproduction_checked_20261024/coordinate_views_train/DPTraj-PM/FMM/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/DPTraj-PM/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/DPTraj-PM/FMM
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/DPTraj-PM/FMM/results.csv 和 manifest.json。
-
-#### DPTraj-PM + STMatch
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.24：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/DPTraj-PM/STMatch/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/DPTraj-PM/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/DPTraj-PM/STMatch
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/DPTraj-PM/STMatch/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.25：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method DPTraj-PM --router STMatch --input results/reproduction_checked_20261024/coordinate_views_train/DPTraj-PM/STMatch/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/DPTraj-PM/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/DPTraj-PM/STMatch
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/DPTraj-PM/STMatch/results.csv 和 manifest.json。
-
-#### DPTraj-PM + MM2-MDP
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.26：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/DPTraj-PM/MM2-MDP/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/DPTraj-PM/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/DPTraj-PM/MM2-MDP
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/DPTraj-PM/MM2-MDP/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.27：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method DPTraj-PM --router MM2-MDP --input results/reproduction_checked_20261024/coordinate_views_train/DPTraj-PM/MM2-MDP/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/DPTraj-PM/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/DPTraj-PM/MM2-MDP
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/DPTraj-PM/MM2-MDP/results.csv 和 manifest.json。
-
-#### DPStd + Origin
-
-
-**步骤 05-1.28：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method DPStd --router Origin --input results/reproduction_checked_20261024/measurements_train/DPStd/measurement.pkl --lineage results/reproduction_checked_20261024/measurements_train/DPStd/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/DPStd/Origin
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/DPStd/Origin/results.csv 和 manifest.json。
-
-#### DPStd + Nearest
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.29：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/DPStd/Nearest/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/DPStd/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/DPStd/Nearest
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/DPStd/Nearest/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.30：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method DPStd --router Nearest --input results/reproduction_checked_20261024/coordinate_views_train/DPStd/Nearest/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/DPStd/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/DPStd/Nearest
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/DPStd/Nearest/results.csv 和 manifest.json。
-
-#### DPStd + FMM
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.31：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/DPStd/FMM/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/DPStd/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/DPStd/FMM
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/DPStd/FMM/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.32：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method DPStd --router FMM --input results/reproduction_checked_20261024/coordinate_views_train/DPStd/FMM/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/DPStd/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/DPStd/FMM
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/DPStd/FMM/results.csv 和 manifest.json。
-
-#### DPStd + STMatch
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.33：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/DPStd/STMatch/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/DPStd/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/DPStd/STMatch
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/DPStd/STMatch/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.34：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method DPStd --router STMatch --input results/reproduction_checked_20261024/coordinate_views_train/DPStd/STMatch/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/DPStd/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/DPStd/STMatch
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/DPStd/STMatch/results.csv 和 manifest.json。
-
-#### DPStd + MM2-MDP
-
-先将已有道路编号转为确定几何，不添加道路：
-
-**步骤 05-1.35：为统计方法的训练专用道路结果准备坐标表示。**
-
-读取：同一训练发布的道路和measurement.pkl。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_bound_coordinates.py --config configs/experiments/reproduction_checked_20261024/config.json --routes results/reproduction_checked_20261024/routes_train/DPStd/MM2-MDP/synthetic_routes.pkl.gz --measurement results/reproduction_checked_20261024/measurements_train/DPStd/measurement.pkl --out results/reproduction_checked_20261024/coordinate_views_train/DPStd/MM2-MDP
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--measurement` | 与道路结果对应的本次M输出坐标文件，帮助保持槽位及来源一致；不是原始真实轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：对应坐标文件及训练来源，供下一条TSTR读取。
-
-生成：results/reproduction_checked_20261024/coordinate_views_train/DPStd/MM2-MDP/coordinates.pkl 及其来源 manifest。
-
-**步骤 05-1.36：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/reproduction_checked_20261024/config.json --method DPStd --router MM2-MDP --input results/reproduction_checked_20261024/coordinate_views_train/DPStd/MM2-MDP/coordinates.pkl --lineage results/reproduction_checked_20261024/measurements_train/DPStd/lineage.json --metric-protocol audit-v2 --out results/reproduction_checked_20261024/tstr_audit_v2/DPStd/MM2-MDP
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--router` | 标记这份已保存结果对应的道路方法；这里是评分，不再次运行该路由。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-生成：results/reproduction_checked_20261024/tstr_audit_v2/DPStd/MM2-MDP/results.csv 和 manifest.json。
-
-<a id="sec-05-2"></a>
-
-### 第05-2节 原生方法严格TSTR
-
-[单独打开本节](分节命令/第05-2节_原生方法严格TSTR.md)
-
-与上一节的问题相同，但输入换成DFR、DPMM、MTNet的训练专用原生发布。先核对实际训练来源，再做需要的道路/坐标表示转换，最后训练并评价下游任务模型。
-
-
-先按DFR生成说明或原生基线说明完成训练专用发布。以下读取新批次，不读取保存的旧分数，不重新训练生成器。所有路径相对本目录；输出已存在时停止，保留旧结果。每个评分命令在合成训练集训练任务模型，在同一3146条真实测试集测试。
-
-#### 1. DPMM
-
-上一节DPMM的start、生成、finish三个命令完成后，验证实际退出记录、12584条训练输入和已验证加速器，恢复缺失输出槽位为空，不填造轨迹：
-
-**步骤 05-2.01：核对DPMM训练专用生成记录并准备评价坐标。**
-
-读取：训练发布、真实退出账本及训练范围验证报告。
-
-```powershell
-.venv/Scripts/python.exe tools/prepare_dpmm_train_evaluation.py --directory results/reproduction_native_20261024/train/DPMM --config configs/experiments/configs/beijing.json --ledger results/reproduction_native_20261024/train/dpmm_execution.jsonl --document REPRODUCE_NATIVE_BASELINES_20261024_CN.md --validation results/reproduction_native_20261024/validation/train/validation.json --out results/reproduction_native_20261024/train/DPMM_view
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--directory` | 已经完成的原生生成或模型目录，供登记与核对读取。 |
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--ledger` | 保存开始、结束、实际退出码和耗时的执行账本文件。 |
-| `--document` | 用于登记实际生成命令来源的仓库命令文件；保留原路径，不是另一个待执行步骤。 |
-| `--validation` | 本批输入、道路图和源码对应的验证结果JSON；不是任意旧报告。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：DPMM_view中的coordinates.pkl、manifest.json和lineage.json。
-
-输出coordinates.pkl、manifest.json、lineage.json。随后评分：
-
-**步骤 05-2.02：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/configs/beijing.json --method DPMM --input results/reproduction_native_20261024/train/DPMM_view/coordinates.pkl --lineage results/reproduction_native_20261024/train/DPMM_view/lineage.json --metric-protocol audit-v2 --out results/reproduction_native_20261024/tstr_audit_v2/DPMM/Origin
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-#### 2. MTNet
-
-RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查30轮训练日志、训练划分、模型和原生发布：
-
-**步骤 05-2.03：补齐并核对MTNet训练专用发布的实际来源。**
-
-读取：已训练目录、输入准备清单和当前配置。
-
-```powershell
-.venv/Scripts/python.exe tools/finalize_mtnet_lineage.py --directory results/reproduction_native_20261024/train/MTNet_deployment --preparation results/reproduction_native_20261024/train/MTNet_prepared/full_preparation_manifest.json --config configs/experiments/configs/beijing.json
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--directory` | 已经完成的原生生成或模型目录，供登记与核对读取。 |
-| `--preparation` | MTNet输入准备阶段的清单文件，用来核对人数、数据范围和来源。 |
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-
-完成后：训练来源记录；不重新训练或生成。
-
-输出部署目录内lineage.json。再登记原生道路ID，不做匹配：
-
-**步骤 05-2.04：把训练完成后的MTNet原生输出登记成公共道路记录。**
-
-读取：native_release、准备清单及真实训练模型。
-
-```powershell
-.venv/Scripts/python.exe register_mtnet.py --config configs/experiments/configs/beijing.json --source results/reproduction_native_20261024/train/MTNet_deployment/native_release --train-only --preparation results/reproduction_native_20261024/train/MTNet_prepared/full_preparation_manifest.json --model results/reproduction_native_20261024/train/MTNet_deployment/trained/model.pt --out results/reproduction_native_20261024/train/MTNet_routes
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--source` | 输入来源路径；登记MTNet时是native_release目录，预算作图时是summary.json。 |
-| `--train-only` | 只把真实训练集交给生成器，保留真实测试集供后续检验。 |
-| `--preparation` | MTNet输入准备阶段的清单文件，用来核对人数、数据范围和来源。 |
-| `--model` | 实际训练得到的模型文件；不是准备输入时生成的文件。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：MTNet_routes中的道路文件及来源清单；不重新匹配。
-
-转换公共边的确定几何，保留槽位和原生来源绑定：
-
-**步骤 05-2.05：从既有原生道路取得确定的道路几何坐标。**
-
-读取：登记后的道路、同城图、缓存和原生来源。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_native_saved_coordinates.py --routes results/reproduction_native_20261024/train/MTNet_routes/synthetic_routes.pkl.gz --network "$Network" --edge-cache "$EdgeCache" --native-source results/reproduction_native_20261024/train/MTNet_deployment/native_release/routes.pkl --for-tstr --out-dir results/reproduction_native_20261024/train/MTNet_view
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--network` | 所选城市的公共道路图文件；不是合成轨迹。 |
-| `--edge-cache` | 道路几何或道路评价缓存；选择本条命令对应城市的文件。 |
-| `--native-source` | 转换前的原生道路发布文件，保留转换前后来源对应关系。 |
-| `--for-tstr` | 这份表示转换用于训练专用TSTR；要求保留训练来源，不能混入全集模型。 |
-| `--out-dir` | 本次输出目录；不要指向需要保留的旧结果。 |
-
-完成后：coordinates.pkl和来源记录；不补路、不选新路线。
-
-**步骤 05-2.06：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/configs/beijing.json --method MTNet --input results/reproduction_native_20261024/train/MTNet_view/coordinates.pkl --lineage results/reproduction_native_20261024/train/MTNet_deployment/lineage.json --metric-protocol audit-v2 --out results/reproduction_native_20261024/tstr_audit_v2/MTNet/Origin
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-#### 3. MTR-DFR
-
-原生节点对只转换为同一公共边的ID，不重新路由：
-
-**步骤 05-2.07：将原生节点对表示转换为相同道路的编号。**
-
-读取：原生道路文件、所选城市图及明确的源编号缓存。
-
-```powershell
-.venv/Scripts/python.exe tools/convert_native_node_pairs.py --routes results/reproduction_dfr_length_20261024/native_train/MTR-DFR/release/seed_42_length/road_routes.pkl.gz --source-cache "$MetricCache" --network "$Network" --expected-slots $TrainSlots --out results/reproduction_dfr_length_20261024/train_routes/MTR-DFR
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--source-cache` | 说明原生节点编号含义的缓存，通过共同道路编号与评价路网对应。 |
-| `--network` | 所选城市的公共道路图文件；不是合成轨迹。 |
-| `--expected-slots` | 应有的输出槽位总数；空槽也算在内，不能只数成功轨迹。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：synthetic_routes.pkl.gz及转换清单，空槽保留。
-
-**步骤 05-2.08：从既有原生道路取得确定的道路几何坐标。**
-
-读取：登记后的道路、同城图、缓存和原生来源。
-
-```powershell
-.venv/Scripts/python.exe tools/stage_native_saved_coordinates.py --routes results/reproduction_dfr_length_20261024/train_routes/MTR-DFR/synthetic_routes.pkl.gz --network "$Network" --edge-cache "$EdgeCache" --native-source results/reproduction_dfr_length_20261024/native_train/MTR-DFR/release/seed_42_length/road_routes.pkl.gz --for-tstr --out-dir results/reproduction_dfr_length_20261024/train_view/MTR-DFR
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--routes` | 已经生成的道路轨迹文件，用于表示转换或坐标准备。 |
-| `--network` | 所选城市的公共道路图文件；不是合成轨迹。 |
-| `--edge-cache` | 道路几何或道路评价缓存；选择本条命令对应城市的文件。 |
-| `--native-source` | 转换前的原生道路发布文件，保留转换前后来源对应关系。 |
-| `--for-tstr` | 这份表示转换用于训练专用TSTR；要求保留训练来源，不能混入全集模型。 |
-| `--out-dir` | 本次输出目录；不要指向需要保留的旧结果。 |
-
-完成后：coordinates.pkl和来源记录；不补路、不选新路线。
-
-**步骤 05-2.09：检验合成训练数据替代真实训练数据的能力。**
-
-读取：合成训练专用坐标及来源；测试始终用固定真实测试集。
-
-```powershell
-.venv/Scripts/python.exe evaluate_tstr.py --config configs/experiments/configs/beijing.json --method MTR-DFR --input results/reproduction_dfr_length_20261024/train_view/MTR-DFR/coordinates.pkl --lineage results/reproduction_dfr_length_20261024/native_train/MTR-DFR/lineage.json --metric-protocol audit-v2 --out results/reproduction_dfr_length_20261024/tstr_audit_v2/MTR-DFR/Origin
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--method` | 标记本次要处理或评价的方法；评分命令只读已有发布，不会因此重新生成。 |
-| `--input` | 本条命令读取的上游产物；应是前面已成功生成的文件或目录。 |
-| `--lineage` | 实际训练专用生成的来源记录；用它确认没有拿全集模型替代训练模型。 |
-| `--metric-protocol` | 评分规则版本；本指南用audit-v2，各方法保持相同版本。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：results.csv和manifest.json；这里训练的是下游任务模型，不重训轨迹生成器。
-
-三个方法各输出results.csv和manifest.json。结果中的Real-train使用同一真实训练/测试划分；严格TSTR不与全集回顾性道路预测混为一项。
 
 <a id="sec-06"></a>
 
@@ -4809,7 +3884,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 先运行四组算法消融并画图，再为本批23份训练发布准备攻击输入，依次计算成员攻击、有序接口攻击。这里只运行这一节的实验，不提前汇总尚未完成的K或预算组。
 
 
-先完成各生成、评分及训练专用发布；严格TSTR见 [统计方法](#sec-05-1) 和 [原生方法](#sec-05-2)。攻击准备检查本批23份训练发布，不读取旧北京成绩。K、预算与端点诊断先执行 supplement/sweeps 内对应的逐条命令，再执行本页汇总。
+先完成各生成、评分及训练专用发布；四项下游任务见 [第05节](#sec-05)。攻击准备检查本批23份训练发布，不读取旧北京成绩。K、预算与端点诊断先执行 supplement/sweeps 内对应的逐条命令，再执行本页汇总。
 
 ### 1. 算法级消融
 
@@ -5056,7 +4131,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_24_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -5182,7 +4257,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_24_seed_20260720/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -5308,7 +4383,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_24_seed_20260721/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -5434,7 +4509,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_24_seed_20260722/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -5560,7 +4635,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_24_seed_20260723/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -5686,7 +4761,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_48_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -5812,7 +4887,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_48_seed_20260720/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -5938,7 +5013,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_48_seed_20260721/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -6064,7 +5139,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_48_seed_20260722/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -6190,7 +5265,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_48_seed_20260723/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -6316,7 +5391,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_96_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -6442,7 +5517,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_96_seed_20260720/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -6568,7 +5643,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_96_seed_20260721/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -6694,7 +5769,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_96_seed_20260722/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -6820,7 +5895,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_96_seed_20260723/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -6946,7 +6021,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_192_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -7072,7 +6147,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_192_seed_20260720/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -7198,7 +6273,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_192_seed_20260721/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -7324,7 +6399,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_192_seed_20260722/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -7450,7 +6525,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_192_seed_20260723/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -7576,7 +6651,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_384_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -7702,7 +6777,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_384_seed_20260720/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -7828,7 +6903,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_384_seed_20260721/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -7954,7 +7029,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_384_seed_20260722/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -8080,7 +7155,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_384_seed_20260723/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -8206,7 +7281,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_768_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -8332,7 +7407,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_768_seed_20260720/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -8458,7 +7533,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_768_seed_20260721/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -8584,7 +7659,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_768_seed_20260722/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -8710,7 +7785,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/k_768_seed_20260723/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -8848,7 +7923,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p2_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -8973,7 +8048,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p2_seed_20260720/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -9098,7 +8173,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p2_seed_20260721/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -9223,7 +8298,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p2_seed_20260722/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -9348,7 +8423,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p2_seed_20260723/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -9473,7 +8548,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p4_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -9598,7 +8673,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p4_seed_20260720/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -9723,7 +8798,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p4_seed_20260721/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -9848,7 +8923,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p4_seed_20260722/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -9973,7 +9048,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p4_seed_20260723/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -10098,7 +9173,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p7_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -10223,7 +9298,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p7_seed_20260720/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -10348,7 +9423,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p7_seed_20260721/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -10473,7 +9548,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p7_seed_20260722/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -10598,7 +9673,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_0p7_seed_20260723/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -10723,7 +9798,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_1_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -10848,7 +9923,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_1_seed_20260720/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -10973,7 +10048,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_1_seed_20260721/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -11098,7 +10173,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_1_seed_20260722/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -11223,7 +10298,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_1_seed_20260723/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -11348,7 +10423,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_1p4_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -11473,7 +10548,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_1p4_seed_20260720/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -11598,7 +10673,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_1p4_seed_20260721/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -11723,7 +10798,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_1p4_seed_20260722/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -11848,7 +10923,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_1p4_seed_20260723/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -11973,7 +11048,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_2_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -12098,7 +11173,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_2_seed_20260720/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -12223,7 +11298,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_2_seed_20260721/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -12348,7 +11423,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_2_seed_20260722/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -12473,7 +11548,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_2_seed_20260723/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -12598,7 +11673,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_3_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -12723,7 +11798,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_3_seed_20260720/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -12848,7 +11923,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_3_seed_20260721/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -12973,7 +12048,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_3_seed_20260722/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -13098,7 +12173,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/budget_3_seed_20260723/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -13237,7 +12312,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/endpoint_diagnostic_96_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -13363,7 +12438,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/endpoint_diagnostic_384_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -13489,7 +12564,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 | `--score-manifest` | 之前道路评分生成的manifest.json，用于核对本条道路任务使用同一输入。 |
 | `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-完成后：道路任务metrics.json等；本项是回顾性评价，严格TSTR在第05节另跑。
+完成后：道路任务metrics.json等；本命令不计算四项应用。K与预算实验还须继续第08节，逐组回答第05节锁定的真实问题。
 
 产物：results/portable_sweeps/endpoint_diagnostic_768_seed_20260719/road_tasks；失败时保留该步骤日志与部分产物，不继续评分。
 
@@ -13497,9 +12572,35 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 
 ## 第08节 敏感性结果汇总与作图
 
-[单独打开本节](分节命令/第08节_敏感性结果汇总与作图.md)
+[完整运行指南](#sec-08) · [上一节：07-3](分节命令/第07-3节_准确端点诊断.md) · [下一节：09](分节命令/第09节_完整矩阵与图件.md)
 
-只有第07节各组评分齐全后才运行这里。汇总程序按计划找到每组结果，计算均值、种子差异等统计，再由绘图程序读summary.json画图；不重新生成轨迹。
+所有命令均在仓库的 `reproduction/beijing` 工作目录执行；文档位于仓库根目录，不要因为打开了分节文件就切换工作目录。北京默认，Porto只在第01节首次处理数据前选择一次配置。完整指南与分节版内容相同，选择一种阅读执行，不要两份都跑。
+
+命令中的文件名和目录名沿用当前北京示例。`--config` 是配置，`--input` 是上游产物，`--out` 是新输出目录；自行改名时同步修改后续引用。每条命令成功并核对产物后再继续，已有成功产物按记录接续，不从头重复生成。
+
+个别命令的 `--document` 指向仓库原命令文件，供执行来源登记使用；这些文件保留，无需跳过去阅读或再次执行。
+
+只有第07节各组评分齐全后才运行这里。K与预算必须同时完成主实验使用的新四项应用，不能用旧目的地/下一地区预测代替。以下只读取已生成道路轨迹，不重新训练、生成或匹配。
+
+### 先补齐每组的四项应用
+
+先完成第05节的真实数据答题，再准备30组K和35组预算的逐条补评命令。所有组共用第05节锁定的真实问题、区域、覆盖距离及路线预算；同一份产物被两种实验复用时只答一次，分别纳入对应统计。
+
+```powershell
+.venv/Scripts/python.exe tools/prepare_sweep_applications.py --plan configs/experiments/sweeps_plan.json --application-config configs/application_tasks/beijing.json --reference results/application_tasks/answers/Real --out results/sweep_applications
+```
+
+`--plan`读取第07节每组产物位置；`--application-config`复用第05节问题与公共资源；`--reference`是第05节真实答案；`--out`必须是新目录。准备会一次检查65组道路输入及其来源清单，任何组缺失就停止，不启动半套评分。准备成功后依次复制执行 `results/sweep_applications/COMMANDS_CN.md` 中的原句：每份道路表示转换、配置绑定、四项答题分开。失败保留该组目录，从失败步骤恢复，不重复成功组。
+
+```powershell
+.venv/Scripts/python.exe tools/collect_sweep_applications.py --plan results/sweep_applications/plan.json --out results/sweep_applications/summary.json
+```
+
+成功条件：65组、每组四项分数，共260分数；每档5种子，问题/图/轨迹绑定一致。原始端点准确诊断不纳入这65组DP曲线。
+
+如果只运行其中一类，在准备与应用汇总命令后均添加 `--kind k` 或 `--kind budget`，分别要求30组/120分数或35组/140分数；不会等待未运行的另一类。下方结构汇总的 `--applications-plan` 指向相应准备产出的plan.json，程序同时核对应用与结构评分使用同一组道路文件。
+
+恢复时只将失败步骤的部分输出改名保留（例如 `answers.failed`），再执行该步骤原命令；已成功的上游、其它组及原始道路文件不移动、不重跑。
 
 
 ### k 汇总
@@ -13509,7 +12610,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 读取：--kind选择的实验计划和各组实际结果。
 
 ```powershell
-.venv/Scripts/python.exe tools/collect_portable_sweeps.py --kind k --config configs/experiments/configs/beijing.json --plan configs/experiments/sweeps_plan.json --out results/summaries/k
+.venv/Scripts/python.exe tools/collect_portable_sweeps.py --kind k --config configs/experiments/configs/beijing.json --plan configs/experiments/sweeps_plan.json --applications-plan results/sweep_applications/plan.json --out results/summaries/k
 ```
 
 | 参数 | 简单含义 |
@@ -13528,7 +12629,7 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 读取：--kind选择的实验计划和各组实际结果。
 
 ```powershell
-.venv/Scripts/python.exe tools/collect_portable_sweeps.py --kind budget --config configs/experiments/configs/beijing.json --plan configs/experiments/sweeps_plan.json --out results/summaries/budget
+.venv/Scripts/python.exe tools/collect_portable_sweeps.py --kind budget --config configs/experiments/configs/beijing.json --plan configs/experiments/sweeps_plan.json --applications-plan results/sweep_applications/plan.json --out results/summaries/budget
 ```
 
 | 参数 | 简单含义 |
@@ -13561,26 +12662,35 @@ RUN_MTNET_GPU.ps1已保存训练和生成子进程退出码；以下同时检查
 
 ### K与预算作图
 
-**步骤 08.04：重画已验收的北京K、预算参考曲线。**
+**步骤 08.04：绘制预算变化曲线和指标附录。**
 
-以下命令读取仓库携带的北京15730条冻结批次评分：K为6档×5种子，预算为7档×5种子。图包含7项基础指标和新四项应用；它们只重画结果，不训练、生成、匹配或重新评分。独立的四项任务评分链并不由这两条绘图命令执行。
+读取：已经汇总的summary.json。
 
 ```powershell
-.venv/Scripts/python.exe plotting/render_current_sweeps.py --kind k --source reference_results/k/all_metrics.json --applications reference_results/sensitivity_current/summary.json --out results/figures/k_current
-.venv/Scripts/python.exe supplement/budget/render.py --source reference_results/budget/summary.json --applications reference_results/sensitivity_current/summary.json --out results/figures/budget_current
+.venv/Scripts/python.exe plotting/render_current_sweeps.py --kind k --source results/summaries/k/summary.json --applications results/sweep_applications/summary.json --out results/figures/k
+.venv/Scripts/python.exe plotting/render_current_sweeps.py --kind budget --source results/summaries/budget/summary.json --applications results/sweep_applications/summary.json --out results/figures/budget
 ```
 
-`--source`是同批次基础评分；`--applications`是同批次四项应用汇总；`--out`为不存在的新目录。自己的新批次或其它城市必须同时替换前两项输入，不能把北京参考应用分数套用到新结果。上方08.01—08.03的基础统计汇总命令保留。
+| 参数 | 简单含义 |
+|---|---|
+| `--source` | 输入来源路径；登记MTNet时是native_release目录，预算作图时是summary.json。 |
+| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
 
-纵轴按实际范围展示，K和预算共用四项应用窗口：0.10—0.35、0.65—0.85、0.35—0.55、0.60—0.75。其它数据超出窗口时自动向外扩展，包含全部种子及误差带。点为5种子均值，阴影为样本标准差；原分数不做缩放或平滑，图内不放解释文字。
+完成后：两张11指标图（Grid、Trip、Len、RoadYield、BTF、FamilyCPC、ODPF384和新四项应用）及PDF、逐点数据和来源清单。点为5种子均值，阴影为样本标准差，不是置信区间。旧预测任务不再展示。作图不重新生成数据。
 
-完成后：各目录含PNG、PDF、逐点plot_data.json和输入/源码SHA清单。已有目录不会覆盖。
+以下为北京15730条冻结批次已验收结果。蓝色为已有分布/结构指标，橙色为新四项真实问题任务；不要求所有任务都随参数单调变化。
 
-ODPF384的定义、公式和例子见[独立指标说明](reproduction/beijing/docs/ODPF384说明.md)。
+四项应用采用局部纵轴范围，并在K与预算两图间保持一致：常走路线0.10—0.35、代表路线覆盖0.65—0.85、道路来源/去向0.35—0.55、路口转向0.60—0.75。范围覆盖全部种子及误差带，不做分数缩放；其它数据超出时自动扩展。图内仅保留指标标题和轴标签。ODPF384另见[独立指标说明](reproduction/beijing/docs/ODPF384说明.md)，不在图中放解释文字。
 
-![北京K参考曲线](reproduction/beijing/reference_results/sensitivity_current/figures/k/k_current.png)
+![K实验：当前11项评价](reproduction/beijing/reference_results/sensitivity_current/figures/k/k_current.png)
 
-![北京预算参考曲线](reproduction/beijing/reference_results/sensitivity_current/figures/budget/budget_current.png)
+![预算实验：当前11项评价](reproduction/beijing/reference_results/sensitivity_current/figures/budget/budget_current.png)
+
+逐点数据、五种子原值和文件来源见 [已验收结果清单](reproduction/beijing/reference_results/sensitivity_current/manifest.json)。这些北京参考结果不替代其它城市的新运行。
+
+---
+
+[完整运行指南](#sec-08) · [上一节：07-3](分节命令/第07-3节_准确端点诊断.md) · [下一节：09](分节命令/第09节_完整矩阵与图件.md)
 
 <a id="sec-09"></a>
 
@@ -13588,51 +12698,67 @@ ODPF384的定义、公式和例子见[独立指标说明](reproduction/beijing/d
 
 [单独打开本节](分节命令/第09节_完整矩阵与图件.md)
 
-先从统计方法、原生方法和TSTR目录收集新评分来源，再画完整矩阵。第一条是收集，第二条是绘图；不能在评分缺失时从旧表补值。
+第09节输出你保留的11项指标大图：四项新道路任务替换旧任务；Real合为最右一列，DFR倒数第二，MTNet＋DPOD紧跟MTNet，随机/最短位于DFR左侧；连续红框与并列标注规则不变。本图只接收第05节四项道路应用的评分。
 
+本节不生成轨迹、不重新评分。只读已完成的评分及第05节的答案汇总，逐一核对来源后作图。只缺一项适用成绩也会停止并列出缺项；n/a、未定义、实测0、按要求排除分别保留，不用旧图补数。
 
-前置：统计M×R、DFR、原生基线和严格TSTR命令分别完成相应评分。下面只收集各新结果目录，不计算分数、不读旧CSV填数、不重复算法。一个目录没有某项时保留MISSING；重复格子分数冲突则停止。原生方法各一行，不把输出再匹配到多个R。
+### 09.01 选择本次结果和输出目录
 
-**步骤 09.01：把各方法的新评分按矩阵行列收集起来。**
-
-读取：多个--batch结果目录、当前配置和矩阵规格。
-
-```powershell
-.venv/Scripts/python.exe tools/collect_frozen_matrix.py --config configs/experiments/configs/beijing.json --batch results/reproduction_checked_20261024 --batch results/reproduction_native_20261024 --batch results/reproduction_dfr_length_20261024 --spec reference_results/matrix/spec.json --out results/reproduction_matrix/sources
-```
-
-| 参数 | 简单含义 |
-|---|---|
-| `--config` | 读取这一份实验配置：真实数据、道路图、分集和算法设置从这里取得。 |
-| `--batch` | 一个已评分的结果根目录；本条重复三次，分别收集统计、原生基线和DFR结果。 |
-| `--spec` | 矩阵的行列、指标顺序和展示规则文件。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
-
-完成后：matrix_sources.csv及manifest.json，每格保留实际来源。
-
-输出matrix_sources.csv与manifest.json。每格记录真实评分JSON/CSV、对应manifest和来源指标；统计和严格TSTR分别保留scope。1215格是27×45的展示位置，不表示每格都有成绩。
-
-**步骤 09.02：把已收集的新评分绘成完整矩阵，并与旧图对照。**
-
-读取：sources、previous和spec三个目录/文件。
+以下均在 `reproduction/beijing` 执行。北京为例，换城市仍使用第01节选定配置生成的同名入口。改目录时只改这里的变量，后面命令不变。
 
 ```powershell
-.venv/Scripts/python.exe plotting/render_verified_matrix.py --sources results/reproduction_matrix/sources --previous reference_results/matrix_previous --spec reference_results/matrix/spec.json --new-batch --out results/reproduction_matrix/figures
+$MatrixConfig = "configs/experiments/configs/beijing.json"
+$ApplicationSummary = "results/application_tasks/summary"
+$MatrixSources = "results/reproduction_matrix/sources"
+$MatrixFigures = "results/reproduction_matrix/figures"
+$ScoreInputs = @("--batch", "results/reproduction_checked_20261024", "--batch", "results/reproduction_native_20261024", "--batch", "results/reproduction_dfr_length_20261024")
 ```
 
-| 参数 | 简单含义 |
-|---|---|
-| `--sources` | 新评分收集得到的来源目录，绘图逐格读取其中的结果。 |
-| `--previous` | 旧矩阵图及数据所在目录，只用于新旧对照。 |
-| `--spec` | 矩阵的行列、指标顺序和展示规则文件。 |
-| `--new-batch` | 按新实验结果绘图并记录与旧结果的差异，不要求新随机结果逐值等于旧表。 |
-| `--out` | 本次输出的位置；改名后，后续读取这个结果的路径也要一起改。 |
+`MatrixConfig`是本批真实数据与分集配置；`ApplicationSummary`是第05节实际生成的四任务汇总；两个输出目录必须是新目录。下游就绪后只接着评分和绘图，不重跑上游。
 
-完成后：新矩阵、分组图、对照图及cells.json，不从旧图补缺失分数。
+如果两个控制的旧七项评分或MTNet＋DPOD评分在独立目录，向`ScoreInputs`添加相应结果根目录。结果根目录内沿用`road_scores`、`coordinate_scores_audit_v2`等评分目录；只有变体确实独立生成/评分时才使用新名字，不能把原MTNet改名充数。例如：
 
-输出current_full.png/PDF、各分组图、逐图旧版/新版对照、cells.json以及manifest.json。使用同一绘图函数、行列和配色；新结果允许与旧结果不同，每个变化记录before/after，而不强迫新随机批次逐值相等。没有新评分的格子不会从旧图补数。
+```powershell
+$ControlScores = Read-Host "输入两个公共控制已评分的结果根目录"
+$ScoreInputs += @("--batch", $ControlScores)
+```
 
-仅重画旧冻结结果时仍用SUPPLEMENT_COMMANDS_CN.md中的命令，不加--new-batch；旧模式仍逐值检查不变。
+独立变体可使用`--labeled-batch "MTNet_DP_OD_coarse24=结果根目录"`明确这一整份结果的展示名称，仍核查真实人口及各评分文件；只有部分评分时不会伪造其余成绩。MTNet＋DPOD是可选扩展，未生成时整列不展示；生成后须补齐适用项。
+
+**已有同一批次的验收结果时，可复用，不重训。**只在这种情况下，用下面三行替换`ScoreInputs`。提供的是你自己的已有评分归档及数据绑定，不是仓库自带的示例成绩；程序会核对dataset_id、槽数、原始评分文件及解析后的数值，换城市或换批次会拒绝。四任务仍读取本次指定的`ApplicationSummary`。
+
+```powershell
+$SavedCells = Read-Host "输入已有评分归档 cells.json 的路径"
+$SavedBinding = Read-Host "输入该归档的数据与槽数绑定文件路径"
+$ScoreInputs = @("--verified-cells", $SavedCells, "--verified-binding", $SavedBinding)
+```
+
+### 09.02 收集当前实际成绩
+
+首次完整复现使用评分结果目录；已有同批成绩使用上面的显式复用分支，二选一，不重复跑两遍。
+
+```powershell
+.venv/Scripts/python.exe tools/collect_frozen_matrix.py --config $MatrixConfig @ScoreInputs --applications $ApplicationSummary --spec reference_results/matrix/spec_framework.json --out $MatrixSources
+```
+
+输出`matrix_sources.csv`和`manifest.json`。每格保存指标、实际JSON/CSV及来源清单；不同来源的同一格冲突就停止。Origin只有坐标，不适用的道路任务显示n/a；DPMM四项按本次比较范围标excl.。其他适用成绩缺失仍是MISSING，下一步不会把它画成已完成。
+
+### 09.03 生成最终大图
+
+```powershell
+.venv/Scripts/python.exe plotting/render_verified_matrix.py --sources $MatrixSources --previous reference_results/applications/figures --spec reference_results/matrix/spec_framework.json --new-batch --out $MatrixFigures
+```
+
+输出`framework_matrix_transposed.png`、同名PDF、`cells.json`、`manifest.json`及对照图。主入口直接调用正式四任务绘图模块，不依赖开发目录、个人路径或临时修图脚本。前七项取实际统计/道路评分，后四项取同题回答；Real合并展示但逐格保留各自来源，不做平均。新随机运行不要求分数逐字相同，图型、顺序和标注规则相同。
+
+`--previous`只作已发布图与新图的左右对照，不提供缺失数值。GitHub历史图也仅用于来源对照，不声称不同历史批次逐值相同。
+
+如只需要重画，保留`MatrixSources`，把`MatrixFigures`改为新的输出目录后只执行09.03。不要重跑生成或评分。第05节的单独四任务图继续可用；需要同时画大图时，可给`plot_applications.py`增加`--sources $MatrixSources`，它与09.03使用同一套最终布局。
+
+全局绘图入口支持`python plotting/regenerate_figures.py --figure framework --data-root reproduction/beijing/results/reproduction_matrix --out-dir 新图目录`（从仓库根运行）；独立实验绘图入口支持`experiments/plot.py --experiment framework --sources $MatrixSources`。它们读取相同来源，不另算指标。
+
+---
+
 
 <a id="sec-10"></a>
 

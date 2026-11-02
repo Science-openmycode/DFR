@@ -88,7 +88,7 @@ python tools/write_batch_commands.py --config configs/local_ready.json --time-bi
 - `--frozen-support` selects the supplied public graph caches. The preparation command constructs the public resources for the batch.
 - `prepare_tstr_split.py` uses the dataset's existing train/test split.
 - UBODT uses a 1,500 m distance threshold and needs about 6 GB of disk space. `--threads` controls its parallelism.
-- The final command writes configuration and command documents to `plans/local_new/`; run the generated commands in order to perform synthesis, routing, scoring, TSTR, and sensitivity experiments. Their outputs go to `results/local_new/`.
+- The final command writes configuration and command documents to `plans/local_new/`; run the generated commands in order to perform synthesis, routing, scoring, four road applications, and sensitivity experiments. Their outputs go to `results/local_new/`.
 
 Each output configuration or preparation directory must be new. Use another batch name and output directory for a separate run.
 

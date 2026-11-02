@@ -4,6 +4,8 @@ import argparse
 from datetime import datetime, timezone
 import json
 import shutil
+import subprocess
+import sys
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -71,6 +73,11 @@ def plot_profile() -> None:
 
 
 def plot_framework() -> None:
+    if DATA_ROOT is not None and (DATA_ROOT/'sources/manifest.json').is_file():
+        subprocess.run([sys.executable,'-X','utf8',str(ROOT/'reproduction/beijing/plotting/render_verified_matrix.py'),
+                        '--sources',str(DATA_ROOT/'sources'),'--spec',str(ROOT/'reproduction/beijing/reference_results/matrix/spec_framework.json'),
+                        '--new-batch','--out',str(OUT/'framework')],check=True)
+        return
     table = read_table("framework", "shared_mtr_framework_lift.csv")
     metrics = ["RoadYield", "BTF", "FamilyCPC"]
     labels = [f"{row.Measurement}\n{row.Stage}" for row in table.itertuples()]
@@ -143,26 +150,6 @@ def plot_evidence_chain() -> None:
     copy_published("00_ordered_evidence_chain")
 
 
-def plot_tstr() -> None:
-    executed = ROOT / "experiment_results" / "executed_reference" / "tstr" / "results.csv"
-    table = (pd.read_csv(executed) if DATA_ROOT is None and executed.is_file()
-             else read_table("tstr", "strict_tstr.csv"))
-    if {"metric", "value"}.issubset(table.columns):
-        labels = table["metric"].astype(str).tolist()
-        values = table["value"].astype(float).to_numpy()
-        fig, ax = plt.subplots(figsize=(8.0, 4.0))
-        bars = ax.bar(np.arange(len(labels)), values, color=PALETTE[1:1 + len(labels)])
-        ax.set_xticks(np.arange(len(labels)), labels, rotation=20, ha="right")
-        ax.set_ylim(0, 1.05)
-        ax.set_ylabel("Task score")
-        for bar, value in zip(bars, values):
-            ax.text(bar.get_x() + bar.get_width() / 2, value + .02, f"{value:.3f}", ha="center")
-        ax.set_title("Strict train-only TSTR", weight="bold")
-        ax.grid(axis="y", alpha=.2)
-        save(fig, "06_strict_tstr")
-        return
-    frame = table.set_index(table.columns[0]).drop(columns=["Destination MRR"], errors="ignore").apply(pd.to_numeric, errors="coerce")
-    annotated_heatmap(frame, "Strict train-only TSTR utility retention", "06_strict_tstr")
 
 
 def plot_structure() -> None:
@@ -192,12 +179,23 @@ def plot_structure() -> None:
     save(fig, "07_beijing_visual_comparison")
 
 
+def plot_applications() -> None:
+    summary = (ROOT/'reproduction/beijing/reference_results/applications'
+               if DATA_ROOT is None else DATA_ROOT/'applications')
+    if not (summary/'manifest.json').is_file():
+        raise ValueError('Four applications require completed applications/results.csv; no new-batch fallback')
+    subprocess.run([sys.executable, '-X', 'utf8', str(ROOT/'reproduction/beijing/plot_applications.py'),
+                    '--summary', str(summary), '--out', str(OUT/'applications')], check=True)
+    for suffix in ('png', 'pdf'):
+        shutil.copy2(OUT/'applications'/('four_applications.'+suffix), OUT/('06_four_applications.'+suffix))
+
+
 def main() -> None:
     global DATA_ROOT, OUT
     parser = argparse.ArgumentParser(description="Regenerate one experiment figure or the complete sequence.")
     parser.add_argument(
         "--figure",
-        choices=("evidence", "framework", "privacy", "profile", "mr", "ablation", "tstr", "structure", "all"),
+        choices=("evidence", "framework", "privacy", "profile", "mr", "ablation", "structure", "applications", "all"),
         default="all",
     )
     parser.add_argument("--data-root", type=Path)
@@ -216,7 +214,7 @@ def main() -> None:
         "profile": plot_profile,
         "mr": plot_mr,
         "ablation": plot_ablation,
-        "tstr": plot_tstr,
+        "applications": plot_applications,
         "structure": plot_structure,
     }
     selected = list(jobs) if args.figure == "all" else [args.figure]
