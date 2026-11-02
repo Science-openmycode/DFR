@@ -8,6 +8,7 @@ import subprocess
 import sys
 
 from preprocess.dataset_contract import validate_dataset
+from preprocess.dataset_config import load_config
 from tools.stage_routed_coordinates import stage
 from experiments.separate import resolve_saved_route
 from tools.coordinate_resource_binding import coordinate_resources
@@ -25,7 +26,7 @@ def main():
     p.add_argument('--batch',help='Explicit output batch; avoids reusing another batch coordinate views')
     p.add_argument('--metric-protocol',choices=('legacy','audit-v2'),default='legacy',
                    help='audit-v2 fixes confirmed audit defects; isolated outputs, frozen jobs unchanged')
-    a=p.parse_args();c=json.loads(a.config.read_text(encoding='utf-8'))
+    a=p.parse_args();c=load_config(a.config, ROOT)
     if a.batch:
         if Path(a.batch).name != a.batch or a.batch in ('.','..'):
             p.error('batch must be a single directory name')
@@ -96,5 +97,5 @@ def main():
     subprocess.run(command,cwd=ROOT,env=env,check=True)
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     main()

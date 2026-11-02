@@ -1,0 +1,7 @@
+{
+  "schema": "raw-road-preprocessing-v1",
+  "adapter": "start_porto_archive",
+  "source": "../../inputs/Porto_data.zip",
+  "output": "../../results/preprocessing/porto_run01",
+  "seed": 20260713
+}

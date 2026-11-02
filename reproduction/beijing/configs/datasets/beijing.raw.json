@@ -1,0 +1,13 @@
+{
+  "schema": "raw-road-preprocessing-v1",
+  "adapter": "geolife_reviewed",
+  "dataset": "beijing",
+  "source": "../../inputs/GeoLife/Data",
+  "public_graph": "../../resources/network",
+  "review": "../../inputs/beijing_accepted_road_review",
+  "matcher_module": "../../vendor/road_preprocessing/road_route_io_fixed.py",
+  "accept_reviewed_subset": true,
+  "bbox": [39.75,40.15,116.1,116.65],
+  "output": "../../results/preprocessing/beijing_run02",
+  "seed": 20260713
+}

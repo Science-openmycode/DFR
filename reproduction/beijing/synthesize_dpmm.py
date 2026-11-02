@@ -8,7 +8,9 @@ import sys
 import time
 
 from preprocess.dataset_contract import validate_dataset, sha
+from preprocess.dataset_config import load_config
 from preprocess.dpmm_population import population_input
+from preprocess.dpmm_city import projection
 from tools.dpmm_worker_bootstrap import initialize, process
 
 ROOT=Path(__file__).resolve().parent
@@ -86,7 +88,7 @@ def main():
     a=p.parse_args()
     if a.workers<2 or a.checkpoint_every<1 or a.memory_reserve_gib<0:
         p.error('Require >=2 workers and a positive checkpoint interval')
-    c=json.loads(a.config.read_text(encoding='utf-8'))
+    c=load_config(a.config, ROOT)
     def path(key):return (ROOT/c['paths'][key]).resolve()
     if a.public_network is not None and a.public_network.resolve()!=path('network'):
         raise ValueError('Migrated graph path must match configuration')
@@ -102,9 +104,10 @@ def main():
     if v.get('input_count')!=input_count or v.get('population','full')!=a.split:
         raise ValueError('Validation belongs to another population')
     parameters=v['public_parameters']
+    zone,letter=projection(c)
     if (parameters['epsilon']!=c['epsilon'] or tuple(parameters['bbox'])!=tuple(c['bbox'])
-            or parameters['zone_radius_m']!=25 or parameters['utm_zone_number']!=50
-            or parameters['utm_zone_letter']!='S'):
+            or parameters['zone_radius_m']!=25 or parameters['utm_zone_number']!=zone
+            or parameters['utm_zone_letter']!=letter):
         raise ValueError('Public parameters differ from the validated run')
     out=(a.out or path('output')/c['batch']/('native_train/DPMM' if a.split=='train' else 'native/DPMM')).resolve()
     if out.exists():raise FileExistsError(out)
@@ -129,7 +132,7 @@ def main():
     module._worker_process=process
     sys.argv=[str(adapter),'--input-pkl',str(source),'--osm-cache',str(path('osm')),
               '--bbox',*map(str,c['bbox']),'--epsilon',str(c['epsilon']),'--seed','20260714',
-              '--zone-radius-m','25','--utm-zone-number','50','--utm-zone-letter','S',
+              '--zone-radius-m','25','--utm-zone-number',str(zone),'--utm-zone-letter',letter,
               '--clean-seed-waypoint-mode','rdp','--workers',str(a.workers),
               '--checkpoint-every',str(a.checkpoint_every),'--out-dir',str(out),'--tag','dpmm']
     record=dict(status='RUNNING',dataset_id=identity['dataset_id'],input_count=input_count,
@@ -165,4 +168,5 @@ def main():
         (out/'new_dataset_execution.json').write_text(json.dumps(record,indent=2),encoding='utf-8')
 
 
-if __name__=='__main__':main()
+if __name__ == '__main__':
+    main()

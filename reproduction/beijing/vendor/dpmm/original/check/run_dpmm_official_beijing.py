@@ -144,7 +144,10 @@ def build_official_inputs(osm_ways: list[dict], bbox_values: tuple[float, float,
     for way in osm_ways:
         tags = way.get("tags", {}) if isinstance(way, dict) else {}
         highway = str(tags.get("highway", ""))
-        if highway not in DRIVE_HIGHWAYS:
+        author_road = (way.get('graph_policy') == 'source_directed_v1'
+                       and way.get('source') == 'START_pre_vocabulary_road'
+                       and 'source_road_id' in way)
+        if not author_road and highway not in DRIVE_HIGHWAYS:
             continue
         geometry = way.get("geometry", [])
         coords = [(float(p["lat"]), float(p["lon"])) for p in geometry if "lat" in p and "lon" in p]
@@ -160,7 +163,7 @@ def build_official_inputs(osm_ways: list[dict], bbox_values: tuple[float, float,
                 "geometry": LineString([(a_lon, a_lat), (b_lon, b_lat)]),
             }
             directed.setdefault((a, b), row)
-            if str(tags.get("oneway", "")).lower() not in {"yes", "1", "true"}:
+            if not author_road and str(tags.get("oneway", "")).lower() not in {"yes", "1", "true"}:
                 reverse = {
                     "u": b,
                     "v": a,

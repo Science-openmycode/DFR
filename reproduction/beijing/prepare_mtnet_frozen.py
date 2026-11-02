@@ -14,6 +14,8 @@ import time
 import numpy as np
 
 from preprocess.dataset_contract import validate_dataset, sha
+from preprocess.dataset_config import load_config
+from preprocess.mtnet_endpoints import load_endpoints
 
 ROOT=Path(__file__).resolve().parent
 
@@ -59,9 +61,9 @@ def select_population(source_indices, binding_records, roads, selected_indices):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--config',type=Path,required=True)
-    p.add_argument('--original-adapter-root',type=Path,required=True)
-    p.add_argument('--time-binding',type=Path,required=True)
-    p.add_argument('--raw-reference',type=Path,required=True,
+    p.add_argument('--original-adapter-root',type=Path,default=ROOT/'vendor/mtnet')
+    p.add_argument('--time-binding',type=Path)
+    p.add_argument('--raw-reference',type=Path,
                    help='Hash-only binding of the original timestamps; never an alternative training population')
     p.add_argument('--out',type=Path,required=True)
     p.add_argument('--max-route-edges',type=int,default=20,help='Original MTNet public maximum, preserved by default')
@@ -69,17 +71,27 @@ def main():
     p.add_argument('--public-network',type=Path,help='Migrated public graph path; original graph and sidecar hashes remain mandatory')
     a=p.parse_args();started=time.perf_counter()
     if a.out.exists():raise FileExistsError(a.out)
-    c=json.loads(a.config.read_text(encoding='utf-8'))
+    c=load_config(a.config, ROOT)
     def path(key):return (ROOT/c['paths'][key]).resolve()
     if a.public_network is not None and a.public_network.resolve()!=path('network'):
         raise ValueError('Migrated graph path must match the configuration')
-    prepared=path('prepared');identity=validate_dataset(prepared,public_network=a.public_network)
+    prepared=path('prepared');identity=validate_dataset(prepared,public_network=a.public_network or (path('network') if 'dataset_bundle' in c else None))
     if identity['dataset_id']!=c['frozen_dataset_id']:raise ValueError('Wrong prepared dataset')
-    binding=json.loads(a.time_binding.read_text(encoding='utf-8'))
-    if binding['status']!='complete' or not binding['all_coordinates_exact'] or sha(a.raw_reference)!=binding['reference_sha256']:
-        raise ValueError('Original timestamp binding is not verified')
+    endpoints=c['paths'].get('time_endpoints') if 'dataset_bundle' in c else None
+    if a.time_binding is None and c['paths'].get('mtnet_time_binding'):
+        a.time_binding=path('mtnet_time_binding')
+    if a.raw_reference is None and c['paths'].get('mtnet_raw_reference'):
+        a.raw_reference=path('mtnet_raw_reference')
+    if endpoints and (a.time_binding is not None or a.raw_reference is not None):
+        raise ValueError('Choose bundle endpoint input or historical time binding, not both')
+    if not endpoints:
+        if a.time_binding is None or a.raw_reference is None:
+            p.error('Historical input requires --time-binding and --raw-reference; a dataset bundle may supply time_endpoints instead')
+        binding=json.loads(a.time_binding.read_text(encoding='utf-8'))
+        if binding['status']!='complete' or not binding['all_coordinates_exact'] or sha(a.raw_reference)!=binding['reference_sha256']:
+            raise ValueError('Original timestamp binding is not verified')
     canonical=json.loads((prepared/'canonical_manifest.json').read_text(encoding='utf-8'))
-    if (canonical['original_source_sha256']!=binding['reference_sha256']
+    if ((not endpoints and canonical['original_source_sha256']!=binding['reference_sha256'])
             or canonical['network_sha256']!=sha(path('network'))):
         raise ValueError('Timestamp source or public graph differs from frozen preprocessing')
     indices=json.loads((prepared/'source_indices.json').read_text(encoding='utf-8'))
@@ -101,7 +113,13 @@ def main():
                            train_sha256=audit['train_sha256'],test_sha256=audit['test_sha256'],
                            train_indices_sha256=sha(prepared/'train_split.json'))
     with gzip.open(path('real_routes'),'rb') as f:all_roads=pickle.load(f)
-    records,roads=select_population(indices,binding['records'],all_roads,selected_indices)
+    if endpoints:
+        records=load_endpoints(endpoints,indices,selected_indices)
+        if len(all_roads)!=len(indices): raise ValueError('Road population differs from frozen indices')
+        roads=[all_roads[i] for i in selected_indices]
+        if any(not row['accepted'] for row in roads): raise ValueError('Invalid frozen road record')
+    else:
+        records,roads=select_population(indices,binding['records'],all_roads,selected_indices)
     del all_roads
     root=a.original_adapter_root.resolve()
     original=load_original_adapter('mtnet_original_file_adapter',root/'prepare_beijing_nodp_fmm.py')
@@ -132,7 +150,10 @@ def main():
                   match=stats,paper_constraints=dict(max_route_edges=a.max_route_edges),
                   input_policy='Already frozen road dataset; no second matching or reference subset',
                   timestamp_policy='Original endpoint timestamps selected by frozen source_indices; coordinates were projected during approved preprocessing',
-                  original_raw_reference_sha256=sha(a.raw_reference),time_binding_sha256=sha(a.time_binding),
+                  original_raw_reference_sha256=sha(a.raw_reference) if not endpoints else None,
+                  time_binding_sha256=sha(a.time_binding) if not endpoints else None,
+                  time_endpoints_sha256=sha(Path(endpoints)) if endpoints else None,
+                  time_input_format='source-index-endpoint-csv' if endpoints else 'historical-geolife-binding',
                   original_format_adapter_sha256=sha(root/'prepare_beijing_nodp_fmm.py'),
                   end_to_end_raw_trajectory_DP_certified=False,
                   scope='Prepared-aligned baseline; unchanged original record filters counted explicitly')
@@ -154,4 +175,5 @@ def main():
     print('PREPARED_MTNET',len(records),'input roads;',counts['trainable'],'original-loader training records',flush=True)
 
 
-if __name__=='__main__':main()
+if __name__ == '__main__':
+    main()

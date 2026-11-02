@@ -9,6 +9,7 @@ import sys
 import time
 
 from preprocess.dataset_contract import validate_dataset, sha
+from preprocess.dataset_config import load_config
 
 ROOT = Path(__file__).resolve().parent
 
@@ -20,10 +21,10 @@ def main():
     p.add_argument('--length-aware', action='store_true')
     p.add_argument('--check-only', action='store_true')
     a = p.parse_args()
-    c = json.loads(a.config.read_text(encoding='utf-8'))
+    c = load_config(a.config, ROOT)
     def path(key): return (ROOT/c['paths'][key]).resolve()
     prepared = path('prepared')
-    identity = validate_dataset(prepared)
+    identity = validate_dataset(prepared, public_network=path('network') if 'dataset_bundle' in c else None)
     if identity['dataset_id'] != c['frozen_dataset_id']:
         raise ValueError('Wrong frozen dataset')
     audit = json.loads(path('split_audit').read_text(encoding='utf-8'))
@@ -44,6 +45,8 @@ def main():
     sys.path[:0] = [str(legacy/'generation/mtr_dfr/dependencies'),
                    str(legacy/'generation/mtr_dfr/algorithm'),str(legacy/'evaluation')]
     core = importlib.import_module('run_minimal_strong_family')
+    from preprocess.dfr_author_roads import bind_author_domain
+    author_binding = bind_author_domain(core, c, ROOT, path('network'))
     print('VERIFIED_TRAIN_ONLY_DFR_INPUT',len(train),flush=True)
     if a.check_only:
         return
@@ -76,6 +79,7 @@ def main():
                   adapter_sha256=sha(Path(__file__)),dataset_id=identity['dataset_id'],
                   public_slot_count=c['train_slots'],epsilon=c['epsilon'],outputs={})
     lineage = out/'lineage.json'
+    if author_binding is not None:record['public_author_domain']=author_binding
     try:
         core.main()
         for file in (out/'release').rglob('*'):

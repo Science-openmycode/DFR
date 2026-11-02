@@ -7,6 +7,7 @@ import sys
 from types import SimpleNamespace
 
 from preprocess.dataset_contract import validate_dataset, sha
+from preprocess.dataset_config import load_config
 
 ROOT=Path(__file__).resolve().parent
 
@@ -17,7 +18,7 @@ def main():
     p.add_argument('--out',type=Path)
     p.add_argument('--check-only',action='store_true')
     a=p.parse_args()
-    c=json.loads(a.config.read_text(encoding='utf-8'))
+    c=load_config(a.config,ROOT)
     def path(key):return (ROOT/c['paths'][key]).resolve()
     identity=validate_dataset(path('prepared'))
     if identity['dataset_id']!=c['frozen_dataset_id']:raise ValueError('Wrong frozen dataset')
@@ -26,6 +27,8 @@ def main():
         raise ValueError('Public graph changed')
     sys.path.insert(0,str(path('legacy')/'evaluation'))
     experiment=importlib.import_module('run_ablation_experiment')
+    from preprocess.dfr_author_roads import bind_author_domain
+    author_binding=bind_author_domain(experiment.dfr_module(),c,ROOT,path('network'))
     from experiment_contract import validate_road_population
     # The old validator expects raw GPS -> common-match provenance. This input
     # is instead the frozen, already preprocessed road dataset. Validate that
@@ -54,6 +57,7 @@ def main():
         print('VERIFIED_FROZEN_DFR_ABLATION_INPUT',identity['count']);return
     experiment.dfr(args,out)
     record=json.loads((out/'manifest.json').read_text(encoding='utf-8'))
+    if author_binding is not None:record['public_author_domain']=author_binding
     record.update(adapter_sha256=sha(Path(__file__)),
                   original_experiment_sha256=sha(Path(experiment.__file__)),
                   command=[sys.executable,*sys.argv])

@@ -31,7 +31,7 @@ def main():
     location=prepared/'network_location.json'
     network=a.network.resolve() if a.network else ((prepared/json.loads(location.read_text(encoding='utf-8'))['relative_path']).resolve() if location.exists() else Path(meta['network']).resolve())
     config=json.loads((ROOT/'configs/beijing.yaml').read_text(encoding='utf-8'))
-    config.update(batch=a.batch,dataset_policy='frozen-road-only',frozen_dataset_id=identity['dataset_id'],
+    config.update(dataset=meta.get('dataset','beijing'),batch=a.batch,dataset_policy='frozen-road-only',frozen_dataset_id=identity['dataset_id'],
         slots=identity['count'],train_slots=identity['train_count'],test_slots=identity['test_count'],
         population='full-corpus',population_status='APPROVED_RELIABLY_ROAD_RECONSTRUCTABLE_COHORT',
         road_reference_status='FROZEN_PENDING_PUBLIC_RESOURCES',public_resources_status='PENDING',

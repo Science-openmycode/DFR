@@ -8,6 +8,7 @@ import sys
 import time
 
 from preprocess.dataset_contract import validate_dataset, sha
+from preprocess.dataset_config import load_config
 
 ROOT = Path(__file__).resolve().parent
 
@@ -36,9 +37,10 @@ def main():
     p.add_argument('--length-aware', action='store_true')
     p.add_argument('--check-only', action='store_true')
     a = p.parse_args()
-    c = json.loads(a.config.read_text(encoding='utf-8'))
+    c = load_config(a.config, ROOT)
     prepared = (ROOT / c['paths']['prepared']).resolve()
-    identity = validate_dataset(prepared)
+    identity = validate_dataset(prepared, public_network=(ROOT/c['paths']['network']).resolve()
+                                if 'dataset_bundle' in c else None)
     if identity['dataset_id'] != c.get('frozen_dataset_id') or identity['count'] != c['slots']:
         raise ValueError('DFR must use the same frozen population and public slot count')
     data_manifest = json.loads((prepared/'canonical_manifest.json').read_text(encoding='utf-8'))
@@ -53,6 +55,8 @@ def main():
     validate_endpoint_support(core.EDGE_CACHE)
     core.REAL_MATCHED = prepared/'road_records.pkl.gz'
     core.NETWORK = network
+    from preprocess.dfr_author_roads import bind_author_domain
+    author_binding = bind_author_domain(core, c, ROOT, network)
     core.POPULATION_SCOPE = 'full-corpus'
     # The frozen core validates every road record against this physical graph.
     # No rematching or new selection is performed by this input adapter.
@@ -68,6 +72,7 @@ def main():
                'seed':c['seed'], 'length_aware':a.length_aware,
                'core_source':str(core.__file__), 'core_sha256':sha(core.__file__),
                'command':[sys.executable,*sys.argv]}
+    if author_binding is not None: binding['public_author_domain'] = author_binding
     if a.check_only:
         print(json.dumps({'status':'INPUT_AND_IMPORT_CHECKED_NOT_GENERATED', **binding}, indent=2))
         return

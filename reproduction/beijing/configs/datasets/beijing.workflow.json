@@ -1,0 +1,10 @@
+{
+  "schema": "readme-dataset-workflow-v1",
+  "dataset": "beijing",
+  "adapter": "geolife",
+  "archive": "data/downloads/geolife_1.3.zip",
+  "extract_to": "data/geolife",
+  "source": "data/geolife/Geolife Trajectories 1.3/Data",
+  "bbox": [39.75,40.15,116.10,116.65],
+  "seed": 20260713
+}

@@ -3,6 +3,7 @@ import argparse
 import hashlib
 from pathlib import Path
 import shutil
+import tempfile
 import urllib.request
 from fetch_geolife import extract
 
@@ -19,8 +20,13 @@ def main():
     a=p.parse_args()
     if not a.archive.exists():
         a.archive.parent.mkdir(parents=True,exist_ok=True)
-        part=a.archive.with_suffix('.part')
-        with part.open('xb') as f,urllib.request.urlopen(URL,timeout=120) as src:shutil.copyfileobj(src,f)
+        # A failed network attempt must not block the next run with an existing
+        # fixed-name .part file. Keep failed bytes for diagnosis, and allocate a
+        # fresh, exclusively-created temporary file for each attempt.
+        with tempfile.NamedTemporaryFile(mode='wb',prefix=a.archive.name+'.',suffix='.part',
+                                         dir=a.archive.parent,delete=False) as f:
+            part=Path(f.name)
+            with urllib.request.urlopen(URL,timeout=120) as src:shutil.copyfileobj(src,f)
         if digest(part)!=ARCHIVE_SHA:raise ValueError('Download differs from frozen version')
         part.rename(a.archive)
     if digest(a.archive)!=ARCHIVE_SHA:raise ValueError('Archive mismatch')
@@ -32,4 +38,5 @@ def main():
         if digest(a.install_to)!=EXE_SHA:raise FileExistsError(a.install_to)
     else:shutil.copy2(exe,a.install_to)
     print('VERIFIED_MM2_1.2.1',a.install_to)
-if __name__=='__main__':main()
+if __name__ == '__main__':
+    main()

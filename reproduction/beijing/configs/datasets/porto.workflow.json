@@ -1,0 +1,7 @@
+{
+  "schema": "readme-dataset-workflow-v1",
+  "dataset": "porto",
+  "adapter": "start_porto_archive",
+  "source": "inputs/Porto_data.zip",
+  "seed": 20260713
+}

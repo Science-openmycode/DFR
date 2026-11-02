@@ -35,7 +35,8 @@ def main():
         'source_sha256':sha(wrapper),'returncode':0,'outputs':outputs,'command':command}
     (a.out/'lineage.json').write_text(json.dumps(lineage,indent=2),encoding='utf-8')
     (a.out/'measurement_manifest.json').write_text(json.dumps({'kind':'measurement','M':a.method,
-        'epsilon':a.epsilon,'outputs':outputs,'implementation':'DPTraj-PM preserved adapter'},indent=2),encoding='utf-8')
+        'epsilon':a.epsilon,'seed':a.seed,'input_sha256':sha(a.data),'public_slot_count':a.slots,
+        'outputs':outputs,'implementation':'DPTraj-PM preserved adapter'},indent=2),encoding='utf-8')
 
 
 if __name__=='__main__':main()

@@ -12,6 +12,8 @@ from types import SimpleNamespace
 
 import numpy as np
 from preprocess.dataset_contract import validate_dataset, sha
+from preprocess.dataset_config import load_config
+from preprocess.dpmm_city import projection
 from preprocess.dpmm_population import population_input, validation_indices
 
 ROOT=Path(__file__).resolve().parent
@@ -30,9 +32,9 @@ def main():
     a=p.parse_args()
     if a.out.exists() or a.records<50:
         p.error('Require a new output and at least 50 actual comparisons')
-    c=json.loads(a.config.read_text(encoding='utf-8'))
+    c=load_config(a.config, ROOT)
     prepared=(ROOT/c['paths']['prepared']).resolve()
-    identity=validate_dataset(prepared,public_network=a.public_network)
+    identity=validate_dataset(prepared,public_network=a.public_network or (ROOT/c['paths']['network'] if 'dataset_bundle' in c else None))
     if identity['dataset_id']!=c['frozen_dataset_id']:
         raise ValueError('Wrong frozen input')
     source,expected_count,expected_sha=population_input(prepared,identity,a.split)
@@ -43,8 +45,9 @@ def main():
         m=importlib.util.module_from_spec(spec);sys.modules[name]=m;spec.loader.exec_module(m);return m
     adapter=load('new_dataset_frozen_dpmm',a.adapter)
     optimizer=load('new_dataset_fast_dpmm',a.optimizer)
+    zone,letter=projection(c)
     cfg=dict(bbox=tuple(c['bbox']),osm_cache=str(osm),zone_radius_m=25,
-             utm_zone_number=50,utm_zone_letter='S',epsilon=c['epsilon'])
+             utm_zone_number=zone,utm_zone_letter=letter,epsilon=c['epsilon'])
     print('BUILD_PUBLIC_DPMM_GRAPH',flush=True)
     base,official,_=adapter._build_matcher(cfg)
     graph=base.graph
@@ -97,5 +100,5 @@ def main():
     print('NEW_DATASET_VALIDATION_PASSED',flush=True)
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     main()

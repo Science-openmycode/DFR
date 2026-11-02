@@ -10,6 +10,7 @@ import time
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from preprocess.dataset_contract import validate_dataset, sha
+from preprocess.dataset_config import load_config
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -24,7 +25,9 @@ def main():
                    help='hash-bound public map partition; use isolated K-capable core')
     a = p.parse_args()
     if a.endpoint_partition is None: raise ValueError('Diagnostic requires an explicit partition')
-    c = json.loads(a.config.read_text(encoding='utf-8'))
+    c = load_config(a.config,ROOT)
+    if c['paths'].get('endpoint_partitions') and a.endpoint_partition.parent==Path('resources/endpoint_partitions'):
+        a.endpoint_partition=(ROOT/c['paths']['endpoint_partitions']/a.endpoint_partition.name).resolve()
     prepared = (ROOT / c['paths']['prepared']).resolve()
     network = (ROOT/c['paths']['network']).resolve()
     identity = validate_dataset(prepared, public_network=network)
@@ -49,6 +52,8 @@ def main():
     core.EDGE_CACHE = (ROOT/c['paths']['metric_cache']).resolve()
     core.REAL_MATCHED = prepared/'road_records.pkl.gz'
     core.NETWORK = network
+    from preprocess.dfr_author_roads import bind_author_domain
+    author_binding=bind_author_domain(core,c,ROOT,network)
     core.POPULATION_SCOPE = 'full-corpus'
     if a.endpoint_partition is not None:
         import gzip
@@ -75,6 +80,7 @@ def main():
                'command':[sys.executable,*sys.argv]}
     if partition_binding is not None:
         binding['public_endpoint_partition'] = partition_binding
+    if author_binding is not None:binding['public_author_domain']=author_binding
     if a.check_only:
         print(json.dumps({'status':'INPUT_AND_IMPORT_CHECKED_NOT_GENERATED', **binding}, indent=2))
         return

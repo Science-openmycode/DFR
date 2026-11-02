@@ -50,7 +50,9 @@ def main() -> None:
                 fp.write(f'{edge_id},0,0,0,LINESTRING EMPTY\n')
                 fa.write(','.join(['-1'] * width) + '\n')
                 continue
-            road_type = kinds.get(str(row.highway).split(';')[0], 6)
+            # Preserve the existing fallback bucket for unavailable/unrecognised
+            # source classes; never invent an OSM highway label for author graphs.
+            road_type = kinds.get(str(getattr(row, 'highway', '')).split(';')[0], 6)
             fp.write(f'{edge_id},{float(row.length_m):.6f},{road_type},{heading(row.geometry):.6f},{row.geometry.wkt}\n')
             values = adjs[edge_id] + [-1] * (width - len(adjs[edge_id]))
             fa.write(','.join(map(str, values)) + '\n')
@@ -60,6 +62,8 @@ def main() -> None:
     (out / 'native_input_manifest.json').write_text(json.dumps({
         'source_preprocessing': str(prepared), 'edge_id_contract': 'FMM ids retained; absent ids are mask-only rows',
         'edge_count_active': len(edges), 'edge_embedding_rows': max_id + 2, 'adjacency_width': width,
+        'road_class_policy': 'Original class mapping; missing/unknown source labels use original fallback bucket 6, not asserted to be service roads',
+        'missing_highway_attribute_edges': sum(not hasattr(row, 'highway') for row in edges.values()),
         'trajectories': retained_count, 'max_route_edges': manifest['paper_constraints']['max_route_edges'],
         'train_test': manifest['match']['split'],
         'non_dp': True, 'mtr_components_used': False}, indent=2), encoding='utf-8')

@@ -14,6 +14,7 @@ import sys
 import time
 
 from preprocess.dataset_contract import validate_dataset
+from preprocess.dataset_config import load_config
 
 ROOT=Path(__file__).resolve().parent
 
@@ -40,7 +41,7 @@ def main():
     p.add_argument('--frozen-support',type=Path,help='Use supplied graph-only frozen caches after exact graph/cache verification; preserves public K support')
     a=p.parse_args()
     if a.out_config.exists():p.error('Output config already exists')
-    c=json.loads(a.config.read_text(encoding='utf-8'))
+    c=load_config(a.config,ROOT)
     path=lambda key:(ROOT/c['paths'][key]).resolve()
     identity=validate_dataset(path('prepared'),path('network'))
     if identity['dataset_id']!=c['frozen_dataset_id']:raise ValueError('Dataset binding changed')

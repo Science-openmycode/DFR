@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+from preprocess.dataset_config import load_config
 
 ROOT = Path(__file__).resolve().parents[1]
 METHODS = ('SPRT', 'PrivTrace', 'DPTraj-PM', 'DPStd')
@@ -42,8 +43,8 @@ def main(stage):
     if stage=='synthesize':
         p.add_argument('--train-only',action='store_true',help='Generate from the configured training split and bind test split lineage')
     if stage=='route':
-        p.add_argument('--threads',type=int,help='MM2 native threads, default 4')
-        p.add_argument('--resume-from',type=Path,help='Stopped MM2 run with matching input and resource-content binding')
+        p.add_argument('--threads',type=int,help='MM2 native worker threads (default 4)')
+        p.add_argument('--resume-from',type=Path,help='Stopped MM2 output directory; reuse complete same-input records')
     if stage != 'synthesize':
         p.add_argument('--router', required=True, choices=('Origin', 'Nearest', 'FMM', 'STMatch', 'MM2-MDP'))
         p.add_argument('--input', type=Path, help='M output directory for routing; saved road file for evaluation')
@@ -51,7 +52,7 @@ def main(stage):
         p.add_argument('--representation', choices=('edge-records', 'edge-ids', 'node-pairs'), default='edge-records', help='Actual saved road representation, not inferred from method name')
         p.add_argument('--source-cache', type=Path, help='Source node namespace cache, required for node-pairs')
     a = p.parse_args()
-    c = json.loads(a.config.read_text(encoding='utf-8'))
+    c = load_config(a.config, ROOT)
     if stage == 'route' and a.router == 'MM2-MDP' and c.get('mm2_resources_status') == 'UNBOUND':
         p.error('MM2 resources are not bound to this population; use its verified public-only configuration')
     if not a.dry_run and c.get('dataset_policy') == 'saved-dp-measurement-public-r-only':
@@ -116,6 +117,12 @@ def main(stage):
         command = prefix + [str(ROOT / 'run.py'), 'route-cell', '--dataset', c['dataset'], '--m', a.method,
             '--r', a.router, '--measurement', str(route_input), '--prepared-data', str(path('prepared')),
             '--edge-cache', str(path('edge_cache')), '--public-network', str(path('network')), '--out-dir', str(out)]
+        if c.get('routing_crs'):
+            crs=c['routing_crs']
+            for key in ('input_srs','tracks_srs','network_srs'):
+                if not isinstance(crs.get(key),str) or not crs[key]:
+                    p.error('Incomplete routing CRS: '+key)
+                command += ['--'+key.replace('_','-'),crs[key]]
         if a.router in ('FMM', 'STMatch'):
             key = a.router.lower()
             command += ['--' + key + '-executable', str(path(key)), '--runtime-dir', str(path('runtime'))]

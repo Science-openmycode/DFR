@@ -19,13 +19,19 @@ DOCS=['reproduction_checked_20261024/COMMANDS_CN.md','REPRODUCE_DFR_LENGTH_20261
  'supplement/sweeps/endpoint_diagnostic_COMMANDS_CN.md']
 IDENTITY=['dataset','dataset_policy','frozen_dataset_id','slots','train_slots','test_slots',
           'population','population_status','bbox','public_resources_status','road_reference_status',
-          'fmm_resources_status','mm2_resources_status','matcher_compatibility']
+          'fmm_resources_status','mm2_resources_status','matcher_compatibility',
+          'dataset_bundle','routing_crs','mm2_city_binding']
 
-def generate(config,out,time_binding,raw_reference):
+def generate(config,out,time_binding=None,raw_reference=None):
     out=Path(out).resolve()
     if out.exists():raise FileExistsError(out)
     if not out.is_relative_to(ROOT):raise ValueError('Plan directory must be inside this checkout')
     prefix=out.relative_to(ROOT).as_posix();base=json.loads(Path(config).read_text(encoding='utf-8'))
+    time_binding=time_binding or base['paths'].get('time_endpoints')
+    raw_reference=raw_reference or base['paths'].get('real')
+    if not time_binding or not raw_reference:raise ValueError('Time endpoints/reference missing: provide explicit legacy arguments or a prepared standard bundle')
+    if base.get('dataset_bundle'):
+        base['dataset_bundle']=str((Path(config).resolve().parent/base['dataset_bundle']).resolve())
     # New dataset validation is explicit; do not relabel old results.
     from preprocess.dataset_contract import validate_dataset
     identity=validate_dataset(ROOT/base['paths']['prepared'],ROOT/base['paths']['network'])
@@ -33,6 +39,16 @@ def generate(config,out,time_binding,raw_reference):
     output_prefix='results/'+base['batch']+'/'
     configs={};written=[]
     def rewrite(line):
+        labels=[('全集15730条','全集'+str(base['slots'])+'条')]
+        if 'train_slots' in base:
+            labels += [('训练专用12584条','训练专用'+str(base['train_slots'])+'条'),
+                       ('12584条训练输入',str(base['train_slots'])+'条训练输入')]
+        for old,new in labels:
+            line=line.replace(old,new)
+        if base.get('dataset_bundle') and 'prepare_mtnet_frozen.py' in line:
+            # Standard bundles provide explicit source endpoints. Do not also
+            # pass the historical GeoLife-only timestamp input pair.
+            line=re.sub(r' --(?:time-binding|raw-reference) (?:"[^"]*"|\S+)','',line)
         line=re.sub(r'(?<![\w/])results[/\\]',lambda m:output_prefix,line)
         line=line.replace('--expected-slots 15730','--expected-slots '+str(base['slots']))
         if '--expected-slots 12584' in line:
@@ -66,6 +82,19 @@ def generate(config,out,time_binding,raw_reference):
     out.mkdir(parents=True)
     for doc in DOCS:
         text=(ROOT/doc).read_text(encoding='utf-8-sig')
+        # Legacy API compatibility only. The README now uses the checked-in
+        # documents directly and prepares JSON configurations without this tool.
+        text=text.replace('--config configs/experiments/', '--config ')
+        for variable,path in [('"$Network"','resources/network/network.shp'),
+                              ('"$MetricCache"','resources/metric_cache/metric_cache.pkl.gz'),
+                              ('"$EdgeCache"','resources/edge_cache/edge_cache.pkl.gz'),
+                              ('"$RoadRecords"','resources/dataset/road_records.pkl.gz')]:
+            text=text.replace(variable,path)
+        text=text.replace('$FullSlots','15730').replace('$TrainSlots','12584')
+        text=text.replace('results/reproduction_native_20261024/validation/full/validation.json','vendor/dpmm/evidence/full_equivalence.json')
+        text=text.replace('results/reproduction_native_20261024/validation/train/validation.json','vendor/dpmm/evidence/train_accelerated.json')
+        if doc=='REPRODUCE_NATIVE_BASELINES_20261024_CN.md':
+            text='\n'.join(line for line in text.splitlines() if not line.startswith('.venv/Scripts/python.exe validate_dpmm_dataset.py '))+'\n'
         lines=[rewrite(line) for line in text.splitlines()]
         target=out/'commands'/doc;target.parent.mkdir(parents=True,exist_ok=True)
         # record_native_execution reads the document actually containing this batch's command.
@@ -102,6 +131,7 @@ def main():
     import sys
     sys.path.insert(0,str(ROOT))
     p=argparse.ArgumentParser(description=__doc__)
-    for key in ['config','out','time-binding','raw-reference']:p.add_argument('--'+key,type=Path,required=True)
+    for key in ['config','out']:p.add_argument('--'+key,type=Path,required=True)
+    for key in ['time-binding','raw-reference']:p.add_argument('--'+key,type=Path)
     a=p.parse_args();print(json.dumps(generate(a.config,a.out,a.time_binding,a.raw_reference),ensure_ascii=True,indent=2))
 if __name__=='__main__':main()

@@ -132,21 +132,34 @@ def main():
     run_record['review_parameters']=dict(dataset=a.dataset,bbox=a.bbox)
     run_record['matching_executed']=not bool(reuse or a.review_from)
     (a.out/'preprocessing_run.json').write_text(json.dumps(run_record,ensure_ascii=False,indent=2),encoding='utf-8')
+    historical_coordinates=None
     if a.review_from:
         previous=json.loads((a.review_from/'preprocessing_run.json').read_text(encoding='utf-8'))
         if previous.get('status') not in ['REVIEW_ONLY','BLOCKED_SELECTION_DIFFERENCES','FROZEN']:
             raise ValueError('Review did not finish')
-        if previous.get('input_roles')!=run_record['input_roles'] or previous.get('review_parameters')!=run_record['review_parameters'] or previous.get('policy')!=run_record['policy']:
+        historical = 'input_roles' not in previous
+        if previous.get('policy')!=run_record['policy']:
+            raise ValueError('Review matching policy differs')
+        if not historical and (previous.get('input_roles')!=run_record['input_roles'] or previous.get('review_parameters')!=run_record['review_parameters']):
             raise ValueError('Review input or policy differs; use the configuration used for review')
         expected=previous.get('review_artifacts',{})
-        if set(expected)!={'selection_review.json','reviewed_records.pkl.gz','selection.csv'}:
+        if not historical and set(expected)!={'selection_review.json','reviewed_records.pkl.gz','selection.csv'}:
             raise ValueError('Review lacks reusable evidence; use a review created by this version')
         for name,value in expected.items():
             if digest(a.review_from/name)!=value:raise ValueError('Review artifact changed: '+name)
         old_sides={Path(k).suffix:v for k,v in previous['network_sidecars'].items()}
         if old_sides!={Path(k).suffix:v for k,v in run_record['network_sidecars'].items()}:
             raise ValueError('Review network sidecars changed')
-        records=load(a.review_from/'reviewed_records.pkl.gz')
+        if historical:
+            from historical_review import validate_historical_review
+            records, proof=validate_historical_review(a.review_from,previous,a,raw,timestamps,bindings)
+            run_record['historical_import']=proof
+            from historical_review import frozen_coordinates
+            historical_coordinates=frozen_coordinates(a.review_from)
+            if len(historical_coordinates)!=sum(r['accepted'] for r in records):
+                raise ValueError('Historical frozen coordinate population differs')
+        else:
+            records=load(a.review_from/'reviewed_records.pkl.gz')
         if [r['source_index'] for r in records]!=list(range(len(raw))) or any(r['source_points']!=len(raw[i]) for i,r in enumerate(records)):
             raise ValueError('Review record IDs or point counts differ')
         run_record['review_from']=str(a.review_from.resolve())
@@ -256,7 +269,14 @@ def main():
         points=shapely.points(x,y)
         projected=shapely.line_interpolate_point(lines,shapely.line_locate_point(lines,points))
         lon,lat=to_ll.transform(shapely.get_x(projected),shapely.get_y(projected))
-        coordinates.append(np.column_stack((lat,lon)));roads.append(r);source_ids.append(r['source_index'])
+        value=np.column_stack((lat,lon))
+        if historical_coordinates is not None:
+            from historical_review import preserve_frozen_projection
+            value,delta=preserve_frozen_projection(value,historical_coordinates[len(roads)])
+            proof=run_record['historical_import']
+            proof['frozen_projection_preserved']=True
+            proof['max_reprojection_delta_degrees']=max(proof.get('max_reprojection_delta_degrees',0.),delta)
+        coordinates.append(value);roads.append(r);source_ids.append(r['source_index'])
         if len(roads)%1000==0:print(f'PROJECTED {len(roads)}/{int(keep.sum())}',flush=True)
     save(prepared/'trajectories.pkl',coordinates);save(prepared/'trajectories.pkl.gz',coordinates)
     save(prepared/'road_records.pkl.gz',roads)
