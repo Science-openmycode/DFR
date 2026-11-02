@@ -118,6 +118,8 @@ python tools/write_batch_commands.py --config configs/local_ready.json --time-bi
 
 打开 `plans/local_new/commands/reproduction_checked_20261024/COMMANDS_CN.md`，从上到下复制执行每条命令。四种 M 各生成全集和训练专用输出，共8份；每份选择 Origin、Nearest、FMM、STMatch、MM2-MDP，共40份路由结果，然后运行文档中的全集评分。M 写出 `measurement.pkl`，R 写出坐标或 `synthetic_routes.pkl.gz`。核心 R 只使用 M 输出与公共道路资源；冻结批次入口还检查数据目录和划分信息。
 
+MM2默认使用4个原生线程；可在原route.py命令后加`--threads N`调整，不依赖OMP_NUM_THREADS。接续已停止的任务时，使用新输出目录并加`--resume-from 旧输出目录`；旧目录须有mm2_resources.json，且输入、程序、路网及映射缓存内容一致。全部已完成则直接复用，不启动原生程序。没有内容校验记录的旧任务不自动接续，也不要让两个进程写同一目录。
+
 ## 10. 运行 DFR、DPMM 和 MTNet
 
 先执行 `plans/local_new/commands/REPRODUCE_DFR_LENGTH_20261024_CN.md`，再执行 `REPRODUCE_NATIVE_BASELINES_20261024_CN.md`。DFR 使用 `--length-aware`，总预算 ε=1.4。DPMM先完成当前输入的60条等价验证；训练生成前后按文档记录退出码。MTNet需要NVIDIA GPU；训练前执行下列安装和运算检查，随后继续文档的准备、导出、30轮训练及原生生成。各方法保留其隐私单位和δ。

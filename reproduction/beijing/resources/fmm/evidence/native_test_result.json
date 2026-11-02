@@ -1,0 +1,12 @@
+{
+  "command": [
+    "E:\\study\\\u5927\u56db\u4e0b\\Paper-Agent-main\\ARA_codex\\check\\fmm_safety_fix_20261101\\source\\build\\Release\\fmm_safety_test.exe",
+    "C:\\Users\\ASUS\\AppData\\Local\\Temp\\fmm_safety_sa8tk443\\size_test.txt"
+  ],
+  "returncode": 0,
+  "seconds": 7.6791855999981635,
+  "stdout": "PASS valid, identity, missing, 10000-edge path, cycle, broken, 64-bit size, missing file\n",
+  "stderr": "",
+  "logical_test_bytes": 6199947588,
+  "test_binary_sha256": "3f3b12398629343b5aca59e2b09693923aaddc1ecf888467df9cfd5f61fb0a37"
+}

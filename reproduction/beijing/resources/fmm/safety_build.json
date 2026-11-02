@@ -1,0 +1,15 @@
+{
+  "build": "fmm_safety_20261101",
+  "stmatch_sha256": "5ab9109d80276bea588ca1afa9f338f2802ca2b84549834062023307d72dd07a",
+  "fmm_sha256": "7c9ce2a4b778ddcc4411bb3b6dde1ef451c83968e4380b8d36f40028d8005eb4",
+  "revision_cli_result": "resources/fmm/evidence/revision_cli_comparison.json",
+  "revision_cli_result_sha256": "3fa4c94496d362dcb18e945c225ff2be9a82b6a94013d0160068275a9c873b02",
+  "historical_tests_note": "native_test_result and cli_test_result are earlier safety-build tests, not current full-data A/B",
+  "beijing_full_ab_completed": false,
+  "source": "vendor/fmm_safety_source",
+  "native_test_result_sha256": "184878773ad14f5857afb34635b21d50122d8cda03dcb1dc1781f721e9dd160b",
+  "cli_test_result_sha256": "68f561cacc68663184a1daa9883c7cce8f6fdb502ecabc33f354ce4670a88ce3",
+  "parameters_changed": false,
+  "arbitrary_path_cap": false,
+  "production_trajectory_timeout": false
+}

@@ -1,5 +1,7 @@
 # MTR-DFR: reproduce the experiments in order
 
+MM2 uses four native threads by default. Add `--threads N` to a `route.py` command to adjust it. To resume a stopped MM2 run into a new output directory, use `--resume-from OLD_DIRECTORY`; its `mm2_resources.json` must match the current input and public resource contents. Fully reused runs do not launch the native process. Never use two writers for one output directory.
+
 [中文说明](README_CN.md)
 
 MTR-DFR generates synthetic road trajectories from differentially private measurements. Follow the steps below to prepare the Beijing data, generate synthetic datasets, evaluate them, and draw the figures. Synthesis, routing, evaluation, and plotting run as separate stages.

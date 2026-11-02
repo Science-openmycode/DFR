@@ -21,6 +21,7 @@ import pickle
 import shutil
 import subprocess
 import tempfile
+import time
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -170,15 +171,26 @@ def run_fmm(
     to_projected = Transformer.from_crs("EPSG:4326", projected_crs, always_xy=True)
     sampled = [sample_trajectory(np.asarray(t, dtype=float), max_points) for t in trajectories]
     parent = str(work_root) if work_root is not None else None
+    if os.name == "nt" and parent is not None and not str(Path(parent).resolve()).isascii():
+        parent = None  # GDAL/native streams in this build require ASCII work paths.
     stage = Path(tempfile.mkdtemp(prefix="mtr_road_metric_", dir=parent))
+    success = False
+    log_root = Path(work_root) if work_root is not None else stage
+    stdout_path, stderr_path = log_root / "matcher.stdout.log", log_root / "matcher.stderr.log"
+    started = time.monotonic()
     try:
         stage_network = stage / "network.shp"
         _copy_shapefile(network, stage_network)
         stage_fmm, _ = _copy_runtime(fmm, ubodt_binary, runtime_dir, stage)
         stage_ubodt = None
         if ubodt_table is not None:
-            stage_ubodt = stage / ("ubodt" + ubodt_table.suffix.lower())
-            _link_or_copy(ubodt_table, stage_ubodt)
+            # The native Windows build requires ASCII paths. An ASCII source
+            # can be read in place; do not duplicate multi-GB tables per cell.
+            if os.name != "nt" or str(ubodt_table.resolve()).isascii():
+                stage_ubodt = ubodt_table.resolve()
+            else:
+                stage_ubodt = stage / ("ubodt" + ubodt_table.suffix.lower())
+                _link_or_copy(ubodt_table, stage_ubodt)
         gps_path = stage / "gps.csv"
         with gps_path.open("w", newline="", encoding="utf-8") as handle:
             writer = csv.writer(handle, delimiter=";", lineterminator="\n")
@@ -220,19 +232,24 @@ def run_fmm(
                 + os.pathsep
                 + environment.get("LD_LIBRARY_PATH", "")
             )
+        (log_root / "matcher_execution.json").write_text(json.dumps({
+            "status": "RUNNING", "command": command, "stage": str(stage),
+            "stdout": str(stdout_path), "stderr": str(stderr_path),
+            "parameters_unchanged": True,
+        }, indent=2), encoding="utf-8")
+        print(f"Matcher running; live logs: {stdout_path}; work files: {stage}", flush=True)
+        # Live logs are self-contained; unified progress is a separate feature.
         try:
-            completed = subprocess.run(
-                command,
-                cwd=stage,
-                env=environment,
-                check=True,
-                capture_output=True,
-                text=True,
-            )
+            with stdout_path.open("w", encoding="utf-8") as stdout, stderr_path.open("w", encoding="utf-8") as stderr:
+                completed = subprocess.run(command, cwd=stage, env=environment,
+                                           check=True, stdout=stdout, stderr=stderr, text=True)
+            completed.stdout = stdout_path.read_text(encoding="utf-8", errors="replace")
+            completed.stderr = stderr_path.read_text(encoding="utf-8", errors="replace")
         except subprocess.CalledProcessError as error:
             raise RuntimeError(
                 "FMM failed with exit code "
-                f"{error.returncode}; stdout={error.stdout!r}; stderr={error.stderr!r}"
+                f"{error.returncode}; evidence retained at {stage}; "
+                f"stdout={stdout_path}; stderr={stderr_path}"
             ) from error
         if not output_path.is_file():
             raise RuntimeError(
@@ -293,10 +310,30 @@ def run_fmm(
             "candidates": candidates,
             "min_observation_share": min_observation_share,
             "route_only": route_only,
+            "seconds": time.monotonic() - started,
+            "stdout_path": str(stdout_path),
+            "stderr_path": str(stderr_path),
         }
+        (log_root / "matcher_execution.json").write_text(json.dumps({
+            "status": "FINISHED", "returncode": completed.returncode,
+            "seconds": invocation["seconds"], "command": command,
+            "stdout": str(stdout_path), "stderr": str(stderr_path),
+        }, indent=2), encoding="utf-8")
+        success = True
         return records, invocation
     finally:
-        shutil.rmtree(stage, ignore_errors=True)
+        if success:
+            shutil.rmtree(stage, ignore_errors=True)
+        else:
+            (log_root / "matcher_execution.json").write_text(json.dumps({
+                "status": "FAILED", "seconds": time.monotonic() - started,
+                "stage": str(stage), "stdout": str(stdout_path), "stderr": str(stderr_path),
+            }, indent=2), encoding="utf-8")
+            (stage / "failure.json").write_text(json.dumps({
+                "status": "FAILED", "seconds": time.monotonic() - started,
+                "stdout": str(stdout_path), "stderr": str(stderr_path),
+                "note": "Failure evidence retained; no automatic retry or slot truncation",
+            }, indent=2), encoding="utf-8")
 
 
 def road_realizability_metrics(records: list[MatchRecord]) -> dict[str, float]:

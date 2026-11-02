@@ -133,7 +133,7 @@ def run_public_match(
             list(trajectories), network, ubodt if matcher == "FMM" else None,
             executable, ubodt_executable if matcher == "FMM" else None,
             legacy_runtime_dir, max_points, radius_m, gps_error_m, candidates,
-            min_observation_share, None, True,
+            min_observation_share, out_dir, True,
         )
     except Exception as error:
         write_invalid(error)

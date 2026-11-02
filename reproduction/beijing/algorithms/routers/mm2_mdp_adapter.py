@@ -111,10 +111,11 @@ def write_tracks_csv(measurement: Path, destination: Path, *, input_srs: str = "
     return {"records": len(raw), "exported_records": len(raw) - len(skipped), "exported_points": point_count, "skipped_slots": skipped, "max_points": maximum, "input_srs": input_srs, "tracks_srs": tracks_srs, "measurement_sha256": sha256(measurement), "tracks_sha256": sha256(destination)}
 
 
-def mm2_command(executable: Path, network: Path, tracks: Path, output: Path, *, tracks_srs: str, network_srs: str, threads: int = 1) -> list[str]:
-    if threads != 1:
-        raise ValueError("MM2 is run single-threaded for reproducible bounded memory")
+def mm2_command(executable: Path, network: Path, tracks: Path, output: Path, *, tracks_srs: str, network_srs: str, threads: int = 4) -> list[str]:
+    if isinstance(threads, bool) or not isinstance(threads, int) or threads < 1:
+        raise ValueError("MM2 threads must be a positive integer")
     args = ["--match", "--input", str(network), "--tracks", str(tracks), "--output", str(output), "--tracks-srs", _mm2_srs(tracks_srs), "--network-srs", _mm2_srs(network_srs), "--wkt", "--geometry", "geometry", "--threads", "1", "--model", "value-iteration", "--columns", ",".join(MM2_FIELDS), "--join-merges", "on", "--concatenate-skips", "off", "--within-edge-turns", "off"]
+    args[args.index('--threads')+1]=str(threads)
     # The official MM2 distribution is an AppImage.  On Windows it is run
     # through WSL; all filesystem arguments must be converted to the mounted
     # POSIX path so the binary reads the same public files and writes its CSV
@@ -129,7 +130,7 @@ def mm2_command(executable: Path, network: Path, tracks: Path, output: Path, *, 
             return p.replace("\\", "/")
         translated = []
         for value in args:
-            if value.startswith("--") or value in {"on", "off", "wkt", "geometry", "1", "value-iteration", ",".join(MM2_FIELDS), _mm2_srs(tracks_srs), _mm2_srs(network_srs)}:
+            if value.startswith("--") or value in {"on", "off", "wkt", "geometry", str(threads), "value-iteration", ",".join(MM2_FIELDS), _mm2_srs(tracks_srs), _mm2_srs(network_srs)}:
                 translated.append(value)
             else:
                 translated.append(wsl_path(value))
@@ -214,21 +215,104 @@ def convert_rows(rows: list[dict], edge_nodes: dict[int, tuple[int, int]], expec
     return routes, reasons
 
 
-def run_mm2(measurement: Path, out_dir: Path, *, executable: Path, network: Path, edge_cache: Path, input_srs: str = "EPSG:4326", tracks_srs: str = "EPSG:32650", network_srs: str = "EPSG:32650", max_points: int = 32, seed: int | None = None) -> dict:
+def resource_binding(executable: Path, network: Path, edge_cache: Path) -> dict:
+    """Bind actual public input bytes, including every network directory file."""
+    def digest(path):
+        path=Path(path)
+        if path.is_symlink(): raise ValueError('Symlink resource is not supported: '+str(path))
+        if path.is_file(): return {'sha256':sha256(path)}
+        if not path.is_dir(): raise FileNotFoundError(path)
+        entries=[]
+        for child in sorted(path.rglob('*')):
+            if child.is_symlink(): raise ValueError('Symlink network resource: '+str(child))
+            if child.is_file(): entries.append([child.relative_to(path).as_posix(),sha256(child)])
+        return {'files':entries,'sha256':hashlib.sha256(json.dumps(entries,separators=(',',':')).encode()).hexdigest()}
+    value={'schema':1,'executable':digest(executable),'network':digest(network),'edge_cache':digest(edge_cache)}
+    public_map=network.parent/'public_graph/inputs/public_edge_nodes.json'
+    if public_map.exists(): value['public_edge_nodes']=digest(public_map)
+    return value
+
+
+def prepare_resume(previous: Path, full_tracks: Path, pending: Path, saved: Path,
+                   expected_command: list[str], expected_ids: set[int], expected_resources=None) -> dict:
+    """Reuse complete same-input records only after the old writer is stopped."""
+    old=json.loads((previous/'mm2_command.json').read_text(encoding='utf-8'))
+    if sha256(previous/'mm2_tracks.csv')!=sha256(full_tracks):
+        raise ValueError('Resume M tracks differ; refusing cached routes')
+    def semantic(command):
+        result=list(command)
+        for flag in ('--threads','--tracks','--output'):
+            result[result.index(flag)+1]='<execution-only>'
+        return result
+    if semantic(old)!=semantic(expected_command):
+        raise ValueError('Resume public resource paths or routing parameters differ')
+    binding=previous/'mm2_resources.json'
+    if expected_resources is None or not binding.is_file():
+        raise ValueError('Resume resource content binding missing; do not infer historical hashes')
+    if json.loads(binding.read_text(encoding='utf-8'))!=expected_resources:
+        raise ValueError('Resume resource content changed')
+    original=previous/'mm2_run/matches.csv'
+    original_stat=original.stat()
+    discarded=0
+    with original.open('rb') as source,saved.open('xb') as target:
+        for line in source:
+            if not line.endswith(b'\n'):
+                discarded+=len(line);break
+            target.write(line)
+    after=original.stat()
+    if (after.st_size,after.st_mtime_ns)!=(original_stat.st_size,original_stat.st_mtime_ns):
+        raise ValueError('Resume writer is still running; stop it first')
+    csv.field_size_limit(max(csv.field_size_limit(),64*1024*1024))
+    completed=set()
+    with saved.open(newline='',encoding='utf-8') as source:
+        reader=csv.DictReader(source)
+        if tuple(reader.fieldnames or ())!=MM2_FIELDS:raise ValueError('Wrong resume CSV columns')
+        for row in reader:
+            if None in row or any(value is None for value in row.values()):raise ValueError('Truncated resume record')
+            index=int(row['id']);duration=float(row['duration'])
+            if index not in expected_ids or index in completed:raise ValueError('Unexpected or duplicate resume ID')
+            if row['aborted'] not in ('yes','no') or not math.isfinite(duration) or duration<0:raise ValueError('Invalid resume record')
+            completed.add(index)
+    with full_tracks.open(newline='',encoding='utf-8') as source,pending.open('x',newline='',encoding='utf-8') as target:
+        reader=csv.DictReader(source);writer=csv.DictWriter(target,fieldnames=reader.fieldnames)
+        writer.writeheader()
+        remaining=set()
+        for row in reader:
+            index=int(row['id'])
+            if index not in completed:writer.writerow(row);remaining.add(index)
+    if remaining!=expected_ids-completed:raise ValueError('Pending tracks do not cover remaining IDs')
+    return dict(previous_directory=str(previous.resolve()),reused_records=len(completed),
+                remaining_records=len(remaining),discarded_partial_bytes=discarded,
+                original_csv_sha256=sha256(original),reused_csv_sha256=sha256(saved),
+                original_command=old,tracks_sha256=sha256(full_tracks),resources=expected_resources)
+
+
+def run_mm2(measurement: Path, out_dir: Path, *, executable: Path, network: Path, edge_cache: Path, input_srs: str = "EPSG:4326", tracks_srs: str = "EPSG:32650", network_srs: str = "EPSG:32650", max_points: int = 32, seed: int | None = None, threads: int = 4, resume_from: Path | None = None) -> dict:
     """Run MM2 and write the stable road-route output for one M cell."""
     for path, label in ((measurement, "measurement"), (executable, "MM2 executable"), (network, "MM2 network"), (edge_cache, "edge cache")):
         if not path.exists():
             raise FileNotFoundError(f"{label} not found: {path}")
     if out_dir.exists():
         raise FileExistsError(f"refusing to overwrite MM2 output: {out_dir}")
+    resources=resource_binding(executable,network,edge_cache)
     out_dir.mkdir(parents=True)
+    (out_dir/'mm2_resources.json').write_text(json.dumps(resources,indent=2),encoding='utf-8')
     tracks = out_dir / "mm2_tracks.csv"
     export = write_tracks_csv(measurement, tracks, input_srs=input_srs, tracks_srs=tracks_srs, maximum=max_points)
     run_dir = out_dir / "mm2_run"
-    command = mm2_command(executable, network, tracks, run_dir, tracks_srs=tracks_srs, network_srs=network_srs)
+    command = mm2_command(executable, network, tracks, run_dir, tracks_srs=tracks_srs, network_srs=network_srs, threads=threads)
+    resume=None
+    pending_count=export['exported_records']
+    if resume_from is not None:
+        pending=out_dir/'mm2_pending_tracks.csv'
+        resume=prepare_resume(Path(resume_from),tracks,pending,out_dir/'mm2_reused_matches.csv',command,
+                              set(range(export['records']))-set(export['skipped_slots']),resources)
+        pending_count=resume['remaining_records']
+        command[command.index('--tracks')+1]=str(pending)
+        (out_dir/'resume_manifest.json').write_text(json.dumps(resume,indent=2),encoding='utf-8')
     (out_dir / "mm2_command.json").write_text(json.dumps(command, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     result_csv = run_dir / "matches.csv"
-    if export['exported_records']:
+    if pending_count:
         completed = subprocess.run(command, capture_output=True, text=True, encoding="utf-8", errors="replace", check=False)
         (out_dir / "mm2_stdout.log").write_text(completed.stdout or "", encoding="utf-8")
         (out_dir / "mm2_stderr.log").write_text(completed.stderr or "", encoding="utf-8")
@@ -239,10 +323,16 @@ def run_mm2(measurement: Path, out_dir: Path, *, executable: Path, network: Path
         run_dir.mkdir()
         with result_csv.open('w',newline='',encoding='utf-8') as handle:
             csv.writer(handle).writerow(MM2_FIELDS)
-        (out_dir/'mm2_stdout.log').write_text('NOT_EXECUTED: no eligible M coordinate slots\n',encoding='utf-8')
+        reason='all eligible slots reused' if resume is not None and export['exported_records'] else 'no eligible M coordinate slots'
+        (out_dir/'mm2_stdout.log').write_text('NOT_EXECUTED: '+reason+'\n',encoding='utf-8')
     if not result_csv.is_file():
         raise FileNotFoundError(f"MM2 completed without matches.csv: {result_csv}")
     rows = _read_mm2_rows(result_csv)
+    if resume is not None:
+        reused=_read_mm2_rows(out_dir/'mm2_reused_matches.csv')
+        if {int(row['id']) for row in rows}.intersection(int(row['id']) for row in reused):
+            raise ValueError('Resume and new MM2 output overlap')
+        rows+=reused
     raw = load_pickle(measurement)
     expected_ids = set(range(len(raw))) - set(export['skipped_slots'])
     if {int(row['id']) for row in rows} != expected_ids:
@@ -263,8 +353,11 @@ def run_mm2(measurement: Path, out_dir: Path, *, executable: Path, network: Path
         pickle.dump(routes, handle, protocol=pickle.HIGHEST_PROTOCOL)
     manifest = {"schema_version": 1, "kind": "route_cell", "router": ROUTER, "status": "VALID", "route_generation": "executed_public_mm2_value_iteration", "raw_source_used": False, "measurement": str(measurement.resolve()), "measurement_sha256": sha256(measurement), "public_mm2_executable": str(executable.resolve()), "public_mm2_executable_sha256": sha256(executable), "public_mm2_network": str(network.resolve()), "public_edge_cache": str(edge_cache.resolve()), "public_edge_cache_sha256": sha256(edge_cache), "input_srs": input_srs, "tracks_srs": tracks_srs, "network_srs": network_srs, "max_points": max_points, "seed": seed, "records": len(routes), "reasons": reasons, "output": str(output), "output_sha256": sha256(output), "command": command}
     manifest.update(export=export, public_raw_node_connectivity_checked=public_nodes is not None,
+                    threads=threads,resume=resume,
                     public_edge_nodes_sha256=sha256(public_map_path) if public_nodes is not None else None,
-                    mm2_executed=bool(export['exported_records']))
+                    mm2_executed=bool(pending_count),public_resources=resources)
+    if resume is not None and not pending_count and export['exported_records']:
+        manifest['route_generation']='reused_complete_mm2_routes_native_not_executed'
     if not export['exported_records']:
         manifest['route_generation'] = 'no_eligible_M_coordinates_native_not_executed'
     (out_dir / "route_manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -283,6 +376,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--network-srs", default="EPSG:32650")
     parser.add_argument("--max-points", type=int, default=32)
     parser.add_argument("--seed", type=int)
+    parser.add_argument("--threads", type=int, default=4)
+    parser.add_argument("--resume-from", type=Path)
     return parser
 
 

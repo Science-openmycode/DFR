@@ -33,6 +33,21 @@ def test_exact_mm2_resources_and_default_router(tmp_path):
     assert coordinate_resources(c, tmp_path, 'Nearest') == (tmp_path/'edge_cache', {})
 
 
+def test_mm2_map_follows_network_not_executable(tmp_path):
+    c, m, expected = setup(tmp_path)
+    original = tmp_path / c['paths'].pop('mm2_public_edge_nodes')
+    c['paths']['mm2'] = 'resources/mm2/map_matching_2.exe'
+    c['paths']['mm2_network'] = 'city/network'
+    target = tmp_path/'city/public_graph/inputs/public_edge_nodes.json'
+    target.parent.mkdir(parents=True)
+    target.write_bytes(original.read_bytes())
+    _, options = coordinate_resources(c, tmp_path, 'MM2-MDP', m)
+    assert options['expected_mm2_network_sha256'] == expected
+    target.write_bytes(b'wrong city')
+    with pytest.raises(ValueError, match='map differs'):
+        coordinate_resources(c, tmp_path, 'MM2-MDP', m)
+
+
 @pytest.mark.parametrize('key', ['mm2_edge_cache', 'mm2_public_edge_nodes', 'network'])
 def test_changed_resources_rejected(tmp_path, key):
     c, m, _ = setup(tmp_path)

@@ -25,7 +25,8 @@ def coordinate_resources(config, root, router, route_manifest=None):
     if sha(cache) != meta.get('public_edge_cache_sha256'):
         raise ValueError('MM2 coordinate cache differs from its saved route binding')
     public_map = (path('mm2_public_edge_nodes') if config['paths'].get('mm2_public_edge_nodes')
-                  else path('mm2').parent/'public_graph/inputs/public_edge_nodes.json')
+                  else (path('mm2_network') if config['paths'].get('mm2_network') else path('mm2')).parent
+                  /'public_graph/inputs/public_edge_nodes.json')
     if sha(public_map) != meta.get('public_edge_nodes_sha256'):
         raise ValueError('MM2 public edge-node map differs from saved route binding')
     canonical = json.loads((path('prepared')/'canonical_manifest.json').read_text(encoding='utf-8'))

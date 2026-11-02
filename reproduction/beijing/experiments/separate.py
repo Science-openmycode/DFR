@@ -41,6 +41,9 @@ def main(stage):
     p.add_argument('--dry-run', action='store_true', help='Print command without reading data or running experiments')
     if stage=='synthesize':
         p.add_argument('--train-only',action='store_true',help='Generate from the configured training split and bind test split lineage')
+    if stage=='route':
+        p.add_argument('--threads',type=int,help='MM2 native threads, default 4')
+        p.add_argument('--resume-from',type=Path,help='Stopped MM2 run with matching input and resource-content binding')
     if stage != 'synthesize':
         p.add_argument('--router', required=True, choices=('Origin', 'Nearest', 'FMM', 'STMatch', 'MM2-MDP'))
         p.add_argument('--input', type=Path, help='M output directory for routing; saved road file for evaluation')
@@ -119,9 +122,13 @@ def main(stage):
             if a.router == 'FMM':
                 command += ['--ubodt', str(path('ubodt'))]
         if a.router == 'MM2-MDP':
+            threads=a.threads if a.threads is not None else c.get('mm2_threads',4)
+            if threads<1:p.error('--threads must be positive')
             if 'mm2_edge_cache' in c['paths']:
                 command[command.index('--edge-cache')+1] = str(path('mm2_edge_cache'))
             command += ['--mm2-executable', str(path('mm2')), '--mm2-network', str(path('mm2_network'))]
+            command += ['--mm2-threads',str(threads)]
+            if a.resume_from:command += ['--mm2-resume-from',str(a.resume_from.resolve())]
     else:
         if a.router == 'Origin' and a.method in METHODS:
             p.error('Coordinate Origin has no road witness. Use the coordinate evaluator, not road scoring.')
