@@ -14,6 +14,32 @@ def test_native_threads_not_omp_only(threads):
     assert command[command.index('--threads')+1]==str(threads)
 
 
+@pytest.mark.parametrize('srs', ['EPSG:32650', 'EPSG:32629'])
+def test_default_light_options_for_both_cities(srs):
+    command=mm2_command(Path('mm2'),Path('network'),Path('tracks'),Path('out'),tracks_srs=srs,network_srs=srs)
+    assert command[command.index('--threads')+1]=='4'
+    assert command[command.index('--candidate-adoption')+1]=='off'
+    assert command[command.index('--simplify-track')+1]=='on'
+    assert command[command.index('--model')+1]=='value-iteration'
+    assert command[command.index('--join-merges')+1]=='on'
+    assert command[command.index('--concatenate-skips')+1]=='off'
+    assert command[command.index('--within-edge-turns')+1]=='off'
+
+
+def test_wsl_keeps_light_options_as_flags(monkeypatch):
+    import ntpath
+    from types import SimpleNamespace
+    from algorithms.routers import mm2_mdp_adapter as adapter
+    binary=Path('E:/mm2/tool.AppImage');network=Path('E:/roads/network')
+    tracks=Path('E:/tracks.csv');output=Path('E:/out')
+    monkeypatch.setattr(adapter,'os',SimpleNamespace(name='nt',path=ntpath))
+    command=adapter.mm2_command(binary,network,tracks,output,tracks_srs='32629',network_srs='32629')
+    assert command[:2]==['wsl.exe','--']
+    assert command[command.index('--candidate-adoption')+1]=='off'
+    assert command[command.index('--simplify-track')+1]=='on'
+    assert command[command.index('--threads')+1]=='4'
+
+
 @pytest.mark.parametrize('threads',[0,-1,True,1.5])
 def test_invalid_threads_rejected(threads):
     with pytest.raises(ValueError):mm2_command(Path('mm2'),Path('n'),Path('t'),Path('o'),tracks_srs='32629',network_srs='32629',threads=threads)
@@ -98,6 +124,16 @@ def test_missing_or_changed_resource_binding_rejected(tmp_path):
     (old/'mm2_resources.json').unlink()
     with pytest.raises(ValueError,match='binding missing'):
         prepare_resume(old,tracks,tmp_path/'p',tmp_path/'s',cmd,{0,1,2},{'schema':1})
+
+
+def test_heavy_settings_cannot_be_resumed_as_light(tmp_path):
+    old,tracks,command=fixture(tmp_path)
+    previous=list(command)
+    for flag in ['--candidate-adoption','--simplify-track']:
+        i=previous.index(flag);del previous[i:i+2]
+    (old/'mm2_command.json').write_text(json.dumps(previous))
+    with pytest.raises(ValueError,match='routing parameters differ'):
+        prepare_resume(old,tracks,tmp_path/'p',tmp_path/'s',command,{0,1,2})
 
 
 @pytest.mark.parametrize('part',['binary','network','cache','map'])

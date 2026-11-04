@@ -116,6 +116,7 @@ def mm2_command(executable: Path, network: Path, tracks: Path, output: Path, *, 
         raise ValueError("MM2 threads must be a positive integer")
     args = ["--match", "--input", str(network), "--tracks", str(tracks), "--output", str(output), "--tracks-srs", _mm2_srs(tracks_srs), "--network-srs", _mm2_srs(network_srs), "--wkt", "--geometry", "geometry", "--threads", "1", "--model", "value-iteration", "--columns", ",".join(MM2_FIELDS), "--join-merges", "on", "--concatenate-skips", "off", "--within-edge-turns", "off"]
     args[args.index('--threads')+1]=str(threads)
+    args += ['--candidate-adoption', 'off', '--simplify-track', 'on']
     # The official MM2 distribution is an AppImage.  On Windows it is run
     # through WSL; all filesystem arguments must be converted to the mounted
     # POSIX path so the binary reads the same public files and writes its CSV
