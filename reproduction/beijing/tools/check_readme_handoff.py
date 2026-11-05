@@ -62,6 +62,9 @@ def check(config, config_root, root=ROOT):
     assert '--source-cache "$MetricCache"' in scores
     # This checks the links, not the existence of future generated releases.
     # Their successful exit/manifests remain required at actual execution time.
+    for name in ('prepare_endpoint_controls.py','tools/endpoint_control_core.py'):
+        if not (root/name).is_file():
+            raise FileNotFoundError('Missing control generator: '+name)
     return dict(status='README_9_11_INPUT_AND_DOCUMENT_PREFLIGHT_PASSED', dataset=base['dataset'],
                 full_slots=identity['count'], train_slots=identity['train_count'], test_slots=identity['test_count'],
                 dpmm_utm_zone=zone, dpmm_utm_band=band, documents=document_checks,
