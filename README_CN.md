@@ -3872,6 +3872,48 @@ $PublicShortestRoutes = "results/endpoint_controls/PublicShortest/synthetic_rout
 
 缺答贡献0，不再乘一遍全局道路证据比例。代表路线的真实参考显示实际覆盖率，不强制设为1。其它三项直接比较真实答案与合成答案。
 
+## 05.4 可选：独立训练MTNet＋DPOD并加入同题比较
+
+该变体独立重新分配总ε=1.4：模型1.0、OD0.4，δ=1e-5，30轮全固定人口更新；隐私单位为冻结道路记录的替换邻接。不是把普通MTNet模型加上OD后仍标为1.4。完整协议见[MTNET_DPOD_PROTOCOL_CN.md](reproduction/beijing/MTNET_DPOD_PROTOCOL_CN.md)。
+
+复用第03节已完成的MTNet数据准备（不是普通MTNet模型），依次准备变体、构建公共距离、训练、生成。`--mtnet-prepared`是第03节的准备目录；`--public-edges`是05.1已导出的当前城市公共道路；`--population`区分全集与训练专用，二者必须使用不同工作目录；`--out`始终指同一份变体工作目录，后续阶段不得重新绑定城市资源。默认CUDA；如果明确要在CPU运行，只在prepare增加`--device cpu`，后续原命令不变。
+
+```powershell
+.venv/Scripts/python.exe mtnet_dp_od.py prepare --config configs/experiments/configs/beijing.json --mtnet-prepared results/reproduction_native_20261024/full/MTNet_prepared --public-edges results/application_inputs/public/public_edges.jsonl.gz --population full --out results/mtnet_dp_od/full
+.venv/Scripts/python.exe mtnet_dp_od.py graph --out results/mtnet_dp_od/full
+.venv/Scripts/python.exe mtnet_dp_od.py train --out results/mtnet_dp_od/full
+.venv/Scripts/python.exe mtnet_dp_od.py generate --out results/mtnet_dp_od/full
+```
+
+北京默认，Porto使用第01节选择的配置，以上命令相同。要求该城市的24公共区域和道路编号已通过准备；原L20之外及时间不合法的记录为零梯度槽，不缩小训练分母。CUDA或内存不足时明确拒绝，不停止其它实验，不静默改参数。每个工作目录只prepare一次；训练被中断时只在同一目录执行下面的恢复命令，不能拿普通MTNet检查点恢复：
+
+```powershell
+.venv/Scripts/python.exe mtnet_dp_od.py train --out results/mtnet_dp_od/full --resume
+```
+
+恢复命令仅用于中断，不在正常顺序中重复执行。完成需要receipt_train.json和release_full/training_manifest.json为COMPLETE、30更新，生成还需release_full/native_release/manifest.json的完整槽位及输出摘要通过。private_prepared、private_full_training和workflow.json不是DP发布包，不能随发布公开。
+
+严格TSTR需要训练专用独立模型，不能使用上面的全集模型。第03节训练专用准备完成后运行：
+
+```powershell
+.venv/Scripts/python.exe mtnet_dp_od.py prepare --config configs/experiments/configs/beijing.json --mtnet-prepared results/reproduction_native_20261024/train/MTNet_prepared --public-edges results/application_inputs/public/public_edges.jsonl.gz --population train --out results/mtnet_dp_od/train
+.venv/Scripts/python.exe mtnet_dp_od.py graph --population train --out results/mtnet_dp_od/train
+.venv/Scripts/python.exe mtnet_dp_od.py train --population train --out results/mtnet_dp_od/train
+.venv/Scripts/python.exe mtnet_dp_od.py generate --population train --out results/mtnet_dp_od/train
+```
+
+每份full/train发布分别为(1.4,1e-5)，不能把两次发布合称只消耗一次1.4。生成结果已为公共道路记录，不需再匹配。四项应用只使用全集发布；扩展既有题目配置、只回答新方法，不重算已有方法：
+
+```powershell
+.venv/Scripts/python.exe prepare_application_inputs.py adapt --input results/mtnet_dp_od/full/release_full/native_release/synthetic_routes.pkl.gz --public-edges results/application_inputs/public/public_edges.jsonl.gz --slots $FullSlots --out results/application_inputs/MTNet_DP_OD_coarse24
+.venv/Scripts/python.exe tools/add_application_release.py --config configs/application_tasks/beijing.json --slots results/application_inputs/MTNet_DP_OD_coarse24/slots.jsonl.gz --name MTNet_DP_OD_coarse24 --out configs/application_tasks/beijing_with_dpod.json
+.venv/Scripts/python.exe evaluate_applications.py answer --config configs/application_tasks/beijing_with_dpod.json --method MTNet_DP_OD_coarse24 --reference results/application_tasks/answers/Real --out results/application_tasks/answers/MTNet_DP_OD_coarse24
+.venv/Scripts/python.exe evaluate_applications.py summarize --config configs/application_tasks/beijing_with_dpod.json --input results/application_tasks/answers/Real --input results/application_tasks/answers/SPRT__Nearest --input results/application_tasks/answers/SPRT__FMM --input results/application_tasks/answers/SPRT__STMatch --input results/application_tasks/answers/SPRT__MM2-MDP --input results/application_tasks/answers/PrivTrace__Nearest --input results/application_tasks/answers/PrivTrace__FMM --input results/application_tasks/answers/PrivTrace__STMatch --input results/application_tasks/answers/PrivTrace__MM2-MDP --input results/application_tasks/answers/DPTraj-PM__Nearest --input results/application_tasks/answers/DPTraj-PM__FMM --input results/application_tasks/answers/DPTraj-PM__STMatch --input results/application_tasks/answers/DPTraj-PM__MM2-MDP --input results/application_tasks/answers/DPStd__Nearest --input results/application_tasks/answers/DPStd__FMM --input results/application_tasks/answers/DPStd__STMatch --input results/application_tasks/answers/DPStd__MM2-MDP --input results/application_tasks/answers/MTR-DFR --input results/application_tasks/answers/MTNet --input results/application_tasks/answers/SameEndpointRandom --input results/application_tasks/answers/PublicShortest --input results/application_tasks/answers/MTNet_DP_OD_coarse24 --out results/application_tasks/summary_with_dpod
+.venv/Scripts/python.exe plot_applications.py --summary results/application_tasks/summary_with_dpod --out results/application_tasks/figures_with_dpod
+```
+
+Porto四任务必须先锁定本城真实题集，不能套用北京题目或分数。上述配置文件名沿用统一入口示例，文件内容必须是当前城市。原11项大图仍按第09节收集；新增变体必须用自己的结构/坐标评分和四任务答案，选择summary_with_dpod，并通过--labeled-batch指向变体自身完整评分根目录，不复用普通MTNet分数或把未评分格填零。
+
 随后进入第09节，使用`reference_results/matrix/spec_framework.json`收集并绘制最终11项大图。新四项替换旧下游任务，Real合列、DFR倒二、连续红框均由正式绘图入口完成。缺失适用成绩时停止，不用旧成绩填充新随机批次。
 
 北京既有结果的程序验证及本轮生成图：
