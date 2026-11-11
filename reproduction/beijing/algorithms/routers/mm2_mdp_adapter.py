@@ -111,12 +111,13 @@ def write_tracks_csv(measurement: Path, destination: Path, *, input_srs: str = "
     return {"records": len(raw), "exported_records": len(raw) - len(skipped), "exported_points": point_count, "skipped_slots": skipped, "max_points": maximum, "input_srs": input_srs, "tracks_srs": tracks_srs, "measurement_sha256": sha256(measurement), "tracks_sha256": sha256(destination)}
 
 
-def mm2_command(executable: Path, network: Path, tracks: Path, output: Path, *, tracks_srs: str, network_srs: str, threads: int = 4) -> list[str]:
+def mm2_command(executable: Path, network: Path, tracks: Path, output: Path, *, tracks_srs: str, network_srs: str, threads: int = 4, profile: str = 'light') -> list[str]:
     if isinstance(threads, bool) or not isinstance(threads, int) or threads < 1:
         raise ValueError("MM2 threads must be a positive integer")
     args = ["--match", "--input", str(network), "--tracks", str(tracks), "--output", str(output), "--tracks-srs", _mm2_srs(tracks_srs), "--network-srs", _mm2_srs(network_srs), "--wkt", "--geometry", "geometry", "--threads", "1", "--model", "value-iteration", "--columns", ",".join(MM2_FIELDS), "--join-merges", "on", "--concatenate-skips", "off", "--within-edge-turns", "off"]
     args[args.index('--threads')+1]=str(threads)
-    args += ['--candidate-adoption', 'off', '--simplify-track', 'on']
+    if profile not in ('standard','light'):raise ValueError('Unknown MM2 profile')
+    if profile=='light':args += ['--candidate-adoption', 'off', '--simplify-track', 'on']
     # The official MM2 distribution is an AppImage.  On Windows it is run
     # through WSL; all filesystem arguments must be converted to the mounted
     # POSIX path so the binary reads the same public files and writes its CSV
@@ -288,7 +289,7 @@ def prepare_resume(previous: Path, full_tracks: Path, pending: Path, saved: Path
                 original_command=old,tracks_sha256=sha256(full_tracks),resources=expected_resources)
 
 
-def run_mm2(measurement: Path, out_dir: Path, *, executable: Path, network: Path, edge_cache: Path, input_srs: str = "EPSG:4326", tracks_srs: str = "EPSG:32650", network_srs: str = "EPSG:32650", max_points: int = 32, seed: int | None = None, threads: int = 4, resume_from: Path | None = None) -> dict:
+def run_mm2(measurement: Path, out_dir: Path, *, executable: Path, network: Path, edge_cache: Path, input_srs: str = "EPSG:4326", tracks_srs: str = "EPSG:32650", network_srs: str = "EPSG:32650", max_points: int = 32, seed: int | None = None, threads: int = 4, resume_from: Path | None = None, profile: str = 'light') -> dict:
     """Run MM2 and write the stable road-route output for one M cell."""
     for path, label in ((measurement, "measurement"), (executable, "MM2 executable"), (network, "MM2 network"), (edge_cache, "edge cache")):
         if not path.exists():
@@ -301,7 +302,7 @@ def run_mm2(measurement: Path, out_dir: Path, *, executable: Path, network: Path
     tracks = out_dir / "mm2_tracks.csv"
     export = write_tracks_csv(measurement, tracks, input_srs=input_srs, tracks_srs=tracks_srs, maximum=max_points)
     run_dir = out_dir / "mm2_run"
-    command = mm2_command(executable, network, tracks, run_dir, tracks_srs=tracks_srs, network_srs=network_srs, threads=threads)
+    command = mm2_command(executable, network, tracks, run_dir, tracks_srs=tracks_srs, network_srs=network_srs, threads=threads, profile=profile)
     resume=None
     pending_count=export['exported_records']
     if resume_from is not None:
@@ -354,7 +355,7 @@ def run_mm2(measurement: Path, out_dir: Path, *, executable: Path, network: Path
         pickle.dump(routes, handle, protocol=pickle.HIGHEST_PROTOCOL)
     manifest = {"schema_version": 1, "kind": "route_cell", "router": ROUTER, "status": "VALID", "route_generation": "executed_public_mm2_value_iteration", "raw_source_used": False, "measurement": str(measurement.resolve()), "measurement_sha256": sha256(measurement), "public_mm2_executable": str(executable.resolve()), "public_mm2_executable_sha256": sha256(executable), "public_mm2_network": str(network.resolve()), "public_edge_cache": str(edge_cache.resolve()), "public_edge_cache_sha256": sha256(edge_cache), "input_srs": input_srs, "tracks_srs": tracks_srs, "network_srs": network_srs, "max_points": max_points, "seed": seed, "records": len(routes), "reasons": reasons, "output": str(output), "output_sha256": sha256(output), "command": command}
     manifest.update(export=export, public_raw_node_connectivity_checked=public_nodes is not None,
-                    threads=threads,resume=resume,
+                    threads=threads,resume=resume,profile=profile,
                     public_edge_nodes_sha256=sha256(public_map_path) if public_nodes is not None else None,
                     mm2_executed=bool(pending_count),public_resources=resources)
     if resume is not None and not pending_count and export['exported_records']:

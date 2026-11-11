@@ -10,6 +10,7 @@ from preprocess.dataset_config import load_config
 
 ROOT = Path(__file__).resolve().parents[1]
 METHODS = ('SPRT', 'PrivTrace', 'DPTraj-PM', 'DPStd')
+ROUTE_METHODS = (*METHODS, 'AdaTrace')
 
 
 def resolve_saved_route(config, root, base, method, router, explicit=None):
@@ -37,7 +38,7 @@ def validate_matcher_binding(config, root, router):
 def main(stage):
     p = argparse.ArgumentParser(description=f'Run only {stage}; reuse saved inputs for later stages.')
     p.add_argument('--config', type=Path, default=ROOT / 'configs/beijing.yaml', help='JSON configuration; relative paths are relative to project root')
-    p.add_argument('--method', required=True, choices=METHODS if stage != 'evaluate' else None)
+    p.add_argument('--method', required=True, choices=ROUTE_METHODS if stage != 'evaluate' else None)
     p.add_argument('--out', type=Path, help='New output directory; existing data are not overwritten')
     p.add_argument('--dry-run', action='store_true', help='Print command without reading data or running experiments')
     if stage=='synthesize':
@@ -100,7 +101,18 @@ def main(stage):
             bbox=bbox_record['bbox'] if isinstance(bbox_record,dict) else bbox_record
         if not isinstance(bbox,(list,tuple)) or len(bbox)!=4:
             p.error('Measurement bbox must contain four public bounds')
-        if a.train_only:
+        if a.method=='AdaTrace':
+            if a.train_only:p.error('Use a separately prepared training population config; full author output is not a training release')
+            prepare=prefix+[str(ROOT/'adatrace.py'),'prepare','--config',str(a.config.resolve()),'--out',str(out)]
+            command=prefix+[str(ROOT/'adatrace.py'),'generate','--config',str(a.config.resolve()),'--epsilon',str(c['epsilon']),'--out',str(out)]
+            # Existing author adapter stages, not a replacement synthesis algorithm.
+            if a.dry_run:
+                print(json.dumps({'prepare_command':prepare,'command':command,'output':str(out)},indent=2));return
+            subprocess.run(prepare,cwd=ROOT,check=True)
+        elif a.method=='DPTraj-PM' and 'dptraj_pm' in c:
+            if a.train_only:p.error('Use a separately prepared training population config')
+            command=prefix+[str(ROOT/'dptraj_pm.py'),'generate','--config',str(a.config.resolve()),'--epsilon',str(c['epsilon']),'--out',str(out)]
+        elif a.train_only:
             command=prefix+[str(ROOT/'tools/generate_train_measurement.py'),'--method',a.method,
                 '--data',str(path('train')),'--test',str(path('test')),'--slots',str(c['train_slots']),
                 '--epsilon',str(c['epsilon']),'--seed',str(c['seed']),'--bbox',*map(str,bbox),
@@ -135,9 +147,10 @@ def main(stage):
                 command[command.index('--edge-cache')+1] = str(path('mm2_edge_cache'))
             command += ['--mm2-executable', str(path('mm2')), '--mm2-network', str(path('mm2_network'))]
             command += ['--mm2-threads',str(threads)]
+            command += ['--mm2-profile',c.get('mm2_profile','light')]
             if a.resume_from:command += ['--mm2-resume-from',str(a.resume_from.resolve())]
     else:
-        if a.router == 'Origin' and a.method in METHODS:
+        if a.router == 'Origin' and a.method in ROUTE_METHODS:
             p.error('Coordinate Origin has no road witness. Use the coordinate evaluator, not road scoring.')
         out = a.out or base / 'scores' / a.method / a.router
         source = resolve_saved_route(c, ROOT, base, a.method, a.router, a.input)

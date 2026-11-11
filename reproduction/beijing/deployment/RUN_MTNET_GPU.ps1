@@ -1,4 +1,4 @@
-param([Parameter(Mandatory=$true)][string]$Root,[string]$PythonExecutable='')
+param([Parameter(Mandatory=$true)][string]$Root,[string]$PythonExecutable='',[double]$Epsilon=1.4)
 $ErrorActionPreference='Stop'
 $Root=(Resolve-Path -LiteralPath $Root -ErrorAction Stop).Path
 . (Join-Path $PSScriptRoot 'NativeArguments.ps1')
@@ -22,7 +22,7 @@ if($slots -lt 1 -or $slots -ne [int]$binding.input_count){throw 'Invalid prepare
 if($binding.evaluation_scope -notin @('full_corpus','strict_tstr')){throw 'Missing population scope'}
 Write-Output "START MTNet 30 epochs; training records=$n; evaluation population=$slots; microbatch=1"
 $timer=[Diagnostics.Stopwatch]::StartNew()
-$arguments=@((Join-Path $Root 'train_native_mtnet_dpsgd_paper.py'),'--mtnet-root',(Join-Path $Root 'official'),'--data-parent',(Join-Path $Root 'data'),'--city','beijing_roads_l20','--max-route-edges','20','--out',$train,'--epochs','30','--batch-size',[string]$n,'--clip-C','1','--target-epsilon','1.4','--target-delta','0.00001','--dataset-size-public','--release-condition-policy','public_fixed','--dp-domain-scope','prepared_aligned','--gradient-engine','vmap','--microbatch-size','1','--split-per','1','--progress-every','64','--loss-probe-size','128','--seed','20260712','--source-lock',(Join-Path $Root 'canonical_mtnet_source_lock.json'))
+$arguments=@((Join-Path $Root 'train_native_mtnet_dpsgd_paper.py'),'--mtnet-root',(Join-Path $Root 'official'),'--data-parent',(Join-Path $Root 'data'),'--city','beijing_roads_l20','--max-route-edges','20','--out',$train,'--epochs','30','--batch-size',[string]$n,'--clip-C','1','--target-epsilon',[string]$Epsilon,'--target-delta','0.00001','--dataset-size-public','--release-condition-policy','public_fixed','--dp-domain-scope','prepared_aligned','--gradient-engine','vmap','--microbatch-size','1','--split-per','1','--progress-every','64','--loss-probe-size','128','--seed','20260712','--source-lock',(Join-Path $Root 'canonical_mtnet_source_lock.json'))
 $process=Start-Process -FilePath $python -ArgumentList (ConvertTo-NativeArguments $arguments) -WindowStyle Hidden -Wait -PassThru -RedirectStandardOutput (Join-Path $Root 'training.log') -RedirectStandardError (Join-Path $Root 'training.stderr.log')
 if($process.ExitCode -ne 0){throw "MTNet training failed with exit $($process.ExitCode); inspect separate stdout/stderr"}
 Write-Output "DONE MTNet training seconds=$($timer.Elapsed.TotalSeconds)"

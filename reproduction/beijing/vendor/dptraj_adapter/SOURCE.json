@@ -1,0 +1,11 @@
+{
+  "method": "DPTraj-PM",
+  "author_archive_url": "https://github.com/wnn5/DP-PrefixTreeMarkov/blob/main/DP-PrefixTreeMarkov-4.rar",
+  "historical_author_archive_sha256": "a6ca285c5fdb612345437e830e9dbd5c7a8a947acbf38355f825806e7a5e7291",
+  "local_runtime": "resources/dptraj/dptraj_grid.exe",
+  "runtime_sha256": "d1c9d4f04bd6cd89f7c27474139a6d033f53c7e1b2e61cc0dd691d7be99c44cb",
+  "origin": "Existing tested 2026-11-09 build; no recompilation or algorithm change in this organization",
+  "integration_changes_previously_recorded": ["epsilon/grid CLI", "declared seed", "invalid-free fixes", "negative-index end guard"],
+  "grid_is_a_parameter_not_method_name": true,
+  "license_status": "Author core license not confirmed; local runtime ignored by Git; not approved for redistribution"
+}

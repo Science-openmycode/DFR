@@ -18,9 +18,9 @@ def test_original_accounting_and_fixed_time_transform(tmp_path):
     assert m.tensor_row([1]*21,[0]*22,adj) is None
     assert m.tensor_row([1],[0,float('nan')],adj) is None
 
-def test_budget_is_not_ordinary_mtnet_plus_extra_od(tmp_path):
-    config=tmp_path/'c.json';config.write_text(json.dumps({'epsilon':2.0}))
-    with pytest.raises(ValueError,match='fixed at total'):binding(config,tmp_path,tmp_path/'edges','full','cpu')
+def test_budget_requires_positive_finite_total(tmp_path):
+    config=tmp_path/'c.json';config.write_text(json.dumps({'epsilon':0.0}))
+    with pytest.raises(ValueError,match='Positive finite total'):binding(config,tmp_path,tmp_path/'edges','full','cpu')
 
 def test_legacy_numerical_helpers_unchanged(tmp_path):
     # Frozen expected result covers the original replacement-accountant formula.

@@ -575,6 +575,7 @@ def route_cell(args: argparse.Namespace) -> None:
             max_points=args.max_points,
             seed=getattr(args, "seed", None),
             threads=getattr(args, "mm2_threads", 4),
+            profile=getattr(args, "mm2_profile", 'light'),
             resume_from=getattr(args, "mm2_resume_from", None),
         )
         manifest.update({"M": args.m, "R": args.r, "dataset": args.dataset,
@@ -1171,6 +1172,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("reproduce-dataset"); p.add_argument("--dataset", required=True); p.add_argument("--experiment-spec", type=Path, required=True); p.add_argument("--prepared-data", type=Path, required=True); p.add_argument("--data-results", type=Path, required=True); p.add_argument("--measurement-root", type=Path, default=ROOT / "synthetic_data" / "measurements"); p.add_argument("--real-reference", type=Path, required=True); p.add_argument("--plot-out", type=Path, required=True); p.add_argument("--osm-cache", type=Path, required=True); p.add_argument("--edge-cache", type=Path); p.add_argument("--mm2-executable", type=Path); p.add_argument("--mm2-network", type=Path); p.add_argument("--public-network", type=Path); p.add_argument("--fmm-executable", type=Path); p.add_argument("--stmatch-executable", type=Path); p.add_argument("--ubodt", type=Path); p.add_argument("--ubodt-executable", type=Path); p.add_argument("--runtime-dir", type=Path); p.add_argument("--input-srs", default="EPSG:4326"); p.add_argument("--tracks-srs", default="EPSG:32650"); p.add_argument("--network-srs", default="EPSG:32650"); p.add_argument("--max-points", type=int, default=32); p.add_argument("--radius-m", type=float, default=200.0); p.add_argument("--gps-error-m", type=float, default=50.0); p.add_argument("--candidates", type=int, default=8); p.add_argument("--min-observation-share", type=float, default=0.95); p.add_argument("--seed", type=int); p.add_argument("--evaluation-seed", type=int, default=20260713); p.set_defaults(func=reproduce_dataset)
     p = sub.add_parser("reproduce-all"); p.add_argument("--config", type=Path, required=True); p.set_defaults(func=reproduce_all)
     sub.choices['route-cell'].add_argument('--mm2-threads',type=int,default=4)
+    sub.choices['route-cell'].add_argument('--mm2-profile',choices=('standard','light'),default='light')
     sub.choices['route-cell'].add_argument('--mm2-resume-from',type=Path)
     return parser
 

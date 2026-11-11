@@ -1,0 +1,1465 @@
+[
+  {
+    "row": "PrivTrace + Origin",
+    "metric": "Grid",
+    "value": 0.40738411586580753,
+    "status": "VALID",
+    "sha256": "6997fc54d1a4ef8fe5b000192df8cc052f15abd225b020e220402acfd63ecb80"
+  },
+  {
+    "row": "PrivTrace + Origin",
+    "metric": "Trip",
+    "value": 0.25995310012141226,
+    "status": "VALID",
+    "sha256": "6997fc54d1a4ef8fe5b000192df8cc052f15abd225b020e220402acfd63ecb80"
+  },
+  {
+    "row": "PrivTrace + Origin",
+    "metric": "Len",
+    "value": 0.02542233844619005,
+    "status": "VALID",
+    "sha256": "6997fc54d1a4ef8fe5b000192df8cc052f15abd225b020e220402acfd63ecb80"
+  },
+  {
+    "row": "PrivTrace + Origin",
+    "metric": "RoadYield",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "PrivTrace + Origin",
+    "metric": "BTF",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "PrivTrace + Origin",
+    "metric": "FamilyCPC",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "PrivTrace + Origin",
+    "metric": "ODPF384",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "PrivTrace + Origin",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "PrivTrace + Origin",
+    "metric": "RepresentativeRealCoverage",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "PrivTrace + Origin",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "PrivTrace + Origin",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "PrivTrace + Nearest",
+    "metric": "Grid",
+    "value": 0.6632881979923848,
+    "status": "VALID",
+    "sha256": "7ad4d9c5f1e1f509ee55b12bfecbf2e25c223b276745fa8abd00d26a4737b2ac"
+  },
+  {
+    "row": "PrivTrace + Nearest",
+    "metric": "Trip",
+    "value": 0.5076896477787721,
+    "status": "VALID",
+    "sha256": "7ad4d9c5f1e1f509ee55b12bfecbf2e25c223b276745fa8abd00d26a4737b2ac"
+  },
+  {
+    "row": "PrivTrace + Nearest",
+    "metric": "Len",
+    "value": 0.5142890741497547,
+    "status": "VALID",
+    "sha256": "7ad4d9c5f1e1f509ee55b12bfecbf2e25c223b276745fa8abd00d26a4737b2ac"
+  },
+  {
+    "row": "PrivTrace + Nearest",
+    "metric": "RoadYield",
+    "value": 0.10197075651621106,
+    "status": "VALID",
+    "sha256": "4fefcd872cfd16f51170dd27e7fa306b43524305a2796bb384203fb67492cbe6"
+  },
+  {
+    "row": "PrivTrace + Nearest",
+    "metric": "BTF",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "4fefcd872cfd16f51170dd27e7fa306b43524305a2796bb384203fb67492cbe6"
+  },
+  {
+    "row": "PrivTrace + Nearest",
+    "metric": "FamilyCPC",
+    "value": 0.013729314088789323,
+    "status": "VALID",
+    "sha256": "4fefcd872cfd16f51170dd27e7fa306b43524305a2796bb384203fb67492cbe6"
+  },
+  {
+    "row": "PrivTrace + Nearest",
+    "metric": "ODPF384",
+    "value": 0.0013737750959504672,
+    "status": "VALID",
+    "sha256": "4fefcd872cfd16f51170dd27e7fa306b43524305a2796bb384203fb67492cbe6"
+  },
+  {
+    "row": "PrivTrace + Nearest",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "PrivTrace + Nearest",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.11019580013570143,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "PrivTrace + Nearest",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "PrivTrace + Nearest",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "PrivTrace + FMM",
+    "metric": "Grid",
+    "value": 0.46263411745816396,
+    "status": "VALID",
+    "sha256": "925a76242757bdf743375ee253e46bacffc1cce5177c5187813be977f61115bc"
+  },
+  {
+    "row": "PrivTrace + FMM",
+    "metric": "Trip",
+    "value": 0.40091829371005283,
+    "status": "VALID",
+    "sha256": "925a76242757bdf743375ee253e46bacffc1cce5177c5187813be977f61115bc"
+  },
+  {
+    "row": "PrivTrace + FMM",
+    "metric": "Len",
+    "value": 0.3978735339464762,
+    "status": "VALID",
+    "sha256": "925a76242757bdf743375ee253e46bacffc1cce5177c5187813be977f61115bc"
+  },
+  {
+    "row": "PrivTrace + FMM",
+    "metric": "RoadYield",
+    "value": 0.23706293706293707,
+    "status": "VALID",
+    "sha256": "01fe5bbe7e36c522fd653bd1af433055d1d0000154509982428f81a6178da14e"
+  },
+  {
+    "row": "PrivTrace + FMM",
+    "metric": "BTF",
+    "value": 0.04277933842358826,
+    "status": "VALID",
+    "sha256": "01fe5bbe7e36c522fd653bd1af433055d1d0000154509982428f81a6178da14e"
+  },
+  {
+    "row": "PrivTrace + FMM",
+    "metric": "FamilyCPC",
+    "value": 0.047420056104099335,
+    "status": "VALID",
+    "sha256": "01fe5bbe7e36c522fd653bd1af433055d1d0000154509982428f81a6178da14e"
+  },
+  {
+    "row": "PrivTrace + FMM",
+    "metric": "ODPF384",
+    "value": 0.030814716879534517,
+    "status": "VALID",
+    "sha256": "01fe5bbe7e36c522fd653bd1af433055d1d0000154509982428f81a6178da14e"
+  },
+  {
+    "row": "PrivTrace + FMM",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.0136986301369863,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "PrivTrace + FMM",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.27909096655445975,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "PrivTrace + FMM",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.1140080817337302,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "PrivTrace + FMM",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.14590380234270311,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "PrivTrace + STMatch",
+    "metric": "Grid",
+    "value": 0.19310544719354855,
+    "status": "VALID",
+    "sha256": "8eba2707d6a7aaf98906d0ed60ab4db700de11b66faa92a83a88a282be0ea428"
+  },
+  {
+    "row": "PrivTrace + STMatch",
+    "metric": "Trip",
+    "value": 0.2510144201239499,
+    "status": "VALID",
+    "sha256": "8eba2707d6a7aaf98906d0ed60ab4db700de11b66faa92a83a88a282be0ea428"
+  },
+  {
+    "row": "PrivTrace + STMatch",
+    "metric": "Len",
+    "value": 0.012593931944380871,
+    "status": "VALID",
+    "sha256": "8eba2707d6a7aaf98906d0ed60ab4db700de11b66faa92a83a88a282be0ea428"
+  },
+  {
+    "row": "PrivTrace + STMatch",
+    "metric": "RoadYield",
+    "value": 0.9491417673235855,
+    "status": "VALID",
+    "sha256": "c7bbc859b0ab7c308b03f6fe6969fc2d5d501755178d41d5e0d00a252fdf2d38"
+  },
+  {
+    "row": "PrivTrace + STMatch",
+    "metric": "BTF",
+    "value": 0.2625817786032905,
+    "status": "VALID",
+    "sha256": "c7bbc859b0ab7c308b03f6fe6969fc2d5d501755178d41d5e0d00a252fdf2d38"
+  },
+  {
+    "row": "PrivTrace + STMatch",
+    "metric": "FamilyCPC",
+    "value": 0.23627880528418005,
+    "status": "VALID",
+    "sha256": "c7bbc859b0ab7c308b03f6fe6969fc2d5d501755178d41d5e0d00a252fdf2d38"
+  },
+  {
+    "row": "PrivTrace + STMatch",
+    "metric": "ODPF384",
+    "value": 0.16861496539122295,
+    "status": "VALID",
+    "sha256": "c7bbc859b0ab7c308b03f6fe6969fc2d5d501755178d41d5e0d00a252fdf2d38"
+  },
+  {
+    "row": "PrivTrace + STMatch",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.166583014233742,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "PrivTrace + STMatch",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.6300231054599915,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "PrivTrace + STMatch",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.4244934774305221,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "PrivTrace + STMatch",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.4147317338022976,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "PrivTrace + MM2-MDP",
+    "metric": "Grid",
+    "value": 0.18519644992935902,
+    "status": "VALID",
+    "sha256": "18d1fb9ae1ab71d89f3250939279385caa96f916a6e70cdc7eff7f3ac43df5d9"
+  },
+  {
+    "row": "PrivTrace + MM2-MDP",
+    "metric": "Trip",
+    "value": 0.2415872899337365,
+    "status": "VALID",
+    "sha256": "18d1fb9ae1ab71d89f3250939279385caa96f916a6e70cdc7eff7f3ac43df5d9"
+  },
+  {
+    "row": "PrivTrace + MM2-MDP",
+    "metric": "Len",
+    "value": 0.016965126054243787,
+    "status": "VALID",
+    "sha256": "18d1fb9ae1ab71d89f3250939279385caa96f916a6e70cdc7eff7f3ac43df5d9"
+  },
+  {
+    "row": "PrivTrace + MM2-MDP",
+    "metric": "RoadYield",
+    "value": 0.8967577876668785,
+    "status": "VALID",
+    "sha256": "7c03f2c9eef46d348e563f0f3949428631d5f922acf40053ad7d9d873b537e16"
+  },
+  {
+    "row": "PrivTrace + MM2-MDP",
+    "metric": "BTF",
+    "value": 0.2870127231885905,
+    "status": "VALID",
+    "sha256": "7c03f2c9eef46d348e563f0f3949428631d5f922acf40053ad7d9d873b537e16"
+  },
+  {
+    "row": "PrivTrace + MM2-MDP",
+    "metric": "FamilyCPC",
+    "value": 0.23052113926644355,
+    "status": "VALID",
+    "sha256": "7c03f2c9eef46d348e563f0f3949428631d5f922acf40053ad7d9d873b537e16"
+  },
+  {
+    "row": "PrivTrace + MM2-MDP",
+    "metric": "ODPF384",
+    "value": 0.1583401721908985,
+    "status": "VALID",
+    "sha256": "7c03f2c9eef46d348e563f0f3949428631d5f922acf40053ad7d9d873b537e16"
+  },
+  {
+    "row": "PrivTrace + MM2-MDP",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.13840712085249438,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "PrivTrace + MM2-MDP",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.7076303121884924,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "PrivTrace + MM2-MDP",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.4676631544221724,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "PrivTrace + MM2-MDP",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.4180225069151567,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "AdaTrace + Origin",
+    "metric": "Grid",
+    "value": 0.4168250873078904,
+    "status": "VALID",
+    "sha256": "3c033fd7de7c922f092982984659c1afb08365b3affc1dbba89e360b85cf1473"
+  },
+  {
+    "row": "AdaTrace + Origin",
+    "metric": "Trip",
+    "value": 0.43966081716821054,
+    "status": "VALID",
+    "sha256": "3c033fd7de7c922f092982984659c1afb08365b3affc1dbba89e360b85cf1473"
+  },
+  {
+    "row": "AdaTrace + Origin",
+    "metric": "Len",
+    "value": 0.05544836844051196,
+    "status": "VALID",
+    "sha256": "3c033fd7de7c922f092982984659c1afb08365b3affc1dbba89e360b85cf1473"
+  },
+  {
+    "row": "AdaTrace + Origin",
+    "metric": "RoadYield",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "AdaTrace + Origin",
+    "metric": "BTF",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "AdaTrace + Origin",
+    "metric": "FamilyCPC",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "AdaTrace + Origin",
+    "metric": "ODPF384",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "AdaTrace + Origin",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "AdaTrace + Origin",
+    "metric": "RepresentativeRealCoverage",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "AdaTrace + Origin",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "AdaTrace + Origin",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "AdaTrace + Nearest",
+    "metric": "Grid",
+    "value": 0.970728074313956,
+    "status": "VALID",
+    "sha256": "b2d9842c8e04b98aa13c43f3f5bae9a8dfe138247f6b42c0b7d17b1741e6ef27"
+  },
+  {
+    "row": "AdaTrace + Nearest",
+    "metric": "Trip",
+    "value": 0.9202215977728948,
+    "status": "VALID",
+    "sha256": "b2d9842c8e04b98aa13c43f3f5bae9a8dfe138247f6b42c0b7d17b1741e6ef27"
+  },
+  {
+    "row": "AdaTrace + Nearest",
+    "metric": "Len",
+    "value": 0.5142890740057897,
+    "status": "VALID",
+    "sha256": "b2d9842c8e04b98aa13c43f3f5bae9a8dfe138247f6b42c0b7d17b1741e6ef27"
+  },
+  {
+    "row": "AdaTrace + Nearest",
+    "metric": "RoadYield",
+    "value": 0.0002542911633820725,
+    "status": "VALID",
+    "sha256": "876ff16cbf227c32bab06353cdc525bbec7ef917eefcf586c3bafbdbfcfd5fe5"
+  },
+  {
+    "row": "AdaTrace + Nearest",
+    "metric": "BTF",
+    "value": 3.527731279417893e-05,
+    "status": "VALID",
+    "sha256": "876ff16cbf227c32bab06353cdc525bbec7ef917eefcf586c3bafbdbfcfd5fe5"
+  },
+  {
+    "row": "AdaTrace + Nearest",
+    "metric": "FamilyCPC",
+    "value": 2.1630106586472536e-05,
+    "status": "VALID",
+    "sha256": "876ff16cbf227c32bab06353cdc525bbec7ef917eefcf586c3bafbdbfcfd5fe5"
+  },
+  {
+    "row": "AdaTrace + Nearest",
+    "metric": "ODPF384",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "876ff16cbf227c32bab06353cdc525bbec7ef917eefcf586c3bafbdbfcfd5fe5"
+  },
+  {
+    "row": "AdaTrace + Nearest",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "AdaTrace + Nearest",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.0028900868143119205,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "AdaTrace + Nearest",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "AdaTrace + Nearest",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "AdaTrace + FMM",
+    "metric": "Grid",
+    "value": 0.604292272180975,
+    "status": "VALID",
+    "sha256": "4facd0a674d13856476038f05d9b4ac934e67a100ce05769491c0a7af2b5ceaf"
+  },
+  {
+    "row": "AdaTrace + FMM",
+    "metric": "Trip",
+    "value": 0.5708260737040126,
+    "status": "VALID",
+    "sha256": "4facd0a674d13856476038f05d9b4ac934e67a100ce05769491c0a7af2b5ceaf"
+  },
+  {
+    "row": "AdaTrace + FMM",
+    "metric": "Len",
+    "value": 0.5142890741475192,
+    "status": "VALID",
+    "sha256": "4facd0a674d13856476038f05d9b4ac934e67a100ce05769491c0a7af2b5ceaf"
+  },
+  {
+    "row": "AdaTrace + FMM",
+    "metric": "RoadYield",
+    "value": 0.01595677050222505,
+    "status": "VALID",
+    "sha256": "b8938d9d00d6cab6b332390498ff6d8790eaf56b287d2d1593bb55959f53d424"
+  },
+  {
+    "row": "AdaTrace + FMM",
+    "metric": "BTF",
+    "value": 0.006737176213936193,
+    "status": "VALID",
+    "sha256": "b8938d9d00d6cab6b332390498ff6d8790eaf56b287d2d1593bb55959f53d424"
+  },
+  {
+    "row": "AdaTrace + FMM",
+    "metric": "FamilyCPC",
+    "value": 0.0032211237874995606,
+    "status": "VALID",
+    "sha256": "b8938d9d00d6cab6b332390498ff6d8790eaf56b287d2d1593bb55959f53d424"
+  },
+  {
+    "row": "AdaTrace + FMM",
+    "metric": "ODPF384",
+    "value": 0.0007469429602728058,
+    "status": "VALID",
+    "sha256": "b8938d9d00d6cab6b332390498ff6d8790eaf56b287d2d1593bb55959f53d424"
+  },
+  {
+    "row": "AdaTrace + FMM",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "AdaTrace + FMM",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.1610800834646744,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "AdaTrace + FMM",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.0513641994520013,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "AdaTrace + FMM",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.0519280309945435,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "AdaTrace + STMatch",
+    "metric": "Grid",
+    "value": 0.3660069643344976,
+    "status": "VALID",
+    "sha256": "86488367742cf2085753da93d227768265988182adbb75c218d9dbaaf707312d"
+  },
+  {
+    "row": "AdaTrace + STMatch",
+    "metric": "Trip",
+    "value": 0.42904261494130097,
+    "status": "VALID",
+    "sha256": "86488367742cf2085753da93d227768265988182adbb75c218d9dbaaf707312d"
+  },
+  {
+    "row": "AdaTrace + STMatch",
+    "metric": "Len",
+    "value": 0.10885414781283335,
+    "status": "VALID",
+    "sha256": "86488367742cf2085753da93d227768265988182adbb75c218d9dbaaf707312d"
+  },
+  {
+    "row": "AdaTrace + STMatch",
+    "metric": "RoadYield",
+    "value": 0.8982199618563255,
+    "status": "VALID",
+    "sha256": "7233b898f089aced61f3ee765729b22410f843cc52ed6a0c7c4828249b7c9230"
+  },
+  {
+    "row": "AdaTrace + STMatch",
+    "metric": "BTF",
+    "value": 0.26817847353103214,
+    "status": "VALID",
+    "sha256": "7233b898f089aced61f3ee765729b22410f843cc52ed6a0c7c4828249b7c9230"
+  },
+  {
+    "row": "AdaTrace + STMatch",
+    "metric": "FamilyCPC",
+    "value": 0.09327233767215273,
+    "status": "VALID",
+    "sha256": "7233b898f089aced61f3ee765729b22410f843cc52ed6a0c7c4828249b7c9230"
+  },
+  {
+    "row": "AdaTrace + STMatch",
+    "metric": "ODPF384",
+    "value": 0.0889508867343412,
+    "status": "VALID",
+    "sha256": "7233b898f089aced61f3ee765729b22410f843cc52ed6a0c7c4828249b7c9230"
+  },
+  {
+    "row": "AdaTrace + STMatch",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.15265201863202893,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "AdaTrace + STMatch",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.6091107473207648,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "AdaTrace + STMatch",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.2813004480051382,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "AdaTrace + STMatch",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.633593186697351,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "AdaTrace + MM2-MDP",
+    "metric": "Grid",
+    "value": 0.36541493429119765,
+    "status": "VALID",
+    "sha256": "aa01a17865041cc35c746178559e0f3b7148dd2fadded958d622db83b532fba8"
+  },
+  {
+    "row": "AdaTrace + MM2-MDP",
+    "metric": "Trip",
+    "value": 0.4316593170258932,
+    "status": "VALID",
+    "sha256": "aa01a17865041cc35c746178559e0f3b7148dd2fadded958d622db83b532fba8"
+  },
+  {
+    "row": "AdaTrace + MM2-MDP",
+    "metric": "Len",
+    "value": 0.0708226127759523,
+    "status": "VALID",
+    "sha256": "aa01a17865041cc35c746178559e0f3b7148dd2fadded958d622db83b532fba8"
+  },
+  {
+    "row": "AdaTrace + MM2-MDP",
+    "metric": "RoadYield",
+    "value": 0.9979656706929434,
+    "status": "VALID",
+    "sha256": "8958bd7169b7c5a0b0c89c5f413cada1d1aef3a86e8ce975793ec28b47066f16"
+  },
+  {
+    "row": "AdaTrace + MM2-MDP",
+    "metric": "BTF",
+    "value": 0.27468124363466123,
+    "status": "VALID",
+    "sha256": "8958bd7169b7c5a0b0c89c5f413cada1d1aef3a86e8ce975793ec28b47066f16"
+  },
+  {
+    "row": "AdaTrace + MM2-MDP",
+    "metric": "FamilyCPC",
+    "value": 0.11318208694155063,
+    "status": "VALID",
+    "sha256": "8958bd7169b7c5a0b0c89c5f413cada1d1aef3a86e8ce975793ec28b47066f16"
+  },
+  {
+    "row": "AdaTrace + MM2-MDP",
+    "metric": "ODPF384",
+    "value": 0.09900065365797218,
+    "status": "VALID",
+    "sha256": "8958bd7169b7c5a0b0c89c5f413cada1d1aef3a86e8ce975793ec28b47066f16"
+  },
+  {
+    "row": "AdaTrace + MM2-MDP",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.15265201863202893,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "AdaTrace + MM2-MDP",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.596444137693656,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "AdaTrace + MM2-MDP",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.2770193206413216,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "AdaTrace + MM2-MDP",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.5882285924986792,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "DPTraj-PM + Origin",
+    "metric": "Grid",
+    "value": 0.2936423169684172,
+    "status": "VALID",
+    "sha256": "0f5a021a68e4d1945dff0498b4dc0b39c39b35e2098581540c80829dea049706"
+  },
+  {
+    "row": "DPTraj-PM + Origin",
+    "metric": "Trip",
+    "value": 0.18553553412915746,
+    "status": "VALID",
+    "sha256": "0f5a021a68e4d1945dff0498b4dc0b39c39b35e2098581540c80829dea049706"
+  },
+  {
+    "row": "DPTraj-PM + Origin",
+    "metric": "Len",
+    "value": 0.21941635159343403,
+    "status": "VALID",
+    "sha256": "0f5a021a68e4d1945dff0498b4dc0b39c39b35e2098581540c80829dea049706"
+  },
+  {
+    "row": "DPTraj-PM + Origin",
+    "metric": "RoadYield",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "DPTraj-PM + Origin",
+    "metric": "BTF",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "DPTraj-PM + Origin",
+    "metric": "FamilyCPC",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "DPTraj-PM + Origin",
+    "metric": "ODPF384",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "DPTraj-PM + Origin",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "DPTraj-PM + Origin",
+    "metric": "RepresentativeRealCoverage",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "DPTraj-PM + Origin",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "DPTraj-PM + Origin",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": null,
+    "status": "NOT_APPLICABLE",
+    "sha256": ""
+  },
+  {
+    "row": "DPTraj-PM + Nearest",
+    "metric": "Grid",
+    "value": 0.47972798071052697,
+    "status": "VALID",
+    "sha256": "863274b662bed0ee15cad5b0942c8d0a625d7d47034aa6a3dc5457e674396ea5"
+  },
+  {
+    "row": "DPTraj-PM + Nearest",
+    "metric": "Trip",
+    "value": 0.3370712727256239,
+    "status": "VALID",
+    "sha256": "863274b662bed0ee15cad5b0942c8d0a625d7d47034aa6a3dc5457e674396ea5"
+  },
+  {
+    "row": "DPTraj-PM + Nearest",
+    "metric": "Len",
+    "value": 0.5142890741498009,
+    "status": "VALID",
+    "sha256": "863274b662bed0ee15cad5b0942c8d0a625d7d47034aa6a3dc5457e674396ea5"
+  },
+  {
+    "row": "DPTraj-PM + Nearest",
+    "metric": "RoadYield",
+    "value": 0.11411315956770503,
+    "status": "VALID",
+    "sha256": "578419aed550992bf3db71c2a4a161b3389378a7bdd2d23453737f649bc4324d"
+  },
+  {
+    "row": "DPTraj-PM + Nearest",
+    "metric": "BTF",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "578419aed550992bf3db71c2a4a161b3389378a7bdd2d23453737f649bc4324d"
+  },
+  {
+    "row": "DPTraj-PM + Nearest",
+    "metric": "FamilyCPC",
+    "value": 0.02109206172663377,
+    "status": "VALID",
+    "sha256": "578419aed550992bf3db71c2a4a161b3389378a7bdd2d23453737f649bc4324d"
+  },
+  {
+    "row": "DPTraj-PM + Nearest",
+    "metric": "ODPF384",
+    "value": 0.0012610812332008875,
+    "status": "VALID",
+    "sha256": "578419aed550992bf3db71c2a4a161b3389378a7bdd2d23453737f649bc4324d"
+  },
+  {
+    "row": "DPTraj-PM + Nearest",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "DPTraj-PM + Nearest",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.24708596379811895,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "DPTraj-PM + Nearest",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "DPTraj-PM + Nearest",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "DPTraj-PM + FMM",
+    "metric": "Grid",
+    "value": 0.19028261668362986,
+    "status": "VALID",
+    "sha256": "94b3c6a9be30662623bd99758981739f85476d8e8d5c76549c3b41116cf56da9"
+  },
+  {
+    "row": "DPTraj-PM + FMM",
+    "metric": "Trip",
+    "value": 0.16264571784049014,
+    "status": "VALID",
+    "sha256": "94b3c6a9be30662623bd99758981739f85476d8e8d5c76549c3b41116cf56da9"
+  },
+  {
+    "row": "DPTraj-PM + FMM",
+    "metric": "Len",
+    "value": 0.25247623927038576,
+    "status": "VALID",
+    "sha256": "94b3c6a9be30662623bd99758981739f85476d8e8d5c76549c3b41116cf56da9"
+  },
+  {
+    "row": "DPTraj-PM + FMM",
+    "metric": "RoadYield",
+    "value": 0.49345200254291166,
+    "status": "VALID",
+    "sha256": "d0e304385c7747b03aed86879cedc81668792c4bce2008984c5c3d3a5d258a14"
+  },
+  {
+    "row": "DPTraj-PM + FMM",
+    "metric": "BTF",
+    "value": 0.13406059151470218,
+    "status": "VALID",
+    "sha256": "d0e304385c7747b03aed86879cedc81668792c4bce2008984c5c3d3a5d258a14"
+  },
+  {
+    "row": "DPTraj-PM + FMM",
+    "metric": "FamilyCPC",
+    "value": 0.16406776948417123,
+    "status": "VALID",
+    "sha256": "d0e304385c7747b03aed86879cedc81668792c4bce2008984c5c3d3a5d258a14"
+  },
+  {
+    "row": "DPTraj-PM + FMM",
+    "metric": "ODPF384",
+    "value": 0.11011504086025435,
+    "status": "VALID",
+    "sha256": "d0e304385c7747b03aed86879cedc81668792c4bce2008984c5c3d3a5d258a14"
+  },
+  {
+    "row": "DPTraj-PM + FMM",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.02520122107373795,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "DPTraj-PM + FMM",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.4222860186538461,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "DPTraj-PM + FMM",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.20604112983893036,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "DPTraj-PM + FMM",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.23939755132532264,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "DPTraj-PM + STMatch",
+    "metric": "Grid",
+    "value": 0.14350392611870408,
+    "status": "VALID",
+    "sha256": "6a2eb0d6fdd4bde6ba37b7c8b2b683a7af6fedf8c7440621de640001be659dd5"
+  },
+  {
+    "row": "DPTraj-PM + STMatch",
+    "metric": "Trip",
+    "value": 0.1680252114911197,
+    "status": "VALID",
+    "sha256": "6a2eb0d6fdd4bde6ba37b7c8b2b683a7af6fedf8c7440621de640001be659dd5"
+  },
+  {
+    "row": "DPTraj-PM + STMatch",
+    "metric": "Len",
+    "value": 0.10366887537522089,
+    "status": "VALID",
+    "sha256": "6a2eb0d6fdd4bde6ba37b7c8b2b683a7af6fedf8c7440621de640001be659dd5"
+  },
+  {
+    "row": "DPTraj-PM + STMatch",
+    "metric": "RoadYield",
+    "value": 0.9102352193261284,
+    "status": "VALID",
+    "sha256": "1328db2b3102a6e996830f0ff217bcd5c6c85827de5ec37aaa7f4d8a0543aa16"
+  },
+  {
+    "row": "DPTraj-PM + STMatch",
+    "metric": "BTF",
+    "value": 0.23028455467526546,
+    "status": "VALID",
+    "sha256": "1328db2b3102a6e996830f0ff217bcd5c6c85827de5ec37aaa7f4d8a0543aa16"
+  },
+  {
+    "row": "DPTraj-PM + STMatch",
+    "metric": "FamilyCPC",
+    "value": 0.30838805995484025,
+    "status": "VALID",
+    "sha256": "1328db2b3102a6e996830f0ff217bcd5c6c85827de5ec37aaa7f4d8a0543aa16"
+  },
+  {
+    "row": "DPTraj-PM + STMatch",
+    "metric": "ODPF384",
+    "value": 0.23047296942125908,
+    "status": "VALID",
+    "sha256": "1328db2b3102a6e996830f0ff217bcd5c6c85827de5ec37aaa7f4d8a0543aa16"
+  },
+  {
+    "row": "DPTraj-PM + STMatch",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.06463485828399083,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "DPTraj-PM + STMatch",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.5676330814809757,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "DPTraj-PM + STMatch",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.3192888064933835,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "DPTraj-PM + STMatch",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.3795094936417123,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "DPTraj-PM + MM2-MDP",
+    "metric": "Grid",
+    "value": 0.1390631466878998,
+    "status": "VALID",
+    "sha256": "06d1de5e8543ca193e50570d5f710009b3ce8a188a5f87483858adda47e206a3"
+  },
+  {
+    "row": "DPTraj-PM + MM2-MDP",
+    "metric": "Trip",
+    "value": 0.1810885940238916,
+    "status": "VALID",
+    "sha256": "06d1de5e8543ca193e50570d5f710009b3ce8a188a5f87483858adda47e206a3"
+  },
+  {
+    "row": "DPTraj-PM + MM2-MDP",
+    "metric": "Len",
+    "value": 0.18200173898461294,
+    "status": "VALID",
+    "sha256": "06d1de5e8543ca193e50570d5f710009b3ce8a188a5f87483858adda47e206a3"
+  },
+  {
+    "row": "DPTraj-PM + MM2-MDP",
+    "metric": "RoadYield",
+    "value": 0.879020979020979,
+    "status": "VALID",
+    "sha256": "cbe752a1eeaf67faa87608d444ba2994f5cf8ee7235353d48076fd26a8d7850e"
+  },
+  {
+    "row": "DPTraj-PM + MM2-MDP",
+    "metric": "BTF",
+    "value": 0.2642598997358782,
+    "status": "VALID",
+    "sha256": "cbe752a1eeaf67faa87608d444ba2994f5cf8ee7235353d48076fd26a8d7850e"
+  },
+  {
+    "row": "DPTraj-PM + MM2-MDP",
+    "metric": "FamilyCPC",
+    "value": 0.2984458008615669,
+    "status": "VALID",
+    "sha256": "cbe752a1eeaf67faa87608d444ba2994f5cf8ee7235353d48076fd26a8d7850e"
+  },
+  {
+    "row": "DPTraj-PM + MM2-MDP",
+    "metric": "ODPF384",
+    "value": 0.22037327880236054,
+    "status": "VALID",
+    "sha256": "cbe752a1eeaf67faa87608d444ba2994f5cf8ee7235353d48076fd26a8d7850e"
+  },
+  {
+    "row": "DPTraj-PM + MM2-MDP",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.10347160901498291,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "DPTraj-PM + MM2-MDP",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.6281215251257355,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "DPTraj-PM + MM2-MDP",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.31738472041825355,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "DPTraj-PM + MM2-MDP",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.42641126599234774,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "MTNet",
+    "metric": "Grid",
+    "value": 0.5854647210984736,
+    "status": "VALID",
+    "sha256": "25d547aae9409b3e3087f9d146192c4aadc42cbe1670994b012ec9bb805f7c6a"
+  },
+  {
+    "row": "MTNet",
+    "metric": "Trip",
+    "value": 0.5927927353070406,
+    "status": "VALID",
+    "sha256": "25d547aae9409b3e3087f9d146192c4aadc42cbe1670994b012ec9bb805f7c6a"
+  },
+  {
+    "row": "MTNet",
+    "metric": "Len",
+    "value": 0.5064140684489375,
+    "status": "VALID",
+    "sha256": "25d547aae9409b3e3087f9d146192c4aadc42cbe1670994b012ec9bb805f7c6a"
+  },
+  {
+    "row": "MTNet",
+    "metric": "RoadYield",
+    "value": 1.0,
+    "status": "VALID",
+    "sha256": "aa6771b792b02919187ccc7b8fdd06b2b45d9eb595a9aebe40da00e2d3b80f50"
+  },
+  {
+    "row": "MTNet",
+    "metric": "BTF",
+    "value": 0.017709299775896567,
+    "status": "VALID",
+    "sha256": "aa6771b792b02919187ccc7b8fdd06b2b45d9eb595a9aebe40da00e2d3b80f50"
+  },
+  {
+    "row": "MTNet",
+    "metric": "FamilyCPC",
+    "value": 0.10317863954227591,
+    "status": "VALID",
+    "sha256": "aa6771b792b02919187ccc7b8fdd06b2b45d9eb595a9aebe40da00e2d3b80f50"
+  },
+  {
+    "row": "MTNet",
+    "metric": "ODPF384",
+    "value": 0.08079460755357608,
+    "status": "VALID",
+    "sha256": "aa6771b792b02919187ccc7b8fdd06b2b45d9eb595a9aebe40da00e2d3b80f50"
+  },
+  {
+    "row": "MTNet",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "MTNet",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.29275340755859325,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "MTNet",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.020046500558372846,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "MTNet",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.02547493638590821,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "MTNet_DP_OD_coarse24",
+    "metric": "Grid",
+    "value": 0.37008665134188407,
+    "status": "VALID",
+    "sha256": "5dbba7ac0c6259c298ff3cafa2167a112ddecf2be0a9f714f715e6a27cbd9ecd"
+  },
+  {
+    "row": "MTNet_DP_OD_coarse24",
+    "metric": "Trip",
+    "value": 0.4143855501634811,
+    "status": "VALID",
+    "sha256": "5dbba7ac0c6259c298ff3cafa2167a112ddecf2be0a9f714f715e6a27cbd9ecd"
+  },
+  {
+    "row": "MTNet_DP_OD_coarse24",
+    "metric": "Len",
+    "value": 0.09131790155283198,
+    "status": "VALID",
+    "sha256": "5dbba7ac0c6259c298ff3cafa2167a112ddecf2be0a9f714f715e6a27cbd9ecd"
+  },
+  {
+    "row": "MTNet_DP_OD_coarse24",
+    "metric": "RoadYield",
+    "value": 1.0,
+    "status": "VALID",
+    "sha256": "26d99df655e2db1ed4f0be181d24de5ca6d3ab8d09ff92922a5d275837dbcc4f"
+  },
+  {
+    "row": "MTNet_DP_OD_coarse24",
+    "metric": "BTF",
+    "value": 0.14852366367705788,
+    "status": "VALID",
+    "sha256": "26d99df655e2db1ed4f0be181d24de5ca6d3ab8d09ff92922a5d275837dbcc4f"
+  },
+  {
+    "row": "MTNet_DP_OD_coarse24",
+    "metric": "FamilyCPC",
+    "value": 0.19554990464081373,
+    "status": "VALID",
+    "sha256": "26d99df655e2db1ed4f0be181d24de5ca6d3ab8d09ff92922a5d275837dbcc4f"
+  },
+  {
+    "row": "MTNet_DP_OD_coarse24",
+    "metric": "ODPF384",
+    "value": 0.07399431177123729,
+    "status": "VALID",
+    "sha256": "26d99df655e2db1ed4f0be181d24de5ca6d3ab8d09ff92922a5d275837dbcc4f"
+  },
+  {
+    "row": "MTNet_DP_OD_coarse24",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.012955617920559492,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "MTNet_DP_OD_coarse24",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.6189655132476832,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "MTNet_DP_OD_coarse24",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.11812728037861496,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "MTNet_DP_OD_coarse24",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.44782407253674306,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "MTR-DFR",
+    "metric": "Grid",
+    "value": 0.20009277101175005,
+    "status": "VALID",
+    "sha256": "ce541d496a25a17a3a12ae7089902999140b6ade728b559ee4a2f95d3e9f56bb"
+  },
+  {
+    "row": "MTR-DFR",
+    "metric": "Trip",
+    "value": 0.20275132026304943,
+    "status": "VALID",
+    "sha256": "ce541d496a25a17a3a12ae7089902999140b6ade728b559ee4a2f95d3e9f56bb"
+  },
+  {
+    "row": "MTR-DFR",
+    "metric": "Len",
+    "value": 0.061202305089937105,
+    "status": "VALID",
+    "sha256": "ce541d496a25a17a3a12ae7089902999140b6ade728b559ee4a2f95d3e9f56bb"
+  },
+  {
+    "row": "MTR-DFR",
+    "metric": "RoadYield",
+    "value": 1.0,
+    "status": "VALID",
+    "sha256": "a7d2d226c4476edd9431670c8f320708f42aa6b3a75b7a4b02eaa020a15582e6"
+  },
+  {
+    "row": "MTR-DFR",
+    "metric": "BTF",
+    "value": 0.37670083918770775,
+    "status": "VALID",
+    "sha256": "a7d2d226c4476edd9431670c8f320708f42aa6b3a75b7a4b02eaa020a15582e6"
+  },
+  {
+    "row": "MTR-DFR",
+    "metric": "FamilyCPC",
+    "value": 0.36624284806102986,
+    "status": "VALID",
+    "sha256": "a7d2d226c4476edd9431670c8f320708f42aa6b3a75b7a4b02eaa020a15582e6"
+  },
+  {
+    "row": "MTR-DFR",
+    "metric": "ODPF384",
+    "value": 0.19889276292776656,
+    "status": "VALID",
+    "sha256": "a7d2d226c4476edd9431670c8f320708f42aa6b3a75b7a4b02eaa020a15582e6"
+  },
+  {
+    "row": "MTR-DFR",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 0.20545600314143703,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "MTR-DFR",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.780228563984706,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "MTR-DFR",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 0.4942579305006155,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "MTR-DFR",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 0.6512074966571384,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "Real",
+    "metric": "Grid",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "76cebb6e94b956b743f6f104d888dbe850bdeacadc2715827742d373cf037924"
+  },
+  {
+    "row": "Real",
+    "metric": "Trip",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "76cebb6e94b956b743f6f104d888dbe850bdeacadc2715827742d373cf037924"
+  },
+  {
+    "row": "Real",
+    "metric": "Len",
+    "value": 0.0,
+    "status": "ZERO",
+    "sha256": "76cebb6e94b956b743f6f104d888dbe850bdeacadc2715827742d373cf037924"
+  },
+  {
+    "row": "Real",
+    "metric": "RoadYield",
+    "value": 1.0,
+    "status": "VALID",
+    "sha256": "091d50a93f1291bcd79a02cb4ef299c5c94d8a0fee325f5f6d5c589d026f1567"
+  },
+  {
+    "row": "Real",
+    "metric": "BTF",
+    "value": 1.0,
+    "status": "VALID",
+    "sha256": "091d50a93f1291bcd79a02cb4ef299c5c94d8a0fee325f5f6d5c589d026f1567"
+  },
+  {
+    "row": "Real",
+    "metric": "FamilyCPC",
+    "value": 1.0,
+    "status": "VALID",
+    "sha256": "091d50a93f1291bcd79a02cb4ef299c5c94d8a0fee325f5f6d5c589d026f1567"
+  },
+  {
+    "row": "Real",
+    "metric": "ODPF384",
+    "value": 1.0,
+    "status": "VALID",
+    "sha256": "091d50a93f1291bcd79a02cb4ef299c5c94d8a0fee325f5f6d5c589d026f1567"
+  },
+  {
+    "row": "Real",
+    "metric": "MFPOrderedRouteOverlap",
+    "value": 1.0000000000000002,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "Real",
+    "metric": "RepresentativeRealCoverage",
+    "value": 0.8778820603906222,
+    "status": "VALID",
+    "sha256": "1129198564deb800ce1f148e48a1ef30874040bb28279870ca94098d987b7052"
+  },
+  {
+    "row": "Real",
+    "metric": "SelectedRoadMarginalOverlap",
+    "value": 1.0,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  },
+  {
+    "row": "Real",
+    "metric": "IncomingExitDistributionOverlap",
+    "value": 1.0,
+    "status": "VALID",
+    "sha256": "edefd2e5e32ce1b5a8b98e00c71c0b4757c3b3527b3e57e71edc092aafe22fd0"
+  }
+]

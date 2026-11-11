@@ -242,6 +242,7 @@ def main():
     p.add_argument('--verified-cells',type=Path,help='Explicit previously verified same-dataset metric archive; never auto-selected')
     p.add_argument('--verified-binding',type=Path,help='Dataset/count/hash binding for --verified-cells')
     p.add_argument('--labeled-batch',action='append',default=[],help='Explicit DISPLAY_ROW=RESULT_ROOT for an independently evaluated variant/control')
+    p.add_argument('--representative-regions',type=Path,help='Completed ten-region answers; overrides only the displayed coverage row, preserving raw scores')
     a = p.parse_args()
     if bool(a.verified_cells)!=bool(a.verified_binding):p.error('verified-cells and verified-binding must be paired')
     if not a.batch and not a.labeled_batch and not a.verified_cells:p.error('Provide result batches or an explicit verified archive')
@@ -253,7 +254,7 @@ def main():
         population=None
         if a.config:
             root=Path(__file__).resolve().parents[1]
-            config=json.loads(a.config.read_text(encoding='utf-8'))
+            config=json.loads(a.config.read_text(encoding='utf-8-sig'))
             population=dict(count=config['slots'],train_count=config['train_slots'],test_count=config['test_slots'],dataset_id=config.get('frozen_dataset_id'),
                 real_sha256=sha((root/config['paths']['real_routes']).resolve()))
             if config['paths'].get('real'):
@@ -276,6 +277,26 @@ def main():
               manifest_sha256='',result='',result_sha256='',source_metric='',scope='not computed'))
               for r in spec['rows'] for c in spec['columns']]
         rows=apply_framework_policy(rows,spec)
+        if a.representative_regions:
+            import statistics
+            folder=a.representative_regions
+            meta=json.loads((folder/'manifest.json').read_text(encoding='utf-8'))
+            if meta['status']!='COMPLETE' or meta['regions']!=10:raise ValueError('Incomplete ten-region answers')
+            if population and meta['slots']!=population['count']:raise ValueError('Wrong region population')
+            for name,h in meta['outputs'].items():
+                if sha(folder/name)!=h:raise ValueError('Changed ten-region source')
+            answers=json.loads((folder/'answers.json').read_text(encoding='utf-8'))
+            for row in rows:
+                if row['column']!='RepresentativeRealCoverage' or row['status']=='NA':continue
+                name='Real' if row['row']=='Real [application reference]' else row['row']
+                group=[x for x in answers if x['method'].replace('__',' + ')==name]
+                if not group:continue
+                if len(group)!=10 or len({x['region'] for x in group})!=10:raise ValueError('Incomplete region group: '+name)
+                value=statistics.mean(x['score'] for x in group)
+                row.update(value=value,status='ZERO' if value==0 else 'VALID',family='representative_regions',
+                    manifest=str((folder/'manifest.json').resolve()),manifest_sha256=sha(folder/'manifest.json'),
+                    result=str((folder/'answers.json').resolve()),result_sha256=sha(folder/'answers.json'),
+                    source_metric='RepresentativeRealCoverage',scope='same fixed ten regions, five routes, equal mean')
         with (a.out/'matrix_sources.csv').open('w',encoding='utf-8-sig',newline='') as f:
             writer = csv.DictWriter(f,fieldnames=list(rows[0]))
             writer.writeheader();writer.writerows(rows)

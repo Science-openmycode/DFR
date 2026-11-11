@@ -25,7 +25,10 @@ def engine(out,dataset):
 
 def binding(config,prepared,public_edges,population,device):
     c=load_config(config,ROOT);p=lambda key:(ROOT/c['paths'][key]).resolve()
-    if c['epsilon']!=1.4:raise ValueError('This variant protocol is fixed at total epsilon=1.4 (1.0 + 0.4)')
+    import math
+    total=float(c['epsilon'])
+    if not math.isfinite(total) or total<=0:raise ValueError('Positive finite total epsilon required')
+    budget=dict(epsilon_total=total,epsilon_model=total/1.4,epsilon_od=total*(.4/1.4))
     prepared=Path(prepared).resolve();mp=prepared/'full_preparation_manifest.json'
     meta=json.loads(mp.read_text('utf-8-sig'))
     n=c['slots'] if population=='full' else c['train_slots']
@@ -53,7 +56,7 @@ def binding(config,prepared,public_edges,population,device):
         file=native/'official'/name
         if sha(file)!=h.lower():raise ValueError('Original MTNet source changed: '+name)
         paths.append(file)
-    return dict(dataset_id=c['frozen_dataset_id'],dataset=c['dataset'],scope=population,public_slots=n,
+    return dict(**budget,dataset_id=c['frozen_dataset_id'],dataset=c['dataset'],scope=population,public_slots=n,
                 selected_indices=indices,roads=str(p('real_routes')),cache=str(p('metric_cache')),
                 public_edges=str(Path(public_edges).resolve()),author_data=str(author),official=str(native/'official'),
                 source_lock=str(lock),helper=str(helper),device=device,

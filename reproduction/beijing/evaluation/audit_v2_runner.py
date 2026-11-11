@@ -26,6 +26,19 @@ def load(path, name):
     return module
 
 
+def resolve_forwarded_paths(argv, cwd=None):
+    """Resolve caller paths before the legacy evaluator uses its own root."""
+    base = Path.cwd() if cwd is None else Path(cwd)
+    result = list(argv)
+    for flag in ('--real','--synthetic','--out-dir','--osm-cache','--road-routes','--edge-cache'):
+        if flag in result:
+            index = result.index(flag)+1
+            if index >= len(result) or result[index].startswith('--'):
+                raise ValueError('Missing path value: '+flag)
+            value = Path(result[index])
+            result[index] = str((value if value.is_absolute() else base/value).resolve())
+    return result
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--stage', choices=('coordinates',), required=True)
@@ -33,6 +46,7 @@ def main():
     args, rest = p.parse_known_args()
     if rest[:1] == ['--']:
         rest = rest[1:]
+    rest = resolve_forwarded_paths(rest)
     legacy = args.legacy.resolve() / 'evaluation'
     sys.path[:0] = [str(legacy), str(legacy/'pipeline'), str(legacy/'analysis_scripts')]
     import public_utils
@@ -78,7 +92,7 @@ def main():
     if any(digest(f) != h for f, h in before.items()):
         raise RuntimeError('Evaluator source changed during scoring')
     record = dict(protocol=fixes.PROTOCOL, stage=args.stage, source_sha256=before,
-                  command=command, length=length_audit,
+                  command=command, forwarded_argv=[str(paths[args.stage]),*rest], length=length_audit,
                   retrieval_ties='prefix score then stable training record ID; never hidden suffix',
                   continuation_nll='alpha=1e-12 normalized on PUBLIC outgoing neighbors; no queries NA',
                   tstr_values='unchanged clipped relative retention, not raw accuracy',

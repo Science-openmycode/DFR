@@ -1,0 +1,2751 @@
+{
+  "status": "COMPLETE",
+  "dataset_id": "afeddd66f0c6d5281dad5980bd56a8b62ffbd87ed53cd92493761a516ff1af35",
+  "rows": [
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260719,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.2611761724260264,
+      "source_sha256": "e799a62281a6862009b7f2d3f6b102329358bad4f9b6d882b7d28ecf20b15edf"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260719,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.810242020343739,
+      "source_sha256": "e799a62281a6862009b7f2d3f6b102329358bad4f9b6d882b7d28ecf20b15edf"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260719,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4762630017850342,
+      "source_sha256": "e799a62281a6862009b7f2d3f6b102329358bad4f9b6d882b7d28ecf20b15edf"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260719,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6711855741225329,
+      "source_sha256": "e799a62281a6862009b7f2d3f6b102329358bad4f9b6d882b7d28ecf20b15edf"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260720,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.21281839674947453,
+      "source_sha256": "e842f8793a7b7569e942ce11734b6c65dfb832433c9a4a1d3027336249db7fca"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260720,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7663977551736233,
+      "source_sha256": "e842f8793a7b7569e942ce11734b6c65dfb832433c9a4a1d3027336249db7fca"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260720,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4186263766625144,
+      "source_sha256": "e842f8793a7b7569e942ce11734b6c65dfb832433c9a4a1d3027336249db7fca"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260720,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6656526196514262,
+      "source_sha256": "e842f8793a7b7569e942ce11734b6c65dfb832433c9a4a1d3027336249db7fca"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260721,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.2539830300683907,
+      "source_sha256": "74e4ce2b39f9ca40c2b72e6627c4bfc9021910e46edbf17537a56e9b194dedb4"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260721,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7025605050859347,
+      "source_sha256": "74e4ce2b39f9ca40c2b72e6627c4bfc9021910e46edbf17537a56e9b194dedb4"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260721,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4646368715126183,
+      "source_sha256": "74e4ce2b39f9ca40c2b72e6627c4bfc9021910e46edbf17537a56e9b194dedb4"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260721,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6838867665718087,
+      "source_sha256": "74e4ce2b39f9ca40c2b72e6627c4bfc9021910e46edbf17537a56e9b194dedb4"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260722,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.252005567310336,
+      "source_sha256": "04b8f29da39da4c7be00b51787b9187983974524ed844c4c0a1ce9c7c5cae8e9"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260722,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7653454928095406,
+      "source_sha256": "04b8f29da39da4c7be00b51787b9187983974524ed844c4c0a1ce9c7c5cae8e9"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260722,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4377343887995317,
+      "source_sha256": "04b8f29da39da4c7be00b51787b9187983974524ed844c4c0a1ce9c7c5cae8e9"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260722,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6850810962224647,
+      "source_sha256": "04b8f29da39da4c7be00b51787b9187983974524ed844c4c0a1ce9c7c5cae8e9"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260723,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.24082203195830393,
+      "source_sha256": "f0ec6c4ea3911c0536fe9c0ea7127f3798454319412e85a25cbbd658d4c361e5"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260723,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.6836197825324447,
+      "source_sha256": "f0ec6c4ea3911c0536fe9c0ea7127f3798454319412e85a25cbbd658d4c361e5"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260723,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4501031182246865,
+      "source_sha256": "f0ec6c4ea3911c0536fe9c0ea7127f3798454319412e85a25cbbd658d4c361e5"
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "seed": 20260723,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6827949087775715,
+      "source_sha256": "f0ec6c4ea3911c0536fe9c0ea7127f3798454319412e85a25cbbd658d4c361e5"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260719,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.19607882876808236,
+      "source_sha256": "999554e5397e0b82e7010b42db9385470c9496782bbd7160c24ca98842c556b5"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260719,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7653454928095406,
+      "source_sha256": "999554e5397e0b82e7010b42db9385470c9496782bbd7160c24ca98842c556b5"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260719,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5223110163707816,
+      "source_sha256": "999554e5397e0b82e7010b42db9385470c9496782bbd7160c24ca98842c556b5"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260719,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6952479789237735,
+      "source_sha256": "999554e5397e0b82e7010b42db9385470c9496782bbd7160c24ca98842c556b5"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260720,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.23628994712144444,
+      "source_sha256": "ba00bb43ba003dbf1a1c7dc2a3fd49bb52cec61d20798c50ebdac0f93b992a4e"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260720,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8119957909505436,
+      "source_sha256": "ba00bb43ba003dbf1a1c7dc2a3fd49bb52cec61d20798c50ebdac0f93b992a4e"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260720,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5106496079110506,
+      "source_sha256": "ba00bb43ba003dbf1a1c7dc2a3fd49bb52cec61d20798c50ebdac0f93b992a4e"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260720,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.7026348650412731,
+      "source_sha256": "ba00bb43ba003dbf1a1c7dc2a3fd49bb52cec61d20798c50ebdac0f93b992a4e"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260721,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.1845004428416843,
+      "source_sha256": "f7c441168c36ca5460ab59c3685005ef233a93823839bfbb064b66574a73cfe4"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260721,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7660470010522623,
+      "source_sha256": "f7c441168c36ca5460ab59c3685005ef233a93823839bfbb064b66574a73cfe4"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260721,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5129467773735794,
+      "source_sha256": "f7c441168c36ca5460ab59c3685005ef233a93823839bfbb064b66574a73cfe4"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260721,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6852392315914558,
+      "source_sha256": "f7c441168c36ca5460ab59c3685005ef233a93823839bfbb064b66574a73cfe4"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260722,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.1971997288543876,
+      "source_sha256": "6299b0fd7989e2e8a4056964bd720be2c3a9741c6220c87b5bb38642c2f10b79"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260722,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.810242020343739,
+      "source_sha256": "6299b0fd7989e2e8a4056964bd720be2c3a9741c6220c87b5bb38642c2f10b79"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260722,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5167331077470251,
+      "source_sha256": "6299b0fd7989e2e8a4056964bd720be2c3a9741c6220c87b5bb38642c2f10b79"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260722,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6855139309626146,
+      "source_sha256": "6299b0fd7989e2e8a4056964bd720be2c3a9741c6220c87b5bb38642c2f10b79"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260723,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.1887458975130577,
+      "source_sha256": "2a5cdfb4f03c069a06afcecf4d481ceb17dae67c353640836780194e46b8e02c"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260723,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.710627849877236,
+      "source_sha256": "2a5cdfb4f03c069a06afcecf4d481ceb17dae67c353640836780194e46b8e02c"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260723,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5097241810266586,
+      "source_sha256": "2a5cdfb4f03c069a06afcecf4d481ceb17dae67c353640836780194e46b8e02c"
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "seed": 20260723,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.68123968217728,
+      "source_sha256": "2a5cdfb4f03c069a06afcecf4d481ceb17dae67c353640836780194e46b8e02c"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260719,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.2437206644511212,
+      "source_sha256": "840b41e8388fcb47e4b1f2a9177ea0082035ed4b31ffed22e384369afa09a798"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260719,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.810242020343739,
+      "source_sha256": "840b41e8388fcb47e4b1f2a9177ea0082035ed4b31ffed22e384369afa09a798"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260719,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4907870794453046,
+      "source_sha256": "840b41e8388fcb47e4b1f2a9177ea0082035ed4b31ffed22e384369afa09a798"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260719,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.7129783895454684,
+      "source_sha256": "840b41e8388fcb47e4b1f2a9177ea0082035ed4b31ffed22e384369afa09a798"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260719,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.21406602442245737,
+      "source_sha256": "6f79ea7f078885dc7374d3e3c00d2c9054087961eb7d55c576b14d69c00f2aa8"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260719,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8067344791301297,
+      "source_sha256": "6f79ea7f078885dc7374d3e3c00d2c9054087961eb7d55c576b14d69c00f2aa8"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260719,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4837206109872991,
+      "source_sha256": "6f79ea7f078885dc7374d3e3c00d2c9054087961eb7d55c576b14d69c00f2aa8"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260719,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.7010889987896851,
+      "source_sha256": "6f79ea7f078885dc7374d3e3c00d2c9054087961eb7d55c576b14d69c00f2aa8"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260719,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.18004927890600156,
+      "source_sha256": "04e49b395c74a2e366969c16b3e42c54766240645372d232ef3c4e44c26c9f96"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260719,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7660470010522623,
+      "source_sha256": "04e49b395c74a2e366969c16b3e42c54766240645372d232ef3c4e44c26c9f96"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260719,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4786503270420928,
+      "source_sha256": "04e49b395c74a2e366969c16b3e42c54766240645372d232ef3c4e44c26c9f96"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260719,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6838488438228771,
+      "source_sha256": "04e49b395c74a2e366969c16b3e42c54766240645372d232ef3c4e44c26c9f96"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260719,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.23542831816443624,
+      "source_sha256": "7765df6ae3570856fcb39a93f712e784420093e4f8fa6cad1042d5882f6146af"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260719,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7663977551736233,
+      "source_sha256": "7765df6ae3570856fcb39a93f712e784420093e4f8fa6cad1042d5882f6146af"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260719,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5144648879171603,
+      "source_sha256": "7765df6ae3570856fcb39a93f712e784420093e4f8fa6cad1042d5882f6146af"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260719,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6853916466120881,
+      "source_sha256": "7765df6ae3570856fcb39a93f712e784420093e4f8fa6cad1042d5882f6146af"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260720,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.30305095550450273,
+      "source_sha256": "14a36e576e5e6c72b6a7c8f5dea840114331c8fa9082e1118ac2ba234e36f6ac"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260720,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8105927744650999,
+      "source_sha256": "14a36e576e5e6c72b6a7c8f5dea840114331c8fa9082e1118ac2ba234e36f6ac"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260720,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4948280191711292,
+      "source_sha256": "14a36e576e5e6c72b6a7c8f5dea840114331c8fa9082e1118ac2ba234e36f6ac"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260720,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.7040079956030106,
+      "source_sha256": "14a36e576e5e6c72b6a7c8f5dea840114331c8fa9082e1118ac2ba234e36f6ac"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260720,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.25568308612850654,
+      "source_sha256": "166b36406841434d484c1475460febb9bb5995c38269957e7851f04e34143f3c"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260720,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7660470010522623,
+      "source_sha256": "166b36406841434d484c1475460febb9bb5995c38269957e7851f04e34143f3c"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260720,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4802499773470619,
+      "source_sha256": "166b36406841434d484c1475460febb9bb5995c38269957e7851f04e34143f3c"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260720,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6934790745500132,
+      "source_sha256": "166b36406841434d484c1475460febb9bb5995c38269957e7851f04e34143f3c"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260720,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.23107968293006628,
+      "source_sha256": "b2ce6941585c1f6d38ba0aa0cb204239a340e3c4720726da690de3bbe4b99f58"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260720,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7663977551736233,
+      "source_sha256": "b2ce6941585c1f6d38ba0aa0cb204239a340e3c4720726da690de3bbe4b99f58"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260720,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.48197646198702676,
+      "source_sha256": "b2ce6941585c1f6d38ba0aa0cb204239a340e3c4720726da690de3bbe4b99f58"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260720,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6823668651513145,
+      "source_sha256": "b2ce6941585c1f6d38ba0aa0cb204239a340e3c4720726da690de3bbe4b99f58"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260720,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.2020672729171687,
+      "source_sha256": "9efd8c9f0498e23470584892a137f59c8dc4c40b381488a515713026f2b6c222"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260720,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7229042441248684,
+      "source_sha256": "9efd8c9f0498e23470584892a137f59c8dc4c40b381488a515713026f2b6c222"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260720,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5152515482015193,
+      "source_sha256": "9efd8c9f0498e23470584892a137f59c8dc4c40b381488a515713026f2b6c222"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260720,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6654200748469106,
+      "source_sha256": "9efd8c9f0498e23470584892a137f59c8dc4c40b381488a515713026f2b6c222"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260721,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.28080697682648953,
+      "source_sha256": "670c574136d5d1ff12affb4d60f31b973025bd3ff8f785d433285764574b46b1"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260721,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.810242020343739,
+      "source_sha256": "670c574136d5d1ff12affb4d60f31b973025bd3ff8f785d433285764574b46b1"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260721,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.47633835272637914,
+      "source_sha256": "670c574136d5d1ff12affb4d60f31b973025bd3ff8f785d433285764574b46b1"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260721,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6971292010343997,
+      "source_sha256": "670c574136d5d1ff12affb4d60f31b973025bd3ff8f785d433285764574b46b1"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260721,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.208979818286983,
+      "source_sha256": "e5d6b262f3f642cc1256deb8f505994729003cc71e8d6c1704c7810b10626b60"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260721,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8109435285864609,
+      "source_sha256": "e5d6b262f3f642cc1256deb8f505994729003cc71e8d6c1704c7810b10626b60"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260721,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4624102637473183,
+      "source_sha256": "e5d6b262f3f642cc1256deb8f505994729003cc71e8d6c1704c7810b10626b60"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260721,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6701503701172165,
+      "source_sha256": "e5d6b262f3f642cc1256deb8f505994729003cc71e8d6c1704c7810b10626b60"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260721,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.16868697974007513,
+      "source_sha256": "db2e735cb68e37e4ce4eccb5e51e9df46271fd70fda34ac27d160441f2a60e62"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260721,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8098912662223781,
+      "source_sha256": "db2e735cb68e37e4ce4eccb5e51e9df46271fd70fda34ac27d160441f2a60e62"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260721,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4770559893348425,
+      "source_sha256": "db2e735cb68e37e4ce4eccb5e51e9df46271fd70fda34ac27d160441f2a60e62"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260721,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6844683440921516,
+      "source_sha256": "db2e735cb68e37e4ce4eccb5e51e9df46271fd70fda34ac27d160441f2a60e62"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260721,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.184992677461701,
+      "source_sha256": "3107e7ee870f122f18e3f931c039bd447c42bf77a25c41286d2642c7d58187dd"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260721,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8116450368291828,
+      "source_sha256": "3107e7ee870f122f18e3f931c039bd447c42bf77a25c41286d2642c7d58187dd"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260721,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4751542017718538,
+      "source_sha256": "3107e7ee870f122f18e3f931c039bd447c42bf77a25c41286d2642c7d58187dd"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260721,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6768548824827507,
+      "source_sha256": "3107e7ee870f122f18e3f931c039bd447c42bf77a25c41286d2642c7d58187dd"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260722,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.259598673669619,
+      "source_sha256": "6847e0c5e31a6cbf2c171329be339ea7f148a170edc02b364a0bd2fd3c7c89d6"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260722,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8119957909505436,
+      "source_sha256": "6847e0c5e31a6cbf2c171329be339ea7f148a170edc02b364a0bd2fd3c7c89d6"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260722,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4658187770513369,
+      "source_sha256": "6847e0c5e31a6cbf2c171329be339ea7f148a170edc02b364a0bd2fd3c7c89d6"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260722,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6872385138003646,
+      "source_sha256": "6847e0c5e31a6cbf2c171329be339ea7f148a170edc02b364a0bd2fd3c7c89d6"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260722,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.2154114003608971,
+      "source_sha256": "0931bd8fd01f5864616e02383dcd7022398dc90e1477adfc38797124176905d7"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260722,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7663977551736233,
+      "source_sha256": "0931bd8fd01f5864616e02383dcd7022398dc90e1477adfc38797124176905d7"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260722,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4960141033330176,
+      "source_sha256": "0931bd8fd01f5864616e02383dcd7022398dc90e1477adfc38797124176905d7"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260722,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6975449136288773,
+      "source_sha256": "0931bd8fd01f5864616e02383dcd7022398dc90e1477adfc38797124176905d7"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260722,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.237448236794614,
+      "source_sha256": "6cb226c8722862f22eac52d44804774b5df0eeaf03ca72dca2f4b20c5dda7b41"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260722,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8116450368291828,
+      "source_sha256": "6cb226c8722862f22eac52d44804774b5df0eeaf03ca72dca2f4b20c5dda7b41"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260722,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.48196526114953014,
+      "source_sha256": "6cb226c8722862f22eac52d44804774b5df0eeaf03ca72dca2f4b20c5dda7b41"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260722,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.7037246049092611,
+      "source_sha256": "6cb226c8722862f22eac52d44804774b5df0eeaf03ca72dca2f4b20c5dda7b41"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260722,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.2240777076131052,
+      "source_sha256": "f14a11001fedc74eaa5067f0f7bd79e6d830012189f58d101c7ba16eba135fba"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260722,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7663977551736233,
+      "source_sha256": "f14a11001fedc74eaa5067f0f7bd79e6d830012189f58d101c7ba16eba135fba"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260722,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4925495555213579,
+      "source_sha256": "f14a11001fedc74eaa5067f0f7bd79e6d830012189f58d101c7ba16eba135fba"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260722,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6951713597120237,
+      "source_sha256": "f14a11001fedc74eaa5067f0f7bd79e6d830012189f58d101c7ba16eba135fba"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260723,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.2548375635665246,
+      "source_sha256": "7782109248c6e1ff92381a3517d734b60ecf0c13ef52ca3f5a04ea4c48fee781"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260723,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8116450368291828,
+      "source_sha256": "7782109248c6e1ff92381a3517d734b60ecf0c13ef52ca3f5a04ea4c48fee781"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260723,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.49150560008841016,
+      "source_sha256": "7782109248c6e1ff92381a3517d734b60ecf0c13ef52ca3f5a04ea4c48fee781"
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "seed": 20260723,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6958566057009323,
+      "source_sha256": "7782109248c6e1ff92381a3517d734b60ecf0c13ef52ca3f5a04ea4c48fee781"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260723,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.2208762965495754,
+      "source_sha256": "9742665aabce8b9c12f27818aa47f410452411df1b61c84dd4906075d3d49c37"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260723,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8060329708874079,
+      "source_sha256": "9742665aabce8b9c12f27818aa47f410452411df1b61c84dd4906075d3d49c37"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260723,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.49199302253380883,
+      "source_sha256": "9742665aabce8b9c12f27818aa47f410452411df1b61c84dd4906075d3d49c37"
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "seed": 20260723,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6977323645624193,
+      "source_sha256": "9742665aabce8b9c12f27818aa47f410452411df1b61c84dd4906075d3d49c37"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260723,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.19917755953028948,
+      "source_sha256": "492a99a78024468b120755058fddded4f5e000542a9a6484a6945dd0e242f295"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260723,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7653454928095406,
+      "source_sha256": "492a99a78024468b120755058fddded4f5e000542a9a6484a6945dd0e242f295"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260723,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.48400664302009117,
+      "source_sha256": "492a99a78024468b120755058fddded4f5e000542a9a6484a6945dd0e242f295"
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "seed": 20260723,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6936205945654251,
+      "source_sha256": "492a99a78024468b120755058fddded4f5e000542a9a6484a6945dd0e242f295"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260723,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.1875015584263197,
+      "source_sha256": "ed57346b7c8cf046601d747c0753b8e345815f0c0cf37a0fbac46f13e0486386"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260723,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8070852332514907,
+      "source_sha256": "ed57346b7c8cf046601d747c0753b8e345815f0c0cf37a0fbac46f13e0486386"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260723,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.48455790303535157,
+      "source_sha256": "ed57346b7c8cf046601d747c0753b8e345815f0c0cf37a0fbac46f13e0486386"
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "seed": 20260723,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6672949058227159,
+      "source_sha256": "ed57346b7c8cf046601d747c0753b8e345815f0c0cf37a0fbac46f13e0486386"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260719,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.1402675859309402,
+      "source_sha256": "d1e1b45e78f6f455a160575cc78c1104231df62102108a5e49dcbbd87b720aaf"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260719,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7660470010522623,
+      "source_sha256": "d1e1b45e78f6f455a160575cc78c1104231df62102108a5e49dcbbd87b720aaf"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260719,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.41129732342578185,
+      "source_sha256": "d1e1b45e78f6f455a160575cc78c1104231df62102108a5e49dcbbd87b720aaf"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260719,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6299907436946325,
+      "source_sha256": "d1e1b45e78f6f455a160575cc78c1104231df62102108a5e49dcbbd87b720aaf"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260720,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.15265201863202893,
+      "source_sha256": "697b2f677eb8f9e3403ece315b71b1116c7030f0467c605908fc559741d6dde6"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260720,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.6937916520519116,
+      "source_sha256": "697b2f677eb8f9e3403ece315b71b1116c7030f0467c605908fc559741d6dde6"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260720,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.3747965665863795,
+      "source_sha256": "697b2f677eb8f9e3403ece315b71b1116c7030f0467c605908fc559741d6dde6"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260720,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6255634490420371,
+      "source_sha256": "697b2f677eb8f9e3403ece315b71b1116c7030f0467c605908fc559741d6dde6"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260721,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.14288922727901654,
+      "source_sha256": "3a829dfabcf707a5b2d327cc481fe596b520f8ed5e5fb547718837b2cabcd7d6"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260721,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7313223430375307,
+      "source_sha256": "3a829dfabcf707a5b2d327cc481fe596b520f8ed5e5fb547718837b2cabcd7d6"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260721,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.43092212080799097,
+      "source_sha256": "3a829dfabcf707a5b2d327cc481fe596b520f8ed5e5fb547718837b2cabcd7d6"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260721,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6094197240127298,
+      "source_sha256": "3a829dfabcf707a5b2d327cc481fe596b520f8ed5e5fb547718837b2cabcd7d6"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260722,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.12254465901644991,
+      "source_sha256": "88bff3ea453a370924da11a6056701507523052ea79ec34dbc36bc8896b2fb20"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260722,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.762890213960014,
+      "source_sha256": "88bff3ea453a370924da11a6056701507523052ea79ec34dbc36bc8896b2fb20"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260722,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.37730638241502407,
+      "source_sha256": "88bff3ea453a370924da11a6056701507523052ea79ec34dbc36bc8896b2fb20"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260722,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.618626777020948,
+      "source_sha256": "88bff3ea453a370924da11a6056701507523052ea79ec34dbc36bc8896b2fb20"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260723,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.13320007798759317,
+      "source_sha256": "2ea4ccb6c959626dca2603a4ec941b02b30e27d8a510ee99b3ab2e679bc46d8d"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260723,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.6836197825324447,
+      "source_sha256": "2ea4ccb6c959626dca2603a4ec941b02b30e27d8a510ee99b3ab2e679bc46d8d"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260723,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.377609495556408,
+      "source_sha256": "2ea4ccb6c959626dca2603a4ec941b02b30e27d8a510ee99b3ab2e679bc46d8d"
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "seed": 20260723,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6145455164159999,
+      "source_sha256": "2ea4ccb6c959626dca2603a4ec941b02b30e27d8a510ee99b3ab2e679bc46d8d"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260719,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.18407357568350552,
+      "source_sha256": "c8f0512a287a3cb8c9c757f67d18d872b4a5fcee8731b340401b2057758bfdfb"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260719,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8098912662223781,
+      "source_sha256": "c8f0512a287a3cb8c9c757f67d18d872b4a5fcee8731b340401b2057758bfdfb"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260719,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.44908861103382663,
+      "source_sha256": "c8f0512a287a3cb8c9c757f67d18d872b4a5fcee8731b340401b2057758bfdfb"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260719,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6893751648049813,
+      "source_sha256": "c8f0512a287a3cb8c9c757f67d18d872b4a5fcee8731b340401b2057758bfdfb"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260720,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.16695874162632793,
+      "source_sha256": "61ca454f50ff57c806c7806406126d90c7f35f38cadf4cccc79a5034a07cfafd"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260720,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.743949491406524,
+      "source_sha256": "61ca454f50ff57c806c7806406126d90c7f35f38cadf4cccc79a5034a07cfafd"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260720,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.45913108973352434,
+      "source_sha256": "61ca454f50ff57c806c7806406126d90c7f35f38cadf4cccc79a5034a07cfafd"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260720,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6617922708307915,
+      "source_sha256": "61ca454f50ff57c806c7806406126d90c7f35f38cadf4cccc79a5034a07cfafd"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260721,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.21147083595747812,
+      "source_sha256": "a8e4089e9dee76daf317ddf1cdb5a3fb028f0b0a98782f7d36fc7822516b6e12"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260721,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.810242020343739,
+      "source_sha256": "a8e4089e9dee76daf317ddf1cdb5a3fb028f0b0a98782f7d36fc7822516b6e12"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260721,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.44967301243762153,
+      "source_sha256": "a8e4089e9dee76daf317ddf1cdb5a3fb028f0b0a98782f7d36fc7822516b6e12"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260721,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6610897864191737,
+      "source_sha256": "a8e4089e9dee76daf317ddf1cdb5a3fb028f0b0a98782f7d36fc7822516b6e12"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260722,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.18407357568350552,
+      "source_sha256": "cd05c7d3fb8c1ba3eafebf82d77003d9f4b445e58caff7ea48872507c7eccddd"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260722,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7222027358821466,
+      "source_sha256": "cd05c7d3fb8c1ba3eafebf82d77003d9f4b445e58caff7ea48872507c7eccddd"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260722,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4720289679962451,
+      "source_sha256": "cd05c7d3fb8c1ba3eafebf82d77003d9f4b445e58caff7ea48872507c7eccddd"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260722,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6857293260209372,
+      "source_sha256": "cd05c7d3fb8c1ba3eafebf82d77003d9f4b445e58caff7ea48872507c7eccddd"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260723,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.16635064876901526,
+      "source_sha256": "bea4d7988ccd3d518212e2454b431f10409fd7f14337443c2134e06ee5766352"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260723,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7663977551736233,
+      "source_sha256": "bea4d7988ccd3d518212e2454b431f10409fd7f14337443c2134e06ee5766352"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260723,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4587168396817019,
+      "source_sha256": "bea4d7988ccd3d518212e2454b431f10409fd7f14337443c2134e06ee5766352"
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "seed": 20260723,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6527039106077323,
+      "source_sha256": "bea4d7988ccd3d518212e2454b431f10409fd7f14337443c2134e06ee5766352"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260719,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.24220979413566468,
+      "source_sha256": "c3c9d17129acf79be5ca73493323f0997997c8ef21e63913929cfd223e9a5f6c"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260719,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7667485092949842,
+      "source_sha256": "c3c9d17129acf79be5ca73493323f0997997c8ef21e63913929cfd223e9a5f6c"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260719,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4960405922191882,
+      "source_sha256": "c3c9d17129acf79be5ca73493323f0997997c8ef21e63913929cfd223e9a5f6c"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260719,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6788856138586662,
+      "source_sha256": "c3c9d17129acf79be5ca73493323f0997997c8ef21e63913929cfd223e9a5f6c"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260720,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.16635064876901526,
+      "source_sha256": "604f083beb46cc1303832b710200bc433c487bd873a5cc76016abf6e3ac51ee3"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260720,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.6723956506488952,
+      "source_sha256": "604f083beb46cc1303832b710200bc433c487bd873a5cc76016abf6e3ac51ee3"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260720,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.49462625001355925,
+      "source_sha256": "604f083beb46cc1303832b710200bc433c487bd873a5cc76016abf6e3ac51ee3"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260720,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6873123757497912,
+      "source_sha256": "604f083beb46cc1303832b710200bc433c487bd873a5cc76016abf6e3ac51ee3"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260721,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.2049297543089731,
+      "source_sha256": "527429787da58251bd3f56d65b8d83ecb55b42766af2b43f7d1bc41038345321"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260721,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7663977551736233,
+      "source_sha256": "527429787da58251bd3f56d65b8d83ecb55b42766af2b43f7d1bc41038345321"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260721,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5052055634962784,
+      "source_sha256": "527429787da58251bd3f56d65b8d83ecb55b42766af2b43f7d1bc41038345321"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260721,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6918345416471535,
+      "source_sha256": "527429787da58251bd3f56d65b8d83ecb55b42766af2b43f7d1bc41038345321"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260722,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.183091056093124,
+      "source_sha256": "216fecb5f2133376796def2d7c8e0674170afedbe7356486c16bc2f262e3b6c7"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260722,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.810242020343739,
+      "source_sha256": "216fecb5f2133376796def2d7c8e0674170afedbe7356486c16bc2f262e3b6c7"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260722,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.495697547407637,
+      "source_sha256": "216fecb5f2133376796def2d7c8e0674170afedbe7356486c16bc2f262e3b6c7"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260722,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6872594150062166,
+      "source_sha256": "216fecb5f2133376796def2d7c8e0674170afedbe7356486c16bc2f262e3b6c7"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260723,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.20670487011940672,
+      "source_sha256": "1fd41537009dd9c83acabd229e56e0a655beb2837e653611bb5339af2dda30cb"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260723,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7621887057172921,
+      "source_sha256": "1fd41537009dd9c83acabd229e56e0a655beb2837e653611bb5339af2dda30cb"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260723,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.4813034593697061,
+      "source_sha256": "1fd41537009dd9c83acabd229e56e0a655beb2837e653611bb5339af2dda30cb"
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "seed": 20260723,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6749294247371733,
+      "source_sha256": "1fd41537009dd9c83acabd229e56e0a655beb2837e653611bb5339af2dda30cb"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260719,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.19607882876808236,
+      "source_sha256": "999554e5397e0b82e7010b42db9385470c9496782bbd7160c24ca98842c556b5"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260719,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7653454928095406,
+      "source_sha256": "999554e5397e0b82e7010b42db9385470c9496782bbd7160c24ca98842c556b5"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260719,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5223110163707816,
+      "source_sha256": "999554e5397e0b82e7010b42db9385470c9496782bbd7160c24ca98842c556b5"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260719,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6952479789237735,
+      "source_sha256": "999554e5397e0b82e7010b42db9385470c9496782bbd7160c24ca98842c556b5"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260720,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.23628994712144444,
+      "source_sha256": "ba00bb43ba003dbf1a1c7dc2a3fd49bb52cec61d20798c50ebdac0f93b992a4e"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260720,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8119957909505436,
+      "source_sha256": "ba00bb43ba003dbf1a1c7dc2a3fd49bb52cec61d20798c50ebdac0f93b992a4e"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260720,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5106496079110506,
+      "source_sha256": "ba00bb43ba003dbf1a1c7dc2a3fd49bb52cec61d20798c50ebdac0f93b992a4e"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260720,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.7026348650412731,
+      "source_sha256": "ba00bb43ba003dbf1a1c7dc2a3fd49bb52cec61d20798c50ebdac0f93b992a4e"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260721,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.1845004428416843,
+      "source_sha256": "f7c441168c36ca5460ab59c3685005ef233a93823839bfbb064b66574a73cfe4"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260721,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7660470010522623,
+      "source_sha256": "f7c441168c36ca5460ab59c3685005ef233a93823839bfbb064b66574a73cfe4"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260721,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5129467773735794,
+      "source_sha256": "f7c441168c36ca5460ab59c3685005ef233a93823839bfbb064b66574a73cfe4"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260721,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6852392315914558,
+      "source_sha256": "f7c441168c36ca5460ab59c3685005ef233a93823839bfbb064b66574a73cfe4"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260722,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.1971997288543876,
+      "source_sha256": "6299b0fd7989e2e8a4056964bd720be2c3a9741c6220c87b5bb38642c2f10b79"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260722,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.810242020343739,
+      "source_sha256": "6299b0fd7989e2e8a4056964bd720be2c3a9741c6220c87b5bb38642c2f10b79"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260722,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5167331077470251,
+      "source_sha256": "6299b0fd7989e2e8a4056964bd720be2c3a9741c6220c87b5bb38642c2f10b79"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260722,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6855139309626146,
+      "source_sha256": "6299b0fd7989e2e8a4056964bd720be2c3a9741c6220c87b5bb38642c2f10b79"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260723,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.1887458975130577,
+      "source_sha256": "2a5cdfb4f03c069a06afcecf4d481ceb17dae67c353640836780194e46b8e02c"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260723,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.710627849877236,
+      "source_sha256": "2a5cdfb4f03c069a06afcecf4d481ceb17dae67c353640836780194e46b8e02c"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260723,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5097241810266586,
+      "source_sha256": "2a5cdfb4f03c069a06afcecf4d481ceb17dae67c353640836780194e46b8e02c"
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "seed": 20260723,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.68123968217728,
+      "source_sha256": "2a5cdfb4f03c069a06afcecf4d481ceb17dae67c353640836780194e46b8e02c"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260719,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.27175291406479707,
+      "source_sha256": "cf5c5ba3c7b1089713e677435d7f333e55131a17737215156c333c7c577f645a"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260719,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7663977551736233,
+      "source_sha256": "cf5c5ba3c7b1089713e677435d7f333e55131a17737215156c333c7c577f645a"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260719,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5003195528156155,
+      "source_sha256": "cf5c5ba3c7b1089713e677435d7f333e55131a17737215156c333c7c577f645a"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260719,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6852180559971645,
+      "source_sha256": "cf5c5ba3c7b1089713e677435d7f333e55131a17737215156c333c7c577f645a"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260720,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.21091901381753553,
+      "source_sha256": "bf84132c1965e1c651405fe4e4256d7de6dd8f7713423f48e632608dae0f3150"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260720,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8112942827078218,
+      "source_sha256": "bf84132c1965e1c651405fe4e4256d7de6dd8f7713423f48e632608dae0f3150"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260720,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5193704103393778,
+      "source_sha256": "bf84132c1965e1c651405fe4e4256d7de6dd8f7713423f48e632608dae0f3150"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260720,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6983625129934908,
+      "source_sha256": "bf84132c1965e1c651405fe4e4256d7de6dd8f7713423f48e632608dae0f3150"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260721,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.23558891156930242,
+      "source_sha256": "40fb0bca31422ac34f6717a603854536e2b00424aa1d24144edc1f8d72c864f9"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260721,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7663977551736233,
+      "source_sha256": "40fb0bca31422ac34f6717a603854536e2b00424aa1d24144edc1f8d72c864f9"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260721,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5066433566069591,
+      "source_sha256": "40fb0bca31422ac34f6717a603854536e2b00424aa1d24144edc1f8d72c864f9"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260721,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6971586782610116,
+      "source_sha256": "40fb0bca31422ac34f6717a603854536e2b00424aa1d24144edc1f8d72c864f9"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260722,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.19036852601086593,
+      "source_sha256": "79ed4a5cc618d047dc8421075c0f68050ef713bc3532d7530d6d7f7d9fe01252"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260722,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8098912662223781,
+      "source_sha256": "79ed4a5cc618d047dc8421075c0f68050ef713bc3532d7530d6d7f7d9fe01252"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260722,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5025092251040618,
+      "source_sha256": "79ed4a5cc618d047dc8421075c0f68050ef713bc3532d7530d6d7f7d9fe01252"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260722,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6756425966182695,
+      "source_sha256": "79ed4a5cc618d047dc8421075c0f68050ef713bc3532d7530d6d7f7d9fe01252"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260723,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.18065737176331423,
+      "source_sha256": "cfc8edf7b91be7c69199a1d227b882f4391069179bf8d595f50d686cd83f37fe"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260723,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7656962469309014,
+      "source_sha256": "cfc8edf7b91be7c69199a1d227b882f4391069179bf8d595f50d686cd83f37fe"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260723,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.49299080957967295,
+      "source_sha256": "cfc8edf7b91be7c69199a1d227b882f4391069179bf8d595f50d686cd83f37fe"
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "seed": 20260723,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.684904598310944,
+      "source_sha256": "cfc8edf7b91be7c69199a1d227b882f4391069179bf8d595f50d686cd83f37fe"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260719,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.19933310787201483,
+      "source_sha256": "20fa8c18e0ae7a472d8e2b9e424eaad9fc85556894b108d389b08eb4c9ab682c"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260719,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7660470010522623,
+      "source_sha256": "20fa8c18e0ae7a472d8e2b9e424eaad9fc85556894b108d389b08eb4c9ab682c"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260719,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5266015273475142,
+      "source_sha256": "20fa8c18e0ae7a472d8e2b9e424eaad9fc85556894b108d389b08eb4c9ab682c"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260719,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.7052965877063253,
+      "source_sha256": "20fa8c18e0ae7a472d8e2b9e424eaad9fc85556894b108d389b08eb4c9ab682c"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260720,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.2519351765189484,
+      "source_sha256": "807453b7692703ee8e41327ae3f745fab9ef27c8232009f9953b53269307c009"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260720,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8070852332514907,
+      "source_sha256": "807453b7692703ee8e41327ae3f745fab9ef27c8232009f9953b53269307c009"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260720,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5386453617010094,
+      "source_sha256": "807453b7692703ee8e41327ae3f745fab9ef27c8232009f9953b53269307c009"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260720,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.6978220852827167,
+      "source_sha256": "807453b7692703ee8e41327ae3f745fab9ef27c8232009f9953b53269307c009"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260721,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.22325483958375983,
+      "source_sha256": "87e377fcc3a9f3b43f270d6f22aa2ef4e87f63595e0d98cacf8d4143d6096c39"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260721,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.810242020343739,
+      "source_sha256": "87e377fcc3a9f3b43f270d6f22aa2ef4e87f63595e0d98cacf8d4143d6096c39"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260721,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5315591389413797,
+      "source_sha256": "87e377fcc3a9f3b43f270d6f22aa2ef4e87f63595e0d98cacf8d4143d6096c39"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260721,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.7004938592542794,
+      "source_sha256": "87e377fcc3a9f3b43f270d6f22aa2ef4e87f63595e0d98cacf8d4143d6096c39"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260722,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.2498942505106395,
+      "source_sha256": "a553eaedc12ecd55c91c8f613f3593350d1d1cfbdfd18040aa3892cc327e8130"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260722,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7660470010522623,
+      "source_sha256": "a553eaedc12ecd55c91c8f613f3593350d1d1cfbdfd18040aa3892cc327e8130"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260722,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5342509585025463,
+      "source_sha256": "a553eaedc12ecd55c91c8f613f3593350d1d1cfbdfd18040aa3892cc327e8130"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260722,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.681352740118709,
+      "source_sha256": "a553eaedc12ecd55c91c8f613f3593350d1d1cfbdfd18040aa3892cc327e8130"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260723,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.24430809487034277,
+      "source_sha256": "52bf50b0ae1f494ced0baac38a5ebda9451e1a1b274055eafae41fa719b38edf"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260723,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.6776569624693091,
+      "source_sha256": "52bf50b0ae1f494ced0baac38a5ebda9451e1a1b274055eafae41fa719b38edf"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260723,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5292147265409641,
+      "source_sha256": "52bf50b0ae1f494ced0baac38a5ebda9451e1a1b274055eafae41fa719b38edf"
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "seed": 20260723,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.7010840807538052,
+      "source_sha256": "52bf50b0ae1f494ced0baac38a5ebda9451e1a1b274055eafae41fa719b38edf"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260719,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.24720165520480664,
+      "source_sha256": "276ffa5796a253408091b80e22bc8c4817dd48da121a49b34bf08ac08e2abb71"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260719,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8112942827078218,
+      "source_sha256": "276ffa5796a253408091b80e22bc8c4817dd48da121a49b34bf08ac08e2abb71"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260719,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5179168295760626,
+      "source_sha256": "276ffa5796a253408091b80e22bc8c4817dd48da121a49b34bf08ac08e2abb71"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260719,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.7220447865127103,
+      "source_sha256": "276ffa5796a253408091b80e22bc8c4817dd48da121a49b34bf08ac08e2abb71"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260720,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.22377246165074507,
+      "source_sha256": "dc73ca8c826affa711c88cce3eef12fafd78d5015becc6e5367fd10849f6ab79"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260720,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.8088390038582953,
+      "source_sha256": "dc73ca8c826affa711c88cce3eef12fafd78d5015becc6e5367fd10849f6ab79"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260720,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5277081934797798,
+      "source_sha256": "dc73ca8c826affa711c88cce3eef12fafd78d5015becc6e5367fd10849f6ab79"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260720,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.7075211021722376,
+      "source_sha256": "dc73ca8c826affa711c88cce3eef12fafd78d5015becc6e5367fd10849f6ab79"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260721,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.24409652829890216,
+      "source_sha256": "ee7c1005fc7c9989ecfa3e9f47af068a8a450aff20d354f8be5d50d2872949d2"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260721,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7271132935811996,
+      "source_sha256": "ee7c1005fc7c9989ecfa3e9f47af068a8a450aff20d354f8be5d50d2872949d2"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260721,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5331753176502141,
+      "source_sha256": "ee7c1005fc7c9989ecfa3e9f47af068a8a450aff20d354f8be5d50d2872949d2"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260721,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.70573998608768,
+      "source_sha256": "ee7c1005fc7c9989ecfa3e9f47af068a8a450aff20d354f8be5d50d2872949d2"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260722,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.2523857684151122,
+      "source_sha256": "36efe0a21720cf57c6fb1e12dc652150b8f8f90f7a447941b30927f456795b98"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260722,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7656962469309014,
+      "source_sha256": "36efe0a21720cf57c6fb1e12dc652150b8f8f90f7a447941b30927f456795b98"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260722,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5377975445451608,
+      "source_sha256": "36efe0a21720cf57c6fb1e12dc652150b8f8f90f7a447941b30927f456795b98"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260722,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.7082020426736959,
+      "source_sha256": "36efe0a21720cf57c6fb1e12dc652150b8f8f90f7a447941b30927f456795b98"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260723,
+      "metric": "MFPOrderedRouteOverlap",
+      "score": 0.2440540193141223,
+      "source_sha256": "5c96da8213adb4b9844c82333fbecc132a9878e235adb674827ba6aacfa35849"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260723,
+      "metric": "RepresentativeRealCoverage",
+      "score": 0.7432479831638021,
+      "source_sha256": "5c96da8213adb4b9844c82333fbecc132a9878e235adb674827ba6aacfa35849"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260723,
+      "metric": "SelectedRoadMarginalOverlap",
+      "score": 0.5205126405588445,
+      "source_sha256": "5c96da8213adb4b9844c82333fbecc132a9878e235adb674827ba6aacfa35849"
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "seed": 20260723,
+      "metric": "IncomingExitDistributionOverlap",
+      "score": 0.7017648644408883,
+      "source_sha256": "5c96da8213adb4b9844c82333fbecc132a9878e235adb674827ba6aacfa35849"
+    }
+  ],
+  "aggregates": [
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "metric": "IncomingExitDistributionOverlap",
+      "n": 5,
+      "mean": 0.6196292420372694,
+      "sd": 0.00827132078276606
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "metric": "MFPOrderedRouteOverlap",
+      "n": 5,
+      "mean": 0.13831071376920576,
+      "sd": 0.011237796051100507
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "metric": "RepresentativeRealCoverage",
+      "n": 5,
+      "mean": 0.7275341985268327,
+      "sd": 0.038126989125973454
+    },
+    {
+      "kind": "budget",
+      "value": 0.2,
+      "metric": "SelectedRoadMarginalOverlap",
+      "n": 5,
+      "mean": 0.39438637775831686,
+      "sd": 0.025385977047651498
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "metric": "IncomingExitDistributionOverlap",
+      "n": 5,
+      "mean": 0.6701380917367232,
+      "sd": 0.016344928831985586
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "metric": "MFPOrderedRouteOverlap",
+      "n": 5,
+      "mean": 0.18258547554396648,
+      "sd": 0.018347733808391744
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "metric": "RepresentativeRealCoverage",
+      "n": 5,
+      "mean": 0.7705366538056821,
+      "sd": 0.03932390163295901
+    },
+    {
+      "kind": "budget",
+      "value": 0.4,
+      "metric": "SelectedRoadMarginalOverlap",
+      "n": 5,
+      "mean": 0.4577277041765839,
+      "sd": 0.009313780331414964
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "metric": "IncomingExitDistributionOverlap",
+      "n": 5,
+      "mean": 0.6840442741998002,
+      "sd": 0.006917335872447001
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "metric": "MFPOrderedRouteOverlap",
+      "n": 5,
+      "mean": 0.20065722468523675,
+      "sd": 0.02857864579855812
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "metric": "RepresentativeRealCoverage",
+      "n": 5,
+      "mean": 0.7555945282357067,
+      "sd": 0.05048020851730954
+    },
+    {
+      "kind": "budget",
+      "value": 0.7,
+      "metric": "SelectedRoadMarginalOverlap",
+      "n": 5,
+      "mean": 0.4945746825012738,
+      "sd": 0.00855209579935161
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "metric": "IncomingExitDistributionOverlap",
+      "n": 5,
+      "mean": 0.6882572884361761,
+      "sd": 0.009499450230439273
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "metric": "MFPOrderedRouteOverlap",
+      "n": 5,
+      "mean": 0.21785734744516302,
+      "sd": 0.036765318017273285
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "metric": "RepresentativeRealCoverage",
+      "n": 5,
+      "mean": 0.7839354612416696,
+      "sd": 0.02434142626853378
+    },
+    {
+      "kind": "budget",
+      "value": 1,
+      "metric": "SelectedRoadMarginalOverlap",
+      "n": 5,
+      "mean": 0.5043666708891374,
+      "sd": 0.009740828833140008
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "metric": "IncomingExitDistributionOverlap",
+      "n": 5,
+      "mean": 0.6899751377392794,
+      "sd": 0.0087565819007556
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "metric": "MFPOrderedRouteOverlap",
+      "n": 5,
+      "mean": 0.20056296901973128,
+      "sd": 0.02064875170985411
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "metric": "RepresentativeRealCoverage",
+      "n": 5,
+      "mean": 0.7728516310066643,
+      "sd": 0.04154741420950195
+    },
+    {
+      "kind": "budget",
+      "value": 1.4,
+      "metric": "SelectedRoadMarginalOverlap",
+      "n": 5,
+      "mean": 0.5144729380858191,
+      "sd": 0.005148823939756584
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "metric": "IncomingExitDistributionOverlap",
+      "n": 5,
+      "mean": 0.6972098706231672,
+      "sd": 0.009260297960560425
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "metric": "MFPOrderedRouteOverlap",
+      "n": 5,
+      "mean": 0.23374509387114106,
+      "sd": 0.022346596902147287
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "metric": "RepresentativeRealCoverage",
+      "n": 5,
+      "mean": 0.7654156436338126,
+      "sd": 0.05349799550440791
+    },
+    {
+      "kind": "budget",
+      "value": 2,
+      "metric": "SelectedRoadMarginalOverlap",
+      "n": 5,
+      "mean": 0.5320543426066827,
+      "sd": 0.0046451182551464016
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "metric": "IncomingExitDistributionOverlap",
+      "n": 5,
+      "mean": 0.7090545563774424,
+      "sd": 0.007680337315466631
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "metric": "MFPOrderedRouteOverlap",
+      "n": 5,
+      "mean": 0.24230208657673766,
+      "sd": 0.010900948370064554
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "metric": "RepresentativeRealCoverage",
+      "n": 5,
+      "mean": 0.771238162048404,
+      "sd": 0.03801145571240338
+    },
+    {
+      "kind": "budget",
+      "value": 3,
+      "metric": "SelectedRoadMarginalOverlap",
+      "n": 5,
+      "mean": 0.5274221051620124,
+      "sd": 0.00835047914674114
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "metric": "IncomingExitDistributionOverlap",
+      "n": 5,
+      "mean": 0.6777201930691608,
+      "sd": 0.008750569074167588
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "metric": "MFPOrderedRouteOverlap",
+      "n": 5,
+      "mean": 0.24416103970250633,
+      "sd": 0.01898047081695821
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "metric": "RepresentativeRealCoverage",
+      "n": 5,
+      "mean": 0.7456331111890565,
+      "sd": 0.051708224439403885
+    },
+    {
+      "kind": "k",
+      "value": 24,
+      "metric": "SelectedRoadMarginalOverlap",
+      "n": 5,
+      "mean": 0.44947275139687703,
+      "sd": 0.02256852569288626
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "metric": "IncomingExitDistributionOverlap",
+      "n": 5,
+      "mean": 0.6994421411368351,
+      "sd": 0.00963342260613462
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "metric": "MFPOrderedRouteOverlap",
+      "n": 5,
+      "mean": 0.2684029668036514,
+      "sd": 0.023585453025427184
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "metric": "RepresentativeRealCoverage",
+      "n": 5,
+      "mean": 0.8109435285864609,
+      "sd": 0.0008225913293271511
+    },
+    {
+      "kind": "k",
+      "value": 48,
+      "metric": "SelectedRoadMarginalOverlap",
+      "n": 5,
+      "mean": 0.483855565696512,
+      "sd": 0.012336914928058542
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "metric": "IncomingExitDistributionOverlap",
+      "n": 5,
+      "mean": 0.6919991443296423,
+      "sd": 0.012508096912653744
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "metric": "MFPOrderedRouteOverlap",
+      "n": 5,
+      "mean": 0.22300332514968388,
+      "sd": 0.018752749393851274
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "metric": "RepresentativeRealCoverage",
+      "n": 5,
+      "mean": 0.7912311469659769,
+      "sd": 0.022907225072346174
+    },
+    {
+      "kind": "k",
+      "value": 96,
+      "metric": "SelectedRoadMarginalOverlap",
+      "n": 5,
+      "mean": 0.48287759558970117,
+      "sd": 0.01305934119126453
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "metric": "IncomingExitDistributionOverlap",
+      "n": 5,
+      "mean": 0.6896058505082059,
+      "sd": 0.009047063098452181
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "metric": "MFPOrderedRouteOverlap",
+      "n": 5,
+      "mean": 0.20328834758020928,
+      "sd": 0.030386937569096984
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "metric": "RepresentativeRealCoverage",
+      "n": 5,
+      "mean": 0.7838653104173974,
+      "sd": 0.024569568851175925
+    },
+    {
+      "kind": "k",
+      "value": 192,
+      "metric": "SelectedRoadMarginalOverlap",
+      "n": 5,
+      "mean": 0.48073093650671667,
+      "sd": 0.0028124418513131386
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "metric": "IncomingExitDistributionOverlap",
+      "n": 5,
+      "mean": 0.6899751377392794,
+      "sd": 0.0087565819007556
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "metric": "MFPOrderedRouteOverlap",
+      "n": 5,
+      "mean": 0.20056296901973128,
+      "sd": 0.02064875170985411
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "metric": "RepresentativeRealCoverage",
+      "n": 5,
+      "mean": 0.7728516310066643,
+      "sd": 0.04154741420950195
+    },
+    {
+      "kind": "k",
+      "value": 384,
+      "metric": "SelectedRoadMarginalOverlap",
+      "n": 5,
+      "mean": 0.5144729380858191,
+      "sd": 0.005148823939756584
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "metric": "IncomingExitDistributionOverlap",
+      "n": 5,
+      "mean": 0.6780265738952977,
+      "sd": 0.012486526293051971
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "metric": "MFPOrderedRouteOverlap",
+      "n": 5,
+      "mean": 0.20681350691654615,
+      "sd": 0.02229622579163843
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "metric": "RepresentativeRealCoverage",
+      "n": 5,
+      "mean": 0.7748860049105577,
+      "sd": 0.03617395801857946
+    },
+    {
+      "kind": "k",
+      "value": 768,
+      "metric": "SelectedRoadMarginalOverlap",
+      "n": 5,
+      "mean": 0.4963956192894486,
+      "sd": 0.017945515279973057
+    }
+  ],
+  "questions_sha256": "d90cda34cb0432ba16e9d9f0daae2dda86a0a949bf5e54b13cb6c6c4a20b3193",
+  "resources_sha256": "89fc728cdb6de15c0851deac0a3730178efc38ab1e6f52d2e06e5c8daeda46f1",
+  "cells": 65,
+  "unique_releases": 60,
+  "evidence_sha256": [
+    "0071ea0936e5397d87ec40782a91f0fd64bd7d6864899ca78617becbe3775a79",
+    "00c659c046511ba06d1d014a54991075e3ff482f1839d7ca0ab9aaacb02264a3",
+    "0424ed27fd4511f00632bc3de4c71e763789fc34620272150d9d5e67089ffe5c",
+    "069e9ac84403974abda8f9af9494443d759c5b511944ed8549eaec1b68770be7",
+    "078d7125129c9b3efc2cbba82390d267dc59ac1671bb7eb6dd8b0d5bb35e1759",
+    "079e981ecaa446a08e638b00caa8ddfb28c35e5d598f9ab3bbc65540bb7ab27b",
+    "09cb347c75e27bd095ee3f7e5e575b83d714f5c75dcb0b60b0adf6f53142f554",
+    "0b3ec4cbe513301c943db82ac6da2f02363fc4ffda4364aa651a3910e7ed1d6a",
+    "0c4f84fd48bc0d6e47d17d25d0f6ecb29e8cfd8436cd43dd0c1aa4f031aba8cc",
+    "0c9c83e5611d55bab6d322bc54a7855ac46d54c2a0f34342db6cd24f07618e3a",
+    "0cf831cfcbcdbbe7f45cf43ae6492623131d135c57ac4b7a8551a1853268c792",
+    "0d00cfe752534b9216c53ac1c7da494fd8543cb9be6eae0d5da3f8e50984604f",
+    "0d2a68653c5d732dd5b3450d517f3abd89cca2ed38fd3f5cc89b25919a29d5b8",
+    "0d58f9fb29d4fd5443731b4ecdd4386b9d2258acb17e4d93dbebffc9f635f1fc",
+    "0e426936314f9add7b28033df182211a589671ab2906db5463ca92680e00a734",
+    "0e9cdb35c84463cfbac6753cef172787482a635f12e91c6b8546499fa081a431",
+    "10af3477bcc25db081bfca7c73d80db9f2970451f18ec6a8f98b926a4f5d042d",
+    "10b63275fa295d7a031f8ce4919a949ee2f987815e6c86ddd87580f1eb0ab239",
+    "137a0a8513d834e58a2a5467b17a5c80f94123d840c026da5b4f9a2295e9e405",
+    "141cf943a117edcdea48be4d5925210f51d9fcb6a488aedf20c0c6b8a996639a",
+    "1487755712e790dbb01ea08cfdd27311b78f847e7833ef5f2e477c103d3d7496",
+    "1529f0134a613da0e509a0d975c32daf92bdaf32b029c38c72de2c8865e88461",
+    "1657882d5a7db4fd45a8322f1201359b194976c0be4120949b1940cbf416c2fc",
+    "17771d6dc6c3470eb966e6134e5fb88f4bf2e7e7301f98a5dd17f97344e5cd78",
+    "1b7a79ce3d2dcb5add16fbf0bafd2c0a3ad59e63aae43cd1cc69e97e51ab549a",
+    "1ba88f9febcd873fa95629afdb871666cd2461eb3dfdc710383cc6853d58d2f0",
+    "1c2251ecdbbec61beca131468c54022cf4f3a7b634b4d33da3fd1c95fe799d2f",
+    "1c4678416a0f571ce48f4ea0bd7ba2632102e288351375b563a750df93362f92",
+    "1fce7c7effcf0074e8370990e83c6c385deb5e165bd00f26c6af8d2fa2ca130d",
+    "21fe9219ea84866b5a0d66e88ee70a08eeb2b74c4dca7a82924aa520b98e0050",
+    "22331eedee309d800a0001f8a1b36b13fff6a4ac7803e0db3935cf292aa2493e",
+    "223f729f70bf085e4cd8ffd793bebd09835bba2a1292ab8ee2b428b6130456cb",
+    "224233aab709b13c943dfa089a36cc2ac57797dc0e3b8f8f54f0fe3171564ff0",
+    "256fcaf26c1f0249d5a5f143ce1592f8d7a808e07a372ecdab5c0af430d52418",
+    "257449eba75758fc99926cd208cb928077a44b092bfc5d96da48ab61a851718b",
+    "2821736c8150152105a18de9a3525b7f84b7812f81916a48e3cb15ea375936d6",
+    "2c33c7723bf6f49bbffc3992f0883d0023dbf8df70c893406ab646e5bb389afe",
+    "2c61c158db3f303eeb2da3ece9eb41f702af381dde91935c583026cfc7a7f313",
+    "2c65d98bca29e14f2108297f8a33e7308b27a8564fbadef6fe4875ee149582ac",
+    "2c96dbbd4a7aa2e624c78e4e7ffbdc63d071aa203aedd0ac9efdcd6874ca2f27",
+    "2d5768f8ffede85bafe797848629fcf43526e83dd8dfa3bc6634c6861fc7c16d",
+    "2edb7b66df567e2910a459f5bfe5a3ccf999b1646b8e897d9ca57fc0f47b91d3",
+    "2f18011d43aa1b53ac174b0e61adf94d800a7d0f04f6b39d4488b7f8485b46e3",
+    "2f64c75a01d8be8314a1fd9c091d00ff804a3d45c2c88a893dc151c3582186f7",
+    "2fc739c79583079c4f71cc49c292a639af23f7b08da02408888b3fe9e7641c70",
+    "30d4e180730608e29e9ce726da0481b313394b196ef9e98f9f5dbbef49435a15",
+    "31510ced7aa96ee3d60845797911c50acf1d2aec732127241fec7cd665997041",
+    "3184e17053fb2a8878ac6c7383c7ae8677daea596d77a81b6547287a367aacba",
+    "31a29ae415c92a08da542066a8743ad815986c32017e1ac91407119b523101a5",
+    "31e566caf38bfa663baac77dfde215c336271b395c8061eecbd4ec8c6594525e",
+    "323ad850b1009a7859e2464c138eebffded7c7f5cb7ddf50e8faf6c404f24b4e",
+    "330c081c7028de9ea030d0ef41f1d60c004f61514f3191e92e549d8b59cdd774",
+    "33513ce54a0f577fa7c0bbf4ac748cd911d07fe50526adef57d0110e14750d91",
+    "338002feb45dfaa9992914a76e171460c67b563dc79a9ebb709652098dc9b2e7",
+    "33be55bec2a59ccc52c811b3226559652eda944049a00fe66ab8e9b3f8c018bb",
+    "34c44994120cc8ed1fd456da44a1c0212cb7abf172c51f3c145bdd087c77b560",
+    "34e1196351f741e14b96b330e195c01d300d532f20cb51e9bd57c984833af55d",
+    "37a418f276596dbe521c619538f3c2df3c094a5c31612e1e3c80326214bb1730",
+    "39950ccb2cbbedac174a69428a9a51bf291b15a96befb4a870566cbe0aeb15ea",
+    "3b2a6bfdac8cbfa5e7a2bd19a11fe603f5d02aede5bc7c7297728eb458962633",
+    "3bff6479d5b530d9f1d9f7c89d46a641dd5df1d7ca9c072e157a610f1fda9810",
+    "3c9f4bcd4b720afdb9f7aae4827312adf33ea98c87e197385acee6da8cef9b49",
+    "3cac495539a404448c1952e28afe63c85888b88f52924f3f2695bdbb189f304a",
+    "3d4ccb37bb597def7c032fa1e3f9f68dcec01c5a3119163b6958cbcf6c97acfa",
+    "4391da62a92c04825a18f7af034ee3fecdde05be2fe72c09a5614262b86ddaa8",
+    "44ec1fe7507bbf0d6831c893b2fbb62bfc4207d8485feb89f1eff8e70f852522",
+    "469f1c839470723a773b499db70a930a09d26b920fe6c5915c903155bb017ae0",
+    "473274d4eafc9161f6cff74ec013059b1753d05544c5d20a4d266ef534ff6c05",
+    "495a8e6e257abdbe0147e29a146c8676b8f2e9d0608ff1f2a7d1f66747c707ad",
+    "4a18e2504d797a39071335bc66ad2c8fa691cd07e96fe8966ec69841fb8092eb",
+    "4c598fa0d35319624483b03660e34e02074b42b38aaaf1e519ce730abf469cf8",
+    "4c726598f7e38697c945a33d157a79e83c56312b1a4af15ba1762193ef826967",
+    "4e1c14776d18bce776c49f8368ff9f371078e7789197b667e5407fce5c8effb5",
+    "5034400fab6db9cff2c5f42564996a4cf24023b7767dc476581547f13eccaeeb",
+    "51062efa2d7456898a2eac59e82ed8236e7059e3173398d63f93774e90c354fc",
+    "51309799c7d2f7a639b1af21c7e412220514dcc31ab42827808673ef0eca21c9",
+    "54444b2cfab9cfb0e63d88a752b08211d90ece61981a2ba347255f463e4cb2eb",
+    "5515362d94e7be43ec1bb026fc8df61f8c8c7d44aa2904111dccf28b52a799f7",
+    "582b8543aec81e39396b792886a70a8ab2835c7856597b6669207a01006fd7c6",
+    "5aab886f0a41ef8a87d4be0301ef5a4afc30f11a6620171875927201ce7de84f",
+    "5b7cd4d88fa089ada2caab26dafb5f2605448f5ecc6bb7e8c266a9c1d3b654ad",
+    "5d536f4c065c4ccbe1649deda4998fb5efefab1f223a2f8b5e48b066b2908c0f",
+    "5d95326ab0449f6e6536001ed4d238a13fd8e68472213e401d070156d6c80f58",
+    "5e088e35b9fafa1758764ebc0d504146ac5f47f5b1732cdb78e32c74816301b0",
+    "5e3c8dd88dae4e080141133f71d15ee77b5aaafac6be6c307f5ae3ed4b5f57e4",
+    "5e3e8d818236528c92376e5cecebbbe34c9d36dae6aa63ed8360f466e8720dda",
+    "5f1593187c03db0be32a4de733df94800f3d408aba20e4ed846b34b841ca2850",
+    "610e6572c7eca944816e2da85bd07b5f6ef437d5469f42adb53e32c686869c5f",
+    "61e132e3edfcacbbc5c4ff76d7b5fa85e9341ab22f8070fd29d6c214a88aa379",
+    "640d4c7e3e3bc589a79cc43f5c27db61965f68f0d2aeb2c3ee21032c6e2f59da",
+    "64a7cbb94d37d988e5ca6bc31a6542a4f7b277f0a456954021cc569292e063d0",
+    "64d66738f5f5adbfbcac0a497c342178212827df80d3e12c72e8988f09422795",
+    "65a7c56070bde214b9e3c7dfe70a188ba0efb158eeb9765669d864791452a68b",
+    "65b5e1e3402a0190d18837de973cc16bf3ab1c19757ee5ec681fa8427f3c7336",
+    "6b0883dade0b9bd92e1b7bb085df84603fd2dd08734d2be7ea32a6e6545831b1",
+    "6c3d2365e3621b8cf557e46282633999c68b64fb211b150b141d301912464ae4",
+    "6c4298b371b73c54f4db5fc30cc1a88f91559001087fb6ea4e13e1fbd0517b9b",
+    "6e6a7641a2494ff8ecb4cfeafb67a3679efaea050f070abf8137364cc50db51f",
+    "6e758eaad715264ee51d88ca28b4530d578ed0a4c7d3029f21d894f93305e11a",
+    "70e2229eac971c80e0525552fe1cfeaafd063b97d2446dc4635c6d1b7c26b91a",
+    "7217fc982027adc2f8da249d2c84398413b4dbbb8d449bb5e0a4a5ae5faacbb1",
+    "727afc4d794a6123f6a3d92819fa7fd830f4254d12d6a6ca8d3d5d3ab35e64e0",
+    "72f418da14574e3f006b7709a7794a9db45742382b852436b425ce6b02106e80",
+    "758a4e59d6ecfb5fbf8368228c9c60af50ca7fecdacc5101a3635ef6347deb84",
+    "78d30e43debb4342a6e58714623bd2f541a4fc4a4b2005b32e466cfcd618ebba",
+    "79ad6031e0b5959805854fe870b63afa229cfd3bf541df2560a7a54f44ce24e0",
+    "7b23b0f0c653bbb731cb1be2c4b9a50216da75238b831f738e310bd1b6e31d5f",
+    "7bc35f3430941e7c054240ae861043adb1244e36987d5e1c936283c1f3bfe18f",
+    "7e38fd431ffa01db1b82769a08636365b8871bfdcbd3c46cce5d465b01e9fe9b",
+    "7e930f9ebcd34abf0268b81fa139d051ce9dbc3c347009ee65f956e072bf5440",
+    "809aa09effc2c758dd2781ab66f3ae07140226eaea27ce5eb95ec2c411d1edda",
+    "80efbd05fff6f002edb4d3e6f28dd78de03b7947600a3092d5df4a94932a9408",
+    "813ebde01d367c2e7d25153fd75fb7b2eb4b5e6e284f1276a348dc097e7c37bb",
+    "81a318b6b322db89a51a5dbcb12c337a0f99ba82d6349b18a211c246980a1dea",
+    "824209d54a5afd1d273d9bb41977990dfa3679b665b9a43b1de49f1a144f9b03",
+    "83a567bb4b16d86dacaf514cd1207d828980f69d6f11da97d62eae953399c1e3",
+    "83b7582a3c6b885b093821a08debb1cb4c49bb411bd398cdc46a8ed35d688f9e",
+    "851077b0012da8be0a6ed705dfcf5364ad1dba117a2dd9c7a55579dfa89a666e",
+    "85aade1691bc493e3edeb5c7d0873383775e8b7d641a55ca4b59f89f9735836d",
+    "8719305bce6ebdd46ee3615923d29782f57269e9e916edae3df4020d8a14b10d",
+    "8932d2999c2fa38fcd0e002ac8f370062bef8f1cd92a9382399934b13cc88c0e",
+    "8bb051db07505d7c1ed0480ba2ba5fa8760df8d0c99bd93aa3dc146e8d6cba39",
+    "8c5a5e8019182e8111518a2abf42feb36504468f36a8c7511fd8d4814b69e018",
+    "8cf39b862e58e15397ffe50b33fba253a3740c714eda58aa83ea24714c9fa167",
+    "8dbe25d5ecec104aa1c2d964241cbfb03b54ed7c8d477aec577923c71d478f4e",
+    "8dc36543b349cb776eaac9c1eea566289e2bba3196b561bd820419cb6f582505",
+    "8de30ed5ae8172cc3ac87881c0fcba2aa4ff7599593ca8719ddc986cb5ae18dd",
+    "8f39e5d9d45077dfb9bb4a0bc7d0bbdef3dcd09465fdded48e5b26b80f1b6118",
+    "8f9109c97c27885bb7cc4753b934ecf715c38f42f8660eaa84208af34cd96b02",
+    "9088e59caf59c812854ecc12c6e811cdd658dbc0c515d418e6c5ef49d6100172",
+    "922ce9c0526b8c4b76c47d0ecc591e869385236b697b62b2b591bc51ea1e2c4c",
+    "926c91c4f56afa14c502a499604a4976bc91e8d9354799dfe7cb2528ff027a03",
+    "9368e4f3acac673614ad31396755b0d2b5eaa43292b40f395a35ca3b97a63399",
+    "93d7bd292ce33e310d4ef615c07927f4dd8443ddd2558442fc8d8c90920e8065",
+    "94840e5dd235cf1e6f1d19f5483302f452a29900634d7360d29f8b88b6dc3650",
+    "949a22e0e16491d67118fbc26f22c6bf4993db0b1bbd7eae48c998bb4f61a371",
+    "9521c6de2a2af6321b6e6f673db542aaa13bb9209590774228d411f3d9662423",
+    "95e39eacb10c34d5873897ae8d2c90d461193a73918cb5a951f4046729bed4ec",
+    "963558b13f0e9e5c0e7167ee3ee518f377a1e4b4ad2d1751f74ccf2091bd86c6",
+    "96dd0c7dc897f4c83e75c2359734c8770943c0d15a97a1a27479107f8a8a1fd1",
+    "99760116169804575dc9bafb6ab447a8a9fb7c6f44b4ec74e0a23ce236a8031b",
+    "9b1e3d3ff7c4011c804b7124d3c4d35164dd34accf4141503a0f02189f59ecb5",
+    "9c17c5decdaedcf492aca7076dc277590d46dc871cb578f9af808af1d16dd096",
+    "9d762232d48c68b0fc2c32a892269bf8f2173df6d1949009457a854290dfd585",
+    "9f9b7f88e5ddd910a68965475386caa350a5ec70f347036cc4612105c4a22d60",
+    "a03c15adb54da36506bf9b7d9f62c502c83c43c5d10df2cc8ccfcc3edd6a9f19",
+    "a0abe10b8f29e289b72b561420d0e255f0ff634cf8b28e94b09fa66cc3de2cee",
+    "a19efdac4215d554d54b45191293f50ffff5e84a760b162d698db8e4b10a08c5",
+    "a2f5ddfeaecc1ea5068ed0d767d6ad592c64c5133ce1e813398547b710be4246",
+    "a47ae7e7bb82f7b54a0615737ac81693c0a4d9be4251255ad818cb6e50acb914",
+    "a5d7c28aaac7c54c11027a785cb916f0cd9d3df1002b952d9cba27d7202f7395",
+    "a6ae258b1ddff946420fb79925eea4167250a3447446f870990ac9447e092ab3",
+    "a9f5e68ed5ac48fd1d32765ef66c341417bec114c206871ba77b0bddfe26d885",
+    "abf71bb0c4aea754b0e7d2e03e56628332d0da44f63d69a6df1303bad9cdd4b7",
+    "ad14456f5419d66a5b0d54e5ae21b1fcc07b1ebb0bda8ee62a82591bfa05b1ce",
+    "ad970c01f9584248a1f56f03ea5a4e4ac19320fdfc11b38241c247b307f22bf9",
+    "af4cb9a7be9e7ccf3a37e15f8c1ca55b537c84584f8bbfa886511271a7fedfe9",
+    "b0bd635680cb506f115ec44d55706c66e1a759a0cb72b74bf03f90a71d9d801f",
+    "b32faa535dcf814b9e2a1ff960301e6c51dc06c2f34605bce12b59d2067247ac",
+    "b3ef8aeb319a749699ac9960d5cc252bd5770774877ebeadfaa1c16781139f78",
+    "b55c3a8fd252cacfcddab116bf7d3567f72acfb95fdc4e263d60ce488697f5e8",
+    "b55d3b358698aaf593f8a7e91ec02788a7a87b6ec89882394d3649b06ad4e1dd",
+    "b5c7b6b5a5d48958f505372adf8b1f54c63e8c20702dd01a92bc86dd775391fa",
+    "b890e56e5ae614c4f91787e0b9c3f746b8391354cdac6c2caadc6adf33dc66c6",
+    "b8db692dcc4cb33a6696b9538d03c7b651921e36ca68d939546e86d3de7ae575",
+    "b91a958f36c074977d4aaa35e2e69ac6af73fd318463d75fe546b373c863e959",
+    "b94a36bce5f403d89f9c6408da124e7dbd2b54f807cba61029b35dd26b1ff93c",
+    "bab518f771768717ae98105064ae482c531da395a56d9a8dccb7d44db3a8f6f4",
+    "bba9735eef199eef325325946937d9608903f035aa46c13a6a6dc6ff2d934a5c",
+    "bd0e0aad963fe2857e5c5caeaac6efbfe0ee4bd83bec2ce5bc6f34770ecd6177",
+    "bd0e8a71298ee8dad17f4e1fc4106376bc3052026f0adc395c23b3831ef97291",
+    "bd2b2450be403c2581ea899f22929624cc9414c1d160e012805b9b301885019f",
+    "bd33911008fa70f75d7c6802e679106a2e889f4b7d785d31a6b4fd61a2529b88",
+    "be70272dda3b6cc3bfd2118d8bfaa04024e2506f84ec9c1e4522cb1925a4b2b9",
+    "be86d1637c00f122924dd70772c7f5bd033825c4bdb3196fba79fa0af609536d",
+    "bf5264f86840e56507ec49b9f13763d4a2e45605cd3879497e4e64f08a90776e",
+    "bfb422d65db55cd2ff5ab98fec46cbef98302532f8e68047aaf8010b7bc0c724",
+    "bfb9e7324f3aca3bbe6fe42d8d79eec34f6e23c2d792b6fdb47072d5f73a4ebb",
+    "bfbeb11ca86dc41192601ced71f9a7ac7a94bbac801a7d580e036598787bd601",
+    "c092827d0796e2ae8d6ff43d27541b0e9dcca80085b0283b2ca9def6be967227",
+    "c0e4706fa4c92237f5d1b5615b6a876f74fef92a11b9af195dd9f562b5517cab",
+    "c19fef88b20cf375cc3bb61df75cc6961528ee95fd6b8460a3ba43c05978c12d",
+    "c1a4ab13ece206f50e0fda873162c4aa8a669534ef61835ab7902d9ae90a6c8a",
+    "c446d592e9d0ffe3859955c86a3459160f4e987b6ef17c59a4a96624447fbe7c",
+    "c47eed3bc8f5d0aa24e9217cb12255ff00d299b71f95d5f474f1573283d43bc0",
+    "c56106cc05a68450f39168486df0c5aef0a2d78f7179bd83f16bc29dc5a99f63",
+    "c56ee45e719c4849a3652792a535e49588d738b566777222cd80ace1a7b0131a",
+    "c6fe9fab75fe623d01a9311a4f792e949a74b4b28ec1619ecff9204944791ad7",
+    "c7e272e368fe8142dd44caf1b2bf0e75688cd517445af6bff987d3627104e977",
+    "c89d9fc694f63a2876647ecd8f68bcc78ed47130a9caa605432b35e0c2d1c1a0",
+    "ca4be9c763a6e818b27309beb970d3de7da668c89e23c521a4d205647ff6c41f",
+    "cb380d5a6b90cb1900260a501b930e91a76004125150d6d09fe8323d5ea539c9",
+    "cb827947790a8c0c53f7e7aff541be8ddee35c500403c83244d5aafd4a543fd5",
+    "cf2bce286ce217c95246d59b7f97637a4bfd255ae355acfd6377c5c8b404a22f",
+    "d02157c514b257109d5a2e786cdd48e0ae4bdd0664f3d38a8c86dab81a73382d",
+    "d0d10e4fb441e23da82dfae59fff337e3f3fec85a78334a59277790a26c41a5c",
+    "d1dde115c0bacdfaf68702f7ad6f6468e3f1f4bbf9c53caa463a6045f2fc8d5d",
+    "d2697b8d121679f88fcc028710e49aabcc1e1ed89551b51356450937d88245a4",
+    "d3b8efd0f0cd0fe0559c1141a4637a469ada141e4b7028f84f1f76e11c34721b",
+    "d87276a01600bc0d7e0a690c8ae2affdfc3801b427eb3c3b57eeeb4cb58a2391",
+    "d879f1e93e8223065cdd0c79c66ec18fd247bd8aa85ed35cdb0ab0f3b8c1da7b",
+    "db78a0b78cb9a381e5a088cea7d4772f655d768c08f8243c750bc701c66fe1ba",
+    "dbcd5844e8ac30e6d831da17c8695144f6e14157c691752ab47cdce1cedf393b",
+    "dcff4494c9b147c88f6bdd4f3d65d834a8316d8da257239d93b9fcc43eb9710c",
+    "de917ce916bdc3462c2812ef5f9578d44c6f2a94f87d64703521b5f8809add68",
+    "def64b6107c89e0e06cc0eccd07ec7e5e66853f33ca697e0a030cdf047d86fdf",
+    "e1c304713580d6fe709be382ed50ef17304089b4c7fce9eb68942bcf3f973c3c",
+    "e1c786ca572678404221a84656a03c97b8f66bd1abe6f30a0f455eed96f1ca26",
+    "e2d70b0b478eb0c98fe9faa392c9e6867e2626f0bcb2bd7a66d1c800500244c9",
+    "e38089774a444eb826a5477a273082812d2caf898334605b89624a4103ddfe37",
+    "e589781f947f6fc3e32da2f5d1f3eeefaa22e9fa79f025d411fa79e7e52eec85",
+    "e5a22b8b7757fa796affd2f878c76583b5600ae965f42fd8d77b3eaa19d36e39",
+    "e77ee483a36bc523d462e84caad1437ad4abd37c59900d9bf44f1d1e0ddf15c8",
+    "e834ce4ae1a361ea5c8b04b27e74ebe65d879a1323b59221c2cfbf05828bd8c2",
+    "e8c48ce7e6371409de11bb76fe2f6213adb5819c530ed37fe07c3f815b3d886e",
+    "e8fdf58f639b6d446f86ca57d5bfd53a49693986e96caf3bbb352bddfedde116",
+    "e9680fbbca8455418fd234fbd3eaa64aa57016d6a0cd53d0f11e259ddbaf8418",
+    "ec8e2a024d41dd181bc7f9c1591af3880fe55f099533c0c9a67f9c534d6e3679",
+    "ec9c54e218935664bf2dcab404e3b04518c6240ea7a3b248b18ef2559a94606d",
+    "eca28c9ef55335098b5f3fab57216acd67febd8c144a4772e873fcfefa7ac0d5",
+    "ecb3689e06835d31fab36fd249b4b8667823779ff40ec7553dc510a432871a20",
+    "ecf8b43ade3260a7b85005e92fe8ea2e89dfe10e43ac9950335ab3786b76a6bc",
+    "eddcfc3ac7d9145fdf259e18daf45ae0c2ed60a78de8716bb6d732c735cfd6a2",
+    "ee71372a581c5243e4bc4c5e38c8ed46cc4205c6679c390f40b626413ed40294",
+    "f03ca1cb83bcb7ec520f6113068df7a8d567ec6c564386169b827a733e01e4c6",
+    "f0f4d13e724b6f1ca91eb2642a5e7b1f36bda00fcc4c80dff200d8385da3e4ed",
+    "f16f066660cc24ab6285dd68f79fc10e4425c2ebbf55075e70f944a3cfa69482",
+    "f2d4e19ef82ec4ccb9b10084adf77fc9d3de4ea1901c9c147a19ef84c2b6cd8d",
+    "f34486c17fda81913bd4c1968e3b11abd0fd24804749ac72ea01441c12e4a045",
+    "f40a7dac29c137f05944fcb2495e0bd5441784ed540c8b0c69528dcebc47735f",
+    "f51647859c8cfd2ca56ca7b518eb03f80fc01e70500c54759812d0ce5abd2b42",
+    "f67f051f600f07e80d60a8d0bff713794efb7214a304fd87211b0b9398bf41ca",
+    "f7be171cd80f567a36c39e0f3786c1c390418dbe9c9d999e2e13ab56e9b6b5d4",
+    "f8b24ee43f17c7dd79178cab19bdb6d68e5a76d5b4a03da13efd9e8ce9239246",
+    "fa09f8e8477be2b63f0da049105598d57d0354037841f9199ac33de1f7c3bc41",
+    "fadd4ca2422ea2589ff9c8fa5516112f585d9511a261e1ca8e91e2d3de68d8ef",
+    "fb11dbb6ddbffb38e88b99e0c72208bf9c77bd50dc5b190897cc3ddbaaaa3ba6",
+    "fc45122f103854939870733b913b47581fe4efd11cb5cb231305ca9e1208a6c4",
+    "fcba599b0fb48de46a6f63f9751b2700b7fdafbd6b0bd5c74791f35aacfcd119",
+    "fe166893f615dcc930d931927f66ae26c35f6f448fd4eb47685f6914e889642c"
+  ],
+  "scope": "Saved Beijing 15730 K30/budget35 application scores; local execution paths omitted; not a new scoring run"
+}

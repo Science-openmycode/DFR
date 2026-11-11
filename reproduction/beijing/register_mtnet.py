@@ -13,9 +13,9 @@ ROOT=Path(__file__).resolve().parent
 
 def validate_training_preparation(prep, prepared, config, path):
     """Require the exact frozen training selection, not a full-population model."""
-    m=json.loads(prep.read_text(encoding='utf-8'))
-    audit=json.loads(path('split_audit').read_text(encoding='utf-8'))
-    indices=json.loads((prepared/'train_split.json').read_text(encoding='utf-8'))['indices']
+    m=json.loads(prep.read_text(encoding='utf-8-sig'))
+    audit=json.loads(path('split_audit').read_text(encoding='utf-8-sig'))
+    indices=json.loads((prepared/'train_split.json').read_text(encoding='utf-8-sig'))['indices']
     expected=dict(split_audit_sha256=sha(path('split_audit')),
                   train_sha256=sha(path('train')),test_sha256=sha(path('test')),
                   train_indices_sha256=sha(prepared/'train_split.json'))
@@ -41,11 +41,11 @@ def main():
     p.add_argument('--train-only',action='store_true')
     p.add_argument('--preparation',type=Path,help='Verified fetched preparation manifest')
     p.add_argument('--model',type=Path,help='Final model bound by the native release')
-    a=p.parse_args();c=json.loads(a.config.read_text(encoding='utf-8'))
+    a=p.parse_args();c=json.loads(a.config.read_text(encoding='utf-8-sig'))
     def path(key):return (ROOT/c['paths'][key]).resolve()
     identity=validate_dataset(path('prepared'))
     if identity['dataset_id']!=c['frozen_dataset_id']:raise ValueError('Wrong frozen input')
-    meta=json.loads((a.source/'manifest.json').read_text(encoding='utf-8'))
+    meta=json.loads((a.source/'manifest.json').read_text(encoding='utf-8-sig'))
     native=a.source/'routes.pkl'
     slots=c['train_slots'] if a.train_only else c['slots']
     if (meta['generated_records']!=slots or meta['routes_sha256']!=sha(native)

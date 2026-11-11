@@ -37,6 +37,10 @@ def main():
     random.seed(20260712);np.random.seed(20260712);torch.manual_seed(20260712)
     if torch.cuda.is_available():torch.cuda.manual_seed_all(20260712)
     checkpoint=torch.load(root/'trained/model.pt',map_location=config.device,weights_only=False)
+    training_manifest=json.loads((root/'trained/paper_algorithm_manifest.json').read_text(encoding='utf-8'))
+    accountant=training_manifest['privacy_accountant']
+    epsilon_training=accountant.get('requested_target_epsilon')
+    if epsilon_training is None:epsilon_training=accountant['certified_epsilon_upper_bound']
     model=mtnet.Model();model.load_state_dict(checkpoint['state_dict']);model.eval()
     original_step=model.step
     def step(x,t,h,c):return original_step(x,t.long(),h,c)
@@ -67,7 +71,7 @@ def main():
                   preparation_manifest_sha256=sha(root/'full_preparation_manifest.json'),
                   conditions='Uniform public edge origin; fixed departure zero; public TCOST_MAX=6000',
                   private_input_access_during_generation=False,post_generation_matching=False,
-                  epsilon_training=1.4,delta_training=1e-5,
+                  epsilon_training=epsilon_training,delta_training=accountant['delta'],
                   privacy_scope='Prepared-aligned replacement-adjacency training; not certified end-to-end raw preprocessing',
                   seconds=time.perf_counter()-started)
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')

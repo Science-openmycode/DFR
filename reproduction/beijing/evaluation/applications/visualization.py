@@ -224,6 +224,7 @@ def main():
     p.add_argument('--summary',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
     p.add_argument('--base-cells',type=Path);p.add_argument('--base-binding',type=Path)
     p.add_argument('--sources',type=Path,help='Verified source matrix collected by README section 09; also render final framework')
+    p.add_argument('--spec',type=Path,help='Explicit checked-in matrix specification; legacy default remains unchanged')
     a=p.parse_args()
     if bool(a.base_cells)!=bool(a.base_binding): p.error('base-cells and base-binding must be supplied together')
     if a.sources and a.base_cells:p.error('Use sources or explicit base cells, not both')
@@ -248,8 +249,9 @@ def main():
                     raise ValueError('Metric source changed')
                 cells.append(dict(row=r['row'],metric=r['column'],value=None if not r['value'] else float(r['value']),status=r['status'],
                                   source=r['result'],sha256=r['result_sha256']))
-        spec=read(Path(__file__).resolve().parents[2]/'reference_results/matrix/spec_framework.json')
-        if digest(Path(__file__).resolve().parents[2]/'reference_results/matrix/spec_framework.json')!=sm['spec_sha256']:raise ValueError('Wrong framework spec')
+        spec_file=a.spec or Path(__file__).resolve().parents[2]/'reference_results/matrix/spec_framework.json'
+        spec=read(spec_file)
+        if digest(spec_file)!=sm['spec_sha256']:raise ValueError('Wrong framework spec')
         cells,methods=prepare_cells(cells,spec);metrics=spec['columns']
         matrix(cells,methods,metrics,a.out)
         (a.out/'cells.json').write_text(json.dumps(cells,ensure_ascii=False,indent=2),encoding='utf-8')

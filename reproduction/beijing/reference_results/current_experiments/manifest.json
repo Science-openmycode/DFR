@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "dataset_id": "afeddd66f0c6d5281dad5980bd56a8b62ffbd87ed53cd92493761a516ff1af35",
+  "population": 15730,
+  "mr_epsilon": 1,
+  "mr_cells": 209,
+  "mr_not_applicable": 24,
+  "mr_missing": 0,
+  "budget_points": 462,
+  "budget_missing": 0,
+  "budget_values": [
+    0.2,
+    0.4,
+    0.7,
+    1,
+    1.4,
+    2,
+    3
+  ],
+  "dfr_seeds": 5,
+  "other_methods_runs_per_budget": 1,
+  "raw_records_included": false,
+  "private_source_paths_removed": true,
+  "github_source_commit": "eb9b563dbc371795dc84905de4e9e2f8c05ee146",
+  "source_input_sha256": {
+    "mr": "7b187f12d8432328cbd91d5bcb881e4e8dcbfe6244f5cc39be062affec3120a8",
+    "budget": "9e2dd5924ecffd91940b1b35810d25ffc05a346727aaa4ed03b25b4c7fbac6a5"
+  },
+  "files": {
+    "budget\\budget_current.pdf": "26c7489dfd13e188f4331b55dbc8ad1d889d2d3bddf69abfea91d1501201c042",
+    "budget\\budget_current.png": "6e6c497b3a4c95d22804206a89c77ef463500f9402092c9b9cbfc74dd2b2886c",
+    "budget\\compare_github.png": "557f2bf78b5d77e2228daa6e07517ddb7bd37804b0b3b9e2e6125b0fb9e9dfe0",
+    "budget\\plot_data.csv": "dbafc8a72f0e4bfbe60ec130009ebcfb6cd2224bdca607ae037ab118e6b8a950",
+    "mr\\cells.json": "313c39928ec464ba1701386da3790b71e39b4b20f663bc48858d99fbd2ced717",
+    "mr\\compare_github.png": "9bfe1f4d6dd7c9dfbf179f66e06f7dd2606b5a4f059d0e74e88b200870a3c310",
+    "mr\\framework_matrix_transposed.pdf": "e4b882f50b5ac6cfdd6be3bf1f65826884a4779bc97bf54b7dab73c3396de2ed",
+    "mr\\framework_matrix_transposed.png": "8eee6992e43871090a5426eb478566ac6f9f9fdd46a9885ad048a1c93d42cb90"
+  }
+}

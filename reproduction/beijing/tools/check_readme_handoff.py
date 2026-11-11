@@ -63,7 +63,10 @@ def check(config, config_root, root=ROOT):
     # This checks the links, not the existence of future generated releases.
     # Their successful exit/manifests remain required at actual execution time.
     for name in ('prepare_endpoint_controls.py','tools/endpoint_control_core.py',
-                 'mtnet_dp_od.py','vendor/mtnet/dp_od_variant.py','tools/add_application_release.py'):
+                 'mtnet_dp_od.py','vendor/mtnet/dp_od_variant.py','tools/add_application_release.py',
+                 'adatrace.py','dptraj_pm.py','evaluate_representative_regions.py',
+                 'tools/collect_current_budget.py','plotting/render_mr.py',
+                 'plotting/render_budget_comparison.py','reference_results/matrix/spec_current_methods.json'):
         if not (root/name).is_file():
             raise FileNotFoundError('Missing control generator: '+name)
     return dict(status='README_9_11_INPUT_AND_DOCUMENT_PREFLIGHT_PASSED', dataset=base['dataset'],

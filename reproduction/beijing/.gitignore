@@ -1,4 +1,7 @@
 .venv/
+# Locally supplied author runtimes; license review is required before redistribution.
+/resources/dptraj/
+/vendor/adatrace/
 __pycache__/
 .pytest_cache/
 results/

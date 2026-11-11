@@ -56,11 +56,13 @@ def epsilon(sigma, steps=30, delta=1e-5):
     return float(np.min(steps * 2 * orders / sigma**2 + np.log(1 / delta) / (orders-1)))
 
 
-def sigma_for_budget():
+def sigma_for_budget(target=1.):
+    if not math.isfinite(target) or target<=epsilon(10000.):
+        raise ValueError('Budget outside supported accountant calibration range')
     lo, hi = .01, 10000.
     for _ in range(100):
         mid = (lo + hi) / 2
-        if epsilon(mid) > 1.: lo = mid
+        if epsilon(mid) > target: lo = mid
         else: hi = mid
     return hi
 
@@ -121,10 +123,11 @@ def prepare(c):
         if not route: continue
         u,v = edges[route[0]][0], edges[route[-1]][1]
         hist[int(labels[u]), int(labels[v])] += 1
-    noisy = hist + np.random.default_rng().laplace(0., 5., (24,24))
+    od_budget=c.get('epsilon_od',.4)
+    noisy = hist + np.random.default_rng().laplace(0., 2./od_budget, (24,24))
     release = HERE/('release_'+scope); release.mkdir(exist_ok=False)
     dump(release/'dp_od.json', dict(dataset_id=DATASET, population=scope, public_slots=len(indices),
-        noisy_od=noisy.tolist(), epsilon_od=.4, sensitivity_l1=2., laplace_scale=5.,
+        noisy_od=noisy.tolist(), epsilon_od=od_budget, sensitivity_l1=2., laplace_scale=2./od_budget,
         privacy_unit='one frozen road record, replacement adjacency', seed_policy='private OS entropy'))
     receipt = dict(public_slots=len(indices), active_private=len(active),
         training_npz_sha256=sha(target/(scope+'.npz')), dp_od_sha256=sha(release/'dp_od.json'))
@@ -172,8 +175,8 @@ def train(c, scope, probe=False, resume=False):
     private = HERE/('private_'+scope+('_probe' if probe else '_training'))
     private.mkdir(exist_ok=resume)
     optimizer = torch.optim.Adam(model.parameters(), lr=.001)
-    n = meta['public_slots']; sigma = sigma_for_budget()
-    protocol = dict(population=scope, public_slots=n, epsilon_model=1., delta=1e-5, epochs=30,
+    n = meta['public_slots']; sigma = sigma_for_budget(c.get('epsilon_model',1.))
+    protocol = dict(population=scope, public_slots=n, epsilon_model=c.get('epsilon_model',1.), delta=1e-5, epochs=30,
         fixed_population_zero_contribution=True, sensitivity_l2=2., clip_C=1., sigma=sigma,
         epsilon_bound=epsilon(sigma), normalization=6000, private_input_sha256=sha(npz),
         implementation_sha256=sha(__file__), source_bindings=c['bindings'])
@@ -223,7 +226,7 @@ def train(c, scope, probe=False, resume=False):
     # No retained record counts, private RNG state, losses or checkpoints in release.
     dump(release/'training_manifest.json', dict(status='COMPLETE', dataset_id=DATASET,
         method='MTNet + DP OD (coarse24)', public_slots=n, population=scope,
-        epsilon_model=1., epsilon_od=.4, epsilon_total=1.4, delta=1e-5,
+        epsilon_model=c.get('epsilon_model',1.), epsilon_od=c.get('epsilon_od',.4), epsilon_total=c.get('epsilon_total',1.4), delta=1e-5,
         sigma=sigma, epsilon_model_bound=epsilon(sigma), updates=30,
         zero_contribution_slots=True, public_time_normalization=6000,
         adjacency='fixed frozen road population replacement; not raw GPS end-to-end',
@@ -270,7 +273,8 @@ def generate(c, scope):
     release=HERE/('release_'+scope); meta=read(release/'training_manifest.json')
     assert meta['status']=='COMPLETE' and sha(release/'model.pt')==meta['model_sha256']
     if (meta['dataset_id']!=DATASET or meta['population']!=scope or meta['public_slots']!=c['public_slots']
-            or meta['epsilon_model']!=1. or meta['epsilon_od']!=.4 or meta['updates']!=30):
+            or meta['epsilon_model']!=c.get('epsilon_model',1.) or meta['epsilon_od']!=c.get('epsilon_od',.4) or meta['updates']!=30
+            or meta['epsilon_total']!=c.get('epsilon_total',1.4)):
         raise ValueError('Require this independent MTNet+DPOD model and population, not ordinary MTNet')
     assert sha(release/'dp_od.json')==meta['dp_od_sha256']
     gm=read(HERE/'public_graph/manifest.json')
@@ -335,7 +339,7 @@ def generate(c, scope):
     np.save(out/'sampled_coarse_od.npy',np.column_stack((requests//24,requests%24)))
     dump(out/'manifest.json',dict(status='COMPLETE', method='MTNet + DP OD (coarse24)',
         dataset_id=DATASET, population=scope, records=len(roads), generated_records=len(roads),
-        valid=sum(bool(r) for r in roads), epsilon_total=1.4,delta=1e-5,
+        valid=sum(bool(r) for r in roads), epsilon_total=c.get('epsilon_total',1.4),delta=1e-5,
         model_sha256=sha(release/'model.pt'), training_manifest_sha256=sha(release/'training_manifest.json'),
         dp_od_sha256=sha(release/'dp_od.json'), public_graph_manifest_sha256=sha(HERE/'public_graph/manifest.json'),
         private_input_access_during_generation=False,post_generation_matching=False,

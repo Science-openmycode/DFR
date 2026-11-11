@@ -1,0 +1,24 @@
+{
+  "purpose": "Portable replay of the verified 11-by-15 MR result matrix; no synthesis or evaluation",
+  "copied_from": "check/porto_release_clean_20261102/reproduction/beijing/evaluation/applications",
+  "reference_repository": "https://github.com/Science-openmycode/DFR.git",
+  "reference_commit": "eb9b563dbc371795dc84905de4e9e2f8c05ee146",
+  "files": {
+    "visualization.py": {
+      "sha256": "9eb7d5560199a80f7b16208048e67987c3bcc07a025692552120f0e4e8d36447",
+      "reference_commit_file_sha256": "0560c3600ee256c9f6154dbb6385b3434818e9f9ffd1e833a90de226e8581d23",
+      "same_as_reference_commit": false
+    },
+    "metrics.py": {
+      "sha256": "3f555fee284af6f6d56bbf9e7785a3dd000d9ff4d6d06f5bd566ae2c29a0f519",
+      "same_as_reference_commit": true
+    }
+  },
+  "validation": {
+    "cells": 165,
+    "missing_applicable_cells": 0,
+    "input_cells_sha256": "e9da1f73615e32797d03f1c7df4074646ad665410dcc0420d24aa645ca24c96f",
+    "replayed_png_sha256": "599b9dd0a1be9a7aca0e3493b5d7844f2cbaeedeecb0b1b6347a8b2082e266e9",
+    "same_png_as_current_delivery": true
+  }
+}

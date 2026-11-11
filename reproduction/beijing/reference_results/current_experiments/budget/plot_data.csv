@@ -1,0 +1,463 @@
+﻿method,epsilon,stage,metric,value,n,sd,seeds,status
+PrivTrace,0.2,coordinate_scores,grid_density_jsd,0.2447237438141746,1,,42,VALID
+PrivTrace,0.2,coordinate_scores,trip_error,0.3855111734573131,1,,42,VALID
+PrivTrace,0.2,coordinate_scores,path_length_jsd,0.01908939226705881,1,,42,VALID
+PrivTrace,0.2,road_scores,RoadYield,0.8029243483788938,1,,42,VALID
+PrivTrace,0.2,road_scores,BTF,0.21035556820587345,1,,42,VALID
+PrivTrace,0.2,road_scores,FamilyCPC,0.15522519438603355,1,,42,VALID
+PrivTrace,0.2,road_scores,ODPF384,0.11586178968917256,1,,42,VALID
+PrivTrace,0.2,applications,MFPOrderedRouteOverlap,0.07858898800328275,1,,42,VALID
+PrivTrace,0.2,applications,RepresentativeRealCoverage,0.7004932056958553,1,,42,VALID
+PrivTrace,0.2,applications,SelectedRoadMarginalOverlap,0.34918879954931187,1,,42,VALID
+PrivTrace,0.2,applications,IncomingExitDistributionOverlap,0.39225466660515995,1,,42,VALID
+PrivTrace,0.4,coordinate_scores,grid_density_jsd,0.22923526906083758,1,,42,VALID
+PrivTrace,0.4,coordinate_scores,trip_error,0.2908090662733076,1,,42,VALID
+PrivTrace,0.4,coordinate_scores,path_length_jsd,0.04087013261847003,1,,42,VALID
+PrivTrace,0.4,road_scores,RoadYield,0.7382708200890019,1,,42,VALID
+PrivTrace,0.4,road_scores,BTF,0.2111623841401262,1,,42,VALID
+PrivTrace,0.4,road_scores,FamilyCPC,0.16786483527453303,1,,42,VALID
+PrivTrace,0.4,road_scores,ODPF384,0.1105580702303805,1,,42,VALID
+PrivTrace,0.4,applications,MFPOrderedRouteOverlap,0.10271878862085053,1,,42,VALID
+PrivTrace,0.4,applications,RepresentativeRealCoverage,0.6515210324288992,1,,42,VALID
+PrivTrace,0.4,applications,SelectedRoadMarginalOverlap,0.39565985905865714,1,,42,VALID
+PrivTrace,0.4,applications,IncomingExitDistributionOverlap,0.3961774693716665,1,,42,VALID
+PrivTrace,0.7,coordinate_scores,grid_density_jsd,0.21385426964615217,1,,42,VALID
+PrivTrace,0.7,coordinate_scores,trip_error,0.2853485268976817,1,,42,VALID
+PrivTrace,0.7,coordinate_scores,path_length_jsd,0.014612679767463424,1,,42,VALID
+PrivTrace,0.7,road_scores,RoadYield,0.7818817546090273,1,,42,VALID
+PrivTrace,0.7,road_scores,BTF,0.24453097248985423,1,,42,VALID
+PrivTrace,0.7,road_scores,FamilyCPC,0.16164830141828349,1,,42,VALID
+PrivTrace,0.7,road_scores,ODPF384,0.1257568452171532,1,,42,VALID
+PrivTrace,0.7,applications,MFPOrderedRouteOverlap,0.15938528689806838,1,,42,VALID
+PrivTrace,0.7,applications,RepresentativeRealCoverage,0.7009800351622744,1,,42,VALID
+PrivTrace,0.7,applications,SelectedRoadMarginalOverlap,0.4602582638726354,1,,42,VALID
+PrivTrace,0.7,applications,IncomingExitDistributionOverlap,0.4073464429447459,1,,42,VALID
+PrivTrace,1.0,coordinate_scores,grid_density_jsd,0.19166619627281706,1,,42,VALID
+PrivTrace,1.0,coordinate_scores,trip_error,0.2394267637456468,1,,42,VALID
+PrivTrace,1.0,coordinate_scores,path_length_jsd,0.01985139627571596,1,,42,VALID
+PrivTrace,1.0,road_scores,RoadYield,0.8603305785123967,1,,42,VALID
+PrivTrace,1.0,road_scores,BTF,0.2780056183770899,1,,42,VALID
+PrivTrace,1.0,road_scores,FamilyCPC,0.22315152916204756,1,,42,VALID
+PrivTrace,1.0,road_scores,ODPF384,0.14612788981034688,1,,42,VALID
+PrivTrace,1.0,applications,MFPOrderedRouteOverlap,0.13840712085249438,1,,42,VALID
+PrivTrace,1.0,applications,RepresentativeRealCoverage,0.6926796834918512,1,,42,VALID
+PrivTrace,1.0,applications,SelectedRoadMarginalOverlap,0.4723100796073796,1,,42,VALID
+PrivTrace,1.0,applications,IncomingExitDistributionOverlap,0.41199297758515474,1,,42,VALID
+PrivTrace,1.4,coordinate_scores,grid_density_jsd,0.16754676104257557,1,,42,VALID
+PrivTrace,1.4,coordinate_scores,trip_error,0.19210406833612526,1,,42,VALID
+PrivTrace,1.4,coordinate_scores,path_length_jsd,0.02124319989263614,1,,42,VALID
+PrivTrace,1.4,road_scores,RoadYield,0.8855054036872219,1,,42,VALID
+PrivTrace,1.4,road_scores,BTF,0.2993981509801641,1,,42,VALID
+PrivTrace,1.4,road_scores,FamilyCPC,0.24209888014083822,1,,42,VALID
+PrivTrace,1.4,road_scores,ODPF384,0.16766142890681623,1,,42,VALID
+PrivTrace,1.4,applications,MFPOrderedRouteOverlap,0.11307514263685102,1,,42,VALID
+PrivTrace,1.4,applications,RepresentativeRealCoverage,0.718281656341995,1,,42,VALID
+PrivTrace,1.4,applications,SelectedRoadMarginalOverlap,0.48046583763610723,1,,42,VALID
+PrivTrace,1.4,applications,IncomingExitDistributionOverlap,0.4197508066427557,1,,42,VALID
+PrivTrace,2.0,coordinate_scores,grid_density_jsd,0.1624254053099792,1,,42,VALID
+PrivTrace,2.0,coordinate_scores,trip_error,0.189067828205143,1,,42,VALID
+PrivTrace,2.0,coordinate_scores,path_length_jsd,0.025044109693872517,1,,42,VALID
+PrivTrace,2.0,road_scores,RoadYield,0.9134774316592499,1,,42,VALID
+PrivTrace,2.0,road_scores,BTF,0.305503519982328,1,,42,VALID
+PrivTrace,2.0,road_scores,FamilyCPC,0.2512807997642997,1,,42,VALID
+PrivTrace,2.0,road_scores,ODPF384,0.17241984147361764,1,,42,VALID
+PrivTrace,2.0,applications,MFPOrderedRouteOverlap,0.1290140218769008,1,,42,VALID
+PrivTrace,2.0,applications,RepresentativeRealCoverage,0.6649006093174283,1,,42,VALID
+PrivTrace,2.0,applications,SelectedRoadMarginalOverlap,0.49553775668987027,1,,42,VALID
+PrivTrace,2.0,applications,IncomingExitDistributionOverlap,0.421403975789535,1,,42,VALID
+PrivTrace,3.0,coordinate_scores,grid_density_jsd,0.1560854690903579,1,,42,VALID
+PrivTrace,3.0,coordinate_scores,trip_error,0.18983291147495523,1,,42,VALID
+PrivTrace,3.0,coordinate_scores,path_length_jsd,0.03015815956635264,1,,42,VALID
+PrivTrace,3.0,road_scores,RoadYield,0.9309599491417673,1,,42,VALID
+PrivTrace,3.0,road_scores,BTF,0.3164716638994596,1,,42,VALID
+PrivTrace,3.0,road_scores,FamilyCPC,0.24539273475758477,1,,42,VALID
+PrivTrace,3.0,road_scores,ODPF384,0.17131563358142488,1,,42,VALID
+PrivTrace,3.0,applications,MFPOrderedRouteOverlap,0.13643092251744396,1,,42,VALID
+PrivTrace,3.0,applications,RepresentativeRealCoverage,0.657016058508879,1,,42,VALID
+PrivTrace,3.0,applications,SelectedRoadMarginalOverlap,0.5103198319072352,1,,42,VALID
+PrivTrace,3.0,applications,IncomingExitDistributionOverlap,0.42205199134780336,1,,42,VALID
+DFR,0.2,coordinate_scores,grid_density_jsd,0.3063377289675015,5,0.013147219577065192,20260719-20260723,VALID
+DFR,0.4,coordinate_scores,grid_density_jsd,0.24293873236064728,5,0.009834449521174682,20260719-20260723,VALID
+DFR,0.7,coordinate_scores,grid_density_jsd,0.21010457176303426,5,0.006774226967581852,20260719-20260723,VALID
+DFR,1.0,coordinate_scores,grid_density_jsd,0.1931971068128111,5,0.006148866438894866,20260719-20260723,VALID
+DFR,1.4,coordinate_scores,grid_density_jsd,0.18068732878125354,5,0.00540851663609108,20260719-20260723,VALID
+DFR,2.0,coordinate_scores,grid_density_jsd,0.16987597235560398,5,0.003130727157597772,20260719-20260723,VALID
+DFR,3.0,coordinate_scores,grid_density_jsd,0.15905778968831527,5,0.0021835185669764508,20260719-20260723,VALID
+DFR,0.2,coordinate_scores,trip_error,0.39440445738713503,5,0.005639232827032815,20260719-20260723,VALID
+DFR,0.4,coordinate_scores,trip_error,0.29950520945407383,5,0.007997475600983734,20260719-20260723,VALID
+DFR,0.7,coordinate_scores,trip_error,0.24317944101409616,5,0.002371121369595347,20260719-20260723,VALID
+DFR,1.0,coordinate_scores,trip_error,0.204500530939509,5,0.004292329015504199,20260719-20260723,VALID
+DFR,1.4,coordinate_scores,trip_error,0.17915847562519463,5,0.003637108356686187,20260719-20260723,VALID
+DFR,2.0,coordinate_scores,trip_error,0.16017915736070387,5,0.005113578576132437,20260719-20260723,VALID
+DFR,3.0,coordinate_scores,trip_error,0.14134213816986632,5,0.005010685538513038,20260719-20260723,VALID
+DFR,0.2,coordinate_scores,path_length_jsd,0.05262044349064326,5,0.00789203834337335,20260719-20260723,VALID
+DFR,0.4,coordinate_scores,path_length_jsd,0.046583729357448624,5,0.006462312492966075,20260719-20260723,VALID
+DFR,0.7,coordinate_scores,path_length_jsd,0.05008846967542171,5,0.0014975828762026485,20260719-20260723,VALID
+DFR,1.0,coordinate_scores,path_length_jsd,0.05485744968598821,5,0.006370910792698613,20260719-20260723,VALID
+DFR,1.4,coordinate_scores,path_length_jsd,0.05329171599960755,5,0.002320144892768466,20260719-20260723,VALID
+DFR,2.0,coordinate_scores,path_length_jsd,0.06256333807713685,5,0.005409650995285531,20260719-20260723,VALID
+DFR,3.0,coordinate_scores,path_length_jsd,0.06441248555675642,5,0.0033981851223947273,20260719-20260723,VALID
+DFR,0.2,road_scores,RoadYield,1.0,5,0.0,20260719-20260723,VALID
+DFR,0.4,road_scores,RoadYield,1.0,5,0.0,20260719-20260723,VALID
+DFR,0.7,road_scores,RoadYield,1.0,5,0.0,20260719-20260723,VALID
+DFR,1.0,road_scores,RoadYield,1.0,5,0.0,20260719-20260723,VALID
+DFR,1.4,road_scores,RoadYield,1.0,5,0.0,20260719-20260723,VALID
+DFR,2.0,road_scores,RoadYield,1.0,5,0.0,20260719-20260723,VALID
+DFR,3.0,road_scores,RoadYield,1.0,5,0.0,20260719-20260723,VALID
+DFR,0.2,road_scores,BTF,0.29618396637623107,5,0.006420758465685241,20260719-20260723,VALID
+DFR,0.4,road_scores,BTF,0.3425725840106304,5,0.006005697777037162,20260719-20260723,VALID
+DFR,0.7,road_scores,BTF,0.37508003915780347,5,0.005755140466415511,20260719-20260723,VALID
+DFR,1.0,road_scores,BTF,0.38976348971131675,5,0.0038975443207671474,20260719-20260723,VALID
+DFR,1.4,road_scores,BTF,0.40133668290116603,5,0.004939872679300263,20260719-20260723,VALID
+DFR,2.0,road_scores,BTF,0.4091966389596469,5,0.005690632269977162,20260719-20260723,VALID
+DFR,3.0,road_scores,BTF,0.4210023546307786,5,0.0041648211464088685,20260719-20260723,VALID
+DFR,0.2,road_scores,FamilyCPC,0.22593769866497082,5,0.005601625116824006,20260719-20260723,VALID
+DFR,0.4,road_scores,FamilyCPC,0.30057215511760843,5,0.0025642776897773487,20260719-20260723,VALID
+DFR,0.7,road_scores,FamilyCPC,0.34361093452002406,5,0.0023594842415632514,20260719-20260723,VALID
+DFR,1.0,road_scores,FamilyCPC,0.36771773680864445,5,0.004593854500404438,20260719-20260723,VALID
+DFR,1.4,road_scores,FamilyCPC,0.3929942784488223,5,0.004561630157100304,20260719-20260723,VALID
+DFR,2.0,road_scores,FamilyCPC,0.4268150031786379,5,0.0009422937397513042,20260719-20260723,VALID
+DFR,3.0,road_scores,FamilyCPC,0.45364272091544644,5,0.002641677041948512,20260719-20260723,VALID
+DFR,0.2,road_scores,ODPF384,0.12225405782359708,5,0.010137496078994588,20260719-20260723,VALID
+DFR,0.4,road_scores,ODPF384,0.1588971476278236,5,0.006689201997789088,20260719-20260723,VALID
+DFR,0.7,road_scores,ODPF384,0.19040972481687587,5,0.007143392733143432,20260719-20260723,VALID
+DFR,1.0,road_scores,ODPF384,0.20337158261282612,5,0.007365682424782616,20260719-20260723,VALID
+DFR,1.4,road_scores,ODPF384,0.21180149552435665,5,0.0048876378630984775,20260719-20260723,VALID
+DFR,2.0,road_scores,ODPF384,0.22184963855334147,5,0.00500264464779107,20260719-20260723,VALID
+DFR,3.0,road_scores,ODPF384,0.23490172569495318,5,0.005219136464472991,20260719-20260723,VALID
+DFR,0.2,applications,MFPOrderedRouteOverlap,0.13831071376920576,5,0.011237796051100507,20260719-20260723,VALID
+DFR,0.4,applications,MFPOrderedRouteOverlap,0.18258547554396648,5,0.018347733808391744,20260719-20260723,VALID
+DFR,0.7,applications,MFPOrderedRouteOverlap,0.20065722468523675,5,0.02857864579855812,20260719-20260723,VALID
+DFR,1.0,applications,MFPOrderedRouteOverlap,0.21785734744516302,5,0.036765318017273285,20260719-20260723,VALID
+DFR,1.4,applications,MFPOrderedRouteOverlap,0.20056296901973128,5,0.02064875170985411,20260719-20260723,VALID
+DFR,2.0,applications,MFPOrderedRouteOverlap,0.23374509387114106,5,0.022346596902147287,20260719-20260723,VALID
+DFR,3.0,applications,MFPOrderedRouteOverlap,0.24230208657673766,5,0.010900948370064554,20260719-20260723,VALID
+DFR,0.2,applications,RepresentativeRealCoverage,0.7038419631668513,5,0.01611513192984005,20260719-20260723,VALID
+DFR,0.4,applications,RepresentativeRealCoverage,0.7298196444047854,5,0.0302652791139717,20260719-20260723,VALID
+DFR,0.7,applications,RepresentativeRealCoverage,0.7667004452180991,5,0.01714950754892481,20260719-20260723,VALID
+DFR,1.0,applications,RepresentativeRealCoverage,0.7644957231264783,5,0.019441047121442376,20260719-20260723,VALID
+DFR,1.4,applications,RepresentativeRealCoverage,0.7786488718402748,5,0.013835390624705115,20260719-20260723,VALID
+DFR,2.0,applications,RepresentativeRealCoverage,0.7841639351136495,5,0.008495369501173624,20260719-20260723,VALID
+DFR,3.0,applications,RepresentativeRealCoverage,0.7816983130618178,5,0.003821916077346032,20260719-20260723,VALID
+DFR,0.2,applications,SelectedRoadMarginalOverlap,0.39438637775831686,5,0.025385977047651498,20260719-20260723,VALID
+DFR,0.4,applications,SelectedRoadMarginalOverlap,0.4577277041765839,5,0.009313780331414964,20260719-20260723,VALID
+DFR,0.7,applications,SelectedRoadMarginalOverlap,0.4945746825012738,5,0.00855209579935161,20260719-20260723,VALID
+DFR,1.0,applications,SelectedRoadMarginalOverlap,0.5043666708891374,5,0.009740828833140008,20260719-20260723,VALID
+DFR,1.4,applications,SelectedRoadMarginalOverlap,0.5144729380858191,5,0.005148823939756584,20260719-20260723,VALID
+DFR,2.0,applications,SelectedRoadMarginalOverlap,0.5320543426066827,5,0.0046451182551464016,20260719-20260723,VALID
+DFR,3.0,applications,SelectedRoadMarginalOverlap,0.5274221051620124,5,0.00835047914674114,20260719-20260723,VALID
+DFR,0.2,applications,IncomingExitDistributionOverlap,0.6196292420372694,5,0.00827132078276606,20260719-20260723,VALID
+DFR,0.4,applications,IncomingExitDistributionOverlap,0.6701380917367232,5,0.016344928831985586,20260719-20260723,VALID
+DFR,0.7,applications,IncomingExitDistributionOverlap,0.6840442741998002,5,0.006917335872447001,20260719-20260723,VALID
+DFR,1.0,applications,IncomingExitDistributionOverlap,0.6882572884361761,5,0.009499450230439273,20260719-20260723,VALID
+DFR,1.4,applications,IncomingExitDistributionOverlap,0.6899751377392794,5,0.0087565819007556,20260719-20260723,VALID
+DFR,2.0,applications,IncomingExitDistributionOverlap,0.6972098706231672,5,0.009260297960560425,20260719-20260723,VALID
+DFR,3.0,applications,IncomingExitDistributionOverlap,0.7090545563774424,5,0.007680337315466631,20260719-20260723,VALID
+AdaTrace,0.2,coordinate_scores,grid_density_jsd,0.4444615569299135,1,,author RNG,VALID
+AdaTrace,0.4,coordinate_scores,grid_density_jsd,0.4242184974503704,1,,author RNG,VALID
+AdaTrace,0.7,coordinate_scores,grid_density_jsd,0.3918901135513514,1,,author RNG,VALID
+AdaTrace,1,coordinate_scores,grid_density_jsd,0.36585300772550844,1,,author RNG,VALID
+AdaTrace,1.4,coordinate_scores,grid_density_jsd,0.32752621187736525,1,,author RNG,VALID
+AdaTrace,2,coordinate_scores,grid_density_jsd,0.3196382901900693,1,,author RNG,VALID
+AdaTrace,3,coordinate_scores,grid_density_jsd,0.23912367690358396,1,,author RNG,VALID
+AdaTrace,0.2,coordinate_scores,trip_error,0.5306664597045763,1,,author RNG,VALID
+AdaTrace,0.4,coordinate_scores,trip_error,0.4891951195555322,1,,author RNG,VALID
+AdaTrace,0.7,coordinate_scores,trip_error,0.4537674868887647,1,,author RNG,VALID
+AdaTrace,1,coordinate_scores,trip_error,0.43073612895147184,1,,author RNG,VALID
+AdaTrace,1.4,coordinate_scores,trip_error,0.4073432846339793,1,,author RNG,VALID
+AdaTrace,2,coordinate_scores,trip_error,0.40554096568434495,1,,author RNG,VALID
+AdaTrace,3,coordinate_scores,trip_error,0.3348960311228412,1,,author RNG,VALID
+AdaTrace,0.2,coordinate_scores,path_length_jsd,0.16723006783173466,1,,author RNG,VALID
+AdaTrace,0.4,coordinate_scores,path_length_jsd,0.11212321078793094,1,,author RNG,VALID
+AdaTrace,0.7,coordinate_scores,path_length_jsd,0.10567786189868793,1,,author RNG,VALID
+AdaTrace,1,coordinate_scores,path_length_jsd,0.09914160959125726,1,,author RNG,VALID
+AdaTrace,1.4,coordinate_scores,path_length_jsd,0.09942542962072855,1,,author RNG,VALID
+AdaTrace,2,coordinate_scores,path_length_jsd,0.10064612179782431,1,,author RNG,VALID
+AdaTrace,3,coordinate_scores,path_length_jsd,0.08600661889036043,1,,author RNG,VALID
+AdaTrace,0.2,road_scores,RoadYield,0.9247298156389065,1,,author RNG,VALID
+AdaTrace,0.4,road_scores,RoadYield,0.9289256198347108,1,,author RNG,VALID
+AdaTrace,0.7,road_scores,RoadYield,0.9336300063572791,1,,author RNG,VALID
+AdaTrace,1,road_scores,RoadYield,0.9430387794024158,1,,author RNG,VALID
+AdaTrace,1.4,road_scores,RoadYield,0.9385886840432295,1,,author RNG,VALID
+AdaTrace,2,road_scores,RoadYield,0.9411951684678957,1,,author RNG,VALID
+AdaTrace,3,road_scores,RoadYield,0.9343293070565798,1,,author RNG,VALID
+AdaTrace,0.2,road_scores,BTF,0.22668460296398066,1,,author RNG,VALID
+AdaTrace,0.4,road_scores,BTF,0.2396712822494664,1,,author RNG,VALID
+AdaTrace,0.7,road_scores,BTF,0.25680140924743444,1,,author RNG,VALID
+AdaTrace,1,road_scores,BTF,0.2718121156628588,1,,author RNG,VALID
+AdaTrace,1.4,road_scores,BTF,0.2914786583933252,1,,author RNG,VALID
+AdaTrace,2,road_scores,BTF,0.2957833511205099,1,,author RNG,VALID
+AdaTrace,3,road_scores,BTF,0.3392031713040523,1,,author RNG,VALID
+AdaTrace,0.2,road_scores,FamilyCPC,0.05401222715330096,1,,author RNG,VALID
+AdaTrace,0.4,road_scores,FamilyCPC,0.07301182664067714,1,,author RNG,VALID
+AdaTrace,0.7,road_scores,FamilyCPC,0.08829171868413617,1,,author RNG,VALID
+AdaTrace,1,road_scores,FamilyCPC,0.09667534107226645,1,,author RNG,VALID
+AdaTrace,1.4,road_scores,FamilyCPC,0.11032123860650705,1,,author RNG,VALID
+AdaTrace,2,road_scores,FamilyCPC,0.11640658942282937,1,,author RNG,VALID
+AdaTrace,3,road_scores,FamilyCPC,0.15775072757098996,1,,author RNG,VALID
+AdaTrace,0.2,road_scores,ODPF384,0.06909677788476751,1,,author RNG,VALID
+AdaTrace,0.4,road_scores,ODPF384,0.08155290950801777,1,,author RNG,VALID
+AdaTrace,0.7,road_scores,ODPF384,0.09349716817937692,1,,author RNG,VALID
+AdaTrace,1,road_scores,ODPF384,0.09400467242665853,1,,author RNG,VALID
+AdaTrace,1.4,road_scores,ODPF384,0.09886515230566781,1,,author RNG,VALID
+AdaTrace,2,road_scores,ODPF384,0.1036957262165607,1,,author RNG,VALID
+AdaTrace,3,road_scores,ODPF384,0.12575091624421658,1,,author RNG,VALID
+AdaTrace,0.2,applications,MFPOrderedRouteOverlap,0.15265201863202893,1,,author RNG,VALID
+AdaTrace,0.4,applications,MFPOrderedRouteOverlap,0.15265201863202893,1,,author RNG,VALID
+AdaTrace,0.7,applications,MFPOrderedRouteOverlap,0.13895338849504263,1,,author RNG,VALID
+AdaTrace,1,applications,MFPOrderedRouteOverlap,0.15265201863202893,1,,author RNG,VALID
+AdaTrace,1.4,applications,MFPOrderedRouteOverlap,0.13895338849504263,1,,author RNG,VALID
+AdaTrace,2,applications,MFPOrderedRouteOverlap,0.15265201863202893,1,,author RNG,VALID
+AdaTrace,3,applications,MFPOrderedRouteOverlap,0.15265201863202893,1,,author RNG,VALID
+AdaTrace,0.2,applications,RepresentativeRealCoverage,0.633185978515898,1,,author RNG,VALID
+AdaTrace,0.4,applications,RepresentativeRealCoverage,0.6167306314367291,1,,author RNG,VALID
+AdaTrace,0.7,applications,RepresentativeRealCoverage,0.5488221310296046,1,,author RNG,VALID
+AdaTrace,1,applications,RepresentativeRealCoverage,0.6109536549320141,1,,author RNG,VALID
+AdaTrace,1.4,applications,RepresentativeRealCoverage,0.6550162561819056,1,,author RNG,VALID
+AdaTrace,2,applications,RepresentativeRealCoverage,0.6468874917209256,1,,author RNG,VALID
+AdaTrace,3,applications,RepresentativeRealCoverage,0.6838526104630496,1,,author RNG,VALID
+AdaTrace,0.2,applications,SelectedRoadMarginalOverlap,0.20973976186014415,1,,author RNG,VALID
+AdaTrace,0.4,applications,SelectedRoadMarginalOverlap,0.2472748075568817,1,,author RNG,VALID
+AdaTrace,0.7,applications,SelectedRoadMarginalOverlap,0.2742057874155353,1,,author RNG,VALID
+AdaTrace,1,applications,SelectedRoadMarginalOverlap,0.27978136656105523,1,,author RNG,VALID
+AdaTrace,1.4,applications,SelectedRoadMarginalOverlap,0.2577819262855961,1,,author RNG,VALID
+AdaTrace,2,applications,SelectedRoadMarginalOverlap,0.28439254917863843,1,,author RNG,VALID
+AdaTrace,3,applications,SelectedRoadMarginalOverlap,0.32917829617417277,1,,author RNG,VALID
+AdaTrace,0.2,applications,IncomingExitDistributionOverlap,0.569147658868578,1,,author RNG,VALID
+AdaTrace,0.4,applications,IncomingExitDistributionOverlap,0.5367626568168811,1,,author RNG,VALID
+AdaTrace,0.7,applications,IncomingExitDistributionOverlap,0.5675923514106274,1,,author RNG,VALID
+AdaTrace,1,applications,IncomingExitDistributionOverlap,0.5860093341804828,1,,author RNG,VALID
+AdaTrace,1.4,applications,IncomingExitDistributionOverlap,0.572519703253037,1,,author RNG,VALID
+AdaTrace,2,applications,IncomingExitDistributionOverlap,0.5945041036714601,1,,author RNG,VALID
+AdaTrace,3,applications,IncomingExitDistributionOverlap,0.6203752917548375,1,,author RNG,VALID
+MTNet+DP-OD,0.2,road_scores,RoadYield,1.0,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.2,road_scores,BTF,0.15175742418029908,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.2,road_scores,FamilyCPC,0.15416401780038144,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.2,road_scores,ODPF384,0.07122078535968676,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.2,coordinate_scores,grid_density_jsd,0.46343838405280263,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.2,coordinate_scores,path_length_jsd,0.054919628205207856,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.2,coordinate_scores,trip_error,0.4832433656682691,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.2,applications,MFPOrderedRouteOverlap,0.04109589041095891,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.2,applications,RepresentativeRealCoverage,0.6009290667539864,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.2,applications,SelectedRoadMarginalOverlap,0.1011397961799284,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.2,applications,IncomingExitDistributionOverlap,0.3802898046356255,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.4,road_scores,RoadYield,1.0,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.4,road_scores,BTF,0.14930538100773486,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.4,road_scores,FamilyCPC,0.17673235855054037,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.4,road_scores,ODPF384,0.06634018950662678,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.4,coordinate_scores,grid_density_jsd,0.4186352248358708,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.4,coordinate_scores,path_length_jsd,0.06372623719964007,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.4,coordinate_scores,trip_error,0.445757539909617,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.4,applications,MFPOrderedRouteOverlap,0.07046023781011113,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.4,applications,RepresentativeRealCoverage,0.6283042873983037,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.4,applications,SelectedRoadMarginalOverlap,0.09418319657611793,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.4,applications,IncomingExitDistributionOverlap,0.3963507815061769,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.7,road_scores,RoadYield,1.0,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.7,road_scores,BTF,0.1505022891989791,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.7,road_scores,FamilyCPC,0.19078194532739987,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.7,road_scores,ODPF384,0.07627761043417129,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.7,coordinate_scores,grid_density_jsd,0.3841428189959667,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.7,coordinate_scores,path_length_jsd,0.07808426208193125,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.7,coordinate_scores,trip_error,0.42686986226174084,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.7,applications,MFPOrderedRouteOverlap,0.03443110031741717,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.7,applications,RepresentativeRealCoverage,0.6095083691715126,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.7,applications,SelectedRoadMarginalOverlap,0.11412278925315056,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,0.7,applications,IncomingExitDistributionOverlap,0.4316240176692115,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.0,road_scores,RoadYield,1.0,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.0,road_scores,BTF,0.14852366367705788,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.0,road_scores,FamilyCPC,0.19554990464081373,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.0,road_scores,ODPF384,0.07399431177123729,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.0,coordinate_scores,grid_density_jsd,0.37008665134188407,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.0,coordinate_scores,path_length_jsd,0.09131790155283198,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.0,coordinate_scores,trip_error,0.4143855501634811,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.0,applications,MFPOrderedRouteOverlap,0.012955617920559492,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.0,applications,RepresentativeRealCoverage,0.6189655132476832,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.0,applications,SelectedRoadMarginalOverlap,0.11812728037861496,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.0,applications,IncomingExitDistributionOverlap,0.44782407253674306,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.4,road_scores,RoadYield,1.0,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.4,road_scores,BTF,0.14606611599425912,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.4,road_scores,FamilyCPC,0.19841068022886205,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.4,road_scores,ODPF384,0.07778469104394369,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.4,coordinate_scores,grid_density_jsd,0.3644679680107921,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.4,coordinate_scores,path_length_jsd,0.09931451797379329,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.4,coordinate_scores,trip_error,0.41409043475515006,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.4,applications,MFPOrderedRouteOverlap,0.026654248057545793,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.4,applications,RepresentativeRealCoverage,0.6140029205264295,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.4,applications,SelectedRoadMarginalOverlap,0.1170381950586553,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,1.4,applications,IncomingExitDistributionOverlap,0.37946899279263396,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,2.0,road_scores,RoadYield,1.0,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,2.0,road_scores,BTF,0.14398311012744028,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,2.0,road_scores,FamilyCPC,0.20057215511760965,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,2.0,road_scores,ODPF384,0.07337067009124999,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,2.0,coordinate_scores,grid_density_jsd,0.3518105260976625,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,2.0,coordinate_scores,path_length_jsd,0.11169520610221566,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,2.0,coordinate_scores,trip_error,0.4067684277249426,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,2.0,applications,MFPOrderedRouteOverlap,0.040352878194532094,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,2.0,applications,RepresentativeRealCoverage,0.6273007821527737,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,2.0,applications,SelectedRoadMarginalOverlap,0.12153374696723256,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,2.0,applications,IncomingExitDistributionOverlap,0.41800644811604426,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,3.0,road_scores,RoadYield,1.0,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,3.0,road_scores,BTF,0.1417502551722531,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,3.0,road_scores,FamilyCPC,0.20476795931341388,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,3.0,road_scores,ODPF384,0.06755242372780065,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,3.0,coordinate_scores,grid_density_jsd,0.34484513952378865,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,3.0,coordinate_scores,path_length_jsd,0.12138312894937396,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,3.0,coordinate_scores,trip_error,0.40227229877780435,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,3.0,applications,MFPOrderedRouteOverlap,0.0,1,,init20260712;generation20261022;DP_OS_entropy,ZERO
+MTNet+DP-OD,3.0,applications,RepresentativeRealCoverage,0.6414094441166034,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,3.0,applications,SelectedRoadMarginalOverlap,0.10183547312612404,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+MTNet+DP-OD,3.0,applications,IncomingExitDistributionOverlap,0.4083904005524686,1,,init20260712;generation20261022;DP_OS_entropy,VALID
+DPTraj-PM,0.2,coordinate_scores,grid_density_jsd,0.33390940324591706,1,,42,VALID
+DPTraj-PM,0.2,coordinate_scores,trip_error,0.39447170276067167,1,,42,VALID
+DPTraj-PM,0.2,coordinate_scores,path_length_jsd,0.13987387019793202,1,,42,VALID
+DPTraj-PM,0.2,road_scores,RoadYield,0.778766687857597,1,,42,VALID
+DPTraj-PM,0.2,road_scores,BTF,0.18503446431641904,1,,42,VALID
+DPTraj-PM,0.2,road_scores,FamilyCPC,0.18742944046648607,1,,42,VALID
+DPTraj-PM,0.2,road_scores,ODPF384,0.17366546017670015,1,,42,VALID
+DPTraj-PM,0.2,applications,MFPOrderedRouteOverlap,0.10337298515886471,1,,42,VALID
+DPTraj-PM,0.2,applications,RepresentativeRealCoverage,0.5835052048105863,1,,42,VALID
+DPTraj-PM,0.2,applications,SelectedRoadMarginalOverlap,0.3317907333476661,1,,42,VALID
+DPTraj-PM,0.2,applications,IncomingExitDistributionOverlap,0.43098542107092475,1,,42,VALID
+DPTraj-PM,0.4,coordinate_scores,grid_density_jsd,0.23865248740204717,1,,42,VALID
+DPTraj-PM,0.4,coordinate_scores,trip_error,0.2850672515177073,1,,42,VALID
+DPTraj-PM,0.4,coordinate_scores,path_length_jsd,0.1484671640835775,1,,42,VALID
+DPTraj-PM,0.4,road_scores,RoadYield,0.8064844246662428,1,,42,VALID
+DPTraj-PM,0.4,road_scores,BTF,0.22665153925634612,1,,42,VALID
+DPTraj-PM,0.4,road_scores,FamilyCPC,0.2409087635476123,1,,42,VALID
+DPTraj-PM,0.4,road_scores,ODPF384,0.19732712262610871,1,,42,VALID
+DPTraj-PM,0.4,applications,MFPOrderedRouteOverlap,0.1204646631277183,1,,42,VALID
+DPTraj-PM,0.4,applications,RepresentativeRealCoverage,0.6543112136292653,1,,42,VALID
+DPTraj-PM,0.4,applications,SelectedRoadMarginalOverlap,0.33723677257930945,1,,42,VALID
+DPTraj-PM,0.4,applications,IncomingExitDistributionOverlap,0.44669199843139157,1,,42,VALID
+DPTraj-PM,0.7,coordinate_scores,grid_density_jsd,0.17497899307592302,1,,42,VALID
+DPTraj-PM,0.7,coordinate_scores,trip_error,0.21130099385119616,1,,42,VALID
+DPTraj-PM,0.7,coordinate_scores,path_length_jsd,0.15597359576697842,1,,42,VALID
+DPTraj-PM,0.7,road_scores,RoadYield,0.8306420851875397,1,,42,VALID
+DPTraj-PM,0.7,road_scores,BTF,0.25604640573690896,1,,42,VALID
+DPTraj-PM,0.7,road_scores,FamilyCPC,0.2718191477366187,1,,42,VALID
+DPTraj-PM,0.7,road_scores,ODPF384,0.20967333142738878,1,,42,VALID
+DPTraj-PM,0.7,applications,MFPOrderedRouteOverlap,0.1204646631277183,1,,42,VALID
+DPTraj-PM,0.7,applications,RepresentativeRealCoverage,0.6464818745702416,1,,42,VALID
+DPTraj-PM,0.7,applications,SelectedRoadMarginalOverlap,0.3452671039650143,1,,42,VALID
+DPTraj-PM,0.7,applications,IncomingExitDistributionOverlap,0.4551017101057452,1,,42,VALID
+DPTraj-PM,1,coordinate_scores,grid_density_jsd,0.14301977862250081,1,,42,VALID
+DPTraj-PM,1,coordinate_scores,trip_error,0.1723680959857932,1,,42,VALID
+DPTraj-PM,1,coordinate_scores,path_length_jsd,0.15288493903327222,1,,42,VALID
+DPTraj-PM,1,road_scores,RoadYield,0.8453273998728544,1,,42,VALID
+DPTraj-PM,1,road_scores,BTF,0.27138951289529867,1,,42,VALID
+DPTraj-PM,1,road_scores,FamilyCPC,0.28922002692447124,1,,42,VALID
+DPTraj-PM,1,road_scores,ODPF384,0.217185968903444,1,,42,VALID
+DPTraj-PM,1,applications,MFPOrderedRouteOverlap,0.1092413244832091,1,,42,VALID
+DPTraj-PM,1,applications,RepresentativeRealCoverage,0.6494855496351357,1,,42,VALID
+DPTraj-PM,1,applications,SelectedRoadMarginalOverlap,0.33802285569918944,1,,42,VALID
+DPTraj-PM,1,applications,IncomingExitDistributionOverlap,0.4474540620003923,1,,42,VALID
+DPTraj-PM,1.4,coordinate_scores,grid_density_jsd,0.12182329857397932,1,,42,VALID
+DPTraj-PM,1.4,coordinate_scores,trip_error,0.14592458809598985,1,,42,VALID
+DPTraj-PM,1.4,coordinate_scores,path_length_jsd,0.14560030623000658,1,,42,VALID
+DPTraj-PM,1.4,road_scores,RoadYield,0.8551811824539097,1,,42,VALID
+DPTraj-PM,1.4,road_scores,BTF,0.2805822257466454,1,,42,VALID
+DPTraj-PM,1.4,road_scores,FamilyCPC,0.30168293707102006,1,,42,VALID
+DPTraj-PM,1.4,road_scores,ODPF384,0.22347569985456425,1,,42,VALID
+DPTraj-PM,1.4,applications,MFPOrderedRouteOverlap,0.11483365099713358,1,,42,VALID
+DPTraj-PM,1.4,applications,RepresentativeRealCoverage,0.6640140451649205,1,,42,VALID
+DPTraj-PM,1.4,applications,SelectedRoadMarginalOverlap,0.3315871842139324,1,,42,VALID
+DPTraj-PM,1.4,applications,IncomingExitDistributionOverlap,0.4568211476469301,1,,42,VALID
+DPTraj-PM,2,coordinate_scores,grid_density_jsd,0.10563113822392113,1,,42,VALID
+DPTraj-PM,2,coordinate_scores,trip_error,0.12341042832934052,1,,42,VALID
+DPTraj-PM,2,coordinate_scores,path_length_jsd,0.15198105063997794,1,,42,VALID
+DPTraj-PM,2,road_scores,RoadYield,0.868340750158932,1,,42,VALID
+DPTraj-PM,2,road_scores,BTF,0.2887519728141759,1,,42,VALID
+DPTraj-PM,2,road_scores,FamilyCPC,0.3108689588167135,1,,42,VALID
+DPTraj-PM,2,road_scores,ODPF384,0.23337294874117975,1,,42,VALID
+DPTraj-PM,2,applications,MFPOrderedRouteOverlap,0.11598750393962892,1,,42,VALID
+DPTraj-PM,2,applications,RepresentativeRealCoverage,0.6902932879955404,1,,42,VALID
+DPTraj-PM,2,applications,SelectedRoadMarginalOverlap,0.32893101144220727,1,,42,VALID
+DPTraj-PM,2,applications,IncomingExitDistributionOverlap,0.4407201788589466,1,,42,VALID
+DPTraj-PM,3,coordinate_scores,grid_density_jsd,0.09421020950310988,1,,42,VALID
+DPTraj-PM,3,coordinate_scores,trip_error,0.10634178844194543,1,,42,VALID
+DPTraj-PM,3,coordinate_scores,path_length_jsd,0.14815244931306312,1,,42,VALID
+DPTraj-PM,3,road_scores,RoadYield,0.8757151938970121,1,,42,VALID
+DPTraj-PM,3,road_scores,BTF,0.2948178542804262,1,,42,VALID
+DPTraj-PM,3,road_scores,FamilyCPC,0.3246908555814526,1,,42,VALID
+DPTraj-PM,3,road_scores,ODPF384,0.24120879062171297,1,,42,VALID
+DPTraj-PM,3,applications,MFPOrderedRouteOverlap,0.11598750393962892,1,,42,VALID
+DPTraj-PM,3,applications,RepresentativeRealCoverage,0.6669835027590546,1,,42,VALID
+DPTraj-PM,3,applications,SelectedRoadMarginalOverlap,0.326853109349153,1,,42,VALID
+DPTraj-PM,3,applications,IncomingExitDistributionOverlap,0.41228001092083494,1,,42,VALID
+MTNet,0.2,coordinate_scores,grid_density_jsd,0.5849978008297512,1,,init20260712,VALID
+MTNet,0.2,coordinate_scores,trip_error,0.5927744060170468,1,,init20260712,VALID
+MTNet,0.2,coordinate_scores,path_length_jsd,0.5103519141085371,1,,init20260712,VALID
+MTNet,0.2,road_scores,RoadYield,1.0,1,,init20260712,VALID
+MTNet,0.2,road_scores,BTF,0.014629081555410555,1,,init20260712,VALID
+MTNet,0.2,road_scores,FamilyCPC,0.10286077558804832,1,,init20260712,VALID
+MTNet,0.2,road_scores,ODPF384,0.07140817917245433,1,,init20260712,VALID
+MTNet,0.2,applications,MFPOrderedRouteOverlap,0.0,1,,init20260712,ZERO
+MTNet,0.2,applications,RepresentativeRealCoverage,0.2047836392654656,1,,init20260712,VALID
+MTNet,0.2,applications,SelectedRoadMarginalOverlap,0.0169037462851424,1,,init20260712,VALID
+MTNet,0.2,applications,IncomingExitDistributionOverlap,0.022272257043753425,1,,init20260712,VALID
+MTNet,1.0,coordinate_scores,grid_density_jsd,0.5854647210984736,1,,init20260712,VALID
+MTNet,1.0,coordinate_scores,trip_error,0.5927927353070406,1,,init20260712,VALID
+MTNet,1.0,coordinate_scores,path_length_jsd,0.5064140684489375,1,,init20260712,VALID
+MTNet,1.0,road_scores,RoadYield,1.0,1,,init20260712,VALID
+MTNet,1.0,road_scores,BTF,0.017709299775896567,1,,init20260712,VALID
+MTNet,1.0,road_scores,FamilyCPC,0.10317863954227591,1,,init20260712,VALID
+MTNet,1.0,road_scores,ODPF384,0.08079460755357608,1,,init20260712,VALID
+MTNet,1.0,applications,MFPOrderedRouteOverlap,0.0,1,,init20260712,ZERO
+MTNet,1.0,applications,RepresentativeRealCoverage,0.29275340755859325,1,,init20260712,VALID
+MTNet,1.0,applications,SelectedRoadMarginalOverlap,0.020046500558372846,1,,init20260712,VALID
+MTNet,1.0,applications,IncomingExitDistributionOverlap,0.02547493638590821,1,,init20260712,VALID
+MTNet,1.4,coordinate_scores,grid_density_jsd,0.5856753948864258,1,,init20260712,VALID
+MTNet,1.4,coordinate_scores,trip_error,0.5929956552953176,1,,init20260712,VALID
+MTNet,1.4,coordinate_scores,path_length_jsd,0.504713675839296,1,,init20260712,VALID
+MTNet,1.4,road_scores,RoadYield,1.0,1,,init20260712,VALID
+MTNet,1.4,road_scores,BTF,0.01908729039767882,1,,init20260712,VALID
+MTNet,1.4,road_scores,FamilyCPC,0.10356007628734902,1,,init20260712,VALID
+MTNet,1.4,road_scores,ODPF384,0.08027712930464258,1,,init20260712,VALID
+MTNet,1.4,applications,MFPOrderedRouteOverlap,0.0,1,,init20260712,ZERO
+MTNet,1.4,applications,RepresentativeRealCoverage,0.3345400290031937,1,,init20260712,VALID
+MTNet,1.4,applications,SelectedRoadMarginalOverlap,0.020046500558372846,1,,init20260712,VALID
+MTNet,1.4,applications,IncomingExitDistributionOverlap,0.024805551611369173,1,,init20260712,VALID
+MTNet,0.4,coordinate_scores,grid_density_jsd,0.5855622668538352,1,,init20260712,VALID
+MTNet,0.4,coordinate_scores,trip_error,0.5928172939660572,1,,init20260712,VALID
+MTNet,0.4,coordinate_scores,path_length_jsd,0.5096311316913572,1,,init20260712,VALID
+MTNet,0.4,road_scores,RoadYield,1.0,1,,init20260712,VALID
+MTNet,0.4,road_scores,BTF,0.015715138473130132,1,,init20260712,VALID
+MTNet,0.4,road_scores,FamilyCPC,0.10286077558804832,1,,init20260712,VALID
+MTNet,0.4,road_scores,ODPF384,0.0726429022881737,1,,init20260712,VALID
+MTNet,0.4,applications,MFPOrderedRouteOverlap,0.0,1,,init20260712,ZERO
+MTNet,0.4,applications,RepresentativeRealCoverage,0.20165006314351025,1,,init20260712,VALID
+MTNet,0.4,applications,SelectedRoadMarginalOverlap,0.016983077946408413,1,,init20260712,VALID
+MTNet,0.4,applications,IncomingExitDistributionOverlap,0.022272257043753425,1,,init20260712,VALID
+MTNet,0.7,coordinate_scores,grid_density_jsd,0.5861884076516094,1,,init20260712,VALID
+MTNet,0.7,coordinate_scores,trip_error,0.592798411048058,1,,init20260712,VALID
+MTNet,0.7,coordinate_scores,path_length_jsd,0.5081560488409843,1,,init20260712,VALID
+MTNet,0.7,road_scores,RoadYield,1.0,1,,init20260712,VALID
+MTNet,0.7,road_scores,BTF,0.016979830145574817,1,,init20260712,VALID
+MTNet,0.7,road_scores,FamilyCPC,0.10292434837889383,1,,init20260712,VALID
+MTNet,0.7,road_scores,ODPF384,0.07996334775121344,1,,init20260712,VALID
+MTNet,0.7,applications,MFPOrderedRouteOverlap,0.0,1,,init20260712,ZERO
+MTNet,0.7,applications,RepresentativeRealCoverage,0.29339949513935415,1,,init20260712,VALID
+MTNet,0.7,applications,SelectedRoadMarginalOverlap,0.020046500558372846,1,,init20260712,VALID
+MTNet,0.7,applications,IncomingExitDistributionOverlap,0.02532167657220904,1,,init20260712,VALID
+MTNet,2.0,coordinate_scores,grid_density_jsd,0.5873948753028021,1,,init20260712,VALID
+MTNet,2.0,coordinate_scores,trip_error,0.5928987656565727,1,,init20260712,VALID
+MTNet,2.0,coordinate_scores,path_length_jsd,0.5030156314126791,1,,init20260712,VALID
+MTNet,2.0,road_scores,RoadYield,1.0,1,,init20260712,VALID
+MTNet,2.0,road_scores,BTF,0.019855722212838715,1,,init20260712,VALID
+MTNet,2.0,road_scores,FamilyCPC,0.10375079465988557,1,,init20260712,VALID
+MTNet,2.0,road_scores,ODPF384,0.07981978665975004,1,,init20260712,VALID
+MTNet,2.0,applications,MFPOrderedRouteOverlap,0.0,1,,init20260712,ZERO
+MTNet,2.0,applications,RepresentativeRealCoverage,0.33440302797657745,1,,init20260712,VALID
+MTNet,2.0,applications,SelectedRoadMarginalOverlap,0.019976322550329835,1,,init20260712,VALID
+MTNet,2.0,applications,IncomingExitDistributionOverlap,0.02650944012837763,1,,init20260712,VALID
+MTNet,3.0,coordinate_scores,grid_density_jsd,0.5884494405289309,1,,init20260712,VALID
+MTNet,3.0,coordinate_scores,trip_error,0.592798073553576,1,,init20260712,VALID
+MTNet,3.0,coordinate_scores,path_length_jsd,0.5014118404641323,1,,init20260712,VALID
+MTNet,3.0,road_scores,RoadYield,1.0,1,,init20260712,VALID
+MTNet,3.0,road_scores,BTF,0.020975834087379915,1,,init20260712,VALID
+MTNet,3.0,road_scores,FamilyCPC,0.10381436745073108,1,,init20260712,VALID
+MTNet,3.0,road_scores,ODPF384,0.07909205400177854,1,,init20260712,VALID
+MTNet,3.0,applications,MFPOrderedRouteOverlap,0.0,1,,init20260712,ZERO
+MTNet,3.0,applications,RepresentativeRealCoverage,0.33666462733090907,1,,init20260712,VALID
+MTNet,3.0,applications,SelectedRoadMarginalOverlap,0.019985476203552836,1,,init20260712,VALID
+MTNet,3.0,applications,IncomingExitDistributionOverlap,0.02650944012837763,1,,init20260712,VALID
